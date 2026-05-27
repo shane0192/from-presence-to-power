@@ -1534,29 +1534,62 @@
       .about-book-lede { font-size: 15px; margin-bottom: 32px; }
 
       /* About Rashad */
+      .about-rashad { padding: 56px 0 0; }
       .ar-inner { padding: 0 24px; }
-      .ar-header { padding-bottom: 40px; }
+      .ar-header { margin-bottom: 32px; padding-bottom: 0; }
+      .ar-tag { margin-bottom: 16px; }
       .ar-statement { font-size: clamp(22px, 5.5vw, 40px); line-height: 1.2; }
-      .ar-body { grid-template-columns: 1fr; gap: 32px; }
-      .ar-image-secondary { display: none; }
-      .ar-image { aspect-ratio: 4/3; }
-      .ar-image img { inset: 0; height: 100%; }
-      .ar-text { padding-bottom: 40px; }
+      .ar-body { grid-template-columns: 1fr; gap: 28px; }
+      .ar-image { aspect-ratio: 3/4; }
+      .ar-image img,
+      .ar-image-secondary img { inset: 0; height: 100%; width: 100%; }
+      .ar-image-secondary { display: block; aspect-ratio: 4/5; }
+      .ar-text { padding-top: 0; padding-bottom: 0; }
+      .ar-actions { margin-top: 32px; }
+
+      /* Home Events: card layout (stacked, no squished table) */
+      .home-events-inner { padding: 48px 24px; }
+      .home-events-header { margin-bottom: 28px; }
+      .home-events-table thead { display: none; }
+      .home-events-table,
+      .home-events-table tbody { display: block; width: 100%; }
+      .home-events-table tbody tr {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        column-gap: 16px;
+        row-gap: 10px;
+        align-items: start;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .home-events-table tbody tr:hover { background: transparent; }
+      .home-events-table td {
+        display: block;
+        padding: 0;
+        text-align: left;
+      }
+      .home-events-table td:last-child { text-align: left; }
+      /* Col 1: date (spans both rows) */
+      .home-events-table td:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+      }
+      .he-date { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+      .he-time { font-size: 10px; margin-top: 2px; }
+      /* Col 2 stacked: name, location/tag row, RSVP */
+      .home-events-table td:nth-child(2) { grid-column: 2; grid-row: 1; }
+      .home-events-table td:nth-child(3) { grid-column: 2; grid-row: 2; display: flex; align-items: center; gap: 10px; }
+      .home-events-table td:nth-child(4) { display: none; }
+      .home-events-table td:nth-child(5) { grid-column: 2; grid-row: 3; margin-top: 4px; }
+      .he-name { font-size: 18px; line-height: 1.15; }
+      .he-location { font-size: 12px; }
+      .home-events-ctas { gap: 12px; flex-direction: column; align-items: flex-start; margin-top: 40px; }
 
       /* Email signup */
       .email-signup-inner { grid-template-columns: 1fr; padding: 40px 24px; gap: 32px; }
       .es-book { margin-top: 0; max-width: 220px; }
       .es-form { flex-direction: column; }
       .btn-cream { width: 100%; justify-content: center; }
-
-      /* Home Events: hide location + tag cols */
-      .home-events-inner { padding: 32px 24px; }
-      .home-events-table th:nth-child(3),
-      .home-events-table th:nth-child(4),
-      .home-events-table td:nth-child(3),
-      .home-events-table td:nth-child(4) { display: none; }
-      .home-events-table td { padding: 16px 0; }
-      .home-events-ctas { gap: 12px; flex-direction: column; align-items: flex-start; }
 
       /* Endorsement */
       .endorsement { padding: 0; }
