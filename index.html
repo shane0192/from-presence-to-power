@@ -1547,19 +1547,18 @@
       .ar-text { padding-top: 0; padding-bottom: 0; }
       .ar-actions { margin-top: 32px; }
 
-      /* Home Events: card layout (stacked, no squished table) */
+      /* Home Events: fully stacked card layout */
       .home-events-inner { padding: 48px 24px; }
       .home-events-header { margin-bottom: 28px; }
       .home-events-table thead { display: none; }
       .home-events-table,
       .home-events-table tbody { display: block; width: 100%; }
       .home-events-table tbody tr {
-        display: grid;
-        grid-template-columns: 64px 1fr;
-        column-gap: 16px;
-        row-gap: 10px;
-        align-items: start;
-        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 22px 0;
         border-bottom: 1px solid var(--border);
       }
       .home-events-table tbody tr:hover { background: transparent; }
@@ -1567,21 +1566,17 @@
         display: block;
         padding: 0;
         text-align: left;
+        width: auto;
       }
       .home-events-table td:last-child { text-align: left; }
-      /* Col 1: date (spans both rows) */
-      .home-events-table td:nth-child(1) {
-        grid-column: 1;
-        grid-row: 1 / span 3;
+      .home-events-table td:nth-child(4) {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
       .he-date { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
       .he-time { font-size: 10px; margin-top: 2px; }
-      /* Col 2 stacked: name, location/tag row, RSVP */
-      .home-events-table td:nth-child(2) { grid-column: 2; grid-row: 1; }
-      .home-events-table td:nth-child(3) { grid-column: 2; grid-row: 2; display: flex; align-items: center; gap: 10px; }
-      .home-events-table td:nth-child(4) { display: none; }
-      .home-events-table td:nth-child(5) { grid-column: 2; grid-row: 3; margin-top: 4px; }
-      .he-name { font-size: 18px; line-height: 1.15; }
+      .he-name { font-size: 18px; line-height: 1.2; }
       .he-location { font-size: 12px; }
       .home-events-ctas { gap: 12px; flex-direction: column; align-items: flex-start; margin-top: 40px; }
 
