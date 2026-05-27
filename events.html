@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — From Presence to Power</title>
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="apple-touch-icon" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --tan:          #DAD6CB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+
+      --font-display: "Anton", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+      --ls-display:   -0.022em;
+      --ls-eyebrow:   0.32em;
+      --lh-display:   0.94;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+
+    .nav-cta {
+      color: var(--cream) !important;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%) !important;
+      padding: 9px 20px;
+      border-radius: 0;
+      opacity: 1 !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* ── HERO ── */
+    .events-hero {
+      padding-top: 60px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 48vh;
+    }
+
+    .events-hero-left {
+      background: var(--brown);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 64px;
+    }
+
+    .events-hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .events-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 8vw, 112px);
+      line-height: var(--lh-display);
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .events-hero-right {
+      background: var(--cream);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 64px;
+    }
+
+    .events-hero-desc {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--fg-muted);
+      max-width: 400px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 0;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border-radius: 0;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--fg); background: rgba(40,29,29,0.04); }
+
+    /* ── EVENTS LIST ── */
+    .events-section {
+      padding: 80px 0;
+    }
+
+    .events-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 48px;
+      display: block;
+    }
+
+    /* ── EVENT ROWS ── */
+    .event-row {
+      display: grid;
+      grid-template-columns: 160px 1fr auto;
+      gap: 0 48px;
+      align-items: start;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .event-row:first-of-type { border-top: 1px solid var(--border); }
+
+    .event-row.past { opacity: 0.4; }
+
+    .ev-date {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--fg-muted);
+      padding-top: 4px;
+    }
+
+    .ev-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      text-transform: uppercase;
+      color: var(--brown);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .ev-location {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--fg-muted);
+    }
+
+    .ev-cta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      padding-top: 4px;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .ev-cta:hover { color: var(--brown); }
+
+    /* ── UPCOMING LABEL ── */
+    .events-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .events-heading {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 4vw, 56px);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-display);
+      line-height: var(--lh-display);
+      color: var(--fg);
+      margin-bottom: 56px;
+    }
+
+    .events-ctas {
+      margin-top: 56px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ── PAST DIVIDER ── */
+    .past-divider {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.5;
+      padding: 32px 0 0;
+      display: block;
+    }
+
+    /* ── EMAIL STRIP ── */
+    .email-strip {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+
+    .email-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .es-copy { max-width: 480px; }
+
+    .es-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .es-title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.5vw, 36px);
+      text-transform: uppercase;
+      letter-spacing: var(--ls-display);
+      line-height: var(--lh-display);
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+
+    .es-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--fg-muted);
+      line-height: 1.6;
+    }
+
+    .es-form {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .es-input {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 14px 20px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--fg);
+      outline: none;
+      width: 260px;
+      transition: border-color 0.2s;
+    }
+
+    .es-input::placeholder { color: var(--fg-muted); }
+    .es-input:focus { border-color: var(--orange); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .events-hero { grid-template-columns: 1fr; }
+      .events-hero-left, .events-hero-right { padding: 48px 24px; }
+      .events-inner { padding: 0 24px; }
+      .event-row { grid-template-columns: 1fr; gap: 8px; }
+      .email-strip-inner { flex-direction: column; gap: 32px; }
+      .es-form { flex-direction: column; width: 100%; }
+      .es-input { width: 100%; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-brand">From Presence to Power</a>
+    <ul class="nav-links">
+      <li><a href="index.html#book">The Book</a></li>
+      <li><a href="index.html#excerpt">Excerpt</a></li>
+      <li><a href="index.html#rashad">Author</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="events-hero">
+    <div class="events-hero-left">
+      <span class="events-hero-eyebrow">Rashad Robinson &mdash; 2026 Tour</span>
+      <h1 class="events-hero-title">Events</h1>
+    </div>
+    <div class="events-hero-right">
+      <p class="events-hero-desc">Join Rashad in conversation. Find an event near you, or bring him to your community.</p>
+    </div>
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <section class="events-section" id="upcoming">
+    <div class="events-inner">
+      <span class="events-label">Upcoming</span>
+      <h2 class="events-heading">2026 Schedule</h2>
+
+      <div class="event-row" id="rockwood">
+        <div class="ev-date">Jul 9, 2026<br>3&ndash;4pm EST</div>
+        <div>
+          <div class="ev-name">Rockwood Leadership Institute</div>
+          <div class="ev-location">Zoom &middot; Online</div>
+        </div>
+        <a href="#" class="ev-cta">Register &rarr;</a>
+      </div>
+
+      <div class="event-row" id="abc-bookstore">
+        <div class="ev-date">Jul 13, 2026<br>6&ndash;7:30pm EDT</div>
+        <div>
+          <div class="ev-name">ABC Bookstore</div>
+          <div class="ev-location">Manhattan, NY &middot; In Person</div>
+        </div>
+        <a href="#" class="ev-cta">Register &rarr;</a>
+      </div>
+
+      <div class="event-row" id="book-festival">
+        <div class="ev-date">Jul 13, 2026<br>6&ndash;7:30pm EDT</div>
+        <div>
+          <div class="ev-name">Book Festival</div>
+          <div class="ev-location">Martha's Vineyard, MA &middot; In Person</div>
+        </div>
+        <a href="#" class="ev-cta">Register &rarr;</a>
+      </div>
+
+      <div class="events-ctas">
+        <a href="mailto:events@rashadrobinson.com" class="btn-primary">Invite Rashad to Speak</a>
+        <button class="btn-secondary" onclick="document.querySelector('.email-strip').scrollIntoView({behavior:'smooth'})">Get Event Updates</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL STRIP -->
+  <div class="email-strip">
+    <div class="email-strip-inner">
+      <div class="es-copy">
+        <span class="es-eyebrow">Stay Updated</span>
+        <h2 class="es-title">New Events Added Regularly</h2>
+        <p class="es-desc">Sign up to be notified when new events are announced in your area.</p>
+      </div>
+      <form class="es-form" onsubmit="handleEventsSignup(event)">
+        <input type="email" id="eventsEmail" class="es-input" placeholder="Your email address" required>
+        <button type="submit" class="btn-primary" id="eventsBtn">Notify Me</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">From Presence to Power &copy; 2026 Rashad Robinson</span>
+      <ul class="footer-links">
+        <li><a href="index.html#book">The Book</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html#rashad">Author</a></li>
+        <li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    async function handleEventsSignup(e) {
+      e.preventDefault();
+      const email = document.getElementById('eventsEmail').value.trim();
+      const btn = document.getElementById('eventsBtn');
+      btn.disabled = true;
+      btn.textContent = '...';
+      try {
+        await fetch('https://app.kit.com/forms/9487964/subscriptions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ email_address: email }),
+          redirect: 'manual'
+        });
+        btn.closest('form').innerHTML = '<p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--brown);">You\'re in — we\'ll be in touch.</p>';
+      } catch (_) {
+        btn.disabled = false;
+        btn.textContent = 'Notify Me';
+      }
+    }
+  </script>
+
+</body>
+</html>
