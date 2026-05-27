@@ -105,6 +105,73 @@
 
     .nav-cta:hover { background: var(--brown) !important; color: var(--cream) !important; }
 
+    /* Hamburger toggle (mobile only) */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--fg);
+      transition: transform 0.25s, opacity 0.25s, background 0.2s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu panel */
+    .mobile-menu {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 99;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .mobile-menu.open {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mobile-menu a {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu-cta {
+      margin-top: 12px;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream-2) !important;
+      padding: 16px 20px !important;
+      text-align: center;
+    }
+
     /* ─── BUTTONS ─── */
     .btn-primary {
       display: inline-flex;
@@ -1301,6 +1368,9 @@
       justify-content: center;
       gap: 4px;
       color: var(--orange);
+      padding-right: 24px;
+      border-right: 1px solid var(--border);
+      align-self: stretch;
     }
 
     .he-card-month {
@@ -1593,6 +1663,16 @@
         padding: 0 24px;
       }
       .nav-brand { color: var(--cream); text-shadow: 0 1px 2px rgba(0,0,0,0.35); }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-toggle span { background: var(--cream); box-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+      /* When the menu is open, swap the nav back to opaque so the X is readable */
+      nav.menu-open {
+        background: var(--cream);
+        border-bottom: 1px solid var(--border);
+      }
+      nav.menu-open .nav-brand { color: var(--fg); text-shadow: none; }
+      nav.menu-open .nav-toggle span { background: var(--fg); box-shadow: none; }
 
       /* Hero: photo flush to top of page, content below — book overlaps the seam */
       .hero {
@@ -1732,11 +1812,12 @@
       .home-events-title { font-size: clamp(48px, 14vw, 72px); margin-bottom: 20px; }
       .home-events-intro { font-size: 15px; }
       .he-card {
-        grid-template-columns: 60px 1fr auto;
-        gap: 18px;
+        grid-template-columns: 72px 1fr auto;
+        gap: 16px;
         padding: 20px;
       }
-      .he-card-day { font-size: 44px; }
+      .he-card-date { padding-right: 16px; }
+      .he-card-day { font-size: 40px; }
       .he-card-month { font-size: 11px; }
       .he-card-name { font-size: 18px; }
       .he-card-location { font-size: 12px; }
@@ -1795,7 +1876,6 @@
     }
 
     @media (max-width: 640px) {
-      .nav-links { display: none; }
       .hero-book-mockup-img { width: 180px; }
       .hero-book-mockup { margin-top: -160px; }
       .hero-left { padding: 28px 20px 32px; }
@@ -1840,7 +1920,22 @@
       <li><a href="media.html">Media</a></li>
       <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#book">The Book</a>
+    <a href="#excerpt">Excerpt</a>
+    <a href="#rashad">Author</a>
+    <a href="events.html">Events</a>
+    <a href="media.html">Media</a>
+    <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -2512,6 +2607,36 @@
     } else {
       document.fonts.ready.then(initTextReveal);
     }
+
+    // ── Mobile menu toggle ────────────────────────────────────────────────
+    (function() {
+      const toggle = document.getElementById('navToggle');
+      const menu = document.getElementById('mobileMenu');
+      const navEl = document.querySelector('nav');
+      if (!toggle || !menu) return;
+
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+        menu.classList.toggle('open', open);
+        navEl.classList.toggle('menu-open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      toggle.addEventListener('click', () => {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        setOpen(!isOpen);
+      });
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => setOpen(false));
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
 
     // ── Exit-intent popup ─────────────────────────────────────────────────
     const popup = document.getElementById('exitPopup');
