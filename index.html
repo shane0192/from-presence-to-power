@@ -1578,11 +1578,21 @@
       .pull-quote-inner { padding: 48px 24px; }
 
       /* Praise / carousel */
-      .testimonials { overflow: hidden; max-width: 100vw; }
+      .testimonials { overflow: hidden; max-width: 100vw; padding: 64px 0; }
+      .testimonials-header { margin-bottom: 32px; padding: 0 24px; }
       .carousel-wrapper { overflow: hidden; }
-      .tc-card { flex: 0 0 88%; min-height: auto; grid-template-columns: 1fr; }
-      .tc-card-image { display: none; }
-      .tc-card-content { padding: 40px 28px; }
+      .tc-card {
+        flex: 0 0 88%;
+        min-height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: 280px 1fr;
+      }
+      .tc-card-image { display: block; height: 280px; }
+      .tc-card-img { object-position: center 20%; }
+      .tc-card-content { padding: 32px 28px; }
+      .tc-eyebrow-row { margin-bottom: 24px; }
+      .tc-quote { font-size: clamp(20px, 5vw, 26px); }
+      .tc-attribution { padding-top: 24px; }
       .container { padding: 0 24px; }
       section:not(.about-book):not(.hero) { padding: 80px 0; }
 
