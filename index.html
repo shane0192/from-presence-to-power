@@ -1025,35 +1025,43 @@
     .email-signup {
       background: var(--cream);
       border-top: 1px solid var(--border);
-      padding: 0 0 0;
+      padding: 96px 0;
       position: relative;
     }
 
     .email-signup-inner {
-      max-width: 860px;
+      max-width: 560px;
       margin: 0 auto;
-      padding: 0 64px;
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 0 64px;
-      align-items: center;
+      padding: 0 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
 
     .es-book {
       position: relative;
-      margin-top: -60px;
-      flex-shrink: 0;
+      width: 220px;
+      align-self: center;
+      margin-bottom: 40px;
+    }
+
+    .es-book-halo {
+      position: absolute;
+      inset: -20% -10%;
+      background: radial-gradient(circle, rgba(228,83,34,0.08) 0%, rgba(228,83,34,0) 65%);
+      z-index: 0;
+      pointer-events: none;
     }
 
     .es-book img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       display: block;
-      filter: drop-shadow(0 24px 40px rgba(0,0,0,0.18));
+      filter: drop-shadow(0 24px 44px rgba(40,29,29,0.22));
     }
 
-    .es-content {
-      padding: 64px 0;
-    }
+    .es-content { padding: 0; }
 
     .es-label {
       display: block;
@@ -1062,38 +1070,99 @@
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .es-headline {
       font-family: var(--font-display);
-      font-size: clamp(28px, 3.5vw, 52px);
+      font-size: clamp(36px, 5.5vw, 56px);
       font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.02em;
+      line-height: 0.94;
+      letter-spacing: 0.01em;
       color: var(--fg);
       text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .es-divider {
+      width: 48px;
+      height: 4px;
+      background: var(--orange);
       margin-bottom: 20px;
     }
 
-    .es-avail {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--fg-muted);
-      letter-spacing: 0.04em;
-      margin-bottom: 36px;
+    .es-desc {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--fg);
+      margin-bottom: 32px;
+      max-width: 480px;
     }
 
-    .es-form { display: flex; gap: 8px; }
+    .es-benefits {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 0 0 32px;
+      padding: 0;
+      position: relative;
+    }
+
+    .es-benefit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      padding: 0 8px;
+      position: relative;
+    }
+
+    .es-benefit + .es-benefit::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10%;
+      bottom: 10%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .es-benefit-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(40,29,29,0.06);
+      color: var(--orange);
+    }
+
+    .es-benefit-text {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--fg);
+    }
+
+    .es-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
     .email-input {
-      flex: 1;
+      width: 100%;
       background: transparent;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 13px 18px;
+      border-radius: 10px;
+      padding: 16px 18px;
       font-family: var(--font-body);
-      font-size: 14px;
+      font-size: 15px;
       color: var(--fg);
       outline: none;
       transition: border-color 0.2s;
@@ -1103,15 +1172,16 @@
     .email-input:focus { border-color: var(--orange); outline: 2px solid rgba(193,92,36,0.15); outline-offset: 2px; }
 
     .btn-cream {
+      width: 100%;
       background: var(--fg);
       color: var(--cream);
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 13px 22px;
-      border-radius: 8px;
+      padding: 18px 22px;
+      border-radius: 10px;
       border: none;
       cursor: pointer;
       transition: background 0.2s;
@@ -1120,6 +1190,28 @@
 
     .btn-cream:hover { background: var(--brown); }
 
+    .es-privacy {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--fg-muted);
+    }
+
+    .es-privacy-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(40,29,29,0.06);
+      color: var(--fg-muted);
+      flex-shrink: 0;
+    }
+
     /* ─── HOMEPAGE EVENTS ─── */
     .home-events {
       background: var(--cream);
@@ -1127,167 +1219,177 @@
     }
 
     .home-events-inner {
-      padding: 40px 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 64px;
     }
 
-    .home-events-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 56px;
-    }
+    .home-events-header { margin-bottom: 48px; max-width: 720px; }
 
-    .home-events-label {
+    .home-events-eyebrow {
+      display: inline-block;
       font-family: var(--font-mono);
       font-size: 12px;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
-      color: var(--fg-muted);
-    }
-
-    .home-events-all {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
       color: var(--orange);
-      text-decoration: none;
+      margin-bottom: 16px;
       border-bottom: 1px solid currentColor;
-      padding-bottom: 1px;
+      padding-bottom: 2px;
     }
 
-    .home-events-all:hover { color: var(--brown); }
-
-    .home-events-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .home-events-table thead tr {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .home-events-table th {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--fg-muted);
-      padding: 0 0 18px;
-      text-align: left;
-      font-weight: 400;
-    }
-
-    .home-events-table th:last-child { text-align: right; }
-
-    .home-events-table tbody tr {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .home-events-table tbody tr:hover { background: rgba(10,10,10,0.02); }
-
-    .home-events-table td {
-      padding: 36px 0;
-      vertical-align: middle;
-    }
-
-    .home-events-table td:last-child { text-align: right; }
-
-    .he-date {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--fg);
-      line-height: 1.2;
-      letter-spacing: 0.02em;
-    }
-
-    .he-time {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--fg-muted);
-      margin-top: 4px;
-      letter-spacing: 0.02em;
-    }
-
-    .he-name {
+    .home-events-title {
       font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--brown);
+      font-size: clamp(48px, 6vw, 88px);
+      line-height: 0.92;
       letter-spacing: var(--ls-display);
       text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 24px;
     }
 
-    .he-location {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--fg-muted);
-      letter-spacing: 0.02em;
+    .home-events-intro {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--fg);
+      margin-bottom: 24px;
+      max-width: 560px;
     }
 
-    .he-tag {
+    .home-events-link {
       display: inline-block;
       font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border: 1px solid var(--border);
-      border-radius: 0;
-      color: var(--fg-muted);
-      background: transparent;
-    }
-
-    .he-rsvp {
-      font-family: var(--font-mono);
       font-size: 12px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--orange);
       text-decoration: none;
       border-bottom: 1px solid currentColor;
-      padding-bottom: 1px;
+      padding-bottom: 2px;
       transition: color 0.2s;
     }
+    .home-events-link:hover { color: var(--brown); }
 
-    .he-rsvp:hover { color: var(--brown); }
-
-    .home-events-ctas {
+    .home-events-list {
       display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .he-card {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 24px;
       align-items: center;
-      gap: 48px;
-      margin-top: 64px;
-    }
-
-    .he-cta-primary {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--cream);
-      background: var(--fg);
+      padding: 28px 32px;
+      border: 1px solid var(--border);
+      background: transparent;
       text-decoration: none;
-      padding: 16px 32px;
-      border-radius: 0;
-      transition: background 0.2s;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .he-card:hover {
+      border-color: var(--orange);
+      background: rgba(228,83,34,0.03);
     }
 
-    .he-cta-primary:hover { background: var(--brown); }
+    .he-card-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--orange);
+    }
 
-    .he-cta-secondary {
+    .he-card-month {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .he-card-day {
+      font-family: var(--font-display);
+      font-size: 56px;
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+
+    .he-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .he-card-time {
       font-family: var(--font-mono);
       font-size: 12px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .he-card-name {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.2vw, 28px);
+      line-height: 1.1;
+      letter-spacing: var(--ls-display);
       text-transform: uppercase;
       color: var(--fg);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      transition: border-color 0.2s, color 0.2s;
+      margin: 0;
     }
 
-    .he-cta-secondary:hover { color: var(--orange); border-color: var(--orange); }
+    .he-card-location {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--fg-muted);
+    }
+
+    .he-card-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      color: var(--fg-muted);
+      margin-top: 4px;
+    }
+
+    .he-card-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+    }
+
+    .home-events-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background: var(--brown);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 22px 24px;
+      margin-top: 32px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .home-events-cta:hover { background: var(--fg); }
 
     /* ─── EXIT-INTENT POPUP ─── */
     .popup-overlay {
@@ -1484,17 +1586,26 @@
       /* Reveal: force visible on mobile — GSAP scroll triggers don't fire reliably */
       [data-reveal] { visibility: visible !important; }
 
-      /* Hero: photo on top, content below — book overlaps the seam */
+      /* Nav overlays the photo on mobile (transparent, no border) */
+      nav {
+        background: transparent;
+        border-bottom: none;
+        padding: 0 24px;
+      }
+      .nav-brand { color: var(--cream); text-shadow: 0 1px 2px rgba(0,0,0,0.35); }
+
+      /* Hero: photo flush to top of page, content below — book overlaps the seam */
       .hero {
         grid-template-columns: 1fr;
-        grid-template-rows: 56vh auto;
+        grid-template-rows: 60vh auto;
         height: auto;
+        padding-top: 0;
       }
-      .hero-right { order: -1; height: 56vh; min-height: 0; max-height: none; }
+      .hero-right { order: -1; height: 60vh; min-height: 0; max-height: none; }
       .hero-promo-bar { display: none; }
       .hero-left {
         position: relative;
-        padding: 32px 24px 40px;
+        padding: 0 24px 40px;
         gap: 0;
       }
 
@@ -1539,14 +1650,14 @@
         justify-content: flex-end;
         order: -1;
         margin-top: -200px;
-        margin-bottom: 28px;
+        margin-bottom: 8px;
         padding: 0;
         position: relative;
         z-index: 5;
       }
       .hero-book-mockup-img {
-        width: 220px;
-        max-width: 55vw;
+        width: 200px;
+        max-width: 50vw;
         height: auto;
         filter: drop-shadow(0 24px 44px rgba(40,29,29,0.4));
       }
@@ -1615,44 +1726,32 @@
       .ar-text { padding-top: 0; padding-bottom: 0; }
       .ar-actions { margin-top: 32px; }
 
-      /* Home Events: fully stacked card layout */
-      .home-events-inner { padding: 48px 24px; }
-      .home-events-header { margin-bottom: 28px; }
-      .home-events-table thead { display: none; }
-      .home-events-table,
-      .home-events-table tbody { display: block; width: 100%; }
-      .home-events-table tbody tr {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 22px 0;
-        border-bottom: 1px solid var(--border);
+      /* Home Events: card layout, dense on mobile */
+      .home-events-inner { padding: 56px 24px; }
+      .home-events-header { margin-bottom: 32px; }
+      .home-events-title { font-size: clamp(48px, 14vw, 72px); margin-bottom: 20px; }
+      .home-events-intro { font-size: 15px; }
+      .he-card {
+        grid-template-columns: 60px 1fr auto;
+        gap: 18px;
+        padding: 20px;
       }
-      .home-events-table tbody tr:hover { background: transparent; }
-      .home-events-table td {
-        display: block;
-        padding: 0;
-        text-align: left;
-        width: auto;
-      }
-      .home-events-table td:last-child { text-align: left; }
-      .home-events-table td:nth-child(4) {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .he-date { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
-      .he-time { font-size: 10px; margin-top: 2px; }
-      .he-name { font-size: 18px; line-height: 1.2; }
-      .he-location { font-size: 12px; }
-      .home-events-ctas { gap: 12px; flex-direction: column; align-items: flex-start; margin-top: 40px; }
+      .he-card-day { font-size: 44px; }
+      .he-card-month { font-size: 11px; }
+      .he-card-name { font-size: 18px; }
+      .he-card-location { font-size: 12px; }
+      .home-events-cta { padding: 20px 16px; font-size: 12px; }
 
       /* Email signup */
-      .email-signup-inner { grid-template-columns: 1fr; padding: 40px 24px; gap: 32px; }
-      .es-book { margin-top: 0; max-width: 220px; }
-      .es-form { flex-direction: column; }
-      .btn-cream { width: 100%; justify-content: center; }
+      .email-signup { padding: 64px 0; }
+      .email-signup-inner { padding: 0 24px; max-width: 440px; }
+      .es-book { width: 180px; margin-bottom: 32px; }
+      .es-headline { font-size: clamp(36px, 11vw, 52px); }
+      .es-desc { font-size: 15px; margin-bottom: 28px; }
+      .es-benefits { gap: 4px; margin-bottom: 28px; }
+      .es-benefit { padding: 0 4px; }
+      .es-benefit-icon { width: 40px; height: 40px; }
+      .es-benefit-text { font-size: 12px; }
 
       /* Endorsement */
       .endorsement { padding: 0; }
@@ -1990,47 +2089,63 @@
   <section class="home-events" id="events">
     <div class="home-events-inner">
       <div class="home-events-header">
-        <span class="home-events-label">Upcoming Events</span>
-        <a href="events.html" class="home-events-all">View All Events &rarr;</a>
+        <span class="home-events-eyebrow">Events</span>
+        <h2 class="home-events-title">Upcoming<br>Events</h2>
+        <p class="home-events-intro">Join Rashad Robinson for conversations and appearances across the country.</p>
+        <a href="events.html" class="home-events-link">View All Events &rarr;</a>
       </div>
-      <table class="home-events-table">
-        <tbody>
-          <tr>
-            <td>
-              <div class="he-date">Jul 9</div>
-              <div class="he-time">3&ndash;4pm EST</div>
-            </td>
-            <td><div class="he-name">Rockwood Leadership Institute</div></td>
-            <td><div class="he-location">Zoom</div></td>
-            <td><span class="he-tag online">Online</span></td>
-            <td><a href="events.html#rockwood" class="he-rsvp">Register &rarr;</a></td>
-          </tr>
-          <tr>
-            <td>
-              <div class="he-date">Jul 13</div>
-              <div class="he-time">6&ndash;7:30pm EDT</div>
-            </td>
-            <td><div class="he-name">ABC Bookstore</div></td>
-            <td><div class="he-location">Manhattan, NY</div></td>
-            <td><span class="he-tag">In Person</span></td>
-            <td><a href="events.html#abc-bookstore" class="he-rsvp">Register &rarr;</a></td>
-          </tr>
-          <tr>
-            <td>
-              <div class="he-date">Jul 13</div>
-              <div class="he-time">6&ndash;7:30pm EDT</div>
-            </td>
-            <td><div class="he-name">Book Festival</div></td>
-            <td><div class="he-location">Martha's Vineyard, MA</div></td>
-            <td><span class="he-tag">In Person</span></td>
-            <td><a href="events.html#book-festival" class="he-rsvp">Register &rarr;</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="home-events-ctas">
-        <a href="mailto:events@rashadrobinson.com" class="he-cta-primary">Invite Rashad to Speak</a>
-        <a href="events.html" class="he-cta-secondary">View All Events &rarr;</a>
+
+      <div class="home-events-list">
+        <a href="events.html#rockwood" class="he-card">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">9</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-time">3&ndash;4pm EST</div>
+            <h3 class="he-card-name">Rockwood Leadership Institute</h3>
+            <div class="he-card-location">Zoom</div>
+            <span class="he-card-tag">Online</span>
+          </div>
+          <span class="he-card-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+        <a href="events.html#abc-bookstore" class="he-card">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">13</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-time">6&ndash;7:30pm EDT</div>
+            <h3 class="he-card-name">ABC Bookstore</h3>
+            <div class="he-card-location">Manhattan, NY</div>
+            <span class="he-card-tag">In Person</span>
+          </div>
+          <span class="he-card-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
+
+        <a href="events.html#book-festival" class="he-card">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">13</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-time">6&ndash;7:30pm EDT</div>
+            <h3 class="he-card-name">Book Festival</h3>
+            <div class="he-card-location">Martha&rsquo;s Vineyard, MA</div>
+            <span class="he-card-tag">In Person</span>
+          </div>
+          <span class="he-card-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
       </div>
+
+      <a href="events.html" class="home-events-cta">View All Events &rarr;</a>
     </div>
   </section>
 
@@ -2069,17 +2184,48 @@
   <div class="email-signup" id="preorder-strip">
     <div class="email-signup-inner">
       <div class="es-book">
+        <div class="es-book-halo" aria-hidden="true"></div>
         <img src="images/book-mock.png" alt="From Presence to Power book cover">
       </div>
       <div class="es-content">
         <span class="es-label">Get the First Chapter</span>
         <h2 class="es-headline">From Presence<br>to Power</h2>
-        <p class="es-avail">Available July 28, 2026</p>
+        <div class="es-divider" aria-hidden="true"></div>
+        <p class="es-desc">Be the first to read the opening chapter of Rashad Robinson&rsquo;s groundbreaking new book.</p>
+
+        <ul class="es-benefits">
+          <li class="es-benefit">
+            <span class="es-benefit-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </span>
+            <span class="es-benefit-text">Free first chapter</span>
+          </li>
+          <li class="es-benefit">
+            <span class="es-benefit-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+            </span>
+            <span class="es-benefit-text">Exclusive updates and behind-the-scenes insights</span>
+          </li>
+          <li class="es-benefit">
+            <span class="es-benefit-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </span>
+            <span class="es-benefit-text">Early access to release news and events</span>
+          </li>
+        </ul>
+
         <form class="es-form" onsubmit="handleStripSubmit(event)">
           <input type="email" id="stripEmail" class="email-input" placeholder="Your email address" required>
           <button type="submit" class="btn-cream" id="stripBtn">Get Chapter</button>
         </form>
         <p id="stripSuccess" style="display:none;font-family:var(--font-mono);font-size:12px;color:var(--brown);margin-top:12px;letter-spacing:0.05em;text-transform:uppercase;">You're in — check your inbox.</p>
+
+        <div class="es-privacy">
+          <span class="es-privacy-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
+          <span>We respect your privacy. No spam, ever.</span>
+        </div>
       </div>
     </div>
   </div>
