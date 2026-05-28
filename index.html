@@ -66,15 +66,7 @@
       transition: background 0.3s ease, border-color 0.3s ease;
     }
 
-    /* On scroll: nav goes transparent, brand fades out, hamburger becomes a floating orange disc */
-    nav.scrolled {
-      background: transparent;
-      border-bottom-color: transparent;
-    }
-    nav.scrolled .nav-brand {
-      opacity: 0;
-      visibility: hidden;
-    }
+    /* On scroll: mobile only — nav goes transparent, brand fades, hamburger becomes floating disc */
     .nav-brand {
       transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
     }
@@ -246,6 +238,7 @@
     /* Display headlines use heavy Big Shoulders Display (800) for impact */
     .hero-title,
     .hero-title-mobile,
+    .hero-promo-title,
     .about-book-statement,
     .about-book-card-title,
     .about-book-index,
@@ -1147,19 +1140,21 @@
     }
 
     .email-signup-inner {
-      max-width: 560px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
+      padding: 0 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
 
     .es-book {
       position: relative;
-      width: 220px;
-      align-self: center;
-      margin-bottom: 40px;
+      width: 100%;
+      max-width: 360px;
+      justify-self: center;
+      margin-bottom: 0;
     }
 
     .es-book-halo {
@@ -1193,7 +1188,7 @@
     .es-headline {
       font-family: var(--font-display);
       font-size: clamp(36px, 5.5vw, 56px);
-      font-weight: 700;
+      font-weight: 900;
       line-height: 0.94;
       letter-spacing: 0.01em;
       color: var(--fg);
@@ -1338,7 +1333,7 @@
     .home-events-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 96px 64px;
+      padding: 56px 64px;
     }
 
     .home-events-header { margin-bottom: 48px; max-width: 720px; }
@@ -1391,7 +1386,7 @@
     .home-events-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 0;
     }
 
     .he-card {
@@ -1401,14 +1396,18 @@
       align-items: center;
       padding: 28px 32px;
       border: 1px solid var(--border);
+      margin-top: -1px;
+      position: relative;
       background: transparent;
       text-decoration: none;
       color: inherit;
       transition: border-color 0.2s, background 0.2s;
     }
+    .he-card:first-child { margin-top: 0; }
     .he-card:hover {
       border-color: var(--orange);
       background: rgba(228,83,34,0.03);
+      z-index: 1;
     }
 
     .he-card-date {
@@ -1491,25 +1490,12 @@
       color: var(--orange);
     }
 
-    .home-events-cta {
+    .home-events-ctas {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      width: 100%;
-      background: var(--brown);
-      color: var(--cream);
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 22px 24px;
-      margin-top: 32px;
-      text-decoration: none;
-      transition: background 0.2s;
+      gap: 16px;
+      margin-top: 40px;
     }
-    .home-events-cta:hover { background: var(--fg); }
 
     /* ─── EXIT-INTENT POPUP ─── */
     .popup-overlay {
@@ -1713,11 +1699,18 @@
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
       .nav-toggle span { background: var(--cream); box-shadow: 0 1px 2px rgba(0,0,0,0.3); }
-      /* When the menu is open, swap the nav back to opaque so the X is readable */
-      nav.menu-open {
-        background: var(--cream);
-        border-bottom: 1px solid var(--border);
+      /* Mobile scrolled: transparent nav with floating hamburger */
+      nav.scrolled { background: transparent; border-bottom-color: transparent; }
+      nav.scrolled .nav-brand { opacity: 0; visibility: hidden; }
+      nav.scrolled .nav-toggle {
+        background: var(--orange);
+        border-radius: 50%;
+        width: 44px; height: 44px;
+        box-shadow: 0 4px 16px rgba(228,83,34,0.35);
       }
+      nav.scrolled .nav-toggle span { background: var(--cream); box-shadow: none; }
+      /* When the menu is open, swap the nav back to opaque so the X is readable */
+      nav.menu-open { background: var(--cream); border-bottom: 1px solid var(--border); }
       nav.menu-open .nav-brand { color: var(--fg); text-shadow: none; }
       nav.menu-open .nav-toggle span { background: var(--fg); box-shadow: none; }
 
@@ -1878,12 +1871,13 @@
       .he-card-month { font-size: 11px; }
       .he-card-name { font-size: 18px; }
       .he-card-location { font-size: 12px; }
-      .home-events-cta { padding: 20px 16px; font-size: 12px; }
+      .home-events-ctas { flex-direction: column; align-items: stretch; }
+      .home-events-ctas a { width: 100%; justify-content: center; text-align: center; box-sizing: border-box; }
 
       /* Email signup */
       .email-signup { padding: 64px 0; }
-      .email-signup-inner { padding: 0 24px; max-width: 440px; }
-      .es-book { width: 180px; margin-bottom: 32px; }
+      .email-signup-inner { padding: 0 24px; max-width: 440px; grid-template-columns: 1fr; gap: 32px; }
+      .es-book { max-width: 180px; justify-self: center; margin-bottom: 0; }
       .es-headline { font-size: clamp(36px, 11vw, 52px); }
       .es-desc { font-size: 15px; margin-bottom: 28px; }
       .es-benefits { gap: 18px; margin-bottom: 28px; }
@@ -1938,12 +1932,13 @@
       .hero-book-mockup { margin: -120px -4px 8px 14px; }
       .hero-left { padding: 20px 20px 32px; }
       .hero-eyebrow { margin-bottom: 10px; font-size: 10px; letter-spacing: 0.03em; max-width: calc(100vw - 180px); }
-      .hero-title-mobile { font-size: clamp(34px, 10.5vw, 52px); margin-bottom: 14px; max-width: calc(100vw - 180px); }
+      .hero-title-mobile { font-size: 60px; margin-bottom: 14px; max-width: none; }
       .hero-subtitle { max-width: calc(100vw - 180px); }
       .hero-subtitle { font-size: 17px; }
       .hero-body { font-size: 14px; margin-bottom: 0; }
       .about-book-actions { flex-direction: column; }
-      .ar-actions { flex-direction: column; }
+      .ar-actions { display: flex; flex-direction: column; align-items: stretch; }
+      .ar-actions a { width: 100%; justify-content: center; text-align: center; box-sizing: border-box; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/bundled/locomotive-scroll.css">
@@ -2011,7 +2006,7 @@
           social change,<br>
           especially now?
         </h1>
-        <h1 class="hero-title-mobile">From Presence<br>to Power</h1>
+        <h1 class="hero-title-mobile">From<br>Presence<br>to Power</h1>
         <div class="hero-divider"></div>
         <p class="hero-subtitle">How to Take on the Fights That Matter&mdash;and Win</p>
       </div>
@@ -2051,13 +2046,13 @@
   <div class="endorsement">
     <div class="endorsement-inner">
       <blockquote class="endorsement-quote">
-        &ldquo;A master class in real activism&rdquo;
+        &ldquo;A new way of thinking about how power works&rdquo;
       </blockquote>
       <div class="endorsement-attribution">
-        <img src="images/endorser-heather-mcghee.jpg" alt="Heather McGhee" class="endorsement-avatar">
+        <img src="images/endorser-jane-fonda-2.jpg" alt="Jane Fonda" class="endorsement-avatar">
         <div class="endorsement-attr">
-          <span class="endorsement-name">Heather McGhee</span>
-          <span class="endorsement-title">New York Times bestselling author of <em>The Sum of Us</em></span>
+          <span class="endorsement-name">Jane Fonda</span>
+          <span class="endorsement-title">Actor and activist</span>
         </div>
       </div>
     </div>
@@ -2082,10 +2077,6 @@
       </div>
       <div class="about-book-card">
         <img src="images/book-mockup-front.png" alt="From Presence to Power" class="about-book-cover">
-        <div class="about-book-card-meta">
-          <p class="about-book-card-title">From Presence<br>to Power</p>
-          <p class="about-book-card-sub">How to Take On the Fights<br>That Matter&mdash;and Win</p>
-        </div>
       </div>
     </div>
   </section>
@@ -2299,7 +2290,10 @@
         </a>
       </div>
 
-      <a href="events.html" class="home-events-cta">View All Events &rarr;</a>
+      <div class="home-events-ctas">
+        <a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener" class="btn-primary">Invite Rashad to Speak</a>
+        <a href="events.html" class="btn-secondary">View All Events &rarr;</a>
+      </div>
     </div>
   </section>
 
@@ -2480,25 +2474,30 @@
   <script>
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    // ── Locomotive Scroll v5 ──────────────────────────────────────────────
-    const locoScroll = new LocomotiveScroll({
-      lenisOptions: {
-        lerp: 0.08,
-        duration: 1.4,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
+    // ── Locomotive Scroll v5 (desktop only) ──────────────────────────────
+    // Mobile uses native scroll — Lenis intercepts touch events and breaks
+    // ScrollTrigger's ability to detect scroll position updates.
+    let lenis = null;
+    if (window.innerWidth > 960) {
+      const locoScroll = new LocomotiveScroll({
+        lenisOptions: {
+          lerp: 0.08,
+          duration: 1.4,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+        }
+      });
+      lenis = locoScroll.lenis || locoScroll.lenisInstance;
+      if (lenis) {
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+        gsap.ticker.lagSmoothing(0);
       }
-    });
+    }
 
-    // v5 exposes internal lenis as .lenis or .lenisInstance depending on build
-    const lenis = locoScroll.lenis || locoScroll.lenisInstance;
-    if (lenis) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      // Fallback: keep ScrollTrigger working via native scroll
-      window.addEventListener('scroll', ScrollTrigger.update);
+    if (!lenis) {
+      // Native scroll: keep ScrollTrigger in sync
+      window.addEventListener('scroll', ScrollTrigger.update, { passive: true });
     }
 
     // ── Subtle image parallax (desktop only — collides with mobile image layout) ──
@@ -2582,9 +2581,9 @@
       opacity: 0, y: 28, stagger: 0.12, duration: 0.75, ease: 'power3.out',
       scrollTrigger: { trigger: '.home-events-list', start: 'top 82%', once: true }
     });
-    gsap.from('.home-events-cta', {
-      opacity: 0, y: 24, duration: 0.7, ease: 'power3.out',
-      scrollTrigger: { trigger: '.home-events-cta', start: 'top 92%', once: true }
+    gsap.from('.home-events-ctas a', {
+      opacity: 0, y: 24, stagger: 0.1, duration: 0.7, ease: 'power3.out',
+      scrollTrigger: { trigger: '.home-events-ctas', start: 'top 92%', once: true }
     });
 
     // ── About Rashad ──────────────────────────────────────────────────────

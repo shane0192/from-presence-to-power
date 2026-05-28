@@ -212,57 +212,104 @@
       display: block;
     }
 
-    /* ── EVENT ROWS ── */
-    .event-row {
-      display: grid;
-      grid-template-columns: 160px 1fr auto;
-      gap: 0 48px;
-      align-items: start;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--border);
+    /* ── EVENT CARDS ── */
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
     }
 
-    .event-row:first-of-type { border-top: 1px solid var(--border); }
+    .he-card {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 28px 32px;
+      border: 1px solid var(--border);
+      margin-top: -1px;
+      position: relative;
+      background: transparent;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .he-card:first-child { margin-top: 0; }
+    .he-card:hover { border-color: var(--orange); background: rgba(228,83,34,0.03); z-index: 1; }
+    .he-card.past { opacity: 0.4; pointer-events: none; }
 
-    .event-row.past { opacity: 0.4; }
-
-    .ev-date {
+    .he-card-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--orange);
+      padding-right: 24px;
+      border-right: 1px solid var(--border);
+      align-self: stretch;
+    }
+    .he-card-month {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .he-card-day {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: 0;
+    }
+    .he-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-start;
+      min-width: 0;
+    }
+    .he-card-time {
       font-family: var(--font-mono);
       font-size: 12px;
-      color: var(--fg-muted);
-      padding-top: 4px;
-    }
-
-    .ev-name {
-      font-family: var(--font-display);
-      font-size: 20px;
-      text-transform: uppercase;
-      color: var(--brown);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 6px;
-    }
-
-    .ev-location {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--fg-muted);
-    }
-
-    .ev-cta {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--orange);
-      text-decoration: none;
-      padding-top: 4px;
-      white-space: nowrap;
-      transition: color 0.2s;
+      color: var(--fg-muted);
     }
-
-    .ev-cta:hover { color: var(--brown); }
+    .he-card-name {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.2vw, 28px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin: 0;
+    }
+    .he-card-location {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--fg-muted);
+    }
+    .he-card-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      color: var(--fg-muted);
+      margin-top: 4px;
+    }
+    .he-card-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+    }
 
     /* ── UPCOMING LABEL ── */
     .events-label {
@@ -463,31 +510,54 @@
       <span class="events-label">Upcoming</span>
       <h2 class="events-heading">2026 Schedule</h2>
 
-      <div class="event-row" id="rockwood">
-        <div class="ev-date">Jul 9, 2026<br>3&ndash;4pm EST</div>
-        <div>
-          <div class="ev-name">Rockwood Leadership Institute</div>
-          <div class="ev-location">Zoom &middot; Online</div>
-        </div>
-        <a href="#" class="ev-cta">Register &rarr;</a>
-      </div>
+      <div class="events-list">
+        <a href="#" class="he-card" id="rockwood">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">9</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-time">3&ndash;4pm EST</div>
+            <h3 class="he-card-name">Rockwood Leadership Institute</h3>
+            <div class="he-card-location">Zoom</div>
+            <span class="he-card-tag">Online</span>
+          </div>
+          <span class="he-card-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
 
-      <div class="event-row" id="abc-bookstore">
-        <div class="ev-date">Jul 13, 2026<br>6&ndash;7:30pm EDT</div>
-        <div>
-          <div class="ev-name">ABC Bookstore</div>
-          <div class="ev-location">Manhattan, NY &middot; In Person</div>
-        </div>
-        <a href="#" class="ev-cta">Register &rarr;</a>
-      </div>
+        <a href="#" class="he-card" id="abc-bookstore">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">13</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-time">6&ndash;7:30pm EDT</div>
+            <h3 class="he-card-name">ABC Bookstore</h3>
+            <div class="he-card-location">Manhattan, NY</div>
+            <span class="he-card-tag">In Person</span>
+          </div>
+          <span class="he-card-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
 
-      <div class="event-row" id="book-festival">
-        <div class="ev-date">Jul 13, 2026<br>6&ndash;7:30pm EDT</div>
-        <div>
-          <div class="ev-name">Book Festival</div>
-          <div class="ev-location">Martha's Vineyard, MA &middot; In Person</div>
-        </div>
-        <a href="#" class="ev-cta">Register &rarr;</a>
+        <a href="#" class="he-card" id="book-festival">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">13</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-time">6&ndash;7:30pm EDT</div>
+            <h3 class="he-card-name">Book Festival</h3>
+            <div class="he-card-location">Martha&rsquo;s Vineyard, MA</div>
+            <span class="he-card-tag">In Person</span>
+          </div>
+          <span class="he-card-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </a>
       </div>
 
       <div class="events-ctas">
