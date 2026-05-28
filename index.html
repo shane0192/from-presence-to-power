@@ -63,6 +63,20 @@
       height: 60px;
       background: var(--cream);
       border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* On scroll: nav goes transparent, brand fades out, hamburger becomes a floating orange disc */
+    nav.scrolled {
+      background: transparent;
+      border-bottom-color: transparent;
+    }
+    nav.scrolled .nav-brand {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .nav-brand {
+      transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
     }
 
     .nav-brand {
@@ -118,6 +132,9 @@
       justify-content: center;
       align-items: center;
       gap: 5px;
+      border-radius: 50%;
+      transition: background 0.3s ease, box-shadow 0.3s ease,
+                  width 0.3s ease, height 0.3s ease, margin 0.3s ease;
     }
     .nav-toggle span {
       display: block;
@@ -125,6 +142,17 @@
       height: 2px;
       background: var(--fg);
       transition: transform 0.25s, opacity 0.25s, background 0.2s;
+    }
+    /* Scrolled state: hamburger becomes a floating orange disc */
+    nav.scrolled .nav-toggle {
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      box-shadow: 0 8px 24px rgba(40,29,29,0.22);
+      width: 48px;
+      height: 48px;
+    }
+    nav.scrolled .nav-toggle span {
+      background: var(--cream) !important;
+      box-shadow: none !important;
     }
     .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
@@ -233,8 +261,8 @@
     .tc-name,
     .he-card-name,
     .he-card-day {
-      font-weight: 800;
-      letter-spacing: -0.01em;
+      font-weight: 900;
+      letter-spacing: 0;
     }
 
     /* ─── HERO BOOK MOCKUP (mobile) ─── */
@@ -1721,9 +1749,9 @@
         display: block;
         font-family: var(--font-display);
         font-size: clamp(42px, 12vw, 68px);
-        font-weight: 800;
+        font-weight: 900;
         line-height: 0.92;
-        letter-spacing: -0.01em;
+        letter-spacing: 0;
         text-transform: uppercase;
         color: var(--fg);
         margin-bottom: 18px;
@@ -2640,6 +2668,23 @@
     } else {
       document.fonts.ready.then(initTextReveal);
     }
+
+    // ── Scrolled nav state ────────────────────────────────────────────────
+    (function() {
+      const navEl = document.querySelector('nav');
+      if (!navEl) return;
+      const SCROLL_THRESHOLD = 80;
+      let lastState = false;
+      function update() {
+        const scrolled = window.scrollY > SCROLL_THRESHOLD;
+        if (scrolled !== lastState) {
+          navEl.classList.toggle('scrolled', scrolled);
+          lastState = scrolled;
+        }
+      }
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+    })();
 
     // ── Mobile menu toggle ────────────────────────────────────────────────
     (function() {
