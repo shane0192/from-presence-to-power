@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="images/book-mock.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -27,7 +27,7 @@
       --bg:           #EFEDEC;
       --border:       #DAD6CB;
 
-      --font-display: "Oswald", "Archivo Black", "Impact", sans-serif;
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
       --font-body:    "Inter", system-ui, sans-serif;
       --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 
@@ -215,7 +215,7 @@
     .btn-secondary:active { transform: scale(0.95); }
 
 
-    /* Display headlines use heavy Oswald (700) for impact */
+    /* Display headlines use heavy Big Shoulders Display (800) for impact */
     .hero-title,
     .hero-title-mobile,
     .about-book-statement,
@@ -232,9 +232,9 @@
     .tc-quote,
     .tc-name,
     .he-card-name,
-    .he-card-day,
-    .he-card-month {
-      font-weight: 700;
+    .he-card-day {
+      font-weight: 800;
+      letter-spacing: -0.01em;
     }
 
     /* ─── HERO BOOK MOCKUP (mobile) ─── */
@@ -1720,10 +1720,10 @@
       .hero-title-mobile {
         display: block;
         font-family: var(--font-display);
-        font-size: clamp(34px, 10vw, 56px);
-        font-weight: 700;
-        line-height: 0.94;
-        letter-spacing: 0.01em;
+        font-size: clamp(42px, 12vw, 68px);
+        font-weight: 800;
+        line-height: 0.92;
+        letter-spacing: -0.01em;
         text-transform: uppercase;
         color: var(--fg);
         margin-bottom: 18px;
@@ -1912,7 +1912,7 @@
       .hero-book-mockup { margin: -120px -4px 8px 14px; }
       .hero-left { padding: 20px 20px 32px; }
       .hero-eyebrow { margin-bottom: 10px; font-size: 10px; letter-spacing: 0.03em; max-width: calc(100vw - 180px); }
-      .hero-title-mobile { font-size: clamp(28px, 9vw, 44px); margin-bottom: 14px; max-width: calc(100vw - 180px); }
+      .hero-title-mobile { font-size: clamp(34px, 10.5vw, 52px); margin-bottom: 14px; max-width: calc(100vw - 180px); }
       .hero-subtitle { max-width: calc(100vw - 180px); }
       .hero-subtitle { font-size: 17px; }
       .hero-body { font-size: 14px; margin-bottom: 0; }
