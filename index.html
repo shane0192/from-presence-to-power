@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="images/book-mock.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -27,7 +27,7 @@
       --bg:           #EFEDEC;
       --border:       #DAD6CB;
 
-      --font-display: "Bebas Neue", "Archivo Black", "Impact", sans-serif;
+      --font-display: "Oswald", "Archivo Black", "Impact", sans-serif;
       --font-body:    "Inter", system-ui, sans-serif;
       --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 
@@ -214,6 +214,28 @@
     .btn-secondary:hover { border-color: var(--fg); background: rgba(40,29,29,0.05); }
     .btn-secondary:active { transform: scale(0.95); }
 
+
+    /* Display headlines use heavy Oswald (700) for impact */
+    .hero-title,
+    .hero-title-mobile,
+    .about-book-statement,
+    .about-book-card-title,
+    .about-book-index,
+    .endorsement-quote,
+    .pull-quote-text,
+    .pull-quote-big-mark,
+    .pull-quote-mark,
+    .section-title,
+    .home-events-title,
+    .es-headline,
+    .popup-headline,
+    .tc-quote,
+    .tc-name,
+    .he-card-name,
+    .he-card-day,
+    .he-card-month {
+      font-weight: 700;
+    }
 
     /* ─── HERO BOOK MOCKUP (mobile) ─── */
     .hero-book-mockup {
@@ -1674,7 +1696,7 @@
       nav.menu-open .nav-brand { color: var(--fg); text-shadow: none; }
       nav.menu-open .nav-toggle span { background: var(--fg); box-shadow: none; }
 
-      /* Hero: photo flush to top of page, content below — book overlaps the seam */
+      /* Hero: photo flush to top of page, content below — book floats right of headline */
       .hero {
         grid-template-columns: 1fr;
         grid-template-rows: 60vh auto;
@@ -1685,9 +1707,11 @@
       .hero-promo-bar { display: none; }
       .hero-left {
         position: relative;
-        padding: 0 24px 40px;
-        gap: 0;
+        display: block;
+        padding: 24px 24px 40px;
       }
+      .hero-text-top::after { content: ''; display: block; clear: both; }
+      .hero-text-bottom { clear: both; }
 
       /* Swap desktop title/meta out, mobile title/divider/subtitle in */
       .hero-title { display: none; }
@@ -1696,12 +1720,13 @@
       .hero-title-mobile {
         display: block;
         font-family: var(--font-display);
-        font-size: clamp(56px, 16vw, 88px);
-        line-height: 0.92;
+        font-size: clamp(44px, 12.5vw, 72px);
+        font-weight: 700;
+        line-height: 0.94;
         letter-spacing: 0.01em;
         text-transform: uppercase;
         color: var(--fg);
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
 
       .hero-divider {
@@ -1724,21 +1749,23 @@
 
       .hero-eyebrow { margin-bottom: 14px; font-size: 11px; }
 
-      /* Book mockup: anchored to the right, overlapping into the photo above */
+      /* Book mockup: floats right, overlapping into the photo; headline wraps around it */
       .hero-book-mockup {
-        display: flex;
-        justify-content: flex-end;
-        order: -1;
-        margin-top: -200px;
-        margin-bottom: 8px;
+        display: block;
+        float: right;
+        order: initial;
+        width: auto;
+        margin: -170px -6px 12px 16px;
         padding: 0;
         position: relative;
         z-index: 5;
+        shape-outside: margin-box;
       }
       .hero-book-mockup-img {
-        width: 200px;
-        max-width: 50vw;
+        width: 170px;
+        max-width: 48vw;
         height: auto;
+        display: block;
         filter: drop-shadow(0 24px 44px rgba(40,29,29,0.4));
       }
 
@@ -1867,7 +1894,7 @@
       .tc-card-img { object-position: center 20%; }
       .tc-card-content { padding: 32px 28px; }
       .tc-eyebrow-row { margin-bottom: 24px; }
-      .tc-quote { font-size: clamp(20px, 5vw, 26px); }
+      .tc-quote { font-size: clamp(24px, 6.5vw, 32px); line-height: 1.1; }
       .tc-attribution { padding-top: 24px; }
       .container { padding: 0 24px; }
       section:not(.about-book):not(.hero) { padding: 80px 0; }
@@ -1876,11 +1903,11 @@
     }
 
     @media (max-width: 640px) {
-      .hero-book-mockup-img { width: 180px; }
-      .hero-book-mockup { margin-top: -160px; }
-      .hero-left { padding: 28px 20px 32px; }
-      .hero-eyebrow { margin-bottom: 12px; font-size: 10px; letter-spacing: 0.03em; }
-      .hero-title-mobile { font-size: clamp(48px, 15vw, 72px); margin-bottom: 16px; }
+      .hero-book-mockup-img { width: 150px; }
+      .hero-book-mockup { margin: -140px -4px 8px 14px; }
+      .hero-left { padding: 20px 20px 32px; }
+      .hero-eyebrow { margin-bottom: 10px; font-size: 10px; letter-spacing: 0.03em; }
+      .hero-title-mobile { font-size: clamp(40px, 11.5vw, 56px); margin-bottom: 14px; }
       .hero-subtitle { font-size: 17px; }
       .hero-body { font-size: 14px; margin-bottom: 0; }
       .about-book-actions { flex-direction: column; }
@@ -1940,7 +1967,11 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-left">
-      <div>
+      <div class="hero-book-mockup">
+        <img src="images/book-mockup-front.png" alt="From Presence to Power — Book Cover" class="hero-book-mockup-img">
+      </div>
+
+      <div class="hero-text-top">
         <p class="hero-eyebrow">A New Book by Rashad Robinson</p>
         <h1 class="hero-title" data-reveal data-reveal-color="#EFEDEC">
           What does it<br>
@@ -1953,11 +1984,7 @@
         <p class="hero-subtitle">How to Take on the Fights That Matter&mdash;and Win</p>
       </div>
 
-      <div class="hero-book-mockup">
-        <img src="images/book-mockup-front.png" alt="From Presence to Power — Book Cover" class="hero-book-mockup-img">
-      </div>
-
-      <div>
+      <div class="hero-text-bottom">
         <p class="hero-body">A practical guide for real change &mdash; built from two decades on the front lines. For organizers, donors, and anyone tired of feeling powerful instead of being powerful.</p>
         <div class="hero-actions" style="margin-top: 20px; margin-bottom: 28px;">
           <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
