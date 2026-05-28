@@ -1703,9 +1703,6 @@
       html, body { overflow-x: hidden; }
       nav { padding: 0 24px; }
 
-      /* Reveal: force visible on mobile — GSAP scroll triggers don't fire reliably */
-      [data-reveal] { visibility: visible !important; }
-
       /* Nav overlays the photo on mobile (transparent, no border) */
       nav {
         background: transparent;
@@ -2504,20 +2501,19 @@
       window.addEventListener('scroll', ScrollTrigger.update);
     }
 
-    // ── All scroll animations: desktop only ───────────────────────────────
+    // ── Subtle image parallax (desktop only — collides with mobile image layout) ──
     if (window.innerWidth > 960) {
-
-    // ── Subtle image parallax ─────────────────────────────────────────────
-    const parallaxImgs = document.querySelectorAll('.ar-image img, .ar-image-secondary img, .hero-author-img');
-    const onScroll = () => {
-      parallaxImgs.forEach(img => {
-        const rect = img.parentElement.getBoundingClientRect();
-        const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-        img.style.transform = `translateY(${center * 0.05}px)`;
-      });
-    };
-    if (lenis) lenis.on('scroll', onScroll);
-    else window.addEventListener('scroll', onScroll);
+      const parallaxImgs = document.querySelectorAll('.ar-image img, .ar-image-secondary img, .hero-author-img');
+      const onScroll = () => {
+        parallaxImgs.forEach(img => {
+          const rect = img.parentElement.getBoundingClientRect();
+          const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+          img.style.transform = `translateY(${center * 0.05}px)`;
+        });
+      };
+      if (lenis) lenis.on('scroll', onScroll);
+      else window.addEventListener('scroll', onScroll);
+    }
 
     // ── Hero entrance (on load, not scroll) ──────────────────────────────
     const heroTl = gsap.timeline({ delay: 0.3 });
@@ -2578,21 +2574,17 @@
     });
 
     // ── Events ────────────────────────────────────────────────────────────
-    gsap.from('.home-events-header', {
-      opacity: 0, y: 24, duration: 0.8, ease: 'power3.out',
+    gsap.from('.home-events-header > *', {
+      opacity: 0, y: 24, stagger: 0.08, duration: 0.8, ease: 'power3.out',
       scrollTrigger: { trigger: '.home-events', start: 'top 78%', once: true }
     });
-    gsap.from('.home-events-table thead', {
-      opacity: 0, duration: 0.6, ease: 'power3.out', delay: 0.1,
-      scrollTrigger: { trigger: '.home-events-table', start: 'top 82%', once: true }
+    gsap.from('.home-events-list .he-card', {
+      opacity: 0, y: 28, stagger: 0.12, duration: 0.75, ease: 'power3.out',
+      scrollTrigger: { trigger: '.home-events-list', start: 'top 82%', once: true }
     });
-    gsap.from('.home-events-table tbody tr', {
-      opacity: 0, y: 28, stagger: 0.14, duration: 0.75, ease: 'power3.out',
-      scrollTrigger: { trigger: '.home-events-table', start: 'top 82%', once: true }
-    });
-    gsap.from('.home-events-ctas a', {
-      opacity: 0, y: 24, stagger: 0.1, duration: 0.7, ease: 'power3.out',
-      scrollTrigger: { trigger: '.home-events-ctas', start: 'top 92%', once: true }
+    gsap.from('.home-events-cta', {
+      opacity: 0, y: 24, duration: 0.7, ease: 'power3.out',
+      scrollTrigger: { trigger: '.home-events-cta', start: 'top 92%', once: true }
     });
 
     // ── About Rashad ──────────────────────────────────────────────────────
@@ -2659,16 +2651,11 @@
       });
     }
 
-    } // end desktop-only animations
-
-    if (window.innerWidth <= 960) {
-      // Skip reveal animation on mobile — just show all text immediately
-      document.querySelectorAll('[data-reveal]').forEach(el => {
-        el.style.visibility = 'visible';
-      });
-    } else {
-      document.fonts.ready.then(initTextReveal);
-    }
+    document.fonts.ready.then(() => {
+      initTextReveal();
+      // Recompute trigger positions after fonts swap reflows the layout
+      ScrollTrigger.refresh();
+    });
 
     // ── Scrolled nav state ────────────────────────────────────────────────
     (function() {
