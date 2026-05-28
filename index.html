@@ -2675,15 +2675,39 @@
       if (!navEl) return;
       const SCROLL_THRESHOLD = 80;
       let lastState = false;
-      function update() {
-        const scrolled = window.scrollY > SCROLL_THRESHOLD;
+
+      function check() {
+        const y = window.scrollY
+          || window.pageYOffset
+          || document.documentElement.scrollTop
+          || document.body.scrollTop
+          || 0;
+        const scrolled = y > SCROLL_THRESHOLD;
         if (scrolled !== lastState) {
           navEl.classList.toggle('scrolled', scrolled);
           lastState = scrolled;
         }
       }
-      update();
-      window.addEventListener('scroll', update, { passive: true });
+
+      // Native scroll events (works whether or not Lenis is hijacking)
+      window.addEventListener('scroll', check, { passive: true });
+      document.addEventListener('scroll', check, { passive: true, capture: true });
+
+      // Lenis hook (Locomotive Scroll v5 wraps it)
+      try {
+        if (typeof lenis !== 'undefined' && lenis && typeof lenis.on === 'function') {
+          lenis.on('scroll', check);
+        }
+      } catch (e) { /* lenis not available */ }
+
+      // RAF safety net — if neither of the above fires we still catch the change
+      let tick = 0;
+      (function loop() {
+        if ((tick++ & 7) === 0) check(); // ~7fps poll
+        requestAnimationFrame(loop);
+      })();
+
+      check();
     })();
 
     // ── Mobile menu toggle ────────────────────────────────────────────────
