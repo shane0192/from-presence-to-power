@@ -2616,45 +2616,66 @@
     });
 
     // ── Text reveal on scroll ─────────────────────────────────────────────
+    // Always reveal text up front — the bar animation is decorative.
+    // If SplitText fails for any reason (mobile, hidden elements, font issues),
+    // the text is already visible.
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.style.visibility = 'visible';
+    });
+
     function initTextReveal() {
       document.querySelectorAll('[data-reveal]').forEach(el => {
-        const color = el.getAttribute('data-reveal-color') || '#EFEDEC';
+        if (window.getComputedStyle(el).display === 'none') return;
 
-        SplitText.create(el, {
-          type: 'lines',
-          linesClass: 'reveal-line',
-          autoSplit: true,
-          onSplit(self) {
-            el.querySelectorAll('.reveal-bar').forEach(b => b.remove());
-            const tl = gsap.timeline({ paused: true });
+        try {
+          const color = el.getAttribute('data-reveal-color') || '#EFEDEC';
+          SplitText.create(el, {
+            type: 'lines',
+            linesClass: 'reveal-line',
+            autoSplit: true,
+            onSplit(self) {
+              el.querySelectorAll('.reveal-bar').forEach(b => b.remove());
+              const tl = gsap.timeline({ paused: true });
 
-            self.lines.forEach((line, i) => {
-              gsap.set(line, { position: 'relative', overflow: 'hidden' });
-              const bar = document.createElement('div');
-              bar.className = 'reveal-bar';
-              bar.style.backgroundColor = color;
-              bar.style.transformOrigin = 'right center';
-              line.appendChild(bar);
-              tl.to(bar, { scaleX: 0, duration: 0.9, ease: 'power3.inOut' }, i * 0.12);
-            });
+              self.lines.forEach((line, i) => {
+                gsap.set(line, { position: 'relative', overflow: 'hidden' });
+                const bar = document.createElement('div');
+                bar.className = 'reveal-bar';
+                bar.style.backgroundColor = color;
+                bar.style.transformOrigin = 'right center';
+                line.appendChild(bar);
+                tl.to(bar, { scaleX: 0, duration: 0.9, ease: 'power3.inOut' }, i * 0.12);
+              });
 
-            gsap.set(el, { autoAlpha: 1 });
+              gsap.set(el, { autoAlpha: 1 });
 
-            ScrollTrigger.create({
-              trigger: el,
-              start: 'top 88%',
-              once: true,
-              onEnter: () => tl.play(),
-            });
-          },
-        });
+              ScrollTrigger.create({
+                trigger: el,
+                start: 'top 88%',
+                once: true,
+                onEnter: () => tl.play(),
+              });
+            },
+          });
+        } catch (e) {
+          // SplitText failed — text is already visible from the pre-set above
+        }
       });
     }
 
-    document.fonts.ready.then(() => {
+    let revealStarted = false;
+    function startReveals() {
+      if (revealStarted) return;
+      revealStarted = true;
       initTextReveal();
-      // Recompute trigger positions after fonts swap reflows the layout
       ScrollTrigger.refresh();
+    }
+    document.fonts.ready.then(startReveals);
+    // Fallback if document.fonts.ready stalls
+    setTimeout(startReveals, 1500);
+    // Final refresh after window load (images + layout settled)
+    window.addEventListener('load', () => {
+      setTimeout(() => ScrollTrigger.refresh(), 100);
     });
 
     // ── Scrolled nav state ────────────────────────────────────────────────
