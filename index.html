@@ -1685,6 +1685,80 @@
 
     .footer-links a:hover { color: var(--orange); }
 
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-muted);
+      transition: color 0.2s;
+    }
+    .footer-social a:hover { color: var(--orange); }
+
+    /* Social follow strip */
+    .social-strip {
+      background: var(--brown);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 0;
+    }
+    .social-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .social-strip-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .social-strip-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.5);
+    }
+    .social-strip-headline {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: var(--cream);
+      line-height: 1;
+    }
+    .social-strip-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .social-strip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+      padding: 10px 16px;
+      border: 1px solid rgba(239,237,236,0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-strip-btn:hover { border-color: var(--cream); color: var(--cream); }
+    .social-strip-btn svg { flex-shrink: 0; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 960px) {
       html, body { overflow-x: hidden; }
@@ -1927,6 +2001,8 @@
       section:not(.about-book):not(.hero) { padding: 80px 0; }
 
       .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
+      .social-strip-inner { flex-direction: column; gap: 24px; padding: 0 24px; text-align: center; }
+      .social-strip-links { flex-wrap: wrap; justify-content: center; }
     }
 
     @media (max-width: 640px) {
@@ -2033,7 +2109,7 @@
     </div>
 
     <div class="hero-right">
-      <img src="images/Rashad_Plants v2.png" alt="Rashad Robinson" class="hero-author-img">
+      <img src="images/rashad-portrait-hand.jpg" alt="Rashad Robinson" class="hero-author-img">
       <div class="hero-promo-bar">
         <div class="hero-promo-text">
           <p class="hero-promo-eyebrow">A new book by Rashad Robinson</p>
@@ -2232,6 +2308,34 @@
     </div>
   </section>
 
+  <!-- SOCIAL FOLLOW -->
+  <div class="social-strip">
+    <div class="social-strip-inner">
+      <div class="social-strip-copy">
+        <span class="social-strip-eyebrow">Follow the Campaign</span>
+        <span class="social-strip-headline">Follow Rashad Robinson</span>
+      </div>
+      <div class="social-strip-links">
+        <a href="https://www.instagram.com/iamrashadrobinson/" target="_blank" rel="noopener" class="social-strip-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+        <a href="https://x.com/rashadrobinson" target="_blank" rel="noopener" class="social-strip-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X / Twitter
+        </a>
+        <a href="https://www.facebook.com/rashadny" target="_blank" rel="noopener" class="social-strip-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.linkedin.com/in/rashadrobinson/" target="_blank" rel="noopener" class="social-strip-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- HOMEPAGE EVENTS -->
   <section class="home-events" id="events">
     <div class="home-events-inner">
@@ -2403,8 +2507,22 @@
         <li><a href="#book">The Book</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="#rashad">Author</a></li>
-        <li><a href="https://www.rashadrobinson.com" target="_blank">rashadrobinson.com</a></li>
+        <li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>
       </ul>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/iamrashadrobinson/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://x.com/rashadrobinson" target="_blank" rel="noopener" aria-label="X / Twitter">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/rashadny" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/rashadrobinson/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
     </div>
   </footer>
 
