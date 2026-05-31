@@ -263,6 +263,16 @@
       letter-spacing: 0;
     }
     .he-card-day.range { font-size: 30px; line-height: 1.1; }
+
+    .he-card-city {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 6px;
+    }
     .he-card-body {
       display: flex;
       flex-direction: column;
@@ -485,11 +495,11 @@
   <nav>
     <a href="index.html" class="nav-brand">From Presence to Power</a>
     <ul class="nav-links">
-      <li><a href="index.html#book">The Book</a></li>
-      <li><a href="index.html#excerpt">Excerpt</a></li>
-      <li><a href="index.html#rashad">Author</a></li>
-      <li><a href="events.html" class="active">Events</a></li>
-      <li><a href="media.html">Media</a></li>
+      <li><a href="index.html#book">About the Book</a></li>
+
+      <li><a href="events.html" class="active">Upcoming Events</a></li>
+      <li><a href="media.html" target="_blank" rel="noopener">Media</a></li>
+      <li><a href="index.html#rashad">About Rashad</a></li>
       <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
     </ul>
   </nav>
@@ -508,30 +518,19 @@
   <!-- UPCOMING EVENTS -->
   <section class="events-section" id="upcoming">
     <div class="events-inner">
-      <span class="events-label">Upcoming</span>
-      <h2 class="events-heading">2026 Schedule</h2>
+      <span class="events-label">2026 Public Events Calendar</span>
+      <h2 class="events-heading">Upcoming Events</h2>
+
+      <div class="events-ctas" style="margin-bottom: 48px;">
+        <a href="mailto:events@rashadrobinson.com" class="btn-primary">Invite Rashad to Speak, Partner or Sponsor</a>
+      </div>
 
       <div class="events-list">
-        <a href="#" class="he-card" id="rockwood">
-          <div class="he-card-date">
-            <span class="he-card-month">Jul</span>
-            <span class="he-card-day">9</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-time">3&ndash;4pm EST</div>
-            <h3 class="he-card-name">Rockwood Leadership Institute</h3>
-            <div class="he-card-location">Zoom</div>
-            <span class="he-card-tag">Online</span>
-          </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
-
         <a href="#" class="he-card" id="abc-bookstore">
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">13</span>
+            <span class="he-card-city">NYC</span>
           </div>
           <div class="he-card-body">
             <div class="he-card-time">6&ndash;7:30pm EDT</div>
@@ -548,6 +547,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">27</span>
+            <span class="he-card-city">NYC</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Jane Fonda</h3>
@@ -563,6 +563,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">28</span>
+            <span class="he-card-city">DC</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Joy Reid &mdash; Politics and Prose</h3>
@@ -578,6 +579,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">29</span>
+            <span class="he-card-city">SF</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Commonwealth Club with Greg Dalton</h3>
@@ -593,6 +595,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">30</span>
+            <span class="he-card-city">LA</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Reparations Club with Lena Waithe</h3>
@@ -608,6 +611,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day">3</span>
+            <span class="he-card-city">TBD</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">City Stop TBD</h3>
@@ -623,6 +627,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day">4</span>
+            <span class="he-card-city">TBD</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">City Stop TBD</h3>
@@ -638,6 +643,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day">5</span>
+            <span class="he-card-city">SEA</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Angela Rye &mdash; Town Hall</h3>
@@ -653,6 +659,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day range">13&ndash;17</span>
+            <span class="he-card-city">MV</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Martha&rsquo;s Vineyard Events</h3>
@@ -668,6 +675,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Sep</span>
             <span class="he-card-day">TBD</span>
+            <span class="he-card-city">NOLA</span>
           </div>
           <div class="he-card-body">
             <div class="he-card-time">Early September</div>
@@ -684,6 +692,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Oct</span>
             <span class="he-card-day range">7&ndash;8</span>
+            <span class="he-card-city">BUF</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Banned Book Week</h3>
@@ -696,8 +705,7 @@
         </a>
       </div>
 
-      <div class="events-ctas">
-        <a href="mailto:events@rashadrobinson.com" class="btn-primary">Invite Rashad to Speak</a>
+      <div class="events-ctas" style="margin-top: 48px;">
         <button class="btn-secondary" onclick="document.querySelector('.email-strip').scrollIntoView({behavior:'smooth'})">Get Event Updates</button>
       </div>
     </div>

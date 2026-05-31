@@ -367,6 +367,27 @@
       color: var(--fg);
     }
 
+    .hero-social-row { justify-content: flex-start; }
+
+    .hero-social-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .hero-social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-muted);
+      opacity: 0.55;
+      transition: opacity 0.2s;
+      text-decoration: none;
+    }
+
+    .hero-social-icon:hover { opacity: 1; }
+
     .hero-right {
       background: var(--brown);
       position: relative;
@@ -867,7 +888,24 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+
+    .carousel-all-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .carousel-all-link:hover { opacity: 1; }
 
     /* ── Left: photo panel ── */
     .tc-card-image {
@@ -1438,6 +1476,16 @@
     }
     .he-card-day.range { font-size: 30px; line-height: 1.1; }
 
+    .he-card-city {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 6px;
+    }
+
     .he-card-body {
       display: flex;
       flex-direction: column;
@@ -1699,65 +1747,361 @@
     }
     .footer-social a:hover { color: var(--orange); }
 
-    /* Social follow strip */
-    .social-strip {
-      background: var(--brown);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 40px 0;
+    /* ─── EVENTS MARQUEE ─── */
+    .events-marquee {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      overflow: hidden;
+      height: 64px;
+      display: flex;
+      align-items: center;
     }
-    .social-strip-inner {
+
+    .events-marquee-track {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: marquee-scroll 60s linear infinite;
+    }
+
+    .events-marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .em-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 40px;
+      cursor: default;
+    }
+
+    .em-item a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .em-date {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .em-city {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .em-city svg {
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+
+    .em-name {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--fg);
+      opacity: 0.75;
+    }
+
+    .em-divider {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--border);
+      padding: 0 8px;
+      user-select: none;
+    }
+
+    /* ─── BELOW-HERO SIGNUP ─── */
+    .hero-signup {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-signup-inner {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .hero-signup-inner--slim {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 40px;
+      gap: 48px;
+      max-width: 1200px;
+      padding: 40px 64px;
     }
-    .social-strip-copy {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .social-strip-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(239,237,236,0.5);
-    }
-    .social-strip-headline {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 2.5vw, 32px);
-      font-weight: 900;
-      letter-spacing: 0;
-      text-transform: uppercase;
-      color: var(--cream);
-      line-height: 1;
-    }
-    .social-strip-links {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .social-strip-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+
+    .hs-slim-copy {}
+    .hs-eyebrow {
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .hs-headline {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 900;
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--fg);
+      line-height: var(--lh-display);
+      margin-bottom: 6px;
+    }
+    .hs-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--fg-muted);
+      max-width: 380px;
+    }
+    .hs-form {
+      display: flex;
+      gap: 0;
+    }
+    .hs-form input {
+      width: 280px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      padding: 14px 18px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-right: none;
+      color: var(--fg);
+      outline: none;
+      border-radius: 0;
+    }
+    .hs-form input::placeholder { color: var(--fg-muted); }
+    .hs-form input:focus { border-color: var(--fg-muted); }
+    .hs-form button {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      background: var(--orange);
       color: var(--cream);
-      text-decoration: none;
-      padding: 10px 16px;
-      border: 1px solid rgba(239,237,236,0.25);
-      transition: border-color 0.2s, color 0.2s;
+      border: none;
+      padding: 14px 24px;
+      cursor: pointer;
+      border-radius: 0;
+      transition: background 0.2s;
+      white-space: nowrap;
     }
-    .social-strip-btn:hover { border-color: var(--cream); color: var(--cream); }
-    .social-strip-btn svg { flex-shrink: 0; }
+    .hs-form button:hover { background: #c94e18; }
+    .hs-privacy {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--fg-muted);
+      margin-top: 10px;
+    }
+    .hs-social {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .hs-social-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-right: 4px;
+    }
+    .hs-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      color: var(--fg-muted);
+      transition: color 0.2s;
+    }
+    .hs-social a:hover { color: var(--fg); }
+
+    /* Right: next-up events */
+    .hs-events-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .hs-event-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hs-event-row:first-of-type { border-top: 1px solid var(--border); }
+    .hs-event-when {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hs-event-date {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .hs-event-city {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+    .hs-event-name {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      color: var(--fg);
+      line-height: 1.4;
+    }
+    .hs-events-link {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      margin-top: 16px;
+      transition: opacity 0.2s;
+    }
+    .hs-events-link:hover { opacity: 0.75; }
+
+    /* Mobile */
+    @media (max-width: 960px) {
+      .hero-signup-inner { grid-template-columns: 1fr; gap: 40px; padding: 0 24px; }
+      .hero-signup { padding: 48px 0; }
+    }
+
+    /* Email section: next-up events mini list */
+    .es-next-events {
+      margin-top: 28px;
+      margin-bottom: 28px;
+      border-top: 1px solid rgba(239,237,236,0.15);
+      padding-top: 20px;
+    }
+    .es-next-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.45);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .es-event-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(239,237,236,0.08);
+    }
+    .es-event-row:last-of-type { border-bottom: none; }
+    .es-event-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      white-space: nowrap;
+      min-width: 100px;
+    }
+    .es-event-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: rgba(239,237,236,0.7);
+    }
+    .es-events-link {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      margin-top: 14px;
+      transition: opacity 0.2s;
+    }
+    .es-events-link:hover { opacity: 0.75; }
+
+    /* Social icons row inside email section */
+    .es-social {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(239,237,236,0.15);
+    }
+    .es-social-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      margin-right: 4px;
+    }
+    .es-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      color: rgba(239,237,236,0.5);
+      transition: color 0.2s;
+    }
+    .es-social a:hover { color: var(--cream); }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 960px) {
@@ -2001,8 +2345,7 @@
       section:not(.about-book):not(.hero) { padding: 80px 0; }
 
       .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
-      .social-strip-inner { flex-direction: column; gap: 24px; padding: 0 24px; text-align: center; }
-      .social-strip-links { flex-wrap: wrap; justify-content: center; }
+      .es-social { flex-wrap: wrap; }
     }
 
     @media (max-width: 640px) {
@@ -2045,11 +2388,11 @@
   <nav>
     <a href="/" class="nav-brand">From Presence to Power</a>
     <ul class="nav-links">
-      <li><a href="#book">The Book</a></li>
-      <li><a href="#excerpt">Excerpt</a></li>
-      <li><a href="#rashad">Author</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="media.html">Media</a></li>
+      <li><a href="#book">About the Book</a></li>
+
+      <li><a href="events.html">Upcoming Events</a></li>
+      <li><a href="media.html" target="_blank" rel="noopener">Media</a></li>
+      <li><a href="#rashad">About Rashad</a></li>
       <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
@@ -2100,9 +2443,22 @@
             <span class="hero-meta-label">On Sale</span>
             <span class="hero-meta-value">28 July 2026</span>
           </div>
-          <div class="hero-meta-item">
-            <span class="hero-meta-label">&nbsp;</span>
-            <span class="hero-meta-value">Now accepting pre-orders</span>
+          <div class="hero-meta-item hero-social-row">
+            <span class="hero-meta-label">Follow</span>
+            <div class="hero-social-icons">
+              <a href="https://www.instagram.com/iamrashadrobinson/" target="_blank" rel="noopener" aria-label="Instagram" class="hero-social-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://x.com/rashadrobinson" target="_blank" rel="noopener" aria-label="X / Twitter" class="hero-social-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/rashadny" target="_blank" rel="noopener" aria-label="Facebook" class="hero-social-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/rashadrobinson/" target="_blank" rel="noopener" aria-label="LinkedIn" class="hero-social-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -2119,6 +2475,77 @@
       </div>
     </div>
   </section>
+
+  <!-- EVENTS MARQUEE -->
+  <div class="events-marquee" aria-hidden="true">
+    <div class="events-marquee-track">
+      <!-- Set 1 -->
+      <div class="em-item"><a href="events.html#abc-bookstore"><span class="em-date">Jul 13</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">ABC Bookstore</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#jane-fonda"><span class="em-date">Jul 27</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">With Jane Fonda</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#joy-reid"><span class="em-date">Jul 28</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>DC</span><span class="em-name">With Joy Reid — Politics and Prose</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">Commonwealth Club with Greg Dalton</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">Reparations Club with Lena Waithe</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Aug</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TBD</span><span class="em-name">Book Club Tour</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Sep 13–17</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TBD</span><span class="em-name">CBC Annual Conference</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Oct 7–8</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SEA</span><span class="em-name">Color of Change Summit</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Oct</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MV</span><span class="em-name">Martha's Vineyard African American Film Festival</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Nov</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NOLA</span><span class="em-name">Essence Festival</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Dec</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>BUF</span><span class="em-name">Say It Loud Festival</span></a></div>
+      <span class="em-divider">—</span>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="em-item"><a href="events.html#abc-bookstore"><span class="em-date">Jul 13</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">ABC Bookstore</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#jane-fonda"><span class="em-date">Jul 27</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">With Jane Fonda</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#joy-reid"><span class="em-date">Jul 28</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>DC</span><span class="em-name">With Joy Reid — Politics and Prose</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">Commonwealth Club with Greg Dalton</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">Reparations Club with Lena Waithe</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Aug</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TBD</span><span class="em-name">Book Club Tour</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Sep 13–17</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TBD</span><span class="em-name">CBC Annual Conference</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Oct 7–8</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SEA</span><span class="em-name">Color of Change Summit</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Oct</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MV</span><span class="em-name">Martha's Vineyard African American Film Festival</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Nov</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NOLA</span><span class="em-name">Essence Festival</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html"><span class="em-date">Dec</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>BUF</span><span class="em-name">Say It Loud Festival</span></a></div>
+      <span class="em-divider">—</span>
+    </div>
+  </div>
+
+  <!-- BELOW-HERO SIGNUP -->
+  <div class="hero-signup" id="signup">
+    <div class="hero-signup-inner hero-signup-inner--slim">
+      <div class="hs-slim-copy">
+        <span class="hs-eyebrow">Stay Connected</span>
+        <h2 class="hs-headline">Don&rsquo;t Miss a Moment</h2>
+        <p class="hs-desc">Events, tour footage, and updates directly from Rashad.</p>
+      </div>
+      <div>
+        <form class="hs-form" onsubmit="handleHeroSignup(event)">
+          <input type="email" id="heroSignupEmail" placeholder="Your email address" required>
+          <button type="submit" id="heroSignupBtn">Sign Up</button>
+        </form>
+        <p id="heroSignupSuccess" style="display:none;font-family:var(--font-mono);font-size:12px;color:var(--fg-muted);margin-top:10px;letter-spacing:0.05em;text-transform:uppercase;">You&rsquo;re in &mdash; check your inbox.</p>
+        <p class="hs-privacy">No spam, ever. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- ENDORSEMENT -->
   <div class="endorsement">
@@ -2140,7 +2567,6 @@
   <section class="about-book" id="book">
     <div class="about-book-top">
       <span class="about-book-eyebrow">About the Book</span>
-      <span class="about-book-index">01 &mdash; The Argument</span>
     </div>
     <div class="about-book-body">
       <div class="about-book-main">
@@ -2304,37 +2730,10 @@
           <div class="carousel-dots" id="carouselDots"></div>
           <button class="carousel-btn" id="nextBtn" aria-label="Next">&#8594;</button>
         </div>
+        <a href="endorsements.html" class="carousel-all-link">See all endorsements &rarr;</a>
       </div>
     </div>
   </section>
-
-  <!-- SOCIAL FOLLOW -->
-  <div class="social-strip">
-    <div class="social-strip-inner">
-      <div class="social-strip-copy">
-        <span class="social-strip-eyebrow">Follow the Campaign</span>
-        <span class="social-strip-headline">Follow Rashad Robinson</span>
-      </div>
-      <div class="social-strip-links">
-        <a href="https://www.instagram.com/iamrashadrobinson/" target="_blank" rel="noopener" class="social-strip-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Instagram
-        </a>
-        <a href="https://x.com/rashadrobinson" target="_blank" rel="noopener" class="social-strip-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          X / Twitter
-        </a>
-        <a href="https://www.facebook.com/rashadny" target="_blank" rel="noopener" class="social-strip-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          Facebook
-        </a>
-        <a href="https://www.linkedin.com/in/rashadrobinson/" target="_blank" rel="noopener" class="social-strip-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-      </div>
-    </div>
-  </div>
 
   <!-- HOMEPAGE EVENTS -->
   <section class="home-events" id="events">
@@ -2351,6 +2750,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">27</span>
+            <span class="he-card-city">NYC</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Jane Fonda</h3>
@@ -2366,6 +2766,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">28</span>
+            <span class="he-card-city">DC</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Joy Reid &mdash; Politics and Prose</h3>
@@ -2381,6 +2782,7 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">30</span>
+            <span class="he-card-city">LA</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Reparations Club with Lena Waithe</h3>
@@ -2469,7 +2871,7 @@
           <input type="email" id="stripEmail" class="email-input" placeholder="Your email address" required>
           <button type="submit" class="btn-cream" id="stripBtn">Get Chapter</button>
         </form>
-        <p id="stripSuccess" style="display:none;font-family:var(--font-mono);font-size:12px;color:var(--brown);margin-top:12px;letter-spacing:0.05em;text-transform:uppercase;">You're in — check your inbox.</p>
+        <p id="stripSuccess" style="display:none;font-family:var(--font-mono);font-size:12px;color:var(--brown);margin-top:12px;letter-spacing:0.05em;text-transform:uppercase;">You&rsquo;re in &mdash; check your inbox.</p>
 
         <div class="es-privacy">
           <span class="es-privacy-icon" aria-hidden="true">
@@ -2918,6 +3320,22 @@
     }
 
     // Preorder strip form
+    function handleHeroSignup(e) {
+      e.preventDefault();
+      const email = document.getElementById('heroSignupEmail').value.trim();
+      const btn = document.getElementById('heroSignupBtn');
+      const success = document.getElementById('heroSignupSuccess');
+      btn.disabled = true;
+      btn.textContent = '...';
+      subscribeToKit(email, () => {
+        btn.closest('.hs-form').style.display = 'none';
+        success.style.display = 'block';
+      }, () => {
+        btn.disabled = false;
+        btn.textContent = 'Sign Up';
+      });
+    }
+
     function handleStripSubmit(e) {
       e.preventDefault();
       const email = document.getElementById('stripEmail').value.trim();
