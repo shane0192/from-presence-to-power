@@ -889,8 +889,9 @@
       margin: 0 auto;
       padding: 0 48px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
     }
 
     .carousel-all-link {
@@ -2018,6 +2019,15 @@
     @media (max-width: 960px) {
       .hero-signup-inner { grid-template-columns: 1fr; gap: 40px; padding: 0 24px; }
       .hero-signup { padding: 48px 0; }
+      .hero-signup-inner--slim {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 36px 24px;
+      }
+      .hs-form input { width: 100%; }
+      .hs-form { width: 100%; }
+      .hs-form button { flex-shrink: 0; }
     }
 
     /* Email section: next-up events mini list */
@@ -2360,6 +2370,9 @@
       .about-book-actions { flex-direction: column; }
       .ar-actions { display: flex; flex-direction: column; align-items: stretch; }
       .ar-actions a { width: 100%; justify-content: center; text-align: center; box-sizing: border-box; }
+      .popup-form { flex-direction: column; }
+      .popup-input { width: 100%; }
+      .popup-btn { width: 100%; justify-content: center; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/bundled/locomotive-scroll.css">
