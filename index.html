@@ -395,6 +395,46 @@
       min-height: 0;
     }
 
+    .hero-preorder-badge {
+      position: absolute;
+      top: 0;
+      right: 40px;
+      z-index: 10;
+      width: 108px;
+      background: var(--orange);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 83%, 0 100%);
+      padding: 22px 16px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .hero-preorder-badge:hover { opacity: 0.9; }
+
+    .hero-preorder-top {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .hero-preorder-bottom {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 0.9;
+      text-align: center;
+    }
+
     .hero-author-img {
       width: 100%;
       height: 100%;
@@ -2529,6 +2569,10 @@
     </div>
 
     <div class="hero-right">
+      <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="hero-preorder-badge" aria-label="Pre-order the book">
+        <span class="hero-preorder-top">Preorder</span>
+        <span class="hero-preorder-bottom">Now</span>
+      </a>
       <img src="images/rashad-portrait-hand.jpg" alt="Rashad Robinson" class="hero-author-img">
       <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="hero-promo-bar" style="text-decoration:none;cursor:pointer;">
         <div class="hero-promo-text">
