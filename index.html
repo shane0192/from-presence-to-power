@@ -863,7 +863,33 @@
       max-width: 1200px;
       margin: 0 auto 56px;
       padding: 0 48px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
     }
+
+    .testimonials-header-copy {}
+
+    .testimonials-all-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 12px 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .testimonials-all-link:hover { border-color: var(--fg); background: rgba(40,29,29,0.04); }
 
     .carousel-wrapper {
       overflow: hidden;
@@ -1752,8 +1778,32 @@
     .events-marquee {
       background: var(--cream);
       border-top: 1px solid var(--border);
-      overflow: hidden;
       height: 64px;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .em-label-col {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      border-right: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .em-label-text {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .em-scroll-col {
+      flex: 1;
+      overflow: hidden;
       display: flex;
       align-items: center;
     }
@@ -1762,7 +1812,7 @@
       display: flex;
       align-items: center;
       white-space: nowrap;
-      animation: marquee-scroll 60s linear infinite;
+      animation: marquee-scroll 40s linear infinite;
     }
 
     .events-marquee-track:hover { animation-play-state: paused; }
@@ -2334,6 +2384,7 @@
       .pull-quote-body { grid-template-columns: 1fr; }
       .pull-quote-side { display: none; }
       .pull-quote-inner { padding: 48px 24px; }
+      .pull-quote-footer { padding: 20px 24px; }
 
       /* Praise / carousel */
       .testimonials { overflow: hidden; max-width: 100vw; padding: 64px 0; }
@@ -2404,7 +2455,7 @@
       <li><a href="#book">About the Book</a></li>
 
       <li><a href="events.html">Upcoming Events</a></li>
-      <li><a href="media.html" target="_blank" rel="noopener">Media</a></li>
+      <li><a href="media.html" target="_blank" rel="noopener">Press</a></li>
       <li><a href="#rashad">About Rashad</a></li>
       <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
     </ul>
@@ -2418,10 +2469,10 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a href="#book">The Book</a>
-    <a href="#excerpt">Excerpt</a>
+    <a href="#preorder-strip">Get the First Chapter</a>
     <a href="#rashad">Author</a>
     <a href="events.html">Events</a>
-    <a href="media.html">Media</a>
+    <a href="media.html">Press</a>
     <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
   </div>
 
@@ -2449,12 +2500,12 @@
         <p class="hero-body">A practical guide for real change &mdash; built from two decades on the front lines. For organizers, donors, and anyone tired of feeling powerful instead of being powerful.</p>
         <div class="hero-actions" style="margin-top: 20px; margin-bottom: 28px;">
           <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
-          <a href="#excerpt" class="btn-secondary" id="excerpt">Read an Excerpt</a>
+          <a href="#preorder-strip" class="btn-secondary">Get the First Chapter</a>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-item">
             <span class="hero-meta-label">On Sale</span>
-            <span class="hero-meta-value">28 July 2026</span>
+            <span class="hero-meta-value">July 28, 2026</span>
           </div>
           <div class="hero-meta-item hero-social-row">
             <span class="hero-meta-label">Follow</span>
@@ -2479,19 +2530,23 @@
 
     <div class="hero-right">
       <img src="images/rashad-portrait-hand.jpg" alt="Rashad Robinson" class="hero-author-img">
-      <div class="hero-promo-bar">
+      <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="hero-promo-bar" style="text-decoration:none;cursor:pointer;">
         <div class="hero-promo-text">
           <p class="hero-promo-eyebrow">A new book by Rashad Robinson</p>
           <p class="hero-promo-title">From Presence<br>to Power</p>
         </div>
         <img src="images/book-mockup-front.png" alt="From Presence to Power" class="hero-promo-cover">
-      </div>
+      </a>
     </div>
   </section>
 
   <!-- EVENTS MARQUEE -->
   <div class="events-marquee" aria-hidden="true">
-    <div class="events-marquee-track">
+    <div class="em-label-col">
+      <span class="em-label-text">Upcoming Events</span>
+    </div>
+    <div class="em-scroll-col">
+      <div class="events-marquee-track">
       <!-- Set 1 -->
       <div class="em-item"><a href="events.html#abc-bookstore"><span class="em-date">Jul 13</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">ABC Bookstore</span></a></div>
       <span class="em-divider">—</span>
@@ -2502,18 +2557,6 @@
       <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">Commonwealth Club with Greg Dalton</span></a></div>
       <span class="em-divider">—</span>
       <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">Reparations Club with Lena Waithe</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Aug</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TBD</span><span class="em-name">Book Club Tour</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Sep 13–17</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TBD</span><span class="em-name">CBC Annual Conference</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Oct 7–8</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SEA</span><span class="em-name">Color of Change Summit</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Oct</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MV</span><span class="em-name">Martha's Vineyard African American Film Festival</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Nov</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NOLA</span><span class="em-name">Essence Festival</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Dec</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>BUF</span><span class="em-name">Say It Loud Festival</span></a></div>
       <span class="em-divider">—</span>
       <!-- Set 2 (duplicate for seamless loop) -->
       <div class="em-item"><a href="events.html#abc-bookstore"><span class="em-date">Jul 13</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">ABC Bookstore</span></a></div>
@@ -2526,22 +2569,11 @@
       <span class="em-divider">—</span>
       <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">Reparations Club with Lena Waithe</span></a></div>
       <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Aug</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TBD</span><span class="em-name">Book Club Tour</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Sep 13–17</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>TBD</span><span class="em-name">CBC Annual Conference</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Oct 7–8</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SEA</span><span class="em-name">Color of Change Summit</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Oct</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MV</span><span class="em-name">Martha's Vineyard African American Film Festival</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Nov</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NOLA</span><span class="em-name">Essence Festival</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html"><span class="em-date">Dec</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>BUF</span><span class="em-name">Say It Loud Festival</span></a></div>
-      <span class="em-divider">—</span>
+    </div>
     </div>
   </div>
 
-  <!-- BELOW-HERO SIGNUP -->
+    <!-- BELOW-HERO SIGNUP -->
   <div class="hero-signup" id="signup">
     <div class="hero-signup-inner hero-signup-inner--slim">
       <div class="hs-slim-copy">
@@ -2589,7 +2621,7 @@
         </div>
         <div class="about-book-actions">
           <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary-dark">Pre-order the Book</a>
-          <a href="#excerpt" class="btn-outline-light">Get the First Chapter</a>
+          <a href="#preorder-strip" class="btn-outline-light">Get the First Chapter</a>
         </div>
       </div>
       <div class="about-book-card">
@@ -2622,6 +2654,12 @@
 
   <!-- TESTIMONIALS -->
   <section class="testimonials" id="praise">
+    <div class="testimonials-header">
+      <div class="testimonials-header-copy">
+        <span class="section-eyebrow" style="display:block;margin-bottom:8px;">What people are saying</span>
+      </div>
+      <a href="endorsements.html" class="testimonials-all-link">Read all endorsements &rarr;</a>
+    </div>
     <div class="carousel-wrapper">
       <div class="carousel-track-outer">
         <div class="carousel-track" id="carouselTrack">
@@ -2743,7 +2781,6 @@
           <div class="carousel-dots" id="carouselDots"></div>
           <button class="carousel-btn" id="nextBtn" aria-label="Next">&#8594;</button>
         </div>
-        <a href="endorsements.html" class="carousel-all-link">See all endorsements &rarr;</a>
       </div>
     </div>
   </section>
@@ -2827,7 +2864,7 @@
 
       <div class="ar-body">
         <div class="ar-image">
-          <img src="images/rashad-full-body.jpg" alt="Rashad Robinson">
+          <img src="images/rashad-burgundy-suit.jpg" alt="Rashad Robinson">
         </div>
         <div class="ar-text">
           <p>He&rsquo;s taken on tech giants and the criminal justice system, politicians in Washington and corporate executives in Hollywood. He&rsquo;s been on the front lines of protest and in the back rooms of negotiation.</p>
@@ -2839,7 +2876,7 @@
           </div>
         </div>
         <div class="ar-image-secondary">
-          <img src="images/rashad-portrait-hand.jpg" alt="Rashad Robinson">
+          <img src="images/rashad-photo-2.jpg" alt="Rashad Robinson">
 </div>
       </div>
 
@@ -2851,7 +2888,7 @@
     <div class="email-signup-inner">
       <div class="es-book">
         <div class="es-book-halo" aria-hidden="true"></div>
-        <img src="images/book-mock.png" alt="From Presence to Power book cover">
+        <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener"><img src="images/book-mock.png" alt="From Presence to Power book cover" style="display:block;"></a>
       </div>
       <div class="es-content">
         <span class="es-label">Get the First Chapter</span>

@@ -484,8 +484,87 @@
       .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
     }
 
+    /* Hamburger toggle */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      border-radius: 50%;
+      transition: background 0.3s ease, box-shadow 0.3s ease,
+                  width 0.3s ease, height 0.3s ease;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--fg);
+      transition: transform 0.25s, opacity 0.25s, background 0.2s;
+    }
+    nav.scrolled .nav-toggle {
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      box-shadow: 0 8px 24px rgba(40,29,29,0.22);
+      width: 48px;
+      height: 48px;
+    }
+    nav.scrolled .nav-toggle span { background: var(--cream) !important; box-shadow: none !important; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu panel */
+    .mobile-menu {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 99;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); }
+    .mobile-menu a {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu-cta {
+      margin-top: 12px;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream-2) !important;
+      padding: 16px 20px !important;
+      text-align: center;
+    }
+
     @media (max-width: 640px) {
       .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      nav.scrolled { background: transparent; border-bottom-color: transparent; }
+      nav.scrolled .nav-brand { opacity: 0; visibility: hidden; }
+      nav.menu-open { background: var(--cream); border-bottom: 1px solid var(--border); }
+      nav.menu-open .nav-brand { opacity: 1; visibility: visible; }
+      nav.menu-open .nav-toggle span { background: var(--fg); box-shadow: none; }
     }
   </style>
 </head>
@@ -496,13 +575,26 @@
     <a href="index.html" class="nav-brand">From Presence to Power</a>
     <ul class="nav-links">
       <li><a href="index.html#book">About the Book</a></li>
-
       <li><a href="events.html" class="active">Upcoming Events</a></li>
-      <li><a href="media.html" target="_blank" rel="noopener">Media</a></li>
+      <li><a href="media.html" target="_blank" rel="noopener">Press</a></li>
       <li><a href="index.html#rashad">About Rashad</a></li>
       <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="index.html#book">About the Book</a>
+    <a href="events.html">Events</a>
+    <a href="media.html">Press</a>
+    <a href="index.html#rashad">About Rashad</a>
+    <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
+  </div>
 
   <!-- HERO -->
   <div class="events-hero">
@@ -759,6 +851,42 @@
         btn.textContent = 'Notify Me';
       }
     }
+  </script>
+
+  <script>
+    // Scrolled nav state
+    (function() {
+      const navEl = document.querySelector('nav');
+      if (!navEl) return;
+      const SCROLL_THRESHOLD = 80;
+      let lastState = false;
+      function check() {
+        const y = window.scrollY || window.pageYOffset || 0;
+        const scrolled = y > SCROLL_THRESHOLD;
+        if (scrolled !== lastState) { navEl.classList.toggle('scrolled', scrolled); lastState = scrolled; }
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      check();
+    })();
+
+    // Mobile menu toggle
+    (function() {
+      const toggle = document.getElementById('navToggle');
+      const menu = document.getElementById('mobileMenu');
+      const navEl = document.querySelector('nav');
+      if (!toggle || !menu) return;
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+        menu.classList.toggle('open', open);
+        navEl.classList.toggle('menu-open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    })();
   </script>
 
 </body>
