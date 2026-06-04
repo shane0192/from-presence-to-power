@@ -681,10 +681,61 @@
       line-height: 1.6;
       color: rgba(239,237,236,0.6);
       max-width: 560px;
-      margin-bottom: 48px;
+      margin-bottom: 0;
     }
 
+    .ab-expand {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      max-width: 560px;
+    }
+
+    .ab-expand.open { max-height: 1200px; }
+
+    .ab-expand p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(239,237,236,0.55);
+      margin-top: 16px;
+    }
+
+    .ab-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      margin-bottom: 32px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .ab-toggle:hover { opacity: 1; }
+
+    .ab-toggle-icon {
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .ab-toggle.open .ab-toggle-icon { transform: rotate(180deg); }
+
     .about-book-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
@@ -2660,8 +2711,22 @@
     <div class="about-book-body">
       <div class="about-book-main">
         <div>
-          <h2 class="about-book-statement" data-reveal data-reveal-color="#281D1D">We&rsquo;re in a moment<br>that demands more<br>than showing up.</h2>
-          <p class="about-book-lede">Understanding how power actually works&mdash;and how to build it&mdash;is the difference that separates movements that win from movements that stall. This is the practical guide for anyone who wants to understand power, build it, and use it to win.</p>
+          <h2 class="about-book-statement" data-reveal data-reveal-color="#281D1D">This book is for everyone who wants to win change&mdash;and is tired of losing.</h2>
+          <p class="about-book-lede"><em>From Presence to Power</em> is a uniquely practical and strategic roadmap for understanding how power actually works today&mdash;and for gaining power and using it for good.</p>
+          <p class="about-book-lede" style="margin-top:16px;">The book answers the questions so many people have been asking: Why are we losing so much? In order to win the big changes we want to see, what do we need to change about the ways we fight back? When we do win something, how can we make sure it lasts?</p>
+
+          <div class="ab-expand" id="abExpand" aria-hidden="true">
+            <p><em>From Presence to Power</em> has already been called &ldquo;a master class in real activism&rdquo; and &ldquo;a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.&rdquo; It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
+            <p>It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
+            <p>Rashad Robinson is a two-decade social justice leader whose strategies have led to real wins in the realms of racial justice, LGBT rights and more. In this book, he shows clearly why some fights for change stall while others succeed.</p>
+            <p><em>From Presence to Power</em> takes readers on a journey to becoming more powerful&mdash;individually and collectively. Rashad outlines ten core principles for making change in today&rsquo;s era that are too often ignored, rooted in fresh insights, revealing examples and behind-the-scenes accounts drawn from the frontlines of social change. He offers readers in-depth accounts of taking on Mark Zuckerberg and Big Tech, Hollywood, and the political establishment, and of breaking through on criminal justice reform by helping to launch the progressive prosecutor movement&mdash;all of which are instructive for taking on those who profit from injustice today. Rashad also provides exercises readers can go through on their own: tangible, practical tools for helping readers become more effective and powerful themselves.</p>
+            <p>Rashad wrote this book for a simple reason: In order for our movements to win, we need to raise our strategy game. That means we need shared language, sharper tools, and more strategic frameworks for thinking about power&mdash;and a deeper analysis of what we&rsquo;re getting right and wrong when we fight for the causes we believe in. This book is his way of putting those resources in the hands of people working at all levels of social change.</p>
+          </div>
+
+          <button class="ab-toggle" id="abToggle" onclick="toggleAbout()" aria-expanded="false">
+            <span class="ab-toggle-text">Read more</span>
+            <svg class="ab-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
         <div class="about-book-actions">
           <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary-dark">Pre-order the Book</a>
@@ -3463,6 +3528,18 @@
         btn.textContent = 'Get the Chapter';
         input.insertAdjacentHTML('afterend', '<span style="font-family:var(--font-mono);font-size:11px;color:#c0392b;display:block;margin-top:6px;">Something went wrong — try again.</span>');
       });
+    }
+
+    function toggleAbout() {
+      const expand = document.getElementById('abExpand');
+      const toggle = document.getElementById('abToggle');
+      const text = toggle.querySelector('.ab-toggle-text');
+      const isOpen = expand.classList.contains('open');
+      expand.classList.toggle('open', !isOpen);
+      expand.setAttribute('aria-hidden', isOpen);
+      toggle.classList.toggle('open', !isOpen);
+      toggle.setAttribute('aria-expanded', !isOpen);
+      text.textContent = isOpen ? 'Read more' : 'Read less';
     }
   </script>
 </body>
