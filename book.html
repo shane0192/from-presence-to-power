@@ -220,6 +220,51 @@
       font-weight: 600;
     }
 
+    /* ── CALLOUTS ── */
+    .book-callouts {
+      background: var(--brown);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .book-callout {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      border-right: 1px solid rgba(239,237,236,0.1);
+    }
+
+    .book-callout:last-child { border-right: none; }
+
+    .book-callout-mark {
+      font-family: var(--font-display);
+      font-size: 96px;
+      font-weight: 900;
+      line-height: 0.6;
+      color: var(--orange);
+      user-select: none;
+    }
+
+    .book-callout-quote {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .book-callout-attr {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 8px;
+    }
+
     /* ── EMAIL SIGNUP ── */
     .email-signup {
       background: var(--cream);
@@ -367,6 +412,9 @@
       .book-hero { grid-template-columns: 1fr; min-height: auto; }
       .book-hero-text { padding: 64px 24px; }
       .book-hero-image { min-height: 280px; border-left: none; border-top: 1px solid var(--border); }
+      .book-callouts { grid-template-columns: 1fr; }
+      .book-callout { padding: 56px 24px; border-right: none; border-bottom: 1px solid rgba(239,237,236,0.1); }
+      .book-callout:last-child { border-bottom: none; }
       .book-about { grid-template-columns: 1fr; gap: 32px; padding: 64px 24px; }
       .cta-strip-inner { flex-direction: column; gap: 32px; padding: 64px 24px; }
       .email-signup { padding: 64px 0; }
@@ -501,6 +549,20 @@
     </div>
     <div class="book-hero-image">
       <img src="images/book-mock.png" alt="From Presence to Power book cover">
+    </div>
+  </div>
+
+  <!-- CALLOUTS -->
+  <div class="book-callouts">
+    <div class="book-callout">
+      <span class="book-callout-mark">&ldquo;</span>
+      <p class="book-callout-quote">A master class<br>in real activism</p>
+      <span class="book-callout-attr">Heather McGhee &mdash; Author, The Sum of Us</span>
+    </div>
+    <div class="book-callout">
+      <span class="book-callout-mark">&ldquo;</span>
+      <p class="book-callout-quote">A must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results</p>
+      <span class="book-callout-attr">Anthony D. Romero &mdash; Executive Director, ACLU</span>
     </div>
   </div>
 
