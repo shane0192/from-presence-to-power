@@ -222,31 +222,35 @@
 
     /* ── PULL QUOTE ── */
     .pull-quote {
-      border-top: 2px solid var(--orange);
-      border-bottom: 1px solid var(--border);
-      padding: 32px 0;
+      background: var(--brown);
+      padding: 96px 64px;
+      text-align: center;
+    }
+
+    .pull-quote-inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .pull-quote-mark {
+      font-family: var(--font-display);
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 0.5;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 24px;
+      user-select: none;
     }
 
     .pull-quote-text {
       font-family: var(--font-display);
-      font-size: clamp(26px, 2.8vw, 40px);
+      font-size: clamp(36px, 4.5vw, 64px);
       font-weight: 900;
-      line-height: 1.0;
+      line-height: 0.96;
       letter-spacing: var(--ls-display);
       text-transform: uppercase;
-      color: var(--fg);
-    }
-
-    .pull-quote-text::before {
-      content: '\201C';
-      color: var(--orange);
-      margin-right: 2px;
-    }
-
-    .pull-quote-text::after {
-      content: '\201D';
-      color: var(--orange);
-      margin-left: 2px;
+      color: var(--cream);
     }
 
     .pull-quote-attr {
@@ -255,8 +259,8 @@
       font-size: 11px;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
-      color: var(--orange);
-      margin-top: 14px;
+      color: rgba(239,237,236,0.45);
+      margin-top: 32px;
     }
 
     /* ── EMAIL SIGNUP ── */
@@ -407,6 +411,7 @@
       .book-hero-text { padding: 64px 24px; }
       .book-hero-image { min-height: 280px; border-left: none; border-top: 1px solid var(--border); }
       .book-about { grid-template-columns: 1fr; gap: 32px; padding: 64px 24px; }
+      .pull-quote { padding: 64px 24px; }
       .cta-strip-inner { flex-direction: column; gap: 32px; padding: 64px 24px; }
       .email-signup { padding: 64px 0; }
       .email-signup-inner { padding: 0 24px; max-width: 440px; grid-template-columns: 1fr; gap: 32px; }
@@ -543,7 +548,7 @@
     </div>
   </div>
 
-  <!-- WHAT THIS BOOK IS ABOUT -->
+  <!-- WHAT THIS BOOK IS ABOUT — PART 1 -->
   <div class="book-about">
     <div class="book-about-label">
       <span class="book-about-eyebrow">What This<br>Book Is About</span>
@@ -552,20 +557,40 @@
     <div class="book-about-body">
       <p>The book answers the questions so many people have been asking: Why are we losing so much? In order to win the big changes we want to see, what do we need to change about the ways we fight back? When we do win something, how can we make sure it lasts?</p>
       <p><em>From Presence to Power</em> has already been called a master class in real activism and a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results. It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
+    </div>
+  </div>
 
-      <blockquote class="pull-quote">
-        <p class="pull-quote-text">A master class in real activism</p>
-        <span class="pull-quote-attr">Heather McGhee &mdash; Author, The Sum of Us</span>
-      </blockquote>
+  <!-- PULL QUOTE 1 -->
+  <div class="pull-quote">
+    <div class="pull-quote-inner">
+      <span class="pull-quote-mark">&ldquo;</span>
+      <p class="pull-quote-text">A master class in real activism</p>
+      <span class="pull-quote-attr">Heather McGhee &mdash; Author, The Sum of Us</span>
+    </div>
+  </div>
 
+  <!-- WHAT THIS BOOK IS ABOUT — PART 2 -->
+  <div class="book-about">
+    <div class="book-about-label"></div>
+    <div class="book-about-body">
       <p>It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
       <p>Rashad Robinson is a two-decade social justice leader whose strategies have led to real wins in the realms of racial justice, LGBT rights and more. In this book, he shows clearly why some fights for change stall while others succeed.</p>
+    </div>
+  </div>
 
-      <blockquote class="pull-quote">
-        <p class="pull-quote-text">A must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results</p>
-        <span class="pull-quote-attr">Anthony D. Romero &mdash; Executive Director, ACLU</span>
-      </blockquote>
+  <!-- PULL QUOTE 2 -->
+  <div class="pull-quote">
+    <div class="pull-quote-inner">
+      <span class="pull-quote-mark">&ldquo;</span>
+      <p class="pull-quote-text">A must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results</p>
+      <span class="pull-quote-attr">Anthony D. Romero &mdash; Executive Director, ACLU</span>
+    </div>
+  </div>
 
+  <!-- WHAT THIS BOOK IS ABOUT — PART 3 -->
+  <div class="book-about" style="border-bottom: none;">
+    <div class="book-about-label"></div>
+    <div class="book-about-body">
       <p><em>From Presence to Power</em> takes readers on a journey to becoming more powerful&mdash;individually and collectively. Rashad outlines ten core principles for making change in today&rsquo;s era that are too often ignored, rooted in fresh insights, revealing examples and behind-the-scenes accounts drawn from the frontlines of social change. He offers readers in-depth accounts of taking on Mark Zuckerberg and Big Tech, Hollywood, and the political establishment, and of breaking through on criminal justice reform by helping to launch the progressive prosecutor movement&mdash;all of which are instructive for taking on those who profit from injustice today.</p>
       <p>Rashad wrote this book for a simple reason: In order for our movements to win, we need to raise our strategy game. That means we need shared language, sharper tools, and more strategic frameworks for thinking about power&mdash;and a deeper analysis of what we&rsquo;re getting right and wrong when we fight for the causes we believe in. This book is his way of putting those resources in the hands of people working at all levels of social change.</p>
     </div>
