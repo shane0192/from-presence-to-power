@@ -98,155 +98,191 @@
 
     .nav-cta:hover { opacity: 0.85 !important; }
 
-    /* ── HERO ── */
-    .page-hero {
+    /* ── BOOK HERO ── */
+    .book-hero {
       padding-top: 60px;
       border-bottom: 1px solid var(--border);
-      background: var(--brown);
-      display: flex;
-      align-items: flex-end;
-      min-height: 32vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .page-hero-left {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      justify-content: space-between;
-      padding: 48px 64px;
-      gap: 48px;
-    }
-
-    .page-hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: var(--ls-eyebrow);
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 20px;
-    }
-
-    .page-hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(48px, 5vw, 72px);
-      font-weight: 900;
-      line-height: var(--lh-display);
-      letter-spacing: var(--ls-display);
-      text-transform: uppercase;
-      color: var(--cream);
-    }
-
-    .page-hero-sub {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(239,237,236,0.45);
-      white-space: nowrap;
-      padding-bottom: 8px;
-    }
-
-    .page-hero-book-img {
-      position: absolute;
-      right: 64px;
-      bottom: 0;
-      height: 110%;
-      width: auto;
-      object-fit: contain;
-      object-position: bottom;
-    }
-
-    /* ── ENDORSEMENTS GRID ── */
-    .endorsements-section {
-      padding: 96px 0;
-    }
-
-    .endorsements-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 64px;
-    }
-
-    .endorsements-count {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: var(--ls-eyebrow);
-      text-transform: uppercase;
-      color: var(--fg-muted);
-      display: block;
-      margin-bottom: 64px;
-    }
-
-    .endorsements-grid {
+      background: var(--cream);
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0;
+      grid-template-columns: 1fr 1fr;
+      min-height: 72vh;
+      overflow: hidden;
     }
 
-    /* ── ENDORSEMENT CARD ── */
-    .endorse-card {
-      border: 1px solid var(--border);
-      margin-top: -1px;
-      margin-left: -1px;
-      padding: 48px;
+    .book-hero-text {
       display: flex;
       flex-direction: column;
-      gap: 28px;
-      position: relative;
-      transition: background 0.2s;
+      justify-content: center;
+      padding: 80px 64px 80px 64px;
     }
 
-    .endorse-card:hover {
-      background: rgba(229, 95, 29, 0.03);
-      z-index: 1;
-    }
-
-    .endorse-quote-mark {
-      font-family: var(--font-display);
-      font-size: 80px;
-      font-weight: 900;
-      line-height: 0.7;
+    .book-hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
       color: var(--orange);
-      opacity: 0.25;
-      user-select: none;
+      margin-bottom: 24px;
+    }
+
+    .book-hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 5.5vw, 84px);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .book-hero-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--orange);
+      border: none;
+      margin: 32px 0;
+    }
+
+    .book-hero-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--fg-muted);
+      max-width: 420px;
+    }
+
+    .book-hero-image {
+      background: var(--tan);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      border-left: 1px solid var(--border);
+    }
+
+    .book-hero-image img {
+      width: 80%;
+      max-width: 360px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* ── QUESTIONS ── */
+    .book-questions {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .book-questions-header {
+      padding: 64px 64px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .book-questions-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      display: block;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .book-questions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    .book-question-col {
+      padding: 56px 48px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .book-question-col:last-child { border-right: none; }
+
+    .book-question-q {
+      font-family: var(--font-body);
+      font-size: clamp(20px, 2vw, 26px);
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--fg);
+      margin-bottom: 0;
+    }
+
+    .book-question-rule {
+      width: 36px;
+      height: 2px;
+      background: var(--orange);
+      border: none;
+      margin: 24px auto;
       flex-shrink: 0;
     }
 
-    .endorse-text {
+    .book-question-a {
       font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.75;
-      color: var(--fg);
-      flex: 1;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--fg-muted);
+      max-width: 220px;
     }
 
-    .endorse-attribution {
-      border-top: 1px solid var(--border);
-      padding-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    /* ── ABOUT SECTION ── */
+    .book-about {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 96px 64px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .endorse-name {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      color: var(--fg);
+    .book-about-label {
+      padding-top: 4px;
     }
 
-    .endorse-title {
+    .book-about-eyebrow {
       font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: 0.06em;
+      letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
-      color: var(--fg-muted);
+      color: var(--orange);
       line-height: 1.5;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .book-about-rule {
+      width: 36px;
+      height: 2px;
+      background: var(--orange);
+      border: none;
+    }
+
+    .book-about-body {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .book-about-body p {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--fg-muted);
+    }
+
+    .book-about-body p strong {
+      color: var(--fg);
+      font-weight: 600;
     }
 
     /* ── CTA STRIP ── */
@@ -353,16 +389,16 @@
     .footer-links a:hover { opacity: 1; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-      .endorsements-grid { grid-template-columns: 1fr; }
-      .endorse-card { margin-left: 0; }
-    }
-
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
-      .page-hero { grid-template-columns: 1fr; }
-      .page-hero-left, .page-hero-right { padding: 48px 24px; }
-      .endorsements-inner { padding: 0 24px; }
+      .book-hero { grid-template-columns: 1fr; min-height: auto; }
+      .book-hero-text { padding: 64px 24px; }
+      .book-hero-image { min-height: 280px; border-left: none; border-top: 1px solid var(--border); }
+      .book-questions-header { padding: 48px 24px 0; }
+      .book-questions-grid { grid-template-columns: 1fr; }
+      .book-question-col { border-right: none; border-bottom: 1px solid var(--border); padding: 40px 24px; }
+      .book-question-col:last-child { border-bottom: none; }
+      .book-about { grid-template-columns: 1fr; gap: 32px; padding: 64px 24px; }
       .cta-strip-inner { flex-direction: column; gap: 32px; padding: 64px 24px; }
       .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
     }
@@ -482,30 +518,56 @@
   </div>
 
   <!-- HERO -->
-  <div class="page-hero">
-    <div class="page-hero-left">
-      <h1 class="page-hero-title">From Presence<br>to Power</h1>
-      <span class="page-hero-sub">Rashad Robinson &mdash; The Book</span>
+  <div class="book-hero">
+    <div class="book-hero-text">
+      <span class="book-hero-eyebrow">About the Book</span>
+      <h1 class="book-hero-headline">A Practical<br>Roadmap for<br>Real Change</h1>
+      <hr class="book-hero-rule">
+      <p class="book-hero-body"><em>From Presence to Power</em> is a uniquely practical and strategic roadmap for understanding how power actually works today&mdash;and for gaining power and using it for good.</p>
     </div>
-    <img src="images/book-mockup-front.png" alt="From Presence to Power book cover" class="page-hero-book-img">
+    <div class="book-hero-image">
+      <img src="images/book-mockup-angled.png" alt="From Presence to Power book cover">
+    </div>
   </div>
 
-  <!-- ENDORSEMENTS -->
-  <section class="endorsements-section">
-    <div class="endorsements-inner" style="max-width:800px;">
-
-      <div style="display:flex;flex-direction:column;gap:24px;font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--fg-muted);">
-        <p><em>From Presence to Power</em> is a uniquely practical and strategic roadmap for understanding how power actually works today&mdash;and for gaining power and using it for good.</p>
-        <p>The book answers the questions so many people have been asking: Why are we losing so much? In order to win the big changes we want to see, what do we need to change about the ways we fight back? When we do win something, how can we make sure it lasts?</p>
-        <p><em>From Presence to Power</em> has already been called &ldquo;a master class in real activism&rdquo; and &ldquo;a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.&rdquo; It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
-        <p>It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
-        <p>Rashad Robinson is a two-decade social justice leader whose strategies have led to real wins in the realms of racial justice, LGBT rights and more. In this book, he shows clearly why some fights for change stall while others succeed.</p>
-        <p><em>From Presence to Power</em> takes readers on a journey to becoming more powerful&mdash;individually and collectively. Rashad outlines ten core principles for making change in today&rsquo;s era that are too often ignored, rooted in fresh insights, revealing examples and behind-the-scenes accounts drawn from the frontlines of social change. He offers readers in-depth accounts of taking on Mark Zuckerberg and Big Tech, Hollywood, and the political establishment, and of breaking through on criminal justice reform by helping to launch the progressive prosecutor movement&mdash;all of which are instructive for taking on those who profit from injustice today.</p>
-        <p>Rashad wrote this book for a simple reason: In order for our movements to win, we need to raise our strategy game. That means we need shared language, sharper tools, and more strategic frameworks for thinking about power&mdash;and a deeper analysis of what we&rsquo;re getting right and wrong when we fight for the causes we believe in. This book is his way of putting those resources in the hands of people working at all levels of social change.</p>
-      </div>
-
+  <!-- QUESTIONS -->
+  <div class="book-questions">
+    <div class="book-questions-header">
+      <span class="book-questions-eyebrow">The Questions This Book Answers</span>
     </div>
-  </section>
+    <div class="book-questions-grid">
+      <div class="book-question-col">
+        <p class="book-question-q">Why are we<br>losing so much?</p>
+        <hr class="book-question-rule">
+        <p class="book-question-a">In order to win the big changes we want to see, what do we need to change about the ways we fight back?</p>
+      </div>
+      <div class="book-question-col">
+        <p class="book-question-q">When we do win<br>something,</p>
+        <hr class="book-question-rule">
+        <p class="book-question-a">how can we make<br>sure it lasts?</p>
+      </div>
+      <div class="book-question-col">
+        <p class="book-question-q">What does it take<br>to win the fights<br>that really matter?</p>
+        <hr class="book-question-rule">
+        <p class="book-question-a">And how do we build the power we need to get there?</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT THIS BOOK IS ABOUT -->
+  <div class="book-about">
+    <div class="book-about-label">
+      <span class="book-about-eyebrow">What This<br>Book Is About</span>
+      <hr class="book-about-rule">
+    </div>
+    <div class="book-about-body">
+      <p><em>From Presence to Power</em> has already been called &ldquo;<strong>a master class in real activism</strong>&rdquo; and &ldquo;<strong>a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.</strong>&rdquo; It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
+      <p>It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
+      <p>Rashad Robinson is a two-decade social justice leader whose strategies have led to real wins in the realms of racial justice, LGBT rights and more. In this book, he shows clearly why some fights for change stall while others succeed.</p>
+      <p><em>From Presence to Power</em> takes readers on a journey to becoming more powerful&mdash;individually and collectively. Rashad outlines ten core principles for making change in today&rsquo;s era that are too often ignored, rooted in fresh insights, revealing examples and behind-the-scenes accounts drawn from the frontlines of social change. He offers readers in-depth accounts of taking on Mark Zuckerberg and Big Tech, Hollywood, and the political establishment, and of breaking through on criminal justice reform by helping to launch the progressive prosecutor movement&mdash;all of which are instructive for taking on those who profit from injustice today.</p>
+      <p>Rashad wrote this book for a simple reason: In order for our movements to win, we need to raise our strategy game. That means we need shared language, sharper tools, and more strategic frameworks for thinking about power&mdash;and a deeper analysis of what we&rsquo;re getting right and wrong when we fight for the causes we believe in. This book is his way of putting those resources in the hands of people working at all levels of social change.</p>
+    </div>
+  </div>
 
   <!-- CTA STRIP -->
   <div class="cta-strip">
