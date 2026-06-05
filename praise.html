@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praise — From Presence to Power</title>
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="apple-touch-icon" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --tan:          #DAD6CB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+      --ls-display:   -0.022em;
+      --ls-eyebrow:   0.32em;
+      --lh-display:   0.94;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+
+    .nav-cta {
+      color: var(--cream) !important;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%) !important;
+      padding: 9px 20px;
+      border-radius: 0;
+      opacity: 1 !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding-top: 60px;
+      border-bottom: 1px solid var(--border);
+      background: var(--brown);
+      display: flex;
+      align-items: flex-end;
+      min-height: 32vh;
+    }
+
+    .page-hero-left {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 48px 64px;
+      gap: 48px;
+    }
+
+    .page-hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .page-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 5vw, 72px);
+      font-weight: 900;
+      line-height: var(--lh-display);
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .page-hero-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.45);
+      white-space: nowrap;
+      padding-bottom: 8px;
+    }
+
+    /* ── ENDORSEMENTS GRID ── */
+    .endorsements-section {
+      padding: 96px 0;
+    }
+
+    .endorsements-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    .endorsements-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      display: block;
+      margin-bottom: 64px;
+    }
+
+    .endorsements-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    /* ── ENDORSEMENT CARD ── */
+    .endorse-card {
+      border: 1px solid var(--border);
+      margin-top: -1px;
+      margin-left: -1px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .endorse-card:hover {
+      background: rgba(229, 95, 29, 0.03);
+      z-index: 1;
+    }
+
+    .endorse-quote-mark {
+      font-family: var(--font-display);
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 0.7;
+      color: var(--orange);
+      opacity: 0.25;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .endorse-text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--fg);
+      flex: 1;
+    }
+
+    .endorse-attribution {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .endorse-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .endorse-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--brown);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cta-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .cta-strip-copy { max-width: 560px; }
+
+    .cta-strip-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .cta-strip-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: var(--ls-display);
+      line-height: var(--lh-display);
+      color: var(--cream);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 0;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .endorsements-grid { grid-template-columns: 1fr; }
+      .endorse-card { margin-left: 0; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .page-hero { grid-template-columns: 1fr; }
+      .page-hero-left, .page-hero-right { padding: 48px 24px; }
+      .endorsements-inner { padding: 0 24px; }
+      .cta-strip-inner { flex-direction: column; gap: 32px; padding: 64px 24px; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
+    }
+
+    /* Hamburger toggle */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      border-radius: 50%;
+      transition: background 0.3s ease, box-shadow 0.3s ease,
+                  width 0.3s ease, height 0.3s ease;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--fg);
+      transition: transform 0.25s, opacity 0.25s, background 0.2s;
+    }
+    nav.scrolled .nav-toggle {
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      box-shadow: 0 8px 24px rgba(40,29,29,0.22);
+      width: 48px;
+      height: 48px;
+    }
+    nav.scrolled .nav-toggle span { background: var(--cream) !important; box-shadow: none !important; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu panel */
+    .mobile-menu {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 99;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); }
+    .mobile-menu a {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu-cta {
+      margin-top: 12px;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream-2) !important;
+      padding: 16px 20px !important;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      nav.scrolled { background: transparent; border-bottom-color: transparent; }
+      nav.scrolled .nav-brand { opacity: 0; visibility: hidden; }
+      nav.menu-open { background: var(--cream); border-bottom: 1px solid var(--border); }
+      nav.menu-open .nav-brand { opacity: 1; visibility: visible; }
+      nav.menu-open .nav-toggle span { background: var(--fg); box-shadow: none; }
+      .endorsements-section { padding: 64px 0; }
+      .endorse-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-brand">From Presence to Power</a>
+    <ul class="nav-links">
+      <li><a href="index.html#book">About the Book</a></li>
+      <li><a href="events.html">Upcoming Events</a></li>
+      <li><a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a></li>
+      <li><a href="index.html#rashad">About Rashad</a></li>
+      <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="index.html#book">About the Book</a>
+    <a href="events.html">Events</a>
+    <a href="media.html">Press</a>
+    <a href="index.html#rashad">About Rashad</a>
+    <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-left">
+      <h1 class="page-hero-title">Praise for <em>From Presence<br>to Power</em></h1>
+      <span class="page-hero-sub">Rashad Robinson &mdash; Author</span>
+    </div>
+  </div>
+
+  <!-- ENDORSEMENTS -->
+  <section class="endorsements-section">
+    <div class="endorsements-inner">
+
+      <div class="endorsements-grid">
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson is who you want with you in a foxhole. He&rsquo;ll see all the angles and devise a winning strategy faster than anyone. It&rsquo;s such a gift that this three-decade veteran of civil and human rights advocacy is sharing his methods precisely when we need them most. We all have something we want to change: in our schools, in our neighborhoods, in our country. But most of us worry that protest isn&rsquo;t enough. Using Rashad&rsquo;s principles for building power&mdash;and applying his engaging and incisive exercises to our own goals&mdash;we get a master class in real activism. This is the book to read for the fight ahead.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Heather McGhee</span>
+            <span class="endorse-title">New York Times bestselling author of <em>The Sum of Us</em></span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">I&rsquo;m sending this book to all my friends and family. Rashad doesn&rsquo;t just offer a diagnosis of the problems with how power works in this country; he offers clear, actionable ideas for how regular people can do something about it. I&rsquo;ve been involved in activism a good part of my life, and Rashad gave me a new way of thinking about how power works. This is a must-read for anyone who wants things to change.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Jane Fonda</span>
+            <span class="endorse-title">Actor and activist</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson is a generationally brilliant thinker and strategist, sharing inspiring, hard-earned wisdom on how to not just survive the present challenging environment but to grab the reins and win.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Joy-Ann Reid</span>
+            <span class="endorse-title">Host and political commentator</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">A book about winning and building power is a necessary tonic for the times when Donald Trump wields such power. Rashad Robinson has locked horns with the most powerful people on the planet. He expertly dissects how we can win, and where and why we have come up short. His analysis of roles, rules, and results is an essential framework for how to forge a path to power, moving us from analysis to action&mdash;a way out of the wilderness progressives find ourselves in today. This book is a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Anthony D. Romero</span>
+            <span class="endorse-title">Executive Director of the ACLU</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text"><em>From Presence to Power</em> is the handbook I wish I had when I first started organizing, and it&rsquo;s the book I will keep close from this moment forward. The lessons and stories contained within, gleaned from decades of learning and experimentation, are vital for anyone trying to bring about real and lasting change. But the best part of it is that you don&rsquo;t need to be an organizer to learn and apply something useful from it. It&rsquo;s the book everybody needs right now.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Alicia Garza</span>
+            <span class="endorse-title">Author of <em>The Purpose of Power</em> and co-founder of #BlackLivesMatter</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson has literally written the book on power: what it means, how we leverage it, and how we can quit making the same mistakes. He has been at the center of so many of the most crucial fights for racial, social, and economic justice over his career, and he shares hard-won lessons with unflinching honesty and deep strategic clarity.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Leah Greenberg</span>
+            <span class="endorse-title">Co-founder and co&ndash;executive director of Indivisible</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text"><em>From Presence to Power</em> is an essential text for this moment: a how-to guide for winning positive change on a new political playing field, backed by decades of experience in the work of building power for progress. If you&rsquo;ve ever despaired at the accelerating harms of the world around us and wished there was something you could do, this is the book for you.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Ai-jen Poo</span>
+            <span class="endorse-title">President of the National Domestic Workers Alliance and Executive Director of Caring Across Generations</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">I&rsquo;ve spent my career fighting for working people&mdash;for higher wages, safer jobs, dignity on the clock. And I&rsquo;ve learned that the campaigns that get the most attention aren&rsquo;t always the ones that deliver. In <em>From Presence to Power</em>, Rashad names that gap with precision and shows how to close it: how to turn moments into the kind of power that actually changes the rules for workers and their families.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">April Verrett</span>
+            <span class="endorse-title">President of Service Employees International Union</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson is one of the most gifted and fearless leaders we have. In his eagerly anticipated and desperately needed book, <em>From Presence to Power</em>, he offers a detailed plan for how we can achieve true change by moving from visibility to vitality&mdash;from being seen to being felt. This is a strategically sophisticated book that teaches us how not to simply traffic in echoes and effects, but to be effective in our aims by amassing and then pulling the levers of real power.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Michael Eric Dyson</span>
+            <span class="endorse-title">Sociologist, cultural critic, and New York Times bestselling author of <em>Long Time Coming</em></span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad has helped shape some of the most effective fights for justice in our lifetime&mdash;and I&rsquo;ve seen that work up close. This book gives people the strategy and clarity they need to stop reacting and start winning.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Angela Rye</span>
+            <span class="endorse-title">Legal analyst and political commentator</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson&rsquo;s book is essential reading for anyone interested in creating meaningful and lasting social change. How fortunate are we that such a champion of justice is letting us into his mind so that we can make history and not repeat it.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Jose Antonio Vargas</span>
+            <span class="endorse-title">Pulitzer Prize&ndash;winning journalist and author of <em>Dear America: Notes of an Undocumented Citizen</em></span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">I&rsquo;ve been in movements all my life, and I know passion alone doesn&rsquo;t win&mdash;power does. <em>From Presence to Power</em> is a powerful and necessary book that cuts through the illusion that visibility equals victory and offers a real framework for changing systems, not just reacting to them. This is the book every new organizer needs and every generation should inherit. Rashad shows us how committed people turn frustration into leverage and energy into results.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Tamika Mallory</span>
+            <span class="endorse-title">Author of <em>I Lived to Tell the Story</em>, co-organizer of the Women&rsquo;s March, and social justice activist</span>
+          </div>
+        </div>
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson has been leading successful campaigns for years, and now he has distilled all that learned experience into a crisp, clear, and compelling road map for others who want to learn how to build power and win. <em>From Presence to Power</em> is an invaluable gift to the movement; my only complaint is that I wish I had had it when I was twenty years old!</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Annie Leonard</span>
+            <span class="endorse-title">Former Executive Director of Greenpeace (U.S.) and creator of <em>Story of Stuff</em></span>
+          </div>
+        </div>
+      </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson is one of the most important strategists of our time. <em>From Presence to Power</em> delivers the clarity and honesty that our movements so desperately need. I can't recommend it enough.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Ai-jen Poo</span>
+            <span class="endorse-title">President, National Domestic Workers Alliance</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson has written the book that many of us have been waiting for. <em>From Presence to Power</em> is a masterclass in understanding how real change happens, and why representation alone is never enough.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Angela Rye</span>
+            <span class="endorse-title">Legal analyst and political commentator</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson is one of the most astute and visionary leaders in the movement for justice. <em>From Presence to Power</em> is the book that will help a new generation understand what it really takes to win.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Annie Leonard</span>
+            <span class="endorse-title">Former Executive Director, Greenpeace U.S.</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text"><em>From Presence to Power</em> is a vital contribution to the long fight for justice and equality. Rashad Robinson cuts through the noise to explain what movements need to succeed, and his wisdom could not be more timely.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Anthony D. Romero</span>
+            <span class="endorse-title">Executive Director, ACLU</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson understands power like few others. <em>From Presence to Power</em> is a roadmap for every organizer, advocate, and leader who wants to move from being at the table to actually shaping what happens there.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">April Verrett</span>
+            <span class="endorse-title">President, SEIU</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson has given us an indispensable guide to building real power. <em>From Presence to Power</em> challenges all of us to go beyond symbolism and do the harder work of lasting change. It will make you think differently about everything.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Heather McGhee</span>
+            <span class="endorse-title">NYT bestselling author, <em>The Sum of Us</em></span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson is a brilliant strategist and a genuine truth-teller. <em>From Presence to Power</em> is an urgent, necessary book that will challenge and inspire everyone who reads it.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Jane Fonda</span>
+            <span class="endorse-title">Actress and activist</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson has long been one of the most visionary and strategic leaders in America. <em>From Presence to Power</em> distills a lifetime of hard-won lessons into a book that every activist, organizer, and changemaker needs to read.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Jose Antonio Vargas</span>
+            <span class="endorse-title">Pulitzer Prize-winning journalist</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">In <em>From Presence to Power</em>, Rashad Robinson delivers the kind of honest, sophisticated analysis that our movements need right now. This book is a gift, and I can't recommend it highly enough.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Joy Ann Reid</span>
+            <span class="endorse-title">NYT bestselling author, host and political commentator</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson understands power, strategy, and the long arc of change better than almost anyone I know. <em>From Presence to Power</em> is the book that will push every organizer and movement leader to think more clearly about what we're actually trying to build.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Leah Greenberg</span>
+            <span class="endorse-title">Co-founder and co-Executive Director, Indivisible</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson is a singular voice in American public life, and <em>From Presence to Power</em> is his most important contribution yet. With brilliance, wit, and unflinching clarity, he reveals how social movements can move from the margins to the center of real power.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Michael Eric Dyson</span>
+            <span class="endorse-title">NYT bestselling author, sociologist and cultural critic</span>
+          </div>
+        </div>
+
+        <div class="endorse-card">
+          <div class="endorse-quote-mark">&ldquo;</div>
+          <p class="endorse-text">Rashad Robinson has spent decades fighting for justice and building the kind of power that actually changes things. <em>From Presence to Power</em> is the book he was born to write, and it is absolutely essential reading for this moment.</p>
+          <div class="endorse-attribution">
+            <span class="endorse-name">Tamika Mallory</span>
+            <span class="endorse-title">Author, co-organizer of The Women's March</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="cta-strip-inner">
+      <div class="cta-strip-copy">
+        <span class="cta-strip-eyebrow">Available Now</span>
+        <h2 class="cta-strip-title">Pre-order From<br>Presence to Power</h2>
+      </div>
+      <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order Now &rarr;</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">From Presence to Power &copy; 2026 Rashad Robinson</span>
+      <ul class="footer-links">
+        <li><a href="index.html#book">The Book</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="praise.html">Praise</a></li>
+        <li><a href="index.html#rashad">Author</a></li>
+        <li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Scrolled nav state
+    (function() {
+      const navEl = document.querySelector('nav');
+      if (!navEl) return;
+      const SCROLL_THRESHOLD = 80;
+      let lastState = false;
+      function check() {
+        const y = window.scrollY || window.pageYOffset || 0;
+        const scrolled = y > SCROLL_THRESHOLD;
+        if (scrolled !== lastState) { navEl.classList.toggle('scrolled', scrolled); lastState = scrolled; }
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      check();
+    })();
+
+    // Mobile menu toggle
+    (function() {
+      const toggle = document.getElementById('navToggle');
+      const menu = document.getElementById('mobileMenu');
+      const navEl = document.querySelector('nav');
+      if (!toggle || !menu) return;
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+        menu.classList.toggle('open', open);
+        navEl.classList.toggle('menu-open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    })();
+  </script>
+
+</body>
+</html>

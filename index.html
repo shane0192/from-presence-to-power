@@ -681,9 +681,18 @@
       font-size: 18px;
       line-height: 1.6;
       color: rgba(239,237,236,0.6);
-      max-width: 560px;
+      max-width: 520px;
       margin-bottom: 0;
     }
+
+    .ab-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+      margin-bottom: 8px;
+    }
+
+    .ab-two-col .about-book-lede { max-width: none; }
 
     .ab-expand {
       max-height: 0;
@@ -952,13 +961,19 @@
       max-width: 1200px;
       margin: 0 auto 56px;
       padding: 0 48px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
     }
 
     .testimonials-header-copy {}
+
+    .testimonials-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: var(--ls-display);
+      line-height: var(--lh-display);
+      color: var(--fg);
+    }
 
     .testimonials-all-link {
       font-family: var(--font-mono);
@@ -1213,9 +1228,9 @@
     /* Bottom row: image | text | secondary image */
     .ar-body {
       display: grid;
-      grid-template-columns: 0.85fr 0.7fr 240px;
+      grid-template-columns: 0.85fr 1fr;
       gap: 0 64px;
-      align-items: end;
+      align-items: start;
     }
 
     .ar-image {
@@ -1536,6 +1551,55 @@
       transition: color 0.2s;
     }
     .home-events-link:hover { color: var(--brown); }
+
+    .home-reach-out-strip {
+      background: var(--orange);
+    }
+    .home-reach-out-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .home-reach-out-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .home-reach-out-icon {
+      flex-shrink: 0;
+      color: rgba(239,237,236,0.7);
+    }
+    .home-reach-out-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--cream);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+    .home-reach-out-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border: 1px solid rgba(239,237,236,0.4);
+      color: var(--cream);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .home-reach-out-btn:hover {
+      background: rgba(239,237,236,0.12);
+      border-color: var(--cream);
+    }
 
     .home-events-list {
       display: flex;
@@ -2393,6 +2457,7 @@
       .about-book-footer { padding: 14px 24px; flex-wrap: wrap; gap: 16px; }
       .about-book-statement { font-size: clamp(32px, 8vw, 56px); margin-bottom: 24px; }
       .about-book-lede { font-size: 15px; margin-bottom: 32px; }
+      .ab-two-col { grid-template-columns: 1fr; gap: 0; }
       .about-book-actions {
         flex-direction: column;
         align-items: flex-start;
@@ -2711,20 +2776,7 @@
           <h2 class="about-book-statement" data-reveal data-reveal-color="#281D1D">This book is for everyone who wants to win change&mdash;and is tired of losing.</h2>
           <p class="about-book-lede"><em>From Presence to Power</em> is a uniquely practical and strategic roadmap for understanding how power actually works today&mdash;and for gaining power and using it for good.</p>
           <p class="about-book-lede" style="margin-top:16px;">The book answers the questions so many people have been asking: Why are we losing so much? In order to win the big changes we want to see, what do we need to change about the ways we fight back? When we do win something, how can we make sure it lasts?</p>
-
-          <p class="about-book-lede" style="margin-top:16px;"><em>From Presence to Power</em> has already been called &ldquo;a master class in real activism&rdquo; and &ldquo;a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.&rdquo; It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
-          <p class="about-book-lede" style="margin-top:16px;">It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
-
-          <div class="ab-expand" id="abExpand" aria-hidden="true">
-            <p>Rashad Robinson is a two-decade social justice leader whose strategies have led to real wins in the realms of racial justice, LGBT rights and more. In this book, he shows clearly why some fights for change stall while others succeed.</p>
-            <p><em>From Presence to Power</em> takes readers on a journey to becoming more powerful&mdash;individually and collectively. Rashad outlines ten core principles for making change in today&rsquo;s era that are too often ignored, rooted in fresh insights, revealing examples and behind-the-scenes accounts drawn from the frontlines of social change. He offers readers in-depth accounts of taking on Mark Zuckerberg and Big Tech, Hollywood, and the political establishment, and of breaking through on criminal justice reform by helping to launch the progressive prosecutor movement&mdash;all of which are instructive for taking on those who profit from injustice today. Rashad also provides exercises readers can go through on their own: tangible, practical tools for helping readers become more effective and powerful themselves.</p>
-            <p>Rashad wrote this book for a simple reason: In order for our movements to win, we need to raise our strategy game. That means we need shared language, sharper tools, and more strategic frameworks for thinking about power&mdash;and a deeper analysis of what we&rsquo;re getting right and wrong when we fight for the causes we believe in. This book is his way of putting those resources in the hands of people working at all levels of social change.</p>
-          </div>
-
-          <button class="ab-toggle" id="abToggle" onclick="toggleAbout()" aria-expanded="false">
-            <span class="ab-toggle-text">Read more</span>
-            <svg class="ab-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
+          <a href="book.html" class="ab-toggle">Read more about the book &rarr;</a>
         </div>
         <div class="about-book-actions">
           <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary-dark">Pre-order the Book</a>
@@ -2742,9 +2794,10 @@
   <section class="testimonials" id="praise">
     <div class="testimonials-header">
       <div class="testimonials-header-copy">
-        <span class="section-eyebrow" style="display:block;margin-bottom:8px;">What people are saying</span>
+        <span class="section-eyebrow" style="display:block;margin-bottom:12px;">Read What People Are Saying</span>
+        <h2 class="testimonials-section-title">Praise for the book</h2>
+        <a href="praise.html" class="testimonials-all-link" style="margin-top:16px;display:inline-flex;">Read more &rarr;</a>
       </div>
-      <a href="endorsements.html" class="testimonials-all-link">Read all endorsements &rarr;</a>
     </div>
     <div class="carousel-wrapper">
       <div class="carousel-track-outer">
@@ -2756,10 +2809,6 @@
               <img src="images/endorser-joy-ann-reid.jpg" alt="Joy-Ann Reid" class="tc-card-img">
             </div>
             <div class="tc-card-content">
-              <div class="tc-eyebrow-row">
-                <span class="tc-eyebrow-label">Quote</span>
-                <span class="tc-eyebrow-counter">01 / 06</span>
-              </div>
 <p class="tc-quote">Rashad Robinson is a generationally brilliant thinker, sharing hard-earned wisdom on how to not just survive but grab the reins and win.</p>
               <div class="tc-attribution">
                 <p class="tc-name">Joy-Ann Reid</p>
@@ -2774,10 +2823,6 @@
               <img src="images/endorser-ibram-kendi.png" alt="Dr. Ibram X. Kendi" class="tc-card-img" style="object-position: center 55%;">
             </div>
             <div class="tc-card-content">
-              <div class="tc-eyebrow-row">
-                <span class="tc-eyebrow-label">Quote</span>
-                <span class="tc-eyebrow-counter">02 / 06</span>
-              </div>
 <p class="tc-quote">To transform the world for the good, we must study power. Robinson lays out a clear blueprint for making antiracist change.</p>
               <div class="tc-attribution">
                 <p class="tc-name">Dr. Ibram X. Kendi</p>
@@ -2792,10 +2837,6 @@
               <img src="images/endorser-aijen-poo-2.webp" alt="Ai-jen Poo" class="tc-card-img">
             </div>
             <div class="tc-card-content">
-              <div class="tc-eyebrow-row">
-                <span class="tc-eyebrow-label">Quote</span>
-                <span class="tc-eyebrow-counter">03 / 06</span>
-              </div>
 <p class="tc-quote">If you&rsquo;ve ever despaired at the accelerating harms of the world around us and wished there was something you could do, this is the book for you.</p>
               <div class="tc-attribution">
                 <p class="tc-name">Ai-jen Poo</p>
@@ -2810,10 +2851,6 @@
               <img src="images/endorser-jane-fonda-2.jpg" alt="Jane Fonda" class="tc-card-img">
             </div>
             <div class="tc-card-content">
-              <div class="tc-eyebrow-row">
-                <span class="tc-eyebrow-label">Quote</span>
-                <span class="tc-eyebrow-counter">04 / 06</span>
-              </div>
 <p class="tc-quote">Rashad gave me a new way of thinking about how power works. This is a must-read for anyone who wants things to change.</p>
               <div class="tc-attribution">
                 <p class="tc-name">Jane Fonda</p>
@@ -2828,10 +2865,6 @@
               <img src="images/endorser-alicia-garza.png" alt="Alicia Garza" class="tc-card-img">
             </div>
             <div class="tc-card-content">
-              <div class="tc-eyebrow-row">
-                <span class="tc-eyebrow-label">Quote</span>
-                <span class="tc-eyebrow-counter">05 / 06</span>
-              </div>
 <p class="tc-quote">This is the handbook I wish I had when I first started organizing. It&rsquo;s the book everybody needs right now.</p>
               <div class="tc-attribution">
                 <p class="tc-name">Alicia Garza</p>
@@ -2846,10 +2879,6 @@
               <img src="images/endorser-anthony-romero.jpg" alt="Anthony D. Romero" class="tc-card-img">
             </div>
             <div class="tc-card-content">
-              <div class="tc-eyebrow-row">
-                <span class="tc-eyebrow-label">Quote</span>
-                <span class="tc-eyebrow-counter">06 / 06</span>
-              </div>
 <p class="tc-quote">His analysis of roles, rules, and results is an essential framework&mdash;a way out of the wilderness progressives find themselves in today.</p>
               <div class="tc-attribution">
                 <p class="tc-name">Anthony D. Romero</p>
@@ -2871,13 +2900,26 @@
     </div>
   </section>
 
+  <!-- REACH OUT STRIP -->
+  <div class="home-reach-out-strip">
+    <div class="home-reach-out-inner">
+      <div class="home-reach-out-content">
+        <svg class="home-reach-out-icon" width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="20" height="16" stroke="currentColor" stroke-width="1.5"/>
+          <polyline points="1,1 11,10 21,1" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <p class="home-reach-out-text">To organize a book event, invite Rashad to speak, partner on sponsorships and workshops, or explore other collaborations</p>
+      </div>
+      <a href="mailto:events@rashadrobinson.com" class="home-reach-out-btn">Reach Out &rarr;</a>
+    </div>
+  </div>
+
   <!-- HOMEPAGE EVENTS -->
   <section class="home-events" id="events">
     <div class="home-events-inner">
       <div class="home-events-header">
-        <span class="home-events-eyebrow">Events</span>
         <h2 class="home-events-title">Upcoming<br>Events</h2>
-        <p class="home-events-intro">Join Rashad Robinson for conversations and appearances across the country.</p>
+        <p class="home-events-intro">Join Rashad Robinson for public conversations and appearances across the country. More to be announced soon.</p>
         <a href="events.html" class="home-events-link">View All Events &rarr;</a>
       </div>
 
@@ -2898,14 +2940,15 @@
           </span>
         </a>
 
-        <a href="events.html#joy-reid" class="he-card">
+        <a href="https://politics-prose.com/rashad-robinson-072826" target="_blank" rel="noopener" class="he-card">
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">28</span>
             <span class="he-card-city">DC</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">With Joy Reid &mdash; Politics and Prose</h3>
+            <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
+            <h3 class="he-card-name">Politics and Prose with Joy Reid</h3>
             <div class="he-card-location">Washington, DC</div>
             <span class="he-card-tag">In Person</span>
           </div>
@@ -2943,8 +2986,8 @@
     <div class="ar-inner">
 
       <div class="ar-header">
-        <span class="ar-tag">(About the Author)</span>
-        <h2 class="ar-statement" data-reveal data-reveal-color="#EFEDEC">Rashad Robinson has spent more than twenty years at the highest levels of leadership in two of the most significant social movements of our time.</h2>
+        <span class="ar-tag">About the Author</span>
+        <h2 class="ar-statement" data-reveal data-reveal-color="#EFEDEC">Rashad Robinson has spent more than twenty years at the highest levels of leadership in the most significant social movements of our time.</h2>
       </div>
 
 
@@ -2953,17 +2996,15 @@
           <img src="images/rashad-01-records.jpg" alt="Rashad Robinson">
         </div>
         <div class="ar-text">
-          <p>He&rsquo;s taken on tech giants and the criminal justice system, politicians in Washington and corporate executives in Hollywood. He&rsquo;s been on the front lines of protest and in the back rooms of negotiation.</p>
+          <p>Rashad Robinson is a social justice leader, strategist and organization builder.</p>
+          <p>He&rsquo;s taken on tech giants and the criminal justice system, politicians in Washington and corporate executives in Hollywood. He&rsquo;s been on the front lines of protest and in the back rooms of negotiation. He has designed campaigns to change public policies, corporate practices, electoral outcomes, and media representations. He led Color Of Change for nearly fourteen years, transforming it from a start-up into a national force for racial justice, and also led programs at GLAAD, reshaping media representations of LGBTQ people during the fights to win marriage equality and end discrimination.</p>
           <p><em>From Presence to Power</em> is what he&rsquo;s learned: a practical guide for anyone who wants to understand power, build it, and use it to win.</p>
-          <p>More information about Rashad, including his weekly <em>How We Win</em> newsletter, can be found at <a href="https://www.rashadrobinson.com" target="_blank" class="rashad-link">rashadrobinson.com</a>.</p>
+          <p><a href="https://www.rashadrobinson.com/about" target="_blank" rel="noopener" class="rashad-link">See Rashad&rsquo;s full bio here.</a></p>
           <div class="ar-actions">
             <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
             <a href="events.html" class="btn-secondary">See Events</a>
           </div>
         </div>
-        <div class="ar-image-secondary">
-          <img src="images/rashad-05-laughing.jpg" alt="Rashad Robinson">
-</div>
       </div>
 
     </div>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Book — From Presence to Power</title>
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="apple-touch-icon" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --tan:          #DAD6CB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+      --ls-display:   -0.022em;
+      --ls-eyebrow:   0.32em;
+      --lh-display:   0.94;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+
+    .nav-cta {
+      color: var(--cream) !important;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%) !important;
+      padding: 9px 20px;
+      border-radius: 0;
+      opacity: 1 !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding-top: 60px;
+      border-bottom: 1px solid var(--border);
+      background: var(--brown);
+      display: flex;
+      align-items: flex-end;
+      min-height: 32vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .page-hero-left {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 48px 64px;
+      gap: 48px;
+    }
+
+    .page-hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .page-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 5vw, 72px);
+      font-weight: 900;
+      line-height: var(--lh-display);
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .page-hero-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.45);
+      white-space: nowrap;
+      padding-bottom: 8px;
+    }
+
+    .page-hero-book-img {
+      position: absolute;
+      right: 64px;
+      bottom: 0;
+      height: 110%;
+      width: auto;
+      object-fit: contain;
+      object-position: bottom;
+    }
+
+    /* ── ENDORSEMENTS GRID ── */
+    .endorsements-section {
+      padding: 96px 0;
+    }
+
+    .endorsements-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+
+    .endorsements-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      display: block;
+      margin-bottom: 64px;
+    }
+
+    .endorsements-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    /* ── ENDORSEMENT CARD ── */
+    .endorse-card {
+      border: 1px solid var(--border);
+      margin-top: -1px;
+      margin-left: -1px;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .endorse-card:hover {
+      background: rgba(229, 95, 29, 0.03);
+      z-index: 1;
+    }
+
+    .endorse-quote-mark {
+      font-family: var(--font-display);
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 0.7;
+      color: var(--orange);
+      opacity: 0.25;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .endorse-text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--fg);
+      flex: 1;
+    }
+
+    .endorse-attribution {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .endorse-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .endorse-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--brown);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cta-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .cta-strip-copy { max-width: 560px; }
+
+    .cta-strip-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .cta-strip-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: var(--ls-display);
+      line-height: var(--lh-display);
+      color: var(--cream);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-radius: 0;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      opacity: 0.45;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .endorsements-grid { grid-template-columns: 1fr; }
+      .endorse-card { margin-left: 0; }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .page-hero { grid-template-columns: 1fr; }
+      .page-hero-left, .page-hero-right { padding: 48px 24px; }
+      .endorsements-inner { padding: 0 24px; }
+      .cta-strip-inner { flex-direction: column; gap: 32px; padding: 64px 24px; }
+      .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
+    }
+
+    /* Hamburger toggle */
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      border-radius: 50%;
+      transition: background 0.3s ease, box-shadow 0.3s ease,
+                  width 0.3s ease, height 0.3s ease;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--fg);
+      transition: transform 0.25s, opacity 0.25s, background 0.2s;
+    }
+    nav.scrolled .nav-toggle {
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      box-shadow: 0 8px 24px rgba(40,29,29,0.22);
+      width: 48px;
+      height: 48px;
+    }
+    nav.scrolled .nav-toggle span { background: var(--cream) !important; box-shadow: none !important; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu panel */
+    .mobile-menu {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 99;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); }
+    .mobile-menu a {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu-cta {
+      margin-top: 12px;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream-2) !important;
+      padding: 16px 20px !important;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      nav.scrolled { background: transparent; border-bottom-color: transparent; }
+      nav.scrolled .nav-brand { opacity: 0; visibility: hidden; }
+      nav.menu-open { background: var(--cream); border-bottom: 1px solid var(--border); }
+      nav.menu-open .nav-brand { opacity: 1; visibility: visible; }
+      nav.menu-open .nav-toggle span { background: var(--fg); box-shadow: none; }
+      .endorsements-section { padding: 64px 0; }
+      .endorse-card { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-brand">From Presence to Power</a>
+    <ul class="nav-links">
+      <li><a href="index.html#book">About the Book</a></li>
+      <li><a href="events.html">Upcoming Events</a></li>
+      <li><a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a></li>
+      <li><a href="index.html#rashad">About Rashad</a></li>
+      <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="index.html#book">About the Book</a>
+    <a href="events.html">Events</a>
+    <a href="media.html">Press</a>
+    <a href="index.html#rashad">About Rashad</a>
+    <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-left">
+      <h1 class="page-hero-title">From Presence<br>to Power</h1>
+      <span class="page-hero-sub">Rashad Robinson &mdash; The Book</span>
+    </div>
+    <img src="images/book-mockup-front.png" alt="From Presence to Power book cover" class="page-hero-book-img">
+  </div>
+
+  <!-- ENDORSEMENTS -->
+  <section class="endorsements-section">
+    <div class="endorsements-inner" style="max-width:800px;">
+
+      <div style="display:flex;flex-direction:column;gap:24px;font-family:var(--font-body);font-size:18px;line-height:1.7;color:var(--fg-muted);">
+        <p><em>From Presence to Power</em> is a uniquely practical and strategic roadmap for understanding how power actually works today&mdash;and for gaining power and using it for good.</p>
+        <p>The book answers the questions so many people have been asking: Why are we losing so much? In order to win the big changes we want to see, what do we need to change about the ways we fight back? When we do win something, how can we make sure it lasts?</p>
+        <p><em>From Presence to Power</em> has already been called &ldquo;a master class in real activism&rdquo; and &ldquo;a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.&rdquo; It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
+        <p>It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
+        <p>Rashad Robinson is a two-decade social justice leader whose strategies have led to real wins in the realms of racial justice, LGBT rights and more. In this book, he shows clearly why some fights for change stall while others succeed.</p>
+        <p><em>From Presence to Power</em> takes readers on a journey to becoming more powerful&mdash;individually and collectively. Rashad outlines ten core principles for making change in today&rsquo;s era that are too often ignored, rooted in fresh insights, revealing examples and behind-the-scenes accounts drawn from the frontlines of social change. He offers readers in-depth accounts of taking on Mark Zuckerberg and Big Tech, Hollywood, and the political establishment, and of breaking through on criminal justice reform by helping to launch the progressive prosecutor movement&mdash;all of which are instructive for taking on those who profit from injustice today.</p>
+        <p>Rashad wrote this book for a simple reason: In order for our movements to win, we need to raise our strategy game. That means we need shared language, sharper tools, and more strategic frameworks for thinking about power&mdash;and a deeper analysis of what we&rsquo;re getting right and wrong when we fight for the causes we believe in. This book is his way of putting those resources in the hands of people working at all levels of social change.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="cta-strip-inner">
+      <div class="cta-strip-copy">
+        <span class="cta-strip-eyebrow">Available Now</span>
+        <h2 class="cta-strip-title">Pre-order From<br>Presence to Power</h2>
+      </div>
+      <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order Now &rarr;</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-brand">From Presence to Power &copy; 2026 Rashad Robinson</span>
+      <ul class="footer-links">
+        <li><a href="index.html#book">The Book</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="praise.html">Praise</a></li>
+        <li><a href="index.html#rashad">Author</a></li>
+        <li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Scrolled nav state
+    (function() {
+      const navEl = document.querySelector('nav');
+      if (!navEl) return;
+      const SCROLL_THRESHOLD = 80;
+      let lastState = false;
+      function check() {
+        const y = window.scrollY || window.pageYOffset || 0;
+        const scrolled = y > SCROLL_THRESHOLD;
+        if (scrolled !== lastState) { navEl.classList.toggle('scrolled', scrolled); lastState = scrolled; }
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      check();
+    })();
+
+    // Mobile menu toggle
+    (function() {
+      const toggle = document.getElementById('navToggle');
+      const menu = document.getElementById('mobileMenu');
+      const navEl = document.querySelector('nav');
+      if (!toggle || !menu) return;
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+        menu.classList.toggle('open', open);
+        navEl.classList.toggle('menu-open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    })();
+  </script>
+
+</body>
+</html>

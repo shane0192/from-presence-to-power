@@ -102,17 +102,20 @@
     .events-hero {
       padding-top: 60px;
       border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 48vh;
+      background: var(--brown);
+      display: flex;
+      align-items: flex-end;
+      min-height: 32vh;
     }
 
     .events-hero-left {
-      background: var(--brown);
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 64px;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 48px 64px;
+      gap: 48px;
     }
 
     .events-hero-eyebrow {
@@ -126,11 +129,22 @@
 
     .events-hero-title {
       font-family: var(--font-display);
-      font-size: clamp(64px, 8vw, 112px);
+      font-size: clamp(48px, 5vw, 72px);
+      font-weight: 900;
       line-height: var(--lh-display);
       letter-spacing: var(--ls-display);
       text-transform: uppercase;
       color: var(--cream);
+    }
+
+    .events-hero-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.45);
+      white-space: nowrap;
+      padding-bottom: 8px;
     }
 
     .events-hero-right {
@@ -236,6 +250,24 @@
     .he-card:first-child { margin-top: 0; }
     .he-card:hover { border-color: var(--orange); background: rgba(228,83,34,0.03); z-index: 1; }
     .he-card.past { opacity: 0.4; pointer-events: none; }
+    .he-card--static { cursor: default; }
+    .he-card--static:hover { border-color: var(--border); background: transparent; z-index: auto; }
+
+    .he-card-tag--tba {
+      border-color: var(--orange);
+      color: var(--orange);
+      opacity: 0.8;
+    }
+
+    .events-inquiry-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--fg-muted);
+      margin-bottom: 16px;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
 
     .he-card-date {
       display: flex;
@@ -346,8 +378,9 @@
     .events-ctas {
       margin-top: 56px;
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
     }
 
     /* ── PAST DIVIDER ── */
@@ -360,6 +393,46 @@
       opacity: 0.5;
       padding: 32px 0 0;
       display: block;
+    }
+
+    /* ── REACH OUT STRIP ── */
+    .reach-out-strip {
+      background: var(--orange);
+    }
+    .reach-out-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .reach-out-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .reach-out-icon {
+      flex-shrink: 0;
+      color: rgba(239,237,236,0.7);
+    }
+    .reach-out-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--cream);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+    .reach-out-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+      border-color: rgba(239,237,236,0.4) !important;
+      color: var(--cream) !important;
+    }
+    .reach-out-btn:hover {
+      background: rgba(239,237,236,0.12) !important;
+      border-color: var(--cream) !important;
     }
 
     /* ── EMAIL STRIP ── */
@@ -474,8 +547,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
-      .events-hero { grid-template-columns: 1fr; }
-      .events-hero-left, .events-hero-right { padding: 48px 24px; }
+      .events-hero-left { padding: 40px 24px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .events-hero-sub { white-space: normal; }
       .events-inner { padding: 0 24px; }
       .event-row { grid-template-columns: 1fr; gap: 8px; }
       .email-strip-inner { flex-direction: column; gap: 32px; }
@@ -591,7 +664,7 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a href="index.html#book">About the Book</a>
     <a href="events.html">Events</a>
-    <a href="media.html">Press</a>
+    <a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a>
     <a href="index.html#rashad">About Rashad</a>
     <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
   </div>
@@ -599,43 +672,32 @@
   <!-- HERO -->
   <div class="events-hero">
     <div class="events-hero-left">
-      <span class="events-hero-eyebrow">Rashad Robinson &mdash; 2026 Tour</span>
-      <h1 class="events-hero-title">Events</h1>
+      <h1 class="events-hero-title">2026 Public<br>Events Calendar</h1>
+      <span class="events-hero-sub">Rashad Robinson &mdash; On Tour</span>
     </div>
-    <div class="events-hero-right">
-      <p class="events-hero-desc">Join Rashad in conversation. Find an event near you, or bring him to your community.</p>
+  </div>
+
+  <!-- REACH OUT STRIP -->
+  <div class="reach-out-strip">
+    <div class="reach-out-inner">
+      <div class="reach-out-content">
+        <svg class="reach-out-icon" width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="20" height="16" stroke="currentColor" stroke-width="1.5"/>
+          <polyline points="1,1 11,10 21,1" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <p class="reach-out-text">To organize a book event, invite Rashad to speak, partner on sponsorships and workshops, or explore other collaborations</p>
+      </div>
+      <a href="mailto:events@rashadrobinson.com" class="btn-secondary reach-out-btn">Reach Out &rarr;</a>
     </div>
   </div>
 
   <!-- UPCOMING EVENTS -->
   <section class="events-section" id="upcoming">
     <div class="events-inner">
-      <span class="events-label">2026 Public Events Calendar</span>
-      <h2 class="events-heading">Upcoming Events</h2>
-
-      <div class="events-ctas" style="margin-bottom: 48px;">
-        <a href="mailto:events@rashadrobinson.com" class="btn-primary">Invite Rashad to Speak, Partner or Sponsor</a>
-      </div>
 
       <div class="events-list">
-        <a href="#" class="he-card" id="abc-bookstore">
-          <div class="he-card-date">
-            <span class="he-card-month">Jul</span>
-            <span class="he-card-day">13</span>
-            <span class="he-card-city">NYC</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-time">6&ndash;7:30pm EDT</div>
-            <h3 class="he-card-name">ABC Bookstore</h3>
-            <div class="he-card-location">Manhattan, NY</div>
-            <span class="he-card-tag">In Person</span>
-          </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
 
-        <a href="#" class="he-card" id="jane-fonda">
+        <div class="he-card he-card--static" id="jane-fonda">
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">27</span>
@@ -645,21 +707,20 @@
             <h3 class="he-card-name">With Jane Fonda</h3>
             <div class="he-card-location">Manhattan, NY</div>
             <span class="he-card-tag">In Person</span>
+            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+        </div>
 
-        <a href="#" class="he-card" id="joy-reid">
+        <a href="https://politics-prose.com/rashad-robinson-072826" target="_blank" rel="noopener" class="he-card" id="joy-reid">
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">28</span>
             <span class="he-card-city">DC</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">With Joy Reid &mdash; Politics and Prose</h3>
-            <div class="he-card-location">Washington, DC</div>
+            <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
+            <h3 class="he-card-name">Politics and Prose with Joy Reid</h3>
+            <div class="he-card-location">5015 Connecticut Ave NW, Washington, DC 20008</div>
             <span class="he-card-tag">In Person</span>
           </div>
           <span class="he-card-arrow" aria-hidden="true">
@@ -667,7 +728,7 @@
           </span>
         </a>
 
-        <a href="#" class="he-card" id="commonwealth-club">
+        <div class="he-card he-card--static" id="commonwealth-club">
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">29</span>
@@ -677,13 +738,11 @@
             <h3 class="he-card-name">Commonwealth Club with Greg Dalton</h3>
             <div class="he-card-location">San Francisco, CA</div>
             <span class="he-card-tag">In Person</span>
+            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+        </div>
 
-        <a href="#" class="he-card" id="reparations-club">
+        <div class="he-card he-card--static" id="reparations-club">
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">30</span>
@@ -693,123 +752,90 @@
             <h3 class="he-card-name">Reparations Club with Lena Waithe</h3>
             <div class="he-card-location">Los Angeles, CA</div>
             <span class="he-card-tag">In Person</span>
+            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+        </div>
 
-        <a href="#" class="he-card" id="aug3">
+        <div class="he-card he-card--static" id="aug3">
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day">3</span>
             <span class="he-card-city">TBD</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">City Stop TBD</h3>
-            <div class="he-card-location">Baltimore / Philadelphia / Brooklyn</div>
-            <span class="he-card-tag">In Person</span>
+            <h3 class="he-card-name">To be Announced</h3>
+            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+        </div>
 
-        <a href="#" class="he-card" id="aug4">
-          <div class="he-card-date">
-            <span class="he-card-month">Aug</span>
-            <span class="he-card-day">4</span>
-            <span class="he-card-city">TBD</span>
-          </div>
-          <div class="he-card-body">
-            <h3 class="he-card-name">City Stop TBD</h3>
-            <div class="he-card-location">Baltimore / Philadelphia / Brooklyn</div>
-            <span class="he-card-tag">In Person</span>
-          </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
-
-        <a href="#" class="he-card" id="angela-rye">
+        <div class="he-card he-card--static" id="angela-rye">
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day">5</span>
-            <span class="he-card-city">SEA</span>
+            <span class="he-card-city">SEATTLE</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Angela Rye &mdash; Town Hall</h3>
             <div class="he-card-location">Seattle, WA</div>
-            <span class="he-card-tag">Tentative</span>
+            <span class="he-card-tag">In Person</span>
+            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+        </div>
 
-        <a href="#" class="he-card" id="marthas-vineyard">
+        <div class="he-card he-card--static" id="marthas-vineyard">
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day range">13&ndash;17</span>
-            <span class="he-card-city">MV</span>
+            <span class="he-card-city">MARTHA'S VINEYARD</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">Martha&rsquo;s Vineyard Events</h3>
+            <h3 class="he-card-name">To be Announced</h3>
             <div class="he-card-location">Martha&rsquo;s Vineyard, MA</div>
-            <span class="he-card-tag">In Person</span>
+            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+        </div>
 
-        <a href="#" class="he-card" id="new-orleans">
+        <div class="he-card he-card--static" id="new-orleans">
           <div class="he-card-date">
             <span class="he-card-month">Sep</span>
             <span class="he-card-day">TBD</span>
             <span class="he-card-city">NOLA</span>
           </div>
           <div class="he-card-body">
-            <div class="he-card-time">Early September</div>
-            <h3 class="he-card-name">New Orleans</h3>
+            <h3 class="he-card-name">To be Announced</h3>
             <div class="he-card-location">New Orleans, LA</div>
-            <span class="he-card-tag">In Person</span>
+            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+        </div>
 
-        <a href="#" class="he-card" id="banned-book-week">
+        <div class="he-card he-card--static" id="banned-book-week">
           <div class="he-card-date">
             <span class="he-card-month">Oct</span>
             <span class="he-card-day range">7&ndash;8</span>
-            <span class="he-card-city">BUF</span>
+            <span class="he-card-city">BUFFALO</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Banned Book Week</h3>
             <div class="he-card-location">Buffalo, NY</div>
             <span class="he-card-tag">In Person</span>
+            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
-        </a>
+        </div>
+
       </div>
 
-      <div class="events-ctas" style="margin-top: 48px;">
-        <button class="btn-secondary" onclick="document.querySelector('.email-strip').scrollIntoView({behavior:'smooth'})">Get Event Updates</button>
-      </div>
+
     </div>
   </section>
+
 
   <!-- EMAIL STRIP -->
   <div class="email-strip">
     <div class="email-strip-inner">
       <div class="es-copy">
         <span class="es-eyebrow">Stay Updated</span>
-        <h2 class="es-title">New Events Added Regularly</h2>
-        <p class="es-desc">Sign up to be notified when new events are announced in your area.</p>
+        <h2 class="es-title">More events coming soon</h2>
+        <p class="es-desc">Sign up to stay in the loop.</p>
       </div>
       <form class="es-form" onsubmit="handleEventsSignup(event)">
         <input type="email" id="eventsEmail" class="es-input" placeholder="Your email address" required>
