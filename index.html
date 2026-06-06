@@ -2542,6 +2542,11 @@
       .ar-image-secondary { display: block; aspect-ratio: 4/5; }
       .ar-text { padding-top: 0; padding-bottom: 0; }
       .ar-actions { margin-top: 32px; }
+      .bio-newsletter { flex-direction: column !important; }
+      .bio-newsletter-copy { border-right: none !important; border-bottom: 1px solid var(--border); width: 100%; box-sizing: border-box; }
+      .bio-newsletter-form { flex-direction: column; align-items: stretch !important; flex-shrink: 1 !important; width: 100%; box-sizing: border-box; }
+      .bio-newsletter-form input { width: 100% !important; box-sizing: border-box; }
+      .bio-newsletter-form button { width: 100%; }
 
       /* Home Events: card layout, dense on mobile */
       .home-events-inner { padding: 32px 24px; }
@@ -2551,9 +2556,16 @@
       .home-events-title { font-size: clamp(48px, 14vw, 72px); margin-bottom: 20px; }
       .home-events-intro { font-size: 15px; }
       .he-card {
-        grid-template-columns: 72px 1fr auto;
+        grid-template-columns: 72px 1fr;
         gap: 16px;
         padding: 20px;
+      }
+      .he-card-tags {
+        grid-column: 2;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-top: 6px;
       }
       .he-card-date { padding-right: 16px; }
       .he-card-day { font-size: 40px; }
@@ -2617,6 +2629,7 @@
       section:not(.about-book):not(.hero) { padding: 80px 0; }
 
       .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
+      .footer-links { display: none; }
       .es-social { flex-wrap: wrap; }
     }
 
@@ -3078,13 +3091,13 @@
             <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
             <a href="events.html" class="btn-secondary">See Events</a>
           </div>
-          <div style="margin-top:32px;border:1px solid var(--border);display:flex;align-items:center;gap:0;">
-            <div style="padding:28px 32px;flex:1;border-right:1px solid var(--border);">
+          <div class="bio-newsletter" style="margin-top:32px;border:1px solid var(--border);display:flex;align-items:center;gap:0;">
+            <div class="bio-newsletter-copy" style="padding:28px 32px;flex:1;border-right:1px solid var(--border);">
               <span style="display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Newsletter</span>
               <p style="font-family:var(--font-display);font-size:28px;font-weight:900;letter-spacing:var(--ls-display);text-transform:uppercase;color:var(--fg);line-height:0.95;margin-bottom:10px;">How We Win</p>
               <p style="font-family:var(--font-body);font-size:13px;color:rgba(40,29,29,0.55);line-height:1.5;">Power, culture, strategy &mdash; Rashad&rsquo;s newsletter, delivered regularly.</p>
             </div>
-            <form onsubmit="handleNewsletterSignup(event)" style="padding:28px 32px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
+            <form class="bio-newsletter-form" onsubmit="handleNewsletterSignup(event)" style="padding:28px 32px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
               <input type="email" name="email" placeholder="Enter your email" style="font-family:var(--font-body);font-size:13px;padding:12px 16px;border:1px solid var(--border);background:var(--cream);color:var(--fg);outline:none;width:200px;" />
               <button type="submit" style="font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:13px 24px;background:var(--orange);color:var(--cream);border:none;cursor:pointer;white-space:nowrap;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Subscribe</button>
             </form>
