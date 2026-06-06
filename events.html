@@ -245,6 +245,7 @@
       text-decoration: none;
       color: inherit;
       transition: border-color 0.2s, background 0.2s;
+      overflow: hidden;
     }
     .he-card:first-child { margin-top: 0; }
     .he-card:hover { border-color: var(--orange); background: rgba(228,83,34,0.03); z-index: 1; }
@@ -346,12 +347,15 @@
       color: var(--fg-muted);
       margin-top: 4px;
     }
-    .he-card-arrow {
-      display: inline-flex;
-      align-items: center;
+    .he-card-tags {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
       justify-content: center;
-      color: var(--orange);
     }
+
+    .he-card-arrow { display: none; }
 
     /* ── UPCOMING LABEL ── */
     .events-label {
@@ -685,7 +689,7 @@
         </svg>
         <p class="reach-out-text">To organize a book event, invite Rashad to speak, partner on sponsorships and workshops, or explore other collaborations</p>
       </div>
-      <a href="mailto:events@rashadrobinson.com" class="btn-secondary reach-out-btn">Reach Out &rarr;</a>
+      <a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener" class="btn-secondary reach-out-btn">Reach Out &rarr;</a>
     </div>
   </div>
 
@@ -703,8 +707,10 @@
           <div class="he-card-body">
             <h3 class="he-card-name">With Jane Fonda</h3>
             <div class="he-card-location">Manhattan, NY</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
-            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
+          <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
 
@@ -717,6 +723,8 @@
             <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
             <h3 class="he-card-name">Politics and Prose with Joy Reid</h3>
             <div class="he-card-location">5015 Connecticut Ave NW, Washington, DC 20008</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
           </div>
           <span class="he-card-arrow" aria-hidden="true">
@@ -732,8 +740,10 @@
           <div class="he-card-body">
             <h3 class="he-card-name">Commonwealth Club with Greg Dalton</h3>
             <div class="he-card-location">San Francisco, CA</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
-            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
+          <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
 
@@ -745,8 +755,10 @@
           <div class="he-card-body">
             <h3 class="he-card-name">Reparations Club with Lena Waithe</h3>
             <div class="he-card-location">Los Angeles, CA</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
-            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
+          <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
 
@@ -757,6 +769,8 @@
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">To be Announced</h3>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
@@ -768,8 +782,10 @@
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Angela Rye &mdash; Town Hall</h3>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
-            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
+          <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
 
@@ -781,6 +797,8 @@
           <div class="he-card-body">
             <h3 class="he-card-name">To be Announced</h3>
             <div class="he-card-location">Martha&rsquo;s Vineyard, MA</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
@@ -793,6 +811,8 @@
           <div class="he-card-body">
             <h3 class="he-card-name">To be Announced</h3>
             <div class="he-card-location">New Orleans, LA</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
@@ -805,8 +825,10 @@
           <div class="he-card-body">
             <h3 class="he-card-name">Banned Book Week</h3>
             <div class="he-card-location">Buffalo, NY</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
-            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
+          <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
 
@@ -853,7 +875,7 @@
       btn.disabled = true;
       btn.textContent = '...';
       try {
-        await fetch('https://app.kit.com/forms/9529317/subscriptions', {
+        await fetch('https://app.kit.com/forms/8354580/subscriptions', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams({ email_address: email }),

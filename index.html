@@ -207,6 +207,7 @@
       border-radius: 0;
       text-decoration: none;
       border: none;
+      white-space: nowrap;
       cursor: pointer;
       transition: background 0.2s, transform 0.1s;
     }
@@ -1760,19 +1761,21 @@
       padding: 5px 10px;
       border: 1px solid var(--border);
       color: var(--fg-muted);
-      margin-top: 4px;
     }
 
-    .he-card-arrow {
-      display: inline-flex;
-      align-items: center;
+    .he-card-tags {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
       justify-content: center;
-      color: var(--orange);
     }
+
+    .he-card-arrow { display: none; }
 
     .home-events-ctas {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 16px;
       margin-top: 40px;
     }
@@ -2995,7 +2998,7 @@
             <polyline points="1,1 11,10 21,1" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           </svg>
           <p class="home-events-reach-text">To organize a book event, invite Rashad to speak, partner on sponsorships and workshops, or explore other collaborations</p>
-          <a href="mailto:events@rashadrobinson.com" class="home-events-reach-btn">Reach Out &rarr;</a>
+          <a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener" class="home-events-reach-btn">Reach Out &rarr;</a>
         </div>
       </div>
 
@@ -3008,6 +3011,8 @@
           <div class="he-card-body">
             <h3 class="he-card-name">With Jane Fonda</h3>
             <div class="he-card-location">Manhattan, NY</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
           </div>
         </div>
@@ -3021,11 +3026,10 @@
             <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
             <h3 class="he-card-name">Politics and Prose with Joy Reid</h3>
             <div class="he-card-location">Washington, DC</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
           </div>
-          <span class="he-card-arrow" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </span>
         </a>
 
         <div class="he-card">
@@ -3036,6 +3040,8 @@
           <div class="he-card-body">
             <h3 class="he-card-name">Reparations Club with Lena Waithe</h3>
             <div class="he-card-location">Los Angeles, CA</div>
+          </div>
+          <div class="he-card-tags">
             <span class="he-card-tag">In Person</span>
           </div>
         </div>
@@ -3555,7 +3561,7 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePopup(true); });
 
     // ── Kit subscribe ──────────────────────────────────────────────────────
-    // Form IDs: 9487964 = Book Website (free chapter), 9529317 = Campaign Updates
+    // Form IDs: 9487964 = Book Website (free chapter), 8354580 = Newsletter Form - Organic - PBS (How We Win)
     async function subscribeToKit(email, formId, onSuccess, onError) {
       try {
         const res = await fetch('https://app.kit.com/forms/' + formId + '/subscriptions', {
@@ -3582,7 +3588,7 @@
       const success = document.getElementById('heroSignupSuccess');
       btn.disabled = true;
       btn.textContent = '...';
-      subscribeToKit(email, 9529317, () => {
+      subscribeToKit(email, 8354580, () => {
         btn.closest('.hs-form').style.display = 'none';
         success.style.display = 'block';
       }, () => {
@@ -3599,7 +3605,7 @@
       const btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = '...';
-      subscribeToKit(email, 9529317, () => {
+      subscribeToKit(email, 8354580, () => {
         form.innerHTML = '<p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg);padding:13px 0;">You\'re in &mdash; check your inbox.</p>';
       }, () => {
         btn.disabled = false;
