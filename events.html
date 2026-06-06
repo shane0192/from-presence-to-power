@@ -101,7 +101,6 @@
     /* ── HERO ── */
     .events-hero {
       padding-top: 60px;
-      border-bottom: 1px solid var(--border);
       background: var(--brown);
       display: flex;
       align-items: flex-end;
@@ -673,7 +672,6 @@
   <div class="events-hero">
     <div class="events-hero-left">
       <h1 class="events-hero-title">2026 Public<br>Events Calendar</h1>
-      <span class="events-hero-sub">Rashad Robinson &mdash; On Tour</span>
     </div>
   </div>
 
@@ -701,7 +699,6 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">27</span>
-            <span class="he-card-city">NYC</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Jane Fonda</h3>
@@ -715,7 +712,6 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">28</span>
-            <span class="he-card-city">DC</span>
           </div>
           <div class="he-card-body">
             <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
@@ -732,7 +728,6 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">29</span>
-            <span class="he-card-city">SF</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Commonwealth Club with Greg Dalton</h3>
@@ -746,7 +741,6 @@
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">30</span>
-            <span class="he-card-city">LA</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Reparations Club with Lena Waithe</h3>
@@ -760,7 +754,6 @@
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day">3</span>
-            <span class="he-card-city">TBD</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">To be Announced</h3>
@@ -772,11 +765,9 @@
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day">5</span>
-            <span class="he-card-city">SEATTLE</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">With Angela Rye &mdash; Town Hall</h3>
-            <div class="he-card-location">Seattle, WA</div>
             <span class="he-card-tag">In Person</span>
             <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
@@ -786,7 +777,6 @@
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day range">13&ndash;17</span>
-            <span class="he-card-city">MARTHA'S VINEYARD</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">To be Announced</h3>
@@ -799,7 +789,6 @@
           <div class="he-card-date">
             <span class="he-card-month">Sep</span>
             <span class="he-card-day">TBD</span>
-            <span class="he-card-city">NOLA</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">To be Announced</h3>
@@ -812,7 +801,6 @@
           <div class="he-card-date">
             <span class="he-card-month">Oct</span>
             <span class="he-card-day range">7&ndash;8</span>
-            <span class="he-card-city">BUFFALO</span>
           </div>
           <div class="he-card-body">
             <h3 class="he-card-name">Banned Book Week</h3>
@@ -865,7 +853,7 @@
       btn.disabled = true;
       btn.textContent = '...';
       try {
-        await fetch('https://app.kit.com/forms/9487964/subscriptions', {
+        await fetch('https://app.kit.com/forms/9529317/subscriptions', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams({ email_address: email }),
