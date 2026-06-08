@@ -2845,7 +2845,7 @@
             <p class="about-book-lede"><em>From Presence to Power</em> has already been called a master class in real activism and a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results. It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
             <p class="about-book-lede">It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
           </div>
-          <button id="abToggle" class="ab-toggle" onclick="toggleAbout()" aria-expanded="false"><span class="ab-toggle-text">Read more</span> <span class="ab-toggle-icon">↓</span></button>
+          <button id="abToggle" class="ab-toggle" onclick="toggleAbout()">Read more <span class="ab-toggle-icon">↓</span></button>
         </div>
         <div class="about-book-actions">
           <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary-dark">Pre-order the Book</a>
@@ -3665,13 +3665,9 @@
     function toggleAbout() {
       const expand = document.getElementById('abExpand');
       const toggle = document.getElementById('abToggle');
-      const text = toggle.querySelector('.ab-toggle-text');
-      const isOpen = expand.classList.contains('open');
-      expand.classList.toggle('open', !isOpen);
-      expand.setAttribute('aria-hidden', isOpen);
-      toggle.classList.toggle('open', !isOpen);
-      toggle.setAttribute('aria-expanded', !isOpen);
-      text.textContent = isOpen ? 'Read more' : 'Read less';
+      expand.classList.add('open');
+      expand.setAttribute('aria-hidden', 'false');
+      toggle.style.display = 'none';
     }
   </script>
 </body>
