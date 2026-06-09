@@ -329,11 +329,18 @@
       color: var(--fg);
       margin: 0;
     }
+    .he-card-name .name { color: var(--orange); }
     .he-card-location {
+      display: inline-block;
       font-family: var(--font-mono);
-      font-size: 13px;
-      letter-spacing: 0.02em;
-      color: var(--fg-muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--orange);
+      padding: 3px 8px;
+      margin-top: 6px;
     }
     .he-card-tag {
       display: inline-block;
@@ -694,7 +701,7 @@
           <rect x="1" y="1" width="20" height="16" stroke="currentColor" stroke-width="1.5"/>
           <polyline points="1,1 11,10 21,1" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
         </svg>
-        <p class="reach-out-text">To organize a book event, invite Rashad to speak, partner on sponsorships and workshops, or explore other collaborations</p>
+        <p class="reach-out-text">Interested in organizing a book event, inviting Rashad to speak, partnering on sponsorships and workshops, or exploring other collaborations?</p>
       </div>
       <a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener" class="btn-secondary reach-out-btn">Reach Out &rarr;</a>
     </div>
@@ -712,11 +719,10 @@
             <span class="he-card-day">27</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">With Jane Fonda</h3>
+            <h3 class="he-card-name">Book Launch with <span class="name">Jane Fonda</span></h3>
             <div class="he-card-location">Manhattan, NY</div>
           </div>
           <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
@@ -728,11 +734,8 @@
           </div>
           <div class="he-card-body">
             <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
-            <h3 class="he-card-name">Politics and Prose with Joy Reid</h3>
+            <h3 class="he-card-name">Book Launch with <span class="name">Joy Reid</span> @ Politics and Prose</h3>
             <div class="he-card-location">5015 Connecticut Ave NW, Washington, DC 20008</div>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           </div>
           <span class="he-card-arrow" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -745,11 +748,10 @@
             <span class="he-card-day">29</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">Commonwealth Club with Greg Dalton</h3>
+            <h3 class="he-card-name">Commonwealth Club with <span class="name">Greg Dalton</span></h3>
             <div class="he-card-location">San Francisco, CA</div>
           </div>
           <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
@@ -760,38 +762,23 @@
             <span class="he-card-day">30</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">Reparations Club with Lena Waithe</h3>
+            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span> / Hosted by Reparations Club</h3>
             <div class="he-card-location">Los Angeles, CA</div>
           </div>
           <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
 
-        <div class="he-card he-card--static" id="aug3">
-          <div class="he-card-date">
-            <span class="he-card-month">Aug</span>
-            <span class="he-card-day">3</span>
-          </div>
-          <div class="he-card-body">
-            <h3 class="he-card-name">To be Announced</h3>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
-          </div>
-        </div>
-
-        <div class="he-card he-card--static" id="angela-rye">
+<div class="he-card he-card--static" id="angela-rye">
           <div class="he-card-date">
             <span class="he-card-month">Aug</span>
             <span class="he-card-day">5</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">With Angela Rye &mdash; Town Hall</h3>
+            <h3 class="he-card-name">In conversation with <span class="name">Angela Rye</span> @ Town Hall</h3>
           </div>
           <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>
@@ -810,21 +797,7 @@
           </div>
         </div>
 
-        <div class="he-card he-card--static" id="new-orleans">
-          <div class="he-card-date">
-            <span class="he-card-month">Sep</span>
-            <span class="he-card-day">TBD</span>
-          </div>
-          <div class="he-card-body">
-            <h3 class="he-card-name">To be Announced</h3>
-            <div class="he-card-location">New Orleans, LA</div>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
-          </div>
-        </div>
-
-        <div class="he-card he-card--static" id="banned-book-week">
+<div class="he-card he-card--static" id="banned-book-week">
           <div class="he-card-date">
             <span class="he-card-month">Oct</span>
             <span class="he-card-day range">7&ndash;8</span>
@@ -834,7 +807,6 @@
             <div class="he-card-location">Buffalo, NY</div>
           </div>
           <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           <span class="he-card-tag he-card-tag--tba">Details Coming Soon</span>
           </div>
         </div>

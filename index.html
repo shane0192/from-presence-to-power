@@ -679,11 +679,11 @@
 
     .about-book-lede {
       font-family: var(--font-body);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.65;
       color: rgba(239,237,236,0.6);
-      max-width: 520px;
-      margin-bottom: 0;
+      max-width: 680px;
+      margin-bottom: 20px;
     }
 
     .ab-two-col {
@@ -702,20 +702,12 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
-      max-width: 560px;
+      max-width: 680px;
     }
 
     .ab-expand.open { max-height: 1200px; }
 
-    .ab-expand p {
-      font-family: var(--font-body);
-      font-size: 13px;
-      line-height: 1.7;
-      color: rgba(239,237,236,0.45);
-      margin-top: 14px;
-    }
-
-    .ab-toggle {
+.ab-toggle {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -1744,11 +1736,19 @@
       margin: 0;
     }
 
+    .he-card-name .name { color: var(--orange); }
+
     .he-card-location {
+      display: inline-block;
       font-family: var(--font-mono);
-      font-size: 13px;
-      letter-spacing: 0.02em;
-      color: var(--fg-muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--orange);
+      padding: 3px 8px;
+      margin-top: 6px;
     }
 
     .he-card-tag {
@@ -1775,7 +1775,7 @@
 
     .home-events-ctas {
       display: flex;
-      align-items: stretch;
+      align-items: center;
       gap: 16px;
       margin-top: 40px;
     }
@@ -2655,8 +2655,8 @@
   <style>
     [data-reveal] { visibility: hidden; }
     [data-reveal] .reveal-line {
-      display: inline-block !important;
-      margin: -0.055em 0;
+      display: block;
+      overflow: hidden;
     }
     .reveal-bar {
       position: absolute;
@@ -2709,13 +2709,8 @@
 
       <div class="hero-text-top">
         <p class="hero-eyebrow">A New Book by Rashad Robinson</p>
-        <h1 class="hero-title" data-reveal data-reveal-color="#EFEDEC">
-          What does it <br>
-          take to <em>win</em><br>
-          social change,<br>
-          especially now?
-        </h1>
-        <h1 class="hero-title-mobile">From<br>Presence<br>to Power</h1>
+        <h1 class="hero-title" data-reveal data-reveal-color="#EFEDEC">What does it take to <em>win</em> social change, especially now?</h1>
+        <h1 class="hero-title-mobile">What does it take to <em>win</em> social change, especially now?</h1>
         <div class="hero-divider"></div>
         <p class="hero-subtitle">How to Take on the Fights That Matter&mdash;and Win</p>
       </div>
@@ -2842,7 +2837,7 @@
           <p class="about-book-lede"><em>From Presence to Power</em> is a uniquely practical and strategic roadmap for understanding how power actually works today&mdash;and for gaining power and using it for good.</p>
           <p class="about-book-lede">The book answers the questions so many people have been asking: Why are we losing so much? In order to win the big changes we want to see, what do we need to change about the ways we fight back? When we do win something, how can we make sure it lasts?</p>
           <div class="ab-expand" id="abExpand" aria-hidden="true">
-            <p class="about-book-lede"><em>From Presence to Power</em> has already been called a master class in real activism and a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results. It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
+            <p class="about-book-lede"><em>From Presence to Power</em> has already been called &ldquo;a master class in real activism&rdquo; and &ldquo;a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.&rdquo; It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
             <p class="about-book-lede">It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
           </div>
           <button id="abToggle" class="ab-toggle" onclick="toggleAbout()">Read more <span class="ab-toggle-icon">↓</span></button>
@@ -2863,10 +2858,10 @@
   <section class="testimonials" id="praise">
     <div class="testimonials-header" style="display:flex;align-items:flex-end;justify-content:space-between;">
       <div class="testimonials-header-copy">
-        <span class="section-eyebrow" style="display:block;margin-bottom:12px;">Read What People Are Saying</span>
+        <span class="section-eyebrow" style="display:block;margin-bottom:10px;">What People Are Saying</span>
         <h2 class="testimonials-section-title">Praise for the book</h2>
       </div>
-      <a href="praise.html" class="testimonials-all-link" style="display:inline-flex;font-size:15px;padding:10px 20px;flex-shrink:0;margin-bottom:4px;">Read more &rarr;</a>
+      <a href="praise.html" class="testimonials-all-link" style="display:inline-flex;font-size:15px;padding:10px 20px;flex-shrink:0;margin-bottom:4px;">Read all praise &rarr;</a>
     </div>
     <div class="carousel-wrapper">
       <div class="carousel-track-outer">
@@ -2956,15 +2951,15 @@
             </div>
           </div>
 
-          <!-- Card 7: Dr. Ibram X. Kendi -->
+          <!-- Card 7: Dr. Ibram Kendi -->
           <div class="tc-card tc-card--orange">
             <div class="tc-card-image">
-              <img src="images/endorser-headshots/ibram-kendi.jpg" alt="Dr. Ibram X. Kendi" class="tc-card-img" style="object-position: center 55%;">
+              <img src="images/endorser-headshots/ibram-kendi.jpg" alt="Dr. Ibram Kendi" class="tc-card-img" style="object-position: center 55%;">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">To transform the world for the good, we must study power. Robinson lays out a clear blueprint for making antiracist change.</p>
               <div class="tc-attribution">
-                <p class="tc-name">Dr. Ibram X. Kendi</p>
+                <p class="tc-name">Dr. Ibram Kendi</p>
                 <p class="tc-role">#1 NYT Bestselling Author</p>
               </div>
             </div>
@@ -3011,7 +3006,7 @@
             <rect x="1" y="1" width="20" height="16" stroke="currentColor" stroke-width="1.5"/>
             <polyline points="1,1 11,10 21,1" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           </svg>
-          <p class="home-events-reach-text">To organize a book event, invite Rashad to speak, partner on sponsorships and workshops, or explore other collaborations</p>
+          <p class="home-events-reach-text">Interested in organizing a book event, inviting Rashad to speak, partnering on sponsorships and workshops, or exploring other collaborations?</p>
           <a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener" class="home-events-reach-btn">Reach Out &rarr;</a>
         </div>
       </div>
@@ -3023,11 +3018,8 @@
             <span class="he-card-day">27</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">With Jane Fonda</h3>
+            <h3 class="he-card-name">Book Launch with <span class="name">Jane Fonda</span></h3>
             <div class="he-card-location">Manhattan, NY</div>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           </div>
         </div>
 
@@ -3038,11 +3030,8 @@
           </div>
           <div class="he-card-body">
             <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
-            <h3 class="he-card-name">Politics and Prose with Joy Reid</h3>
+            <h3 class="he-card-name">Book Launch with <span class="name">Joy Reid</span> @ Politics and Prose</h3>
             <div class="he-card-location">Washington, DC</div>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           </div>
         </a>
 
@@ -3052,11 +3041,8 @@
             <span class="he-card-day">30</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">Reparations Club with Lena Waithe</h3>
+            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span> — Hosted by Reparations Club</h3>
             <div class="he-card-location">Los Angeles, CA</div>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">In Person</span>
           </div>
         </div>
       </div>
@@ -3074,7 +3060,7 @@
 
       <div class="ar-header">
         <span class="ar-tag">About the Author</span>
-        <h2 class="ar-statement" data-reveal data-reveal-color="#EFEDEC">Rashad Robinson has spent more than twenty years at the highest levels of leadership in the most significant social movements of our time.</h2>
+        <h2 class="ar-statement" data-reveal data-reveal-color="#EFEDEC">Rashad Robinson has spent more than twenty years as a leader in the most significant social movements of our time.</h2>
       </div>
 
 
@@ -3085,22 +3071,11 @@
         <div class="ar-text">
           <p>Rashad Robinson is a social justice leader, strategist and organization builder.</p>
           <p>He&rsquo;s taken on tech giants and the criminal justice system, politicians in Washington and corporate executives in Hollywood. He&rsquo;s been on the front lines of protest and in the back rooms of negotiation. He has designed campaigns to change public policies, corporate practices, electoral outcomes, and media representations. He led Color Of Change for nearly fourteen years, transforming it from a start-up into a national force for racial justice, and also led programs at GLAAD, reshaping media representations of LGBTQ people during the fights to win marriage equality and end discrimination.</p>
-          <p><em>From Presence to Power</em> is what he&rsquo;s learned: a practical guide for anyone who wants to understand power, build it, and use it to win.</p>
+          <p><em>From Presence to Power</em> is a roadmap for making change, based on everything he&rsquo;s achieved and learned: a practical guide for anyone who wants to understand power, gain it, and use it to win.</p>
           <p><a href="https://www.rashadrobinson.com/about" target="_blank" rel="noopener" class="rashad-link">See Rashad&rsquo;s full bio here.</a></p>
           <div class="ar-actions">
             <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
             <a href="events.html" class="btn-secondary">See Events</a>
-          </div>
-          <div class="bio-newsletter" style="margin-top:32px;border:1px solid var(--border);display:flex;align-items:center;gap:0;">
-            <div class="bio-newsletter-copy" style="padding:28px 32px;flex:1;border-right:1px solid var(--border);">
-              <span style="display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Newsletter</span>
-              <p style="font-family:var(--font-display);font-size:28px;font-weight:900;letter-spacing:var(--ls-display);text-transform:uppercase;color:var(--fg);line-height:0.95;margin-bottom:10px;">How We Win</p>
-              <p style="font-family:var(--font-body);font-size:13px;color:rgba(40,29,29,0.55);line-height:1.5;">Power, culture, strategy &mdash; Rashad&rsquo;s newsletter, delivered regularly.</p>
-            </div>
-            <form class="bio-newsletter-form" onsubmit="handleNewsletterSignup(event)" style="padding:28px 32px;display:flex;align-items:center;gap:12px;flex-shrink:0;">
-              <input type="email" name="email" placeholder="Enter your email" style="font-family:var(--font-body);font-size:13px;padding:12px 16px;border:1px solid var(--border);background:var(--cream);color:var(--fg);outline:none;width:200px;" />
-              <button type="submit" style="font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:13px 24px;background:var(--orange);color:var(--cream);border:none;cursor:pointer;white-space:nowrap;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Subscribe</button>
-            </form>
           </div>
         </div>
       </div>
