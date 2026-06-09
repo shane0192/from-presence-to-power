@@ -2459,17 +2459,18 @@
 
       .hero-eyebrow { margin-bottom: 14px; font-size: 11px; }
 
-      /* Book mockup: floats right, overlapping into the photo; headline wraps around it */
+      /* Book mockup: absolute in top-right, overlapping into the photo above text */
       .hero-book-mockup {
         display: block;
-        float: right;
-        order: initial;
-        width: auto;
-        margin: -150px -4px 12px 16px;
+        position: absolute;
+        top: -160px;
+        right: 0;
+        z-index: 10;
+        margin: 0;
         padding: 0;
-        position: relative;
-        z-index: 5;
-        shape-outside: margin-box;
+        float: none;
+        width: auto;
+        shape-outside: none;
       }
       .hero-book-mockup-img {
         width: 150px;
@@ -2478,6 +2479,10 @@
         display: block;
         filter: drop-shadow(0 24px 44px rgba(40,29,29,0.4));
       }
+      .hero-title-mobile { max-width: 100%; }
+      .hero-eyebrow,
+      .hero-subtitle,
+      .hero-divider { max-width: 100%; }
 
       .hero-body {
         max-width: 100%;
@@ -2635,8 +2640,8 @@
     }
 
     @media (max-width: 640px) {
-      .hero-book-mockup-img { width: 130px; }
-      .hero-book-mockup { margin: -120px -4px 8px 14px; }
+      .hero-book-mockup-img { width: 120px; }
+      .hero-book-mockup { top: -140px; }
       .hero-left { padding: 20px 20px 32px; }
       .hero-eyebrow { margin-bottom: 10px; font-size: 10px; letter-spacing: 0.03em; max-width: calc(100vw - 180px); }
       .hero-title-mobile { font-size: 60px; margin-bottom: 14px; max-width: none; }
@@ -3033,7 +3038,7 @@
           </div>
           <div class="he-card-body">
             <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
-            <h3 class="he-card-name">Book Launch with <span class="name">Joy Reid</span> @ Politics and Prose</h3>
+            <h3 class="he-card-name">Book Launch with <span class="name">Joy Reid</span><br>@ Politics and Prose</h3>
             <div class="he-card-location">Washington, DC</div>
           </div>
         </a>
@@ -3044,7 +3049,7 @@
             <span class="he-card-day">30</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span> — Hosted by Reparations Club</h3>
+            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span><br>Hosted by Reparations Club</h3>
             <div class="he-card-location">Los Angeles, CA</div>
           </div>
         </div>
