@@ -2413,7 +2413,7 @@
       .hero-left {
         position: relative;
         display: block;
-        padding: 24px 24px 40px;
+        padding: 180px 24px 40px;
       }
       .hero-text-top::after { content: ''; display: block; clear: both; }
       .hero-text-bottom { clear: both; }
@@ -2459,11 +2459,11 @@
 
       .hero-eyebrow { margin-bottom: 14px; font-size: 11px; }
 
-      /* Book mockup: absolute in top-right, overlapping into the photo above text */
+      /* Book mockup: absolute in top-right, sitting at the bottom of the photo */
       .hero-book-mockup {
         display: block;
         position: absolute;
-        top: -160px;
+        top: -70px;
         right: 0;
         z-index: 10;
         margin: 0;
@@ -2641,7 +2641,8 @@
 
     @media (max-width: 640px) {
       .hero-book-mockup-img { width: 120px; }
-      .hero-book-mockup { top: -140px; }
+      .hero-book-mockup { top: -55px; }
+      .hero-left { padding-top: 160px; }
       .hero-left { padding: 20px 20px 32px; }
       .hero-eyebrow { margin-bottom: 10px; font-size: 10px; letter-spacing: 0.03em; max-width: calc(100vw - 180px); }
       .hero-title-mobile { font-size: 60px; margin-bottom: 14px; max-width: none; }
