@@ -3558,7 +3558,7 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePopup(true); });
 
     // ── Kit subscribe ──────────────────────────────────────────────────────
-    // Form IDs: 9487964 = Book Website (free chapter), 8354580 = Newsletter Form - Organic - PBS (How We Win)
+    // Form IDs: 9487964 = Book Website (free chapter), 9529317 = Newsletter Form - Organic - PBS (How We Win)
     async function subscribeToKit(email, formId, onSuccess, onError) {
       try {
         const res = await fetch('https://app.kit.com/forms/' + formId + '/subscriptions', {
@@ -3585,7 +3585,7 @@
       const success = document.getElementById('heroSignupSuccess');
       btn.disabled = true;
       btn.textContent = '...';
-      subscribeToKit(email, 8354580, () => {
+      subscribeToKit(email, 9529317, () => {
         btn.closest('.hs-form').style.display = 'none';
         success.style.display = 'block';
       }, () => {
@@ -3602,7 +3602,7 @@
       const btn = form.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = '...';
-      subscribeToKit(email, 8354580, () => {
+      subscribeToKit(email, 9529317, () => {
         form.innerHTML = '<p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg);padding:13px 0;">You\'re in &mdash; check your inbox.</p>';
       }, () => {
         btn.disabled = false;
