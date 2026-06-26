@@ -528,6 +528,18 @@
       opacity: 0.7;
     }
 
+    .hero-publisher-mobile {
+      display: none;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.7;
+      margin-bottom: 28px;
+    }
+
     .hero-promo-meta {
       font-family: var(--font-body);
       font-size: 13px;
@@ -2554,6 +2566,8 @@
         padding-bottom: 16px;
       }
 
+      .hero-publisher-mobile { display: block; }
+
       /* About Book: collapse right card column */
       .about-book-body { grid-template-columns: 1fr; }
       .about-book-card { display: none; }
@@ -2771,10 +2785,11 @@
 
       <div class="hero-text-bottom">
         <p class="hero-body">A practical and strategic roadmap for anyone trying to gain real power, rooted in fresh insights and behind-the-scenes stories from the frontlines of social change.</p>
-        <div class="hero-actions" style="margin-top: 20px; margin-bottom: 28px;">
+        <div class="hero-actions" style="margin-top: 20px; margin-bottom: 16px;">
           <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
           <a href="#preorder-strip" class="btn-secondary">Get the First Chapter</a>
         </div>
+        <p class="hero-publisher-mobile">Published by One World | Penguin Random House</p>
         <div class="hero-meta">
           <div class="hero-meta-top">
             <div class="hero-meta-item">
