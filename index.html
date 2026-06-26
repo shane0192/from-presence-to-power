@@ -12,13 +12,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>From Presence to Power — Rashad Robinson</title>
+  <meta name="description" content="From Presence to Power by Rashad Robinson — a practical guide to building power and winning lasting social change. Order your copy today.">
+  <link rel="canonical" href="https://book.rashadrobinson.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://book.rashadrobinson.com/">
+  <meta property="og:title" content="From Presence to Power — Rashad Robinson">
+  <meta property="og:description" content="From Presence to Power by Rashad Robinson — a practical guide to building power and winning lasting social change.">
+  <meta property="og:image" content="https://book.rashadrobinson.com/images/book-mockup-front.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="From Presence to Power — Rashad Robinson">
+  <meta name="twitter:description" content="From Presence to Power by Rashad Robinson — a practical guide to building power and winning lasting social change.">
+  <meta name="twitter:image" content="https://book.rashadrobinson.com/images/book-mockup-front.png">
   <link rel="icon" type="image/png" href="images/book-mock.png">
   <link rel="apple-touch-icon" href="images/book-mock.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { height: auto; }
 
     :root {
       --orange:       #E55F1D;
@@ -351,15 +364,31 @@
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .hero-meta {
-      display: flex;
-      gap: 32px;
-      padding-top: 40px;
       border-top: 1px solid var(--border);
     }
 
-    .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .hero-meta-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
 
-    .hero-meta-label {
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 24px 0;
+    }
+
+    .hero-meta-item:first-child {
+      border-right: 1px solid var(--border);
+      padding-right: 28px;
+    }
+
+    .hero-meta-item:last-child {
+      padding-left: 28px;
+    }
+
+.hero-meta-label {
       font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 500;
@@ -383,7 +412,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-top: 2px;
     }
 
     .hero-social-icon {
@@ -488,6 +516,16 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 14px;
+    }
+
+    .hero-promo-publisher {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.7;
     }
 
     .hero-promo-meta {
@@ -2694,6 +2732,7 @@
       <li><a href="events.html">Upcoming Events</a></li>
       <li><a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a></li>
       <li><a href="#rashad">About Rashad</a></li>
+      <li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>
       <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
@@ -2713,17 +2752,19 @@
     <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
   </div>
 
+  <main id="main-content">
+
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-left">
       <div class="hero-book-mockup">
-        <img src="images/book-mockup-front.png" alt="From Presence to Power — Book Cover" class="hero-book-mockup-img">
+        <img src="images/book-mockup-front.png" alt="From Presence to Power — Book Cover" class="hero-book-mockup-img" width="967" height="1166">
       </div>
 
       <div class="hero-text-top">
         <p class="hero-eyebrow">A New Book by Rashad Robinson</p>
         <h1 class="hero-title" data-reveal data-reveal-color="#EFEDEC">What does it take to win social change, especially now?</h1>
-        <h1 class="hero-title-mobile">What does it take to win social change, especially now?</h1>
+        <p class="hero-title-mobile">What does it take to win social change, especially now?</p>
         <div class="hero-divider"></div>
         <p class="hero-subtitle">How to Take on the Fights That Matter&mdash;and Win</p>
       </div>
@@ -2735,25 +2776,27 @@
           <a href="#preorder-strip" class="btn-secondary">Get the First Chapter</a>
         </div>
         <div class="hero-meta">
-          <div class="hero-meta-item">
-            <span class="hero-meta-label">Release Date</span>
-            <span class="hero-meta-value">July 28, 2026</span>
-          </div>
-          <div class="hero-meta-item hero-social-row">
-            <span class="hero-meta-label">Follow</span>
-            <div class="hero-social-icons">
-              <a href="https://www.instagram.com/iamrashadrobinson/" target="_blank" rel="noopener" aria-label="Instagram" class="hero-social-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              </a>
-              <a href="https://x.com/rashadrobinson" target="_blank" rel="noopener" aria-label="X / Twitter" class="hero-social-icon">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              </a>
-              <a href="https://www.facebook.com/rashadny" target="_blank" rel="noopener" aria-label="Facebook" class="hero-social-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </a>
-              <a href="https://www.linkedin.com/in/rashadrobinson/" target="_blank" rel="noopener" aria-label="LinkedIn" class="hero-social-icon">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
+          <div class="hero-meta-top">
+            <div class="hero-meta-item">
+              <span class="hero-meta-label">Release Date</span>
+              <span class="hero-meta-value">July 28, 2026</span>
+            </div>
+            <div class="hero-meta-item hero-social-row">
+              <span class="hero-meta-label">Follow</span>
+              <div class="hero-social-icons">
+                <a href="https://www.instagram.com/iamrashadrobinson/" target="_blank" rel="noopener" aria-label="Instagram" class="hero-social-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="https://x.com/rashadrobinson" target="_blank" rel="noopener" aria-label="X / Twitter" class="hero-social-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/rashadny" target="_blank" rel="noopener" aria-label="Facebook" class="hero-social-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/rashadrobinson/" target="_blank" rel="noopener" aria-label="LinkedIn" class="hero-social-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -2765,13 +2808,14 @@
         <span class="hero-preorder-top">Preorder</span>
         <span class="hero-preorder-bottom">Now</span>
       </a>
-      <img src="images/rashad-portrait-hand.jpg" alt="Rashad Robinson" class="hero-author-img">
+      <img src="images/rashad-portrait-hand.jpg" alt="Rashad Robinson" class="hero-author-img" width="1920" height="2400">
       <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="hero-promo-bar" style="text-decoration:none;cursor:pointer;">
         <div class="hero-promo-text">
           <p class="hero-promo-eyebrow">A new book by Rashad Robinson</p>
           <p class="hero-promo-title">From Presence<br>to Power</p>
+          <p class="hero-promo-publisher">Published by One World | Penguin Random House</p>
         </div>
-        <img src="images/book-mockup-front.png" alt="From Presence to Power" class="hero-promo-cover">
+        <img src="images/book-mockup-front.png" alt="From Presence to Power" class="hero-promo-cover" width="967" height="1166">
       </a>
     </div>
   </section>
@@ -2815,7 +2859,7 @@
       </div>
       <div>
         <form class="hs-form" onsubmit="handleHeroSignup(event)">
-          <input type="email" id="heroSignupEmail" placeholder="Your email address" required>
+          <input type="email" id="heroSignupEmail" placeholder="Your email address" aria-label="Email address" required>
           <button type="submit" id="heroSignupBtn">Sign Up</button>
         </form>
         <p id="heroSignupSuccess" style="display:none;font-family:var(--font-mono);font-size:12px;color:var(--fg-muted);margin-top:10px;letter-spacing:0.05em;text-transform:uppercase;">You&rsquo;re in &mdash; check your inbox.</p>
@@ -2855,6 +2899,7 @@
             <p class="about-book-lede">Rashad Robinson is a two-decade social justice leader whose strategies have led to real wins in the realms of racial justice, LGBT rights and more. In this book, he shows clearly why some fights for change stall while others succeed.</p>
             <p class="about-book-lede"><em>From Presence to Power</em> takes readers on a journey to becoming more powerful&mdash;individually and collectively. Rashad outlines ten core principles for making change in today&rsquo;s era that are too often ignored, rooted in fresh insights, revealing examples and behind-the-scenes accounts drawn from the frontlines of social change. He offers readers in-depth accounts of taking on Mark Zuckerberg and Big Tech, Hollywood, and the political establishment, and of breaking through on criminal justice reform by helping to launch the progressive prosecutor movement&mdash;all of which are instructive for taking on those who profit from injustice today. Rashad also provides exercises readers can go through on their own: tangible, practical tools for helping readers become more effective and powerful themselves.</p>
             <p class="about-book-lede">Rashad wrote this book for a simple reason: In order for our movements to win, we need to raise our strategy game. That means we need shared language, sharper tools, and more strategic frameworks for thinking about power&mdash;and a deeper analysis of what we&rsquo;re getting right and wrong when we fight for the causes we believe in. This book is his way of putting those resources in the hands of people working at all levels of social change.</p>
+            <p class="about-book-lede"><em>From Presence to Power</em> is published by One World, an imprint of Random House.</p>
           </div>
           <button id="abToggle" class="ab-toggle" onclick="toggleAbout()">Read more <span class="ab-toggle-icon">↓</span></button>
         </div>
@@ -2864,7 +2909,7 @@
         </div>
       </div>
       <div class="about-book-card">
-        <img src="images/book-mockup-front.png" alt="From Presence to Power" class="about-book-cover">
+        <img src="images/book-mockup-front.png" alt="From Presence to Power" class="about-book-cover" width="967" height="1166" loading="lazy">
       </div>
     </div>
   </section>
@@ -2886,7 +2931,7 @@
           <!-- Card 1: Jane Fonda -->
           <div class="tc-card tc-card--green">
             <div class="tc-card-image">
-              <img src="images/endorser-headshots/Jane.jpg" alt="Jane Fonda" class="tc-card-img">
+              <img src="images/endorser-headshots/Jane.jpg" alt="Jane Fonda" class="tc-card-img" width="533" height="740" loading="lazy">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">Rashad gave me a new way of thinking about how power works. This is a must-read for anyone who wants things to change.</p>
@@ -2900,7 +2945,7 @@
           <!-- Card 2: Joy-Ann Reid -->
           <div class="tc-card tc-card--brown">
             <div class="tc-card-image">
-              <img src="images/endorser-headshots/joy-reid.jpg" alt="Joy-Ann Reid" class="tc-card-img">
+              <img src="images/endorser-headshots/joy-reid.jpg" alt="Joy-Ann Reid" class="tc-card-img" width="800" height="599" loading="lazy">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">Rashad Robinson is a generationally brilliant thinker, sharing hard-earned wisdom on how to not just survive but grab the reins and win.</p>
@@ -2914,7 +2959,7 @@
           <!-- Card 3: Anthony Romero -->
           <div class="tc-card tc-card--green">
             <div class="tc-card-image">
-              <img src="images/endorser-headshots/anthony-romero.jpg" alt="Anthony D. Romero" class="tc-card-img">
+              <img src="images/endorser-headshots/anthony-romero.jpg" alt="Anthony D. Romero" class="tc-card-img" width="640" height="800" loading="lazy">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">His analysis of roles, rules, and results is an essential framework&mdash;a way out of the wilderness progressives find themselves in today.</p>
@@ -2928,7 +2973,7 @@
           <!-- Card 4: Heather McGhee -->
           <div class="tc-card tc-card--orange">
             <div class="tc-card-image">
-              <img src="images/endorser-heather-mcghee.jpg" alt="Heather McGhee" class="tc-card-img">
+              <img src="images/endorser-heather-mcghee.jpg" alt="Heather McGhee" class="tc-card-img" width="671" height="800" loading="lazy">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">A master class in real activism.</p>
@@ -2942,7 +2987,7 @@
           <!-- Card 5: Alicia Garza -->
           <div class="tc-card tc-card--brown">
             <div class="tc-card-image">
-              <img src="images/endorser-headshots/alicia-garza.jpg" alt="Alicia Garza" class="tc-card-img">
+              <img src="images/endorser-headshots/alicia-garza.jpg" alt="Alicia Garza" class="tc-card-img" width="664" height="800" loading="lazy">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">This is the handbook I wish I had when I first started organizing. It&rsquo;s the book everybody needs right now.</p>
@@ -2956,7 +3001,7 @@
           <!-- Card 6: Jose Antonio Vargas -->
           <div class="tc-card tc-card--green">
             <div class="tc-card-image">
-              <img src="images/endorser-headshots/jose-antonio-vargas.jpg" alt="Jose Antonio Vargas" class="tc-card-img">
+              <img src="images/endorser-headshots/jose-antonio-vargas.jpg" alt="Jose Antonio Vargas" class="tc-card-img" width="585" height="800" loading="lazy">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">How fortunate are we that such a champion of justice is letting us into his mind so that we can make history and not repeat it.</p>
@@ -2970,7 +3015,7 @@
           <!-- Card 7: Dr. Ibram Kendi -->
           <div class="tc-card tc-card--orange">
             <div class="tc-card-image">
-              <img src="images/endorser-headshots/ibram-kendi.jpg" alt="Dr. Ibram Kendi" class="tc-card-img" style="object-position: center 55%;">
+              <img src="images/endorser-headshots/ibram-kendi.jpg" alt="Dr. Ibram Kendi" class="tc-card-img" width="533" height="668" loading="lazy" style="object-position: center 55%;">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">To transform the world for the good, we must study power. Robinson lays out a clear blueprint for making antiracist change.</p>
@@ -2984,7 +3029,7 @@
           <!-- Card 8: Ai-jen Poo -->
           <div class="tc-card tc-card--brown">
             <div class="tc-card-image">
-              <img src="images/endorser-headshots/aijen-poo.jpg" alt="Ai-jen Poo" class="tc-card-img">
+              <img src="images/endorser-headshots/aijen-poo.jpg" alt="Ai-jen Poo" class="tc-card-img" width="533" height="800" loading="lazy">
             </div>
             <div class="tc-card-content">
               <p class="tc-quote">If you&rsquo;ve ever despaired at the accelerating harms of the world around us and wished there was something you could do, this is the book for you.</p>
@@ -3082,7 +3127,7 @@
 
       <div class="ar-body">
         <div class="ar-image">
-          <img src="images/rashad-01-records.jpg" alt="Rashad Robinson">
+          <img src="images/rashad-01-records.jpg" alt="Rashad Robinson" width="1920" height="2400" loading="lazy">
         </div>
         <div class="ar-text">
           <p>Rashad Robinson is a social justice leader, strategist and organization builder.</p>
@@ -3104,7 +3149,7 @@
     <div class="email-signup-inner">
       <div class="es-book">
         <div class="es-book-halo" aria-hidden="true"></div>
-        <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener"><img src="images/book-mock.png" alt="From Presence to Power book cover" style="display:block;"></a>
+        <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener"><img src="images/book-mock.png" alt="From Presence to Power book cover" width="967" height="1166" loading="lazy" style="display:block;"></a>
       </div>
       <div class="es-content">
         <span class="es-label">Get the First Chapter</span>
@@ -3134,7 +3179,7 @@
         </ul>
 
         <form class="es-form" onsubmit="handleStripSubmit(event)">
-          <input type="email" id="stripEmail" class="email-input" placeholder="Your email address" required>
+          <input type="email" id="stripEmail" class="email-input" placeholder="Your email address" aria-label="Email address" required>
           <button type="submit" class="btn-cream" id="stripBtn">Get Chapter</button>
         </form>
         <p id="stripSuccess" style="display:none;font-family:var(--font-mono);font-size:12px;color:var(--brown);margin-top:12px;letter-spacing:0.05em;text-transform:uppercase;">You&rsquo;re in &mdash; check your inbox.</p>
@@ -3159,13 +3204,15 @@
         <h2 class="popup-headline">Before You Go</h2>
         <p class="popup-desc">Get the first chapter of <em>From Presence to Power</em> — plus updates on events and new writing from Rashad Robinson.</p>
         <form class="popup-form" id="popupForm" onsubmit="handlePopupSubmit(event)">
-          <input type="email" class="popup-input" placeholder="Your email address" required>
+          <input type="email" class="popup-input" placeholder="Your email address" aria-label="Email address" required>
           <button type="submit" class="popup-btn">Get the Chapter</button>
         </form>
         <button class="popup-dismiss" id="popupDismiss">No thanks</button>
       </div>
     </div>
   </div>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
