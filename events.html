@@ -371,6 +371,16 @@
       line-height: 1.55;
     }
 
+    /* Host org line — for events where org ≠ venue */
+    .he-card-host {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-top: 4px;
+    }
+
     /* Right side — linked cards get the pill button */
     .he-card-action {
       display: flex;
@@ -651,7 +661,7 @@
       .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
       .footer-links { display: none; }
       .he-card { grid-template-columns: 68px 1fr; }
-      .he-card-date { padding: 16px 8px; }
+      .he-card-date { padding: 16px 8px; grid-row: 1 / -1; }
       .he-card-day { font-size: 36px; }
       .he-card-body { padding: 16px 16px; }
       .he-card-name { font-size: 18px; }
@@ -837,7 +847,7 @@
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
               New Orleans, LA
             </div>
-            <h3 class="he-card-name">Panel with <span class="name">Senator Cory Booker</span>, Congresswoman Jasmine Crockett &amp; Nicole Austin-Hillary</h3>
+            <h3 class="he-card-name">Panel with <span class="name">Senator Cory Booker</span>, <span class="name">Congresswoman Jasmine Crockett</span> &amp; <span class="name">Nicole Austin-Hillary</span></h3>
             <div class="he-card-meta">Fri 7/3 &bull; Global Black Economic Forum @ Essence Fest &bull; "Defining Power Against Ongoing Assaults"</div>
           </div>
           <div class="he-card-action">
@@ -916,7 +926,8 @@
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
               Los Angeles, CA
             </div>
-            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span> &mdash; Reparations Club</h3>
+            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span></h3>
+            <div class="he-card-host">Hosted by Reparations Club</div>
           </div>
           <div class="he-card-tags">
             <span class="he-card-tag">Details Coming Soon</span>
@@ -935,7 +946,8 @@
               <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
               Seattle, WA
             </div>
-            <h3 class="he-card-name">In conversation with <span class="name">Angela Rye</span> &mdash; Town Hall</h3>
+            <h3 class="he-card-name">In conversation with <span class="name">Angela Rye</span></h3>
+            <div class="he-card-host">Hosted by Town Hall</div>
           </div>
           <div class="he-card-tags">
             <span class="he-card-tag">Details Coming Soon</span>

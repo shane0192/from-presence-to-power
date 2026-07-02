@@ -1770,6 +1770,25 @@
       margin-top: 6px;
     }
 
+    .he-card-dow {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 3px;
+    }
+
+    .he-card-host {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-top: 2px;
+    }
+
     .he-card-body {
       display: flex;
       flex-direction: column;
@@ -3119,40 +3138,152 @@
       </div>
 
       <div class="home-events-list">
-        <div class="he-card">
-          <div class="he-card-date">
-            <span class="he-card-month">Jul</span>
-            <span class="he-card-day">27</span>
-          </div>
-          <div class="he-card-body">
-            <h3 class="he-card-name">Book Launch with <span class="name">Jane Fonda</span></h3>
-            <div class="he-card-location">Manhattan, NY</div>
-          </div>
-        </div>
 
-        <a href="https://politics-prose.com/rashad-robinson-072826" target="_blank" rel="noopener" class="he-card">
+        <!-- Jul 3 — GBEF @ Essence Fest, New Orleans -->
+        <a href="https://gbef.com/events" target="_blank" rel="noopener" class="he-card" data-date="2026-07-03" style="display:none">
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
-            <span class="he-card-day">28</span>
+            <span class="he-card-day">3</span>
+            <span class="he-card-dow">Fri</span>
           </div>
           <div class="he-card-body">
-            <div class="he-card-time">Tues 7/28 &mdash; 7:00 PM</div>
-            <h3 class="he-card-name">Book Launch with <span class="name">Joy Reid</span><br>@ Politics and Prose</h3>
-            <div class="he-card-location">Washington, DC</div>
+            <div class="he-card-city">New Orleans, LA</div>
+            <h3 class="he-card-name">Panel with <span class="name">Sen. Cory Booker</span>, <span class="name">Rep. Jasmine Crockett</span> &amp; <span class="name">Nicole Austin-Hillary</span></h3>
+            <div class="he-card-host">Global Black Economic Forum @ Essence Fest</div>
           </div>
         </a>
 
-        <div class="he-card">
+        <!-- Jul 27 — Jane Fonda, Manhattan -->
+        <div class="he-card" data-date="2026-07-27" style="display:none">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">27</span>
+            <span class="he-card-dow">Mon</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-city">Manhattan, NY</div>
+            <h3 class="he-card-name">Book Launch with <span class="name">Jane Fonda</span></h3>
+          </div>
+        </div>
+
+        <!-- Jul 28 — Joy Reid @ Politics & Prose, DC -->
+        <a href="https://politics-prose.com/rashad-robinson-072826" target="_blank" rel="noopener" class="he-card" data-date="2026-07-28" style="display:none">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">28</span>
+            <span class="he-card-dow">Tue</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-city">Washington, DC</div>
+            <h3 class="he-card-name">Book Launch with <span class="name">Joy Reid</span></h3>
+            <div class="he-card-host">Politics &amp; Prose &bull; 7:00 PM</div>
+          </div>
+        </a>
+
+        <!-- Jul 29 — Greg Dalton @ Commonwealth Club, SF -->
+        <a href="https://www.commonwealthclub.org/events/2026-07-29/rashad-robinson-presence-power" target="_blank" rel="noopener" class="he-card" data-date="2026-07-29" style="display:none">
+          <div class="he-card-date">
+            <span class="he-card-month">Jul</span>
+            <span class="he-card-day">29</span>
+            <span class="he-card-dow">Wed</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-city">San Francisco, CA</div>
+            <h3 class="he-card-name">In conversation with <span class="name">Greg Dalton</span></h3>
+            <div class="he-card-host">Commonwealth Club &bull; 5:30 PM</div>
+          </div>
+        </a>
+
+        <!-- Jul 30 — Lena Waithe @ Reparations Club, LA -->
+        <div class="he-card" data-date="2026-07-30" style="display:none">
           <div class="he-card-date">
             <span class="he-card-month">Jul</span>
             <span class="he-card-day">30</span>
+            <span class="he-card-dow">Thu</span>
           </div>
           <div class="he-card-body">
-            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span><br>Hosted by Reparations Club</h3>
-            <div class="he-card-location">Los Angeles, CA</div>
+            <div class="he-card-city">Los Angeles, CA</div>
+            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span></h3>
+            <div class="he-card-host">Hosted by Reparations Club</div>
           </div>
         </div>
+
+        <!-- Aug 5 — Angela Rye @ Town Hall, Seattle -->
+        <div class="he-card" data-date="2026-08-05" style="display:none">
+          <div class="he-card-date">
+            <span class="he-card-month">Aug</span>
+            <span class="he-card-day">5</span>
+            <span class="he-card-dow">Wed</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-city">Seattle, WA</div>
+            <h3 class="he-card-name">In conversation with <span class="name">Angela Rye</span></h3>
+            <div class="he-card-host">Hosted by Town Hall</div>
+          </div>
+        </div>
+
+        <!-- Aug 13–17 — Martha's Vineyard -->
+        <div class="he-card" data-date="2026-08-13" style="display:none">
+          <div class="he-card-date">
+            <span class="he-card-month">Aug</span>
+            <span class="he-card-day range">13&ndash;17</span>
+            <span class="he-card-dow">Thu&ndash;Mon</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-city">Martha&rsquo;s Vineyard, MA</div>
+            <h3 class="he-card-name">To Be Announced</h3>
+          </div>
+        </div>
+
+        <!-- Sep 22 — Charles Blow @ Baldwin & Co, New Orleans -->
+        <div class="he-card" data-date="2026-09-22" style="display:none">
+          <div class="he-card-date">
+            <span class="he-card-month">Sep</span>
+            <span class="he-card-day">22</span>
+            <span class="he-card-dow">Tue</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-city">New Orleans, LA</div>
+            <h3 class="he-card-name">In conversation with <span class="name">Charles Blow</span></h3>
+            <div class="he-card-host">Baldwin &amp; Co &bull; 6:00 PM</div>
+          </div>
+        </div>
+
+        <!-- Oct 7–8 — Banned Book Week, Buffalo -->
+        <div class="he-card" data-date="2026-10-07" style="display:none">
+          <div class="he-card-date">
+            <span class="he-card-month">Oct</span>
+            <span class="he-card-day range">7&ndash;8</span>
+            <span class="he-card-dow">Wed&ndash;Thu</span>
+          </div>
+          <div class="he-card-body">
+            <div class="he-card-city">Buffalo, NY</div>
+            <h3 class="he-card-name">Banned Book Week</h3>
+          </div>
+        </div>
+
       </div>
+      <script>
+        (function () {
+          var today = new Date();
+          today.setHours(0, 0, 0, 0);
+          var cards = document.querySelectorAll('.home-events-list [data-date]');
+          var shown = 0;
+          cards.forEach(function (card) {
+            var d = new Date(card.getAttribute('data-date') + 'T00:00:00');
+            if (d >= today && shown < 3) {
+              card.style.display = '';
+              shown++;
+            }
+          });
+          // Fallback: if no upcoming events, show first 3
+          if (shown === 0) {
+            for (var i = 0; i < Math.min(3, cards.length); i++) {
+              cards[i].style.display = '';
+            }
+          }
+        })();
+      </script>
 
       <div class="home-events-ctas">
         <a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener" class="btn-primary">Invite Rashad to Speak</a>
