@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — From Presence to Power</title>
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="apple-touch-icon" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:      #E55F1D;
+      --brown:       #281D1D;
+      --cream:       #EFEDEC;
+      --cream-2:     #FCF1EB;
+      --tan:         #DAD6CB;
+      --fg:          #281D1D;
+      --fg-muted:    #545452;
+      --bg:          #EFEDEC;
+      --border:      #DAD6CB;
+
+      --font-display: "Big Shoulders Display", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--fg); }
+
+    .nav-cta {
+      color: var(--cream-2) !important;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      padding: 9px 20px;
+    }
+
+    .nav-cta:hover { background: var(--brown) !important; color: var(--cream) !important; }
+
+    /* ─── MAIN ─── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 14vw, 120px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 32px;
+    }
+
+    .headline span {
+      color: var(--orange);
+    }
+
+    .body-text {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--fg-muted);
+      margin-bottom: 48px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--cream-2);
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      padding: 14px 32px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--fg-muted);
+      border: 1px solid var(--border);
+      padding: 13px 32px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      color: var(--fg);
+      border-color: var(--fg);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--fg-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 640px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      footer { padding: 20px 24px; }
+      .cta-group { flex-direction: column; align-items: stretch; text-align: center; }
+      .btn-primary, .btn-secondary { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">From Presence to Power</a>
+    <ul class="nav-links">
+      <li><a href="/book.html">The Book</a></li>
+      <li><a href="/praise.html">Praise</a></li>
+      <li><a href="/events.html">Events</a></li>
+      <li><a href="https://bookshop.org/p/books/from-presence-to-power-rashad-robinson/22156550" target="_blank" rel="noopener" class="nav-cta">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="container">
+      <p class="eyebrow">404 — Page Not Found</p>
+      <h1 class="headline">Wrong<br><span>Turn.</span></h1>
+      <p class="body-text">This page doesn't exist — but the book does. Head back to the homepage and find what you're looking for.</p>
+      <div class="cta-group">
+        <a href="/" class="btn-primary">Back to Homepage</a>
+        <a href="/events.html" class="btn-secondary">View Events</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer-copy">© 2025 Rashad Robinson. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
