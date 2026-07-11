@@ -1,0 +1,9 @@
+# Pages not ready for production
+wireframe-appendix.html
+wireframe-fyp.html
+wireframe-fyp-exercise.html
+partners.html
+
+# Local project files
+*.md
+*.command

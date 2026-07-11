@@ -62,62 +62,6 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 60px;
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-brand {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--fg);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--fg);
-      text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .nav-links a:hover, .nav-links a.active { opacity: 1; }
-
-    .nav-cta {
-      color: var(--cream) !important;
-      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%) !important;
-      padding: 9px 20px;
-      border-radius: 0;
-      opacity: 1 !important;
-      transition: opacity 0.2s !important;
-    }
-
-    .nav-cta:hover { opacity: 0.85 !important; }
-
     /* ── HERO ── */
     .events-hero {
       padding-top: 60px;
@@ -599,49 +543,6 @@
     .es-input::placeholder { color: var(--fg-muted); }
     .es-input:focus { border-color: var(--orange); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--cream);
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer-brand {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--fg-muted);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--fg);
-      text-decoration: none;
-      opacity: 0.45;
-      transition: opacity 0.2s;
-    }
-
-    .footer-links a:hover { opacity: 1; }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
@@ -657,9 +558,6 @@
       .es-form { flex-direction: column; width: 100%; }
       .es-input { width: 100%; }
       .footer-external { padding: 16px 24px; gap: 16px; }
-
-      .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
-      .footer-links { display: none; }
       .he-card { grid-template-columns: 68px 1fr; }
       .he-card-date { padding: 16px 8px; grid-row: 1 / -1; }
       .he-card-day { font-size: 36px; }
@@ -669,88 +567,7 @@
       .he-card-tags { padding: 0 16px 16px; grid-column: 2; flex-direction: row; align-items: flex-start; justify-content: flex-start; margin-top: 0; }
       .he-card-meta { font-size: 10px; }
     }
-
-    /* Hamburger toggle */
-    .nav-toggle {
-      display: none;
-      background: transparent;
-      border: none;
-      padding: 8px;
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      border-radius: 50%;
-      transition: background 0.3s ease, box-shadow 0.3s ease,
-                  width 0.3s ease, height 0.3s ease;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--fg);
-      transition: transform 0.25s, opacity 0.25s, background 0.2s;
-    }
-    nav.scrolled .nav-toggle {
-      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
-      box-shadow: 0 8px 24px rgba(40,29,29,0.22);
-      width: 48px;
-      height: 48px;
-    }
-    nav.scrolled .nav-toggle span { background: var(--cream) !important; box-shadow: none !important; }
-    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile menu panel */
-    .mobile-menu {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      padding: 24px;
-      z-index: 99;
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      transform: translateY(-8px);
-      opacity: 0;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-    .mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); }
-    .mobile-menu a {
-      font-family: var(--font-mono);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--fg);
-      text-decoration: none;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu-cta {
-      margin-top: 12px;
-      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
-      color: var(--cream-2) !important;
-      padding: 16px 20px !important;
-      text-align: center;
-    }
-
     @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .nav-toggle { display: flex; }
-      nav.scrolled { background: transparent; border-bottom-color: transparent; }
-      nav.scrolled .nav-brand { opacity: 0; visibility: hidden; }
-      nav.menu-open { background: var(--cream); border-bottom: 1px solid var(--border); }
-      nav.menu-open .nav-brand { opacity: 1; visibility: visible; }
-      nav.menu-open .nav-toggle span { background: var(--fg); box-shadow: none; }
     }
 
     /* ── FOOTER EXTERNAL LINKS ── */
@@ -777,34 +594,15 @@
     }
     .footer-ext-link:hover { color: var(--fg); }
   </style>
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-brand">From Presence to Power</a>
-    <ul class="nav-links">
-      <li><a href="index.html#book">About the Book</a></li>
-      <li><a href="events.html" class="active">Upcoming Events</a></li>
-      <li><a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a></li>
-      <li><a href="index.html#rashad">About Rashad</a></li>
-      <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
+  <nav id="site-nav"></nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="index.html#book">About the Book</a>
-    <a href="events.html">Events</a>
-    <a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a>
-    <a href="index.html#rashad">About Rashad</a>
-    <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
-  </div>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
 
   <main id="main-content">
 
@@ -833,193 +631,13 @@
   <section class="events-section" id="upcoming">
     <div class="events-inner">
 
-      <div class="events-list" id="upcoming-list">
-
-        <!-- Jul 3 — Global Black Economic Forum / Essence Fest, New Orleans -->
-        <a href="https://gbef.com/events" target="_blank" rel="noopener" class="he-card" id="global-black-economic-forum" data-date="2026-07-03">
-          <div class="he-card-date">
-            <span class="he-card-month">Jul</span>
-            <span class="he-card-day">3</span>
-            <span class="he-card-dow">Fri</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              New Orleans, LA
-            </div>
-            <h3 class="he-card-name">Panel with <span class="name">Senator Cory Booker</span>, <span class="name">Congresswoman Jasmine Crockett</span> &amp; <span class="name">Nicole Austin-Hillary</span></h3>
-            <div class="he-card-meta">Fri 7/3 &bull; Global Black Economic Forum @ Essence Fest &bull; "Defining Power Against Ongoing Assaults"</div>
-          </div>
-          <div class="he-card-action">
-            <span class="he-card-btn">View Event &rarr;</span>
-          </div>
-        </a>
-
-        <!-- Jul 27 — Jane Fonda, Manhattan (TBA) -->
-        <div class="he-card he-card--static" id="jane-fonda" data-date="2026-07-27">
-          <div class="he-card-date">
-            <span class="he-card-month">Jul</span>
-            <span class="he-card-day">27</span>
-            <span class="he-card-dow">Mon</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              Manhattan, NY
-            </div>
-            <h3 class="he-card-name">Book Launch with <span class="name">Jane Fonda</span></h3>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">Details Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Jul 28 — Joy Reid @ Politics & Prose, Washington DC -->
-        <a href="https://politics-prose.com/rashad-robinson-072826" target="_blank" rel="noopener" class="he-card" id="joy-reid" data-date="2026-07-28">
-          <div class="he-card-date">
-            <span class="he-card-month">Jul</span>
-            <span class="he-card-day">28</span>
-            <span class="he-card-dow">Tue</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              Washington, DC
-            </div>
-            <h3 class="he-card-name">Book Launch with <span class="name">Joy Reid</span></h3>
-            <div class="he-card-meta">Tues 7/28 at 7:00 PM &bull; Politics &amp; Prose &bull; 5015 Connecticut Ave NW, Washington, DC 20008</div>
-          </div>
-          <div class="he-card-action">
-            <span class="he-card-btn">View Event &rarr;</span>
-          </div>
-        </a>
-
-        <!-- Jul 29 — Greg Dalton @ Commonwealth Club, San Francisco -->
-        <a href="https://www.commonwealthclub.org/events/2026-07-29/rashad-robinson-presence-power" target="_blank" rel="noopener" class="he-card" id="commonwealth-club" data-date="2026-07-29">
-          <div class="he-card-date">
-            <span class="he-card-month">Jul</span>
-            <span class="he-card-day">29</span>
-            <span class="he-card-dow">Wed</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              San Francisco, CA
-            </div>
-            <h3 class="he-card-name">In conversation with <span class="name">Greg Dalton</span></h3>
-            <div class="he-card-meta">Wed 7/29 at 5:30 PM &bull; Commonwealth Club, Toni Rembe Auditorium &bull; 110 The Embarcadero, San Francisco, CA &bull; Live Stream Available</div>
-          </div>
-          <div class="he-card-action">
-            <span class="he-card-btn">View Event &rarr;</span>
-          </div>
-        </a>
-
-        <!-- Jul 30 — Lena Waithe @ Reparations Club, Los Angeles (TBA) -->
-        <div class="he-card he-card--static" id="reparations-club" data-date="2026-07-30">
-          <div class="he-card-date">
-            <span class="he-card-month">Jul</span>
-            <span class="he-card-day">30</span>
-            <span class="he-card-dow">Thu</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              Los Angeles, CA
-            </div>
-            <h3 class="he-card-name">In conversation with <span class="name">Lena Waithe</span></h3>
-            <div class="he-card-host">Hosted by Reparations Club</div>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">Details Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Aug 5 — Angela Rye @ Town Hall, Seattle (TBA) -->
-        <div class="he-card he-card--static" id="angela-rye" data-date="2026-08-05">
-          <div class="he-card-date">
-            <span class="he-card-month">Aug</span>
-            <span class="he-card-day">5</span>
-            <span class="he-card-dow">Wed</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              Seattle, WA
-            </div>
-            <h3 class="he-card-name">In conversation with <span class="name">Angela Rye</span></h3>
-            <div class="he-card-host">Hosted by Town Hall</div>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">Details Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Aug 13–17 — Martha's Vineyard (TBA) -->
-        <div class="he-card he-card--static" id="marthas-vineyard" data-date="2026-08-13">
-          <div class="he-card-date">
-            <span class="he-card-month">Aug</span>
-            <span class="he-card-day range">13&ndash;17</span>
-            <span class="he-card-dow">Thu&ndash;Mon</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              Martha&rsquo;s Vineyard, MA
-            </div>
-            <h3 class="he-card-name">To Be Announced</h3>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">Details Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Sep 22 — Charles Blow @ Baldwin & Co, New Orleans (TBA) -->
-        <div class="he-card he-card--static" id="charles-blow" data-date="2026-09-22">
-          <div class="he-card-date">
-            <span class="he-card-month">Sep</span>
-            <span class="he-card-day">22</span>
-            <span class="he-card-dow">Tue</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              New Orleans, LA
-            </div>
-            <h3 class="he-card-name">In conversation with <span class="name">Charles Blow</span></h3>
-            <div class="he-card-meta">Tues 9/22 at 6:00 PM &bull; Baldwin &amp; Co &bull; 1030 Elysian Fields Ave, New Orleans, LA 70117</div>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">Details Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Oct 7–8 — Banned Book Week, Buffalo (TBA) -->
-        <div class="he-card he-card--static" id="banned-book-week" data-date="2026-10-07">
-          <div class="he-card-date">
-            <span class="he-card-month">Oct</span>
-            <span class="he-card-day range">7&ndash;8</span>
-            <span class="he-card-dow">Wed&ndash;Thu</span>
-          </div>
-          <div class="he-card-body">
-            <div class="he-card-city">
-              <svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>
-              Buffalo, NY
-            </div>
-            <h3 class="he-card-name">Banned Book Week</h3>
-          </div>
-          <div class="he-card-tags">
-            <span class="he-card-tag">Details Coming Soon</span>
-          </div>
-        </div>
-
-      </div>
+      <div class="events-list" id="upcoming-list"></div>
 
       <!-- PAST EVENTS -->
       <div class="past-events-section" id="past-events">
         <div class="past-events-header">Past Events</div>
         <div class="events-list past-events-list" id="past-events-list"></div>
       </div>
-
 
     </div>
   </section>
@@ -1043,18 +661,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-brand">From Presence to Power &copy; 2026 Rashad Robinson</span>
-      <ul class="footer-links">
-        <li><a href="index.html#book">The Book</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="index.html#rashad">Author</a></li>
-        <li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>
-        <li><a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener">Contact</a></li>
-      </ul>
-    </div>
-  </footer>
+  <footer id="site-footer"></footer>
 
   <script>
     async function handleEventsSignup(e) {
@@ -1079,63 +686,302 @@
   </script>
 
   <script>
-    // Sort past events into Past Events section
-    (function() {
-      const today = new Date();
+    // ─────────────────────────────────────────────────────────────────────────
+    // EVENTS DATA
+    //
+    // To let the client manage events via Google Sheets:
+    //   1. Create a Sheet with columns: date,city,title,meta,link
+    //      (date = YYYY-MM-DD, link = full URL or leave blank)
+    //   2. File → Share → Publish to web → Sheet1 → CSV → Publish
+    //   3. Paste the published CSV URL into SHEET_CSV_URL below
+    //
+    // When SHEET_CSV_URL is set, the page fetches that CSV on load.
+    // If the fetch fails, it falls back to the EVENTS array below.
+    // When SHEET_CSV_URL is empty, only the EVENTS array is used.
+    // ─────────────────────────────────────────────────────────────────────────
+
+    var SHEET_CSV_URL = '';
+
+    // Hardcoded fallback — also used when SHEET_CSV_URL is empty.
+    // titleHtml: developer-authored HTML (allows orange <span class="name"> highlighting).
+    // title:     plain-text fallback (used for sheet-loaded events).
+    // meta:      plain text — time • venue • address (shown in mono under the title).
+    // link:      RSVP/ticket URL. Empty = static card with no button.
+    var EVENTS = [
+      {
+        id: 'global-black-economic-forum',
+        date: '2026-07-03', month: 'Jul', day: '3', dow: 'Fri',
+        city: 'New Orleans, LA',
+        titleHtml: 'Panel with <span class="name">Senator Cory Booker</span>, <span class="name">Congresswoman Jasmine Crockett</span> &amp; <span class="name">Nicole Austin-Hillary</span>',
+        meta: 'Fri 7/3 • Global Black Economic Forum @ Essence Fest • “Defining Power Against Ongoing Assaults”',
+        link: 'https://gbef.com/events'
+      },
+      {
+        id: 'jane-fonda',
+        date: '2026-07-27', month: 'Jul', day: '27', dow: 'Mon',
+        city: 'Manhattan, NY',
+        titleHtml: 'Book Launch with <span class="name">Jane Fonda</span>',
+        meta: 'MON 7/27 AT 7:00 PM • IFC CENTER • 323 6TH AVE, NEW YORK, NY 10014',
+        link: 'https://www.ifccenter.com/films/from-presence-to-power-book-launch-rashad-robinson-in-conversation-with-jane-fonda/'
+      },
+      {
+        id: 'joy-reid',
+        date: '2026-07-28', month: 'Jul', day: '28', dow: 'Tue',
+        city: 'Washington, DC',
+        titleHtml: 'Book Launch with <span class="name">Joy Reid</span>',
+        meta: 'Tues 7/28 at 7:00 PM • Politics & Prose • 5015 Connecticut Ave NW, Washington, DC 20008 • Live Stream Available',
+        link: 'https://politics-prose.com/rashad-robinson-072826'
+      },
+      {
+        id: 'commonwealth-club',
+        date: '2026-07-29', month: 'Jul', day: '29', dow: 'Wed',
+        city: 'San Francisco, CA',
+        titleHtml: 'In conversation with <span class="name">Greg Dalton</span>',
+        meta: 'Wed 7/29 at 5:30 PM • Commonwealth Club, Toni Rembe Auditorium • 110 The Embarcadero, San Francisco, CA • Live Stream Available',
+        link: 'https://www.commonwealthclub.org/events/2026-07-29/rashad-robinson-presence-power'
+      },
+      {
+        id: 'reparations-club',
+        date: '2026-07-30', month: 'Jul', day: '30', dow: 'Thu',
+        city: 'Los Angeles, CA',
+        titleHtml: 'In conversation with <span class="name">Lena Waithe</span>',
+        meta: 'Hosted by Reparations Club',
+        link: ''
+      },
+      {
+        id: 'angela-rye',
+        date: '2026-08-05', month: 'Aug', day: '5', dow: 'Wed',
+        city: 'Seattle, WA',
+        titleHtml: 'In conversation with <span class="name">Angela Rye</span>',
+        meta: 'WED AUG 5 AT 7:30 PM • TOWN HALL • 1119 8TH AVE, SEATTLE, WA 98101',
+        link: ''
+      },
+      {
+        id: 'marthas-vineyard',
+        date: '2026-08-10', month: 'Aug', day: '10', dow: 'Mon',
+        city: 'Martha’s Vineyard, MA',
+        titleHtml: 'Martha’s Vineyard',
+        meta: 'MON 8/10 AT 5PM • ADDRESS UPON REQUEST',
+        link: ''
+      },
+      {
+        id: 'atlanta',
+        date: '2026-08-24', month: 'Aug', day: '24', dow: 'Mon',
+        city: 'Atlanta, GA',
+        titleHtml: 'Atlanta',
+        meta: 'MON 8/24 AT 7PM • AUBURN AVENUE RESEARCH LIBRARY • 101 AUBURN AVE NE, ATLANTA, GA 30303',
+        link: ''
+      },
+      {
+        id: 'austin',
+        date: '2026-09-10', month: 'Sep', day: '10', dow: 'Thu',
+        city: 'Austin, TX',
+        titleHtml: 'Austin',
+        meta: 'THURSDAY 9/10 • LBJ SCHOOL OF PUBLIC AFFAIRS • 2315 RED RIVER ST, AUSTIN, TX 78712',
+        link: ''
+      },
+      {
+        id: 'baltimore',
+        date: '2026-09-20', month: 'Sep', day: '20', dow: 'Sun',
+        city: 'Baltimore, MD',
+        titleHtml: 'Baltimore',
+        meta: '',
+        link: ''
+      },
+      {
+        id: 'charles-blow',
+        date: '2026-09-22', month: 'Sep', day: '22', dow: 'Tue',
+        city: 'New Orleans, LA',
+        titleHtml: 'In conversation with <span class="name">Charles Blow</span>',
+        meta: 'Tues 9/22 at 6:00 PM • Baldwin & Co • 1030 Elysian Fields Ave, New Orleans, LA 70117',
+        link: 'https://www.eventbrite.com/e/social-justice-leader-rashad-robinson-author-talk-and-book-signing-tickets-1993710177811'
+      },
+      {
+        id: 'brooklyn',
+        date: '2026-09-28', month: 'Sep', day: '28', dow: 'Mon',
+        city: 'Brooklyn, NY',
+        titleHtml: 'Brooklyn',
+        meta: 'MON 9/28 AT 7PM • 128 PIERREPONT ST, BROOKLYN, NY 11201',
+        link: ''
+      },
+      {
+        id: 'banned-book-week',
+        date: '2026-10-07', month: 'Oct', day: '7–8', dow: 'Wed–Thu',
+        city: 'Buffalo, NY',
+        titleHtml: 'Banned Book Week',
+        meta: '',
+        link: ''
+      }
+    ];
+
+    // ── Helpers ──────────────────────────────────────────────────────────────
+
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    var PIN_SVG = '<svg width="9" height="12" viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M4.5 0C2.01 0 0 2.01 0 4.5C0 7.88 4.5 12 4.5 12C4.5 12 9 7.88 9 4.5C9 2.01 6.99 0 4.5 0ZM4.5 6.08C3.67 6.08 3 5.41 3 4.58C3 3.75 3.67 3.08 4.5 3.08C5.33 3.08 6 3.75 6 4.58C6 5.41 5.33 6.08 4.5 6.08Z" fill="currentColor"/></svg>';
+
+    function renderCard(ev) {
+      var isRange = (ev.day + '').indexOf('–') > -1 || (ev.day + '').indexOf('-') > -1;
+      var isLinked = !!ev.link;
+      var hasDetails = !!ev.meta;
+
+      var displayTitle = ev.titleHtml || esc(ev.title || '');
+
+      var dateBlock = '<div class="he-card-date">'
+        + '<span class="he-card-month">' + esc(ev.month) + '</span>'
+        + '<span class="he-card-day' + (isRange ? ' range' : '') + '">' + esc(ev.day) + '</span>'
+        + '<span class="he-card-dow">' + esc(ev.dow) + '</span>'
+        + '</div>';
+
+      var bodyBlock = '<div class="he-card-body">'
+        + '<div class="he-card-city">' + PIN_SVG + esc(ev.city) + '</div>'
+        + '<h3 class="he-card-name">' + displayTitle + '</h3>'
+        + (ev.meta ? '<div class="he-card-meta">' + esc(ev.meta) + '</div>' : '')
+        + '</div>';
+
+      var rightBlock = isLinked
+        ? '<div class="he-card-action"><span class="he-card-btn">View Event &rarr;</span></div>'
+        : (!hasDetails
+            ? '<div class="he-card-tags"><span class="he-card-tag">Details Coming Soon</span></div>'
+            : '');
+
+      var attrs = 'class="he-card' + (isLinked ? '' : ' he-card--static') + '" data-date="' + esc(ev.date) + '"'
+        + (ev.id ? ' id="' + esc(ev.id) + '"' : '');
+
+      if (isLinked) {
+        return '<a href="' + esc(ev.link) + '" target="_blank" rel="noopener" ' + attrs + '>'
+          + dateBlock + bodyBlock + rightBlock + '</a>';
+      } else {
+        return '<div ' + attrs + '>' + dateBlock + bodyBlock + rightBlock + '</div>';
+      }
+    }
+
+    // ── CSV parser (for Google Sheets) ───────────────────────────────────────
+
+    function parseCSV(text) {
+      var lines = text.trim().split('\n');
+      if (lines.length < 2) return [];
+      var headers = lines[0].split(',').map(function(h) { return h.trim().replace(/^"|"$/g, ''); });
+
+      function col(row, name) {
+        var idx = headers.indexOf(name);
+        if (idx < 0) return '';
+        var v = (row[idx] || '').trim().replace(/^"|"$/g, '');
+        return v;
+      }
+
+      // Quick CSV row splitter (handles quoted commas)
+      function splitRow(line) {
+        var result = [], cur = '', inQ = false;
+        for (var i = 0; i < line.length; i++) {
+          var c = line[i];
+          if (c === '"') { inQ = !inQ; }
+          else if (c === ',' && !inQ) { result.push(cur); cur = ''; }
+          else { cur += c; }
+        }
+        result.push(cur);
+        return result;
+      }
+
+      return lines.slice(1).map(function(line) {
+        var row = splitRow(line);
+        var date = col(row, 'date');
+        if (!date) return null;
+        // Auto-derive month/day/dow from date string if not provided
+        var parts = date.split('-');
+        var d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+        var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        var rawTitle = col(row, 'title') || '';
+        // [Name] bracket syntax → <span class="name"> for orange highlighting
+        var titleHtml = esc(rawTitle).replace(/\[([^\]]+)\]/g, function(_, n) {
+          return '<span class="name">' + n + '</span>';
+        });
+        return {
+          id:        col(row, 'id'),
+          date:      date,
+          month:     col(row, 'month') || MONTHS[d.getMonth()],
+          day:       col(row, 'day')   || String(d.getDate()),
+          dow:       col(row, 'dow')   || DAYS[d.getDay()],
+          city:      col(row, 'city'),
+          title:     rawTitle,
+          titleHtml: titleHtml,
+          meta:      col(row, 'meta'),
+          link:      col(row, 'link')
+        };
+      }).filter(Boolean);
+    }
+
+    // ── Render ───────────────────────────────────────────────────────────────
+
+    function renderAll(events) {
+      events = events.slice().sort(function(a, b) {
+        return (a.date || '').localeCompare(b.date || '');
+      });
+      var today = new Date();
       today.setHours(0, 0, 0, 0);
-      const upcomingList = document.getElementById('upcoming-list');
-      const pastList = document.getElementById('past-events-list');
-      const pastSection = document.getElementById('past-events');
-      if (!upcomingList || !pastList || !pastSection) return;
-      const cards = Array.from(upcomingList.querySelectorAll('[data-date]'));
-      let hasPast = false;
-      cards.forEach(function(card) {
-        const parts = card.dataset.date.split('-');
-        const eventDate = new Date(+parts[0], +parts[1] - 1, +parts[2]);
-        if (eventDate < today) {
-          pastList.appendChild(card);
-          hasPast = true;
+
+      var upcomingList = document.getElementById('upcoming-list');
+      var pastList     = document.getElementById('past-events-list');
+      var pastSection  = document.getElementById('past-events');
+      if (!upcomingList) return;
+
+      var upcoming = [], past = [];
+      events.forEach(function(ev) {
+        var parts = ev.date.split('-');
+        var evDate = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+        if (evDate < today) {
+          past.push(ev);
+        } else {
+          upcoming.push(ev);
         }
       });
-      if (hasPast) pastSection.style.display = 'block';
+
+      upcomingList.innerHTML = upcoming.map(renderCard).join('');
+      if (past.length > 0) {
+        pastList.innerHTML = past.map(renderCard).join('');
+        pastSection.style.display = 'block';
+      }
+    }
+
+    // ── Boot ─────────────────────────────────────────────────────────────────
+
+    (function() {
+      if (SHEET_CSV_URL) {
+        fetch(SHEET_CSV_URL)
+          .then(function(r) { return r.text(); })
+          .then(function(text) { renderAll(parseCSV(text)); })
+          .catch(function() { renderAll(EVENTS); }); // fall back on network error
+      } else {
+        renderAll(EVENTS);
+      }
     })();
   </script>
 
   <script>
     // Scrolled nav state
     (function() {
-      const navEl = document.querySelector('nav');
+      var navEl = document.querySelector('nav');
       if (!navEl) return;
-      const SCROLL_THRESHOLD = 80;
-      let lastState = false;
+      var SCROLL_THRESHOLD = 80;
+      var lastState = false;
       function check() {
-        const y = window.scrollY || window.pageYOffset || 0;
-        const scrolled = y > SCROLL_THRESHOLD;
+        var y = window.scrollY || window.pageYOffset || 0;
+        var scrolled = y > SCROLL_THRESHOLD;
         if (scrolled !== lastState) { navEl.classList.toggle('scrolled', scrolled); lastState = scrolled; }
       }
       window.addEventListener('scroll', check, { passive: true });
       check();
     })();
-
-    // Mobile menu toggle
-    (function() {
-      const toggle = document.getElementById('navToggle');
-      const menu = document.getElementById('mobileMenu');
-      const navEl = document.querySelector('nav');
-      if (!toggle || !menu) return;
-      function setOpen(open) {
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-        menu.setAttribute('aria-hidden', open ? 'false' : 'true');
-        menu.classList.toggle('open', open);
-        navEl.classList.toggle('menu-open', open);
-        document.body.style.overflow = open ? 'hidden' : '';
-      }
-      toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
-      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
-    })();
   </script>
 
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
 </body>
 </html>

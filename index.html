@@ -71,148 +71,6 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 60px;
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s ease, border-color 0.3s ease;
-    }
-
-    /* On scroll: mobile only — nav goes transparent, brand fades, hamburger becomes floating disc */
-    .nav-brand {
-      transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
-    }
-
-    .nav-brand {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: var(--ls-eyebrow);
-      text-transform: uppercase;
-      color: var(--fg);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--fg-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--fg); }
-
-    .nav-cta {
-      color: var(--cream-2) !important;
-      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
-      padding: 9px 20px;
-      border-radius: 0;
-      transition: background 0.2s !important;
-    }
-
-    .nav-cta:hover { background: var(--brown) !important; color: var(--cream) !important; }
-
-    /* Hamburger toggle (mobile only) */
-    .nav-toggle {
-      display: none;
-      background: transparent;
-      border: none;
-      padding: 8px;
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      border-radius: 50%;
-      transition: background 0.3s ease, box-shadow 0.3s ease,
-                  width 0.3s ease, height 0.3s ease, margin 0.3s ease;
-    }
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--fg);
-      transition: transform 0.25s, opacity 0.25s, background 0.2s;
-    }
-    /* Scrolled state: hamburger becomes a floating orange disc */
-    nav.scrolled .nav-toggle {
-      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
-      box-shadow: 0 8px 24px rgba(40,29,29,0.22);
-      width: 48px;
-      height: 48px;
-    }
-    nav.scrolled .nav-toggle span {
-      background: var(--cream) !important;
-      box-shadow: none !important;
-    }
-    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile menu panel */
-    .mobile-menu {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      padding: 24px;
-      z-index: 99;
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      transform: translateY(-8px);
-      opacity: 0;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-    .mobile-menu.open {
-      display: flex;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .mobile-menu a {
-      font-family: var(--font-mono);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--fg);
-      text-decoration: none;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu-cta {
-      margin-top: 12px;
-      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
-      color: var(--cream-2) !important;
-      padding: 16px 20px !important;
-      text-align: center;
-    }
-
     /* ─── BUTTONS ─── */
     .btn-primary {
       display: inline-flex;
@@ -1970,62 +1828,6 @@
 
     .popup-dismiss:hover { color: var(--fg); }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--cream);
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer-brand {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--fg-muted);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--fg-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--orange); }
-
-    .footer-social {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--fg-muted);
-      transition: color 0.2s;
-    }
-    .footer-social a:hover { color: var(--orange); }
-
     /* ─── EVENTS MARQUEE ─── */
     .events-marquee {
       background: var(--cream);
@@ -2426,10 +2228,10 @@
         border-bottom: none;
         padding: 0 24px;
       }
-      .nav-brand { color: var(--cream); text-shadow: 0 1px 2px rgba(0,0,0,0.35); }
+      .nav-brand { color: var(--cream); }
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
-      .nav-toggle span { background: var(--cream); box-shadow: 0 1px 2px rgba(0,0,0,0.3); }
+      .nav-toggle span { background: var(--cream); }
       /* Mobile scrolled: transparent nav with floating hamburger */
       nav.scrolled { background: transparent; border-bottom-color: transparent; }
       nav.scrolled .nav-brand { opacity: 0; visibility: hidden; }
@@ -2442,7 +2244,7 @@
       nav.scrolled .nav-toggle span { background: var(--cream); box-shadow: none; }
       /* When the menu is open, swap the nav back to opaque so the X is readable */
       nav.menu-open { background: var(--cream); border-bottom: 1px solid var(--border); }
-      nav.menu-open .nav-brand { color: var(--fg); text-shadow: none; }
+      nav.menu-open .nav-brand { color: var(--fg); }
       nav.menu-open .nav-toggle span { background: var(--fg); box-shadow: none; }
 
       /* Hero: photo flush to top of page, content below — book floats right of headline */
@@ -2669,9 +2471,6 @@
       section:not(.about-book):not(.hero) { padding: 80px 0; }
 
       .footer-external { padding: 16px 24px; gap: 16px; }
-
-      .footer-inner { flex-direction: column; gap: 20px; text-align: center; padding: 0 24px; }
-      .footer-links { display: none; }
       .es-social { flex-wrap: wrap; }
     }
 
@@ -2734,37 +2533,15 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
-    <a href="/" class="nav-brand">From Presence to Power</a>
-    <ul class="nav-links">
-      <li><a href="#book">About the Book</a></li>
+  <nav id="site-nav"></nav>
 
-      <li><a href="events.html">Upcoming Events</a></li>
-      <li><a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a></li>
-      <li><a href="#rashad">About Rashad</a></li>
-      <li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>
-      <li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="#book">The Book</a>
-    <a href="#preorder-strip">Get the First Chapter</a>
-    <a href="#rashad">Author</a>
-    <a href="events.html">Events</a>
-    <a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a>
-    <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>
-  </div>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
 
   <main id="main-content">
 
@@ -3372,35 +3149,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-brand">From Presence to Power &copy; 2026 Rashad Robinson</span>
-      <ul class="footer-links">
-        <li><a href="#book">The Book</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="#rashad">Author</a></li>
-        <li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>
-        <li><a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener">Contact</a></li>
-      </ul>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/iamrashadrobinson/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://x.com/rashadrobinson" target="_blank" rel="noopener" aria-label="X / Twitter">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.629 5.905-5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/rashadny" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/rashadrobinson/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@Iamrashadrobinson" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
-      </div>
-    </div>
-  </footer>
+  <footer id="site-footer"></footer>
 
   <script>
     (function() {
@@ -3869,5 +3618,7 @@
       toggle.style.display = 'none';
     }
   </script>
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
 </body>
 </html>
