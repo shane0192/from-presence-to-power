@@ -152,10 +152,6 @@
     }
 
     /* ─── HERO ─── */
-    /* Nav pushed down by the 64px fixed orange marquee above it */
-    nav { top: 64px; }
-    .mobile-menu { top: 124px; }
-
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -2541,6 +2537,11 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="footer.css">
+  <style>
+    /* Push nav + mobile-menu below the 64px fixed orange ticker */
+    nav { top: 64px !important; }
+    .mobile-menu { top: 124px !important; }
+  </style>
 </head>
 <body>
 
