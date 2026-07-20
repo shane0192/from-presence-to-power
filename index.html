@@ -155,8 +155,7 @@
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      height: 100vh;
-      padding-top: 60px;
+      height: calc(100vh - 64px);
       overflow: hidden;
     }
 
@@ -2545,6 +2544,35 @@
 
   <main id="main-content">
 
+  <!-- EVENTS MARQUEE — pinned just below the fixed nav -->
+  <div class="events-marquee" aria-hidden="true" style="margin-top:60px;">
+    <div class="em-label-col">
+      <span class="em-label-text">Upcoming Events</span>
+    </div>
+    <div class="em-scroll-col">
+      <div class="events-marquee-track">
+      <!-- Set 1 -->
+      <div class="em-item"><a href="events.html#jane-fonda"><span class="em-date">Jul 27</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">Book Launch with Jane Fonda</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#joy-reid"><span class="em-date">Jul 28</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>DC</span><span class="em-name">Book Launch with Joy Reid @ Politics and Prose</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">In conversation with Greg Dalton @ The Commonwealth Club</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">In conversation with Lena Waithe / Hosted by Reparations Club</span></a></div>
+      <span class="em-divider">—</span>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="em-item"><a href="events.html#jane-fonda"><span class="em-date">Jul 27</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">Book Launch with Jane Fonda</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#joy-reid"><span class="em-date">Jul 28</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>DC</span><span class="em-name">Book Launch with Joy Reid @ Politics and Prose</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">In conversation with Greg Dalton @ The Commonwealth Club</span></a></div>
+      <span class="em-divider">—</span>
+      <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">In conversation with Lena Waithe / Hosted by Reparations Club</span></a></div>
+      <span class="em-divider">—</span>
+    </div>
+    </div>
+  </div>
+
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-left">
@@ -2565,6 +2593,7 @@
         <div class="hero-actions" style="margin-top: 20px; margin-bottom: 28px;">
           <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
           <a href="#preorder-strip" class="btn-secondary">Get the First Chapter</a>
+          <a href="events.html" class="btn-secondary">See Upcoming Events</a>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-top">
@@ -2614,35 +2643,6 @@
       </a>
     </div>
   </section>
-
-  <!-- EVENTS MARQUEE -->
-  <div class="events-marquee" aria-hidden="true">
-    <div class="em-label-col">
-      <span class="em-label-text">Upcoming Events</span>
-    </div>
-    <div class="em-scroll-col">
-      <div class="events-marquee-track">
-      <!-- Set 1 -->
-      <div class="em-item"><a href="events.html#jane-fonda"><span class="em-date">Jul 27</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">Book Launch with Jane Fonda</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#joy-reid"><span class="em-date">Jul 28</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>DC</span><span class="em-name">Book Launch with Joy Reid @ Politics and Prose</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">In conversation with Greg Dalton @ The Commonwealth Club</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">In conversation with Lena Waithe / Hosted by Reparations Club</span></a></div>
-      <span class="em-divider">—</span>
-      <!-- Set 2 (duplicate for seamless loop) -->
-      <div class="em-item"><a href="events.html#jane-fonda"><span class="em-date">Jul 27</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">Book Launch with Jane Fonda</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#joy-reid"><span class="em-date">Jul 28</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>DC</span><span class="em-name">Book Launch with Joy Reid @ Politics and Prose</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">In conversation with Greg Dalton @ The Commonwealth Club</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">In conversation with Lena Waithe / Hosted by Reparations Club</span></a></div>
-      <span class="em-divider">—</span>
-    </div>
-    </div>
-  </div>
 
     <!-- BELOW-HERO SIGNUP -->
   <div class="hero-signup" id="signup">
