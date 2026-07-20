@@ -152,10 +152,14 @@
     }
 
     /* ─── HERO ─── */
+    /* Nav pushed down by the 64px fixed orange marquee above it */
+    nav { top: 64px; }
+    .mobile-menu { top: 124px; }
+
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      height: calc(100vh - 64px);
+      height: calc(100vh - 124px);
       overflow: hidden;
     }
 
@@ -1829,8 +1833,11 @@
 
     /* ─── EVENTS MARQUEE ─── */
     .events-marquee {
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 101;
+      background: var(--orange);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
       height: 64px;
       display: flex;
       align-items: stretch;
@@ -1841,7 +1848,7 @@
       display: flex;
       align-items: center;
       padding: 0 28px;
-      border-right: 1px solid var(--border);
+      border-right: 1px solid rgba(255,255,255,0.25);
       white-space: nowrap;
     }
 
@@ -1851,7 +1858,7 @@
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--orange);
+      color: #fff;
     }
 
     .em-scroll-col {
@@ -1897,7 +1904,7 @@
       font-weight: 700;
       letter-spacing: 0.01em;
       text-transform: uppercase;
-      color: var(--orange);
+      color: #fff;
       line-height: 1;
     }
 
@@ -1910,12 +1917,12 @@
       font-weight: 400;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--fg-muted);
+      color: rgba(255,255,255,0.75);
     }
 
     .em-city svg {
       flex-shrink: 0;
-      opacity: 0.5;
+      opacity: 0.7;
     }
 
     .em-name {
@@ -1924,14 +1931,14 @@
       font-weight: 400;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--fg);
-      opacity: 0.75;
+      color: rgba(255,255,255,0.9);
+      opacity: 1;
     }
 
     .em-divider {
       font-family: var(--font-mono);
       font-size: 14px;
-      color: var(--border);
+      color: rgba(255,255,255,0.3);
       padding: 0 8px;
       user-select: none;
     }
@@ -2537,15 +2544,8 @@
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="site-nav"></nav>
-
-  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
-
-  <main id="main-content">
-
-  <!-- EVENTS MARQUEE — pinned just below the fixed nav -->
-  <div class="events-marquee" aria-hidden="true" style="margin-top:60px;">
+  <!-- EVENTS MARQUEE — fixed above nav, orange band -->
+  <div class="events-marquee" aria-hidden="true">
     <div class="em-label-col">
       <span class="em-label-text">Upcoming Events</span>
     </div>
@@ -2572,6 +2572,13 @@
     </div>
     </div>
   </div>
+
+  <!-- NAV -->
+  <nav id="site-nav"></nav>
+
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <main id="main-content" style="margin-top:124px;">
 
   <!-- HERO -->
   <section class="hero" id="home">
