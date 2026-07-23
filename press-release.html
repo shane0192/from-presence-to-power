@@ -155,41 +155,48 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 32px;
+      gap: 40px;
       margin-bottom: 32px;
     }
 
     .pr-header-left { flex: 1; }
 
     .pr-for-release {
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--fg);
       margin-bottom: 20px;
     }
 
-    .pr-contacts {
-      font-size: 15px;
-      line-height: 1.8;
+    .pr-contacts-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 8px;
+    }
+
+    .pr-contact-row {
+      font-size: 14px;
+      line-height: 1.7;
       color: var(--fg);
-      margin-bottom: 16px;
+      white-space: nowrap;
     }
 
-    .pr-contacts strong {
-      font-weight: 600;
-    }
-
-    .pr-contacts a {
+    .pr-contact-row a {
       color: var(--orange);
       text-decoration: underline;
       text-underline-offset: 2px;
     }
 
     .pr-assets {
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 14px;
       color: var(--fg);
+      margin-top: 16px;
     }
 
     .pr-assets a {
@@ -199,7 +206,7 @@
     }
 
     .pr-book-cover {
-      width: 140px;
+      width: 130px;
       flex-shrink: 0;
     }
 
@@ -212,6 +219,7 @@
     @media (max-width: 640px) {
       .pr-header { flex-direction: column-reverse; gap: 20px; }
       .pr-book-cover { width: 100px; }
+      .pr-contact-row { white-space: normal; }
     }
 
     /* Book info grid */
@@ -274,13 +282,11 @@
 
       <div class="pr-header">
         <div class="pr-header-left">
-          <p class="pr-for-release">FOR IMMEDIATE RELEASE</p>
-          <p class="pr-contacts">
-            <strong>MEDIA CONTACTS:</strong><br>
-            Jackie O. Asare, Hueman PR, <a href="mailto:Jackieo@Huemanpr.com">Jackieo@Huemanpr.com</a>, 718-930-8400<br>
-            Candace Ledbetter, <a href="mailto:Candace@huemanpr.com">Candace@huemanpr.com</a>, 770-709-1509
-          </p>
-          <p class="pr-assets"><strong>Press Assets:</strong> <a href="https://drive.google.com/drive/folders/17YMgd2hfnod0weXFDa0Lz092YpVXTxDB" target="_blank" rel="noopener">Click Here</a></p>
+          <p class="pr-for-release">For Immediate Release</p>
+          <p class="pr-contacts-label">Media Contacts</p>
+          <p class="pr-contact-row">Jackie O. Asare, Hueman PR &nbsp;·&nbsp; <a href="mailto:Jackieo@Huemanpr.com">Jackieo@Huemanpr.com</a> &nbsp;·&nbsp; 718-930-8400</p>
+          <p class="pr-contact-row">Candace Ledbetter &nbsp;·&nbsp; <a href="mailto:Candace@huemanpr.com">Candace@huemanpr.com</a> &nbsp;·&nbsp; 770-709-1509</p>
+          <p class="pr-assets">Press Assets: <a href="https://drive.google.com/drive/folders/17YMgd2hfnod0weXFDa0Lz092YpVXTxDB" target="_blank" rel="noopener">Click Here</a></p>
         </div>
         <div class="pr-book-cover">
           <img src="images/book-mock.png" alt="From Presence to Power book cover">
