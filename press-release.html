@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press Release · From Presence to Power</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; }
+
+    :root {
+      --orange:       #E55F1D;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --cream:        #EFEDEC;
+      --border:       #DAD6CB;
+      --tan-soft:     #E1DFDB;
+      --font-display: "Big Shoulders Display", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.6;
+    }
+
+    .page-wrapper { padding-top: 60px; }
+
+    .article-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* Embargo notice */
+    .embargo-notice {
+      border: 1.5px solid var(--orange);
+      background: #fff8f5;
+      padding: 16px 20px;
+      margin-bottom: 40px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+    .embargo-notice em {
+      font-style: normal;
+    }
+
+    /* Header */
+    .pr-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 20px;
+    }
+
+    .pr-headline {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--fg);
+      margin-bottom: 12px;
+    }
+
+    .pr-subhead {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--fg);
+      margin-bottom: 12px;
+    }
+
+    .pr-deck {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--fg-muted);
+      margin-bottom: 36px;
+      line-height: 1.5;
+    }
+
+    hr.pr-rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 36px 0;
+    }
+
+    /* Body */
+    .pr-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+
+    .pr-body p:last-child { margin-bottom: 0; }
+
+    .pr-body ul {
+      margin: 0 0 20px 24px;
+    }
+
+    .pr-body ul li {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+
+    .pr-body blockquote {
+      margin: 24px 0;
+      padding-left: 20px;
+      border-left: 3px solid var(--orange);
+      font-style: italic;
+      color: var(--fg);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .pr-body strong { font-weight: 600; }
+    .pr-body em { font-style: italic; }
+
+    .pr-body a {
+      color: var(--orange);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* Section headers (About, Book Info) */
+    .pr-section-heading {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin: 40px 0 12px;
+    }
+
+    /* Book info grid */
+    .book-info {
+      background: var(--tan-soft);
+      padding: 20px 24px;
+      margin-top: 8px;
+    }
+
+    .book-info-row {
+      display: flex;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .book-info-row:last-child { margin-bottom: 0; }
+
+    .book-info-row strong {
+      min-width: 130px;
+      font-weight: 600;
+      color: var(--fg-muted);
+      flex-shrink: 0;
+    }
+
+    /* Social links */
+    .pr-social {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .pr-social a {
+      font-size: 14px;
+      color: var(--orange);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @media (max-width: 640px) {
+      .article-container { padding: 40px 20px 64px; }
+      .book-info-row { flex-direction: column; gap: 2px; }
+      .book-info-row strong { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+    <div class="article-container">
+
+      <div class="embargo-notice">
+        <em>Embargoed until July 27, 2026 at 9AM ET — for advance press circulation only. Do not share, forward, or publish.</em>
+      </div>
+
+      <p class="pr-label">Press Release &nbsp;·&nbsp; For Immediate Release July 28, 2026</p>
+
+      <h1 class="pr-headline">Acclaimed Social Justice Leader Rashad Robinson Debuts <em>From Presence to Power</em>, and Launches National Tour Featuring Jane Fonda, Joy-Ann Reid, Lena Waithe, Angela Rye, Charles Blow and More.</h1>
+
+      <p class="pr-deck">New Book Equips Readers to Build Power, Challenge Systems, and Create Lasting Change</p>
+
+      <hr class="pr-rule">
+
+      <div class="pr-body">
+
+        <p><strong>(NEW YORK, NY) July 28, 2026</strong> — At a moment when progress feels hard to win and keep, nationally recognized social justice leader <a href="http://www.rashadrobinson.com" target="_blank" rel="noopener">Rashad Robinson</a> offers a blueprint for understanding how power actually works and how ordinary people can build enough of it to create, challenge, and sustain change in today's world.</p>
+
+        <p>Robinson's new book, <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener"><em>From Presence to Power: How to Take On the Fights That Matter—and Win</em></a>, published by <strong>One World</strong>, an imprint of <strong>Penguin Random House</strong> (also publishes Ta-Nehisi Coates, Bryan Stevenson and Heather McGhee) is already earning praise as <em>"a master class in real activism"</em> (Heather McGhee, New York Times bestselling author), and <em>"a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results"</em> (Anthony D. Romero, executive director, ACLU).</p>
+
+        <p><em>From Presence to Power</em> offers a practical guide to power learned from the frontlines of fighting for it. Drawing from more than two decades leading some of the nation's most influential campaigns for racial justice, LGBTQ+ equality, media accountability and corporate accountability, Robinson brings those principles to life through behind-the-scenes stories including:</p>
+
+        <ul>
+          <li>Taking on Big Tech executives including Mark Zuckerberg and Sheryl Sandberg</li>
+          <li>Challenging big Hollywood studios to transform representation and accountability</li>
+          <li>Helping launch the progressive prosecutor movement and break through on criminal justice reform</li>
+          <li>Examining missed opportunities to challenge Donald Trump through coordinated corporate and cultural pressure</li>
+        </ul>
+
+        <blockquote>
+          <p>"Every campaign I write about in this book taught me something; not just about winning, but about how power is built, protected, and challenged. Some of those lessons came through breakthrough victories, and others came through setbacks that forced us to rethink our strategy. I wanted to pull back the curtain on those experiences because understanding how change really happens is far more valuable than simply celebrating the outcome.</p>
+          <p>"For too long, we've mistaken visibility for victory. We've celebrated moments that felt powerful without asking whether they actually changed the rules that shape people's lives. My goal is to give readers more than inspiration. I want people trying to make change, at whatever level, to read this book and take away both the practical understanding of how power works and the confidence to build enough of it to create lasting change in their own organizations, workplaces, and communities." — Rashad Robinson</p>
+        </blockquote>
+
+        <p>The book unpacks the foundational principles for building influence: from understanding the actual difference between presence and power, making injustice unprofitable, changing written and unwritten rules, leveraging narratives, and avoiding the traps of what Robinson calls "magical thinking," and more.</p>
+
+        <p>Each chapter challenges readers to think deeper about how change happens and the approaches required to make it happen, and why so many movements succeed in capturing attention but fail to transform systems. The key ideas are accompanied by exercises for readers to test those concepts in their own lives.</p>
+
+        <p>Coinciding with the release, Robinson will embark on a national book tour, bringing together some of the country's most respected voices across entertainment, politics, journalism, activism, and culture for a series of conversations exploring power, social change, democracy, civic engagement, and the future of American leadership. The tour will feature conversations with <strong>Jane Fonda</strong>, <strong>Joy-Ann Reid</strong>, <strong>Greg Dalton</strong>, <strong>Lena Waithe</strong>, <strong>Angela Rye</strong>, <strong>dream hampton</strong>, <strong>Cristina Tzintzún Ramirez</strong>, <strong>Kendrick Sampson</strong>, <strong>Charles Blow</strong>, and more to be announced.</p>
+
+        <p>The <strong>National Book Tour &amp; Conversation Series</strong> extends the dialogue beyond the pages of the book, inviting audiences to not only explore how power is built, challenged, and sustained in today's rapidly changing social and political landscape, but to also understand how each of us can play a role in shaping it.</p>
+
+        <blockquote>"Power is built in community, not isolation. Every stop brings together people who have challenged institutions, influenced culture, and helped shape the national conversation in different ways—or are trying to. We're ready to guide people from reacting to the moment to using their power to change what comes next."</blockquote>
+
+        <p><em>From Presence to Power: How to Take On the Fights That Matter—and Win</em> is available now wherever books are sold.</p>
+
+        <p>For <a href="https://book.rashadrobinson.com/events" target="_blank" rel="noopener">upcoming cities, events, and tour dates</a>, and new conversations, visit <a href="http://www.frompresencetopower.com" target="_blank" rel="noopener">www.frompresencetopower.com</a> or <a href="http://www.rashadrobinson.com" target="_blank" rel="noopener">www.rashadrobinson.com</a>.</p>
+
+        <p>Follow Rashad: <span class="pr-social"><a href="https://x.com/rashadrobinson" target="_blank" rel="noopener">X / Twitter</a><a href="https://www.instagram.com/iamrashadrobinson" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/rashadny" target="_blank" rel="noopener">Facebook</a><a href="https://www.linkedin.com/in/rashadrobinson/" target="_blank" rel="noopener">LinkedIn</a></span></p>
+
+      </div>
+
+      <hr class="pr-rule">
+
+      <h2 class="pr-section-heading">About Rashad Robinson</h2>
+      <div class="pr-body">
+        <p>Rashad Robinson is one of America's leading voices for social justice. Over a career spanning more than two decades, he has helped lead groundbreaking campaigns that transformed corporate behavior, influenced public policy, expanded representation in media, advanced LGBTQ+ rights, and redefined approaches to criminal justice reform. As the longtime president of Color Of Change, Robinson built one of the nation's most influential racial justice organizations, leading campaigns that challenged Hollywood, Big Tech, Fortune 500 companies, and political institutions to create measurable structural change. He previously served as Senior Director of Media Programs at GLAAD and, today, continues to advise organizations and leaders on building durable power for social impact. More information can be found at <a href="http://www.rashadrobinson.com" target="_blank" rel="noopener">www.rashadrobinson.com</a>.</p>
+      </div>
+
+      <h2 class="pr-section-heading">About One World</h2>
+      <div class="pr-body">
+        <p>The mission of ONE WORLD is to provide a home for authors — novelists, essayists, memoirists, poets, journalists, thinkers, activists, and creative artists unconstrained by genre — who challenge the status quo, subvert dominant narratives, and give us new language to understand our past, present, and future.</p>
+      </div>
+
+      <h2 class="pr-section-heading">Book Information</h2>
+      <div class="book-info">
+        <div class="book-info-row"><strong>Title</strong><span><em>From Presence to Power: How to Take On the Fights That Matter—and Win</em></span></div>
+        <div class="book-info-row"><strong>Author</strong><span>Rashad Robinson</span></div>
+        <div class="book-info-row"><strong>Publisher</strong><span>One World, an imprint of Penguin Random House</span></div>
+        <div class="book-info-row"><strong>Publication Date</strong><span>July 28, 2026</span></div>
+        <div class="book-info-row"><strong>ISBN</strong><span>97805932435651</span></div>
+      </div>
+
+    </div>
+
+    <footer id="site-footer"></footer>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
