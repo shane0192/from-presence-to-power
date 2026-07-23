@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Power Exercises · From Presence to Power</title>
+  <meta name="description" content="Three exercises from From Presence to Power by Rashad Robinson — tools for turning ideas about power into action.">
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --tan-soft:     #E1DFDB;
+      --font-display: "Big Shoulders Display", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", monospace;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.5;
+    }
+
+    .page-wrapper { padding-top: 60px; }
+
+    /* Page header */
+    .page-header {
+      padding: 64px 64px 56px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .page-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 28px;
+    }
+
+    .page-intro {
+      max-width: 600px;
+    }
+
+    .page-intro p {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--fg-muted);
+      margin-bottom: 16px;
+    }
+
+    .page-intro p:last-child { margin-bottom: 0; }
+
+    .page-intro .buy-link {
+      color: var(--orange);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    /* Exercise grid */
+    .exercises-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 64px 64px 80px;
+    }
+
+    .exercises-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.6;
+      margin-bottom: 32px;
+    }
+
+    .exercises-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .exercise-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      transition: background 0.18s;
+      overflow: hidden;
+    }
+
+    .exercise-card:hover { background: var(--cream-2); }
+
+    .card-inner {
+      padding: 28px 28px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .card-body {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .card-num {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 7vw, 100px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      flex-shrink: 0;
+    }
+
+    .card-rule {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+      flex-shrink: 0;
+      margin: 0 24px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2vw, 27px);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-cta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-cta svg { transition: transform 0.2s; }
+    .exercise-card:hover .card-cta svg { transform: translateX(4px); }
+
+    .card-time {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--fg-muted);
+      opacity: 0.5;
+    }
+
+    /* Book CTA strip */
+    .book-strip {
+      background: var(--brown);
+      padding: 48px 64px;
+    }
+
+    .book-strip-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .book-strip-text {
+      color: rgba(239,237,236,0.7);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 480px;
+    }
+
+    .book-strip-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .book-strip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown);
+      background: var(--orange);
+      padding: 16px 28px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .book-strip-btn:hover { opacity: 0.88; }
+
+    @media (max-width: 960px) {
+      .page-header { padding: 48px 24px 40px; }
+      .exercises-section { padding: 48px 24px 64px; }
+      .exercises-grid { grid-template-columns: 1fr; gap: 16px; }
+      .book-strip { padding: 40px 24px; }
+      .book-strip-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+    }
+
+    @media (max-width: 640px) {
+      .card-num { font-size: 56px; }
+      .card-rule { margin: 0 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+
+    <div class="page-header">
+      <p class="page-eyebrow">Book Extras</p>
+      <h1 class="page-title">Find Your<br>Power</h1>
+      <div class="page-intro">
+        <p>Throughout <em>From Presence to Power</em>, Rashad Robinson offers exercises designed to help you move from understanding power to actually building it. These "Find Your Power" exercises are tools — meant to be returned to, shared with colleagues, and used in the rooms where decisions get made.</p>
+        <p>Three exercises from the book are available here. To go deeper, <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="buy-link">get the full book</a>.</p>
+      </div>
+    </div>
+
+    <div class="exercises-section">
+      <p class="exercises-label">3 Exercises</p>
+      <div class="exercises-grid">
+
+        <a href="fyp-2.html" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-eyebrow">FYP 2</span>
+            <div class="card-body">
+              <span class="card-num">01</span>
+              <div class="card-rule"></div>
+              <h2 class="card-title">3 Qs for Seeing Power Dynamics</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Begin
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="card-time">~10 min</span>
+          </div>
+        </a>
+
+        <a href="fyp-5.html" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-eyebrow">FYP 5</span>
+            <div class="card-body">
+              <span class="card-num">02</span>
+              <div class="card-rule"></div>
+              <h2 class="card-title">The Rules In Your World</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Begin
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="card-time">~10 min</span>
+          </div>
+        </a>
+
+        <a href="fyp-12.html" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-eyebrow">FYP 12</span>
+            <div class="card-body">
+              <span class="card-num">03</span>
+              <div class="card-rule"></div>
+              <h2 class="card-title">Corporate Accountability</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Begin
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="card-time">~10 min</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Book CTA -->
+    <div class="book-strip">
+      <div class="book-strip-inner">
+        <div class="book-strip-text">
+          <strong>Want all 12 exercises?</strong>
+          The full book includes every Find Your Power exercise, plus the complete framework for building lasting power and winning social change.
+        </div>
+        <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="book-strip-btn">
+          Order the Book
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <footer id="site-footer"></footer>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
