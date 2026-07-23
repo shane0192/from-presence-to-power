@@ -140,8 +140,67 @@
       text-underline-offset: 2px;
     }
 
+    /* PR header block */
+    .pr-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .pr-header-left { flex: 1; }
+
+    .pr-for-release {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+
+    .pr-contacts {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+
+    .pr-contacts strong { font-weight: 600; }
+
+    .pr-contacts a {
+      color: var(--orange);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .pr-assets {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    .pr-assets a {
+      color: var(--orange);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .pr-book-cover {
+      width: 140px;
+      flex-shrink: 0;
+    }
+
+    .pr-book-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     @media (max-width: 640px) {
       .article-container { padding: 40px 20px 64px; }
+      .pr-header { flex-direction: column-reverse; gap: 20px; }
+      .pr-book-cover { width: 100px; }
     }
   </style>
 </head>
@@ -157,7 +216,22 @@
         <em>Embargoed until July 27, 2026 at 9AM ET — for advance press circulation only. Do not share, forward, or publish.</em>
       </div>
 
-      <p class="pr-label">Press Release &nbsp;·&nbsp; For Immediate Release July 28, 2026</p>
+      <div class="pr-header">
+        <div class="pr-header-left">
+          <p class="pr-for-release">FOR IMMEDIATE RELEASE</p>
+          <p class="pr-contacts">
+            <strong>MEDIA CONTACTS:</strong><br>
+            Jackie O. Asare, Hueman PR, <a href="mailto:Jackieo@Huemanpr.com">Jackieo@Huemanpr.com</a>, 718-930-8400<br>
+            Candace Ledbetter, <a href="mailto:Candace@huemanpr.com">Candace@huemanpr.com</a>, 770-709-1509
+          </p>
+          <p class="pr-assets"><strong>Press Assets:</strong> <a href="https://drive.google.com/drive/folders/17YMgd2hfnod0weXFDa0Lz092YpVXTxDB" target="_blank" rel="noopener">Click Here</a></p>
+        </div>
+        <div class="pr-book-cover">
+          <img src="images/book-mock.png" alt="From Presence to Power book cover">
+        </div>
+      </div>
+
+      <hr class="pr-rule">
 
       <h1 class="pr-headline">Rashad Robinson Releases <em>From Presence to Power</em>, a Strategic Blueprint for Winning Structural Change</h1>
 
