@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FYP 12: Corporate Accountability · From Presence to Power</title>
+  <meta name="description" content="Find Your Power Exercise 12 — tools for building corporate accountability from the inside out.">
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --tan-soft:     #E1DFDB;
+      --font-display: "Big Shoulders Display", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", monospace;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.5;
+    }
+
+    .page-wrapper { padding-top: 60px; }
+
+    .exercise-breadcrumb {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 64px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover { opacity: 1; }
+
+    .exercise-header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 36px 64px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exercise-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .exercise-chapter-ref {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      background: var(--tan-soft);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    .exercise-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+
+    .exercise-intro {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--fg-muted);
+      max-width: 560px;
+    }
+
+    .exercise-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 52px 64px;
+    }
+
+    .content-block {
+      margin-bottom: 40px;
+    }
+
+    .content-block h3 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .content-block p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+
+    .content-block p:last-child { margin-bottom: 0; }
+
+    .prompt-block {
+      background: var(--tan-soft);
+      border-left: 3px solid var(--orange);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .prompt-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .prompt-text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--fg);
+      font-style: italic;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    .content-block ul {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .content-block li {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+
+    .content-placeholder {
+      background: var(--tan-soft);
+      border: 1px dashed var(--border);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.55;
+    }
+
+    .pdf-strip {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 28px;
+      max-width: 800px;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .pdf-icon-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--tan-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pdf-strip-text {
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--fg-muted);
+      flex: 1;
+    }
+
+    .pdf-strip-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 6px;
+    }
+
+    .pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--fg);
+      padding: 16px 24px;
+      text-decoration: none;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .pdf-btn:hover { opacity: 0.8; }
+
+    .exercise-nav {
+      max-width: 800px;
+      margin: 0 auto 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .exercise-nav-item {
+      padding: 28px 32px;
+      text-decoration: none;
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: background 0.18s;
+    }
+
+    .exercise-nav-item:hover { background: var(--tan-soft); }
+    .exercise-nav-item.prev { border-right: 1px solid var(--border); }
+    .exercise-nav-item.next { align-items: flex-end; text-align: right; }
+    .exercise-nav-item.empty { cursor: default; opacity: 0.35; pointer-events: none; }
+    .exercise-nav-item.empty:hover { background: transparent; }
+
+    .nav-direction {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .nav-rule {
+      width: 20px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .nav-exercise-title {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg);
+      line-height: 1.3;
+    }
+
+@media (max-width: 960px) {
+      .exercise-breadcrumb { padding: 24px 24px 0; }
+      .exercise-header { padding: 28px 24px 32px; }
+      .exercise-body { padding: 40px 24px; }
+      .pdf-strip { flex-direction: column; align-items: flex-start; margin: 0 24px 28px; }
+      .exercise-nav { grid-template-columns: 1fr; margin: 0 24px 48px; }
+      .exercise-nav-item.prev { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    .pdf-footer { display: none; }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      #site-nav, .mobile-menu, #site-footer,
+      .exercise-breadcrumb, .pdf-strip, .exercise-nav { display: none !important; }
+      .page-wrapper { padding-top: 0; padding-bottom: 0; }
+      body { background: #fff; }
+      .exercise-header { padding: 48px 64px 40px; }
+      .exercise-body { padding: 32px 64px 48px; }
+      a { color: inherit; text-decoration: none; }
+      .prompt-block, .scenario-step, .content-block { page-break-inside: avoid; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+
+    <div class="exercise-breadcrumb">
+      <a href="fyp.html" class="back-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        All Exercises
+      </a>
+    </div>
+
+    <div class="exercise-header">
+      <div class="exercise-label">
+        <span class="exercise-number">FYP 12</span>
+        <span class="exercise-chapter-ref">Chapter 12</span>
+      </div>
+      <h1 class="exercise-title">Corporate<br>Accountability</h1>
+      <p class="exercise-intro">A framework for holding corporations accountable — and building the kind of power that makes them respond.</p>
+    </div>
+
+    <div class="exercise-body">
+
+      <div class="content-block">
+        <h3>Background</h3>
+        <p><strong>This activity is meant to help you see opportunities for holding business profiteers accountable at the local level.</strong></p>
+        <p>Corporate accountability is a lot easier to talk about than to achieve. But corporate accountability isn't only about thousands of people banding together across the country to go after the likes of McDonald's, Amazon, Walmart, or other corporate profiteers at the national and global level. Corporate accountability also involves holding smaller businesses (and their owners) accountable for the role they play in creating or exploiting injustice, and changing the rules to make it unprofitable for them to do so. There are often leverage points for getting them to make different decisions that don't exist with bigger corporations—such as their need to maintain a good profile in a given community.</p>
+        <p>The practices of small business owners and managers can have a huge impact in our lives. For example, small businesses still employ about half of all people working in the private sector in the United States, which means unchecked issues like hiring discrimination or cheating employees out of health insurance can have a major impact on large numbers of people. Raising the floor for what's acceptable at the local business level is critical.</p>
+        <p>And raising the ceiling for what's possible at the local business level can be equally influential: When local businesses decide to protect undocumented workers and their families from attacks by the government, or to be proactive about good environmental practices or collaborating with Black-owned and other suppliers traditionally shut out of the market, they help create momentum for changing the rules at larger corporations.</p>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="content-block">
+        <h3>The Exercise</h3>
+        <p>Your voice, whether your own individual voice or the voices of people across your community that you are able to organize, can make a big difference. But how do you know when a business is doing something wrong that must be changed?</p>
+        <p>There are many ways to bring local business practices into the light:</p>
+        <ul>
+          <li>You can find out if businesses or their owners are making contributions to politicians that hurt people and support right-wing policies through the nonpartisan, nonprofit research group Open Secrets (opensecrets.org). You can refuse to do business with them and rally others to do so.</li>
+          <li>Some local businesses (like gyms or diners) are constantly playing Fox News, helping the right wing spread its lies. You can demand they stop doing that.</li>
+          <li>Local businesses can be stealing wages in many different ways from their employees. You can check with local unions, local government offices for labor and worker protections, and other news and advocacy sources that may have investigated them. Sometimes holding them accountable legally can take far longer than mounting a local public campaign capable of pressuring them to change.</li>
+          <li>Local businesses can practice blatant discrimination against potential employees, current employees, or customers. (Think about the local pharmacies refusing to fill prescriptions for reproductive medicine or refusing to bake a cake for a same-sex wedding ceremony.) You can refuse to do business with them and rally others to do the same.</li>
+          <li>A corporation like Amazon owns all of its local distribution warehouses, but you can still support local efforts led by workers of those warehouses to unionize or fight for improvements in working conditions.</li>
+          <li>In other cases, local franchises or business partners of larger corporations doing wrong may be susceptible to influence from local community members (e.g., local contractors building a private prison for GEO Group).</li>
+        </ul>
+        <p>By looking at businesses proactively through these lenses (and others), you can connect the dots between the big social issues you care about and the practices of specific businesses in your area that you may be able to influence—or, at least, make sure to no longer support. The right wing plays this game very well, and there is no reason you can't do it, too.</p>
+        <p>When you identify a local business with practices you want to change, consider different ways you can help increase the pressure on them, with the aim of making what they're doing unprofitable:</p>
+        <ul>
+          <li>Drawing attention they can't avoid by putting it on the radar for local news media outlets and social media influencers with a big reach locally and a commitment to turn up the pressure.</li>
+          <li>Raising money and rallying people to attend demonstrations in support of workers or others hurt by these businesses to fight back.</li>
+          <li>Organizing people to stop shopping there or doing business with them, including getting any groups you are part of to stop doing business with them.</li>
+          <li>Reporting them to local, state, or national government agencies that can open up investigations, fine them, or pressure them to change in other ways.</li>
+        </ul>
+        <p>Businesses depend on people looking the other way. Refusing to play along can be more powerful than you think in forcing them to change.</p>
+      </div>
+
+    </div>
+
+    <div class="pdf-strip">
+      <div class="pdf-icon-circle">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="13" x2="12" y2="17"/><polyline points="9 16 12 19 15 16"/></svg>
+      </div>
+      <div class="pdf-strip-text">
+        <strong>Take this exercise with you</strong>
+        Download Corporate Accountability as a PDF for workshops, team discussions, or offline reflection.
+      </div>
+      <a href="fyp-12.pdf" download class="pdf-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </a>
+    </div>
+
+    <div class="exercise-nav">
+      <a href="fyp-5.html" class="exercise-nav-item prev">
+        <span class="nav-direction">&larr; Previous</span>
+        <div class="nav-rule"></div>
+        <span class="nav-exercise-title">The Rules In Your World</span>
+      </a>
+      <div class="exercise-nav-item empty next">
+        <span class="nav-direction">Next &rarr;</span>
+        <div class="nav-rule"></div>
+        <span class="nav-exercise-title">—</span>
+      </div>
+    </div>
+
+    <div class="pdf-footer">
+      <span>From Presence to Power: Book Exercises</span>
+    </div>
+    <footer id="site-footer"></footer>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
