@@ -126,6 +126,36 @@ nav.scrolled .nav-toggle span { background: var(--cream) !important; box-shadow:
   text-align: center;
 }
 
+/* Dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown > a::after {
+  content: ' ▾';
+  font-size: 8px;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  min-width: 168px;
+  z-index: 200;
+  list-style: none;
+  padding: 6px 0;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  white-space: nowrap;
+}
+.nav-dropdown-menu li a:hover { opacity: 1; background: var(--tan-soft, #E1DFDB); }
+
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
