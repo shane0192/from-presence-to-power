@@ -168,30 +168,45 @@
     }
 
     .step-block {
-      padding: 20px 28px;
+      display: flex;
+      align-items: center;
       border: 1px solid var(--border);
-      border-left: 3px solid var(--fg);
       margin-bottom: 24px;
+      overflow: hidden;
     }
 
-    .step-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      background: var(--fg);
-      color: var(--cream);
-      padding: 3px 10px;
-      margin-bottom: 12px;
+    .step-num {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 5vw, 76px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      opacity: 0.15;
+      flex-shrink: 0;
+      padding: 24px 28px;
     }
+
+    .step-rule {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    .step-badge { display: none; }
 
     .step-action {
-      font-family: var(--font-body);
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1.5;
+      flex: 1;
+      padding: 24px 32px;
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
       color: var(--fg);
+      margin: 0;
     }
 
     .section-divider {
@@ -392,7 +407,8 @@
       </div>
 
       <div class="step-block">
-        <span class="step-badge">Step 1</span>
+        <span class="step-num">01</span>
+        <div class="step-rule"></div>
         <p class="step-action">Pick just one world to start.</p>
       </div>
 
@@ -403,7 +419,8 @@
       </div>
 
       <div class="step-block">
-        <span class="step-badge">Step 2</span>
+        <span class="step-num">02</span>
+        <div class="step-rule"></div>
         <p class="step-action">Write out some of the written and unwritten rules of that world.</p>
       </div>
 
@@ -413,7 +430,8 @@
       </div>
 
       <div class="step-block">
-        <span class="step-badge">Step 3</span>
+        <span class="step-num">03</span>
+        <div class="step-rule"></div>
         <p class="step-action">Write down the rule.</p>
       </div>
 
