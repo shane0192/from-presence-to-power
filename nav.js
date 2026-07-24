@@ -13,7 +13,6 @@
       '<li><a href="events.html"' + active('events.html') + '>Upcoming Events</a></li>' +
       '<li><a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a></li>' +
       '<li><a href="index.html#rashad">About Rashad</a></li>' +
-      '<li><a href="partners.html"' + active('partners.html') + '>Partners</a></li>' +
       '<li><a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="nav-cta">Pre-order</a></li>' +
     '</ul>' +
     '<button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">' +
@@ -25,7 +24,6 @@
     '<a href="events.html">Upcoming Events</a>' +
     '<a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a>' +
     '<a href="index.html#rashad">About Rashad</a>' +
-    '<a href="partners.html">Partners</a>' +
     '<a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Pre-order the Book</a>';
 
   // Scroll: add .scrolled class
