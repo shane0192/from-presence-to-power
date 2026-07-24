@@ -43,16 +43,20 @@
     .hero {
       display: grid;
       grid-template-columns: 42fr 58fr;
-      min-height: calc(100vh - 60px);
+      align-items: flex-start;
     }
 
-    /* Left panel */
+    /* Left panel — sticky */
     .hero-left {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
       padding: 64px 56px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       border-right: 1px solid var(--border);
+      overflow: hidden;
     }
 
     .page-title {
@@ -103,10 +107,11 @@
 
     .hero-book-link:hover { opacity: 0.72; }
 
-    /* Right panel — exercise cards stacked */
+    /* Right panel — scrollable */
     .hero-right {
       display: flex;
       flex-direction: column;
+      min-height: calc(100vh - 60px);
     }
 
     .exercise-card {
@@ -116,7 +121,6 @@
       color: var(--fg);
       display: flex;
       flex-direction: column;
-      flex: 1;
       transition: background 0.18s;
       overflow: hidden;
     }
@@ -208,17 +212,19 @@
     @media (max-width: 960px) {
       .hero {
         grid-template-columns: 1fr;
-        min-height: unset;
       }
 
       .hero-left {
+        position: static;
+        height: auto;
         padding: 48px 24px 40px;
         border-right: none;
         border-bottom: 1px solid var(--border);
+        overflow: visible;
       }
 
       .hero-right {
-        /* stack cards full-width on mobile */
+        min-height: unset;
       }
 
       .card-inner { padding: 24px; }
