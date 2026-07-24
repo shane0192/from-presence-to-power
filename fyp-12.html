@@ -349,14 +349,13 @@
         <span class="exercise-number">Find Your Power</span>
       </div>
       <h1 class="exercise-title">Corporate<br>Accountability</h1>
-      <p class="exercise-intro">A framework for holding corporations accountable — and building the kind of power that makes them respond.</p>
+      <p class="exercise-intro">This activity is meant to help you see opportunities for holding business profiteers accountable at the local level.</p>
     </div>
 
     <div class="exercise-body">
 
       <div class="content-block">
-        <h3>Background</h3>
-        <p><strong>This activity is meant to help you see opportunities for holding business profiteers accountable at the local level.</strong></p>
+        <h3>Why This Matters</h3>
         <p>Corporate accountability is a lot easier to talk about than to achieve. But corporate accountability isn't only about thousands of people banding together across the country to go after the likes of McDonald's, Amazon, Walmart, or other corporate profiteers at the national and global level. Corporate accountability also involves holding smaller businesses (and their owners) accountable for the role they play in creating or exploiting injustice, and changing the rules to make it unprofitable for them to do so. There are often leverage points for getting them to make different decisions that don't exist with bigger corporations—such as their need to maintain a good profile in a given community.</p>
         <p>The practices of small business owners and managers can have a huge impact in our lives. For example, small businesses still employ about half of all people working in the private sector in the United States, which means unchecked issues like hiring discrimination or cheating employees out of health insurance can have a major impact on large numbers of people. Raising the floor for what's acceptable at the local business level is critical.</p>
         <p>And raising the ceiling for what's possible at the local business level can be equally influential: When local businesses decide to protect undocumented workers and their families from attacks by the government, or to be proactive about good environmental practices or collaborating with Black-owned and other suppliers traditionally shut out of the market, they help create momentum for changing the rules at larger corporations.</p>
@@ -424,5 +423,26 @@
 
   <script src="nav.js"></script>
   <script src="footer.js"></script>
+
+  <script>
+    // Force PDF download via blob — works cross-origin (rawgithack CDN safe)
+    document.querySelectorAll('a[download]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var filename = link.getAttribute('download') || link.href.split('/').pop();
+        fetch(link.href)
+          .then(function(r) { return r.blob(); })
+          .then(function(blob) {
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename || 'exercise.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href);
+          });
+      });
+    });
+  </script>
 </body>
 </html>

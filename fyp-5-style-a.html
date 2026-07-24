@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FYP 5: The Rules In Your World · From Presence to Power</title>
+  <title>FYP 5 Style A Preview · From Presence to Power</title>
   <meta name="description" content="Find Your Power Exercise 5 — map the visible and invisible rules shaping your world.">
   <link rel="icon" type="image/png" href="images/book-mock.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -167,31 +167,38 @@
       font-style: italic;
     }
 
+
     .step-block {
-      padding: 20px 28px;
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      align-items: flex-start;
+      gap: 0;
       border: 1px solid var(--border);
-      border-left: 3px solid var(--fg);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+      min-height: 100px;
     }
-
     .step-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      background: var(--fg);
-      color: var(--cream);
-      padding: 3px 10px;
-      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      border-right: 1px solid var(--border);
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--fg);
+      opacity: 0.18;
+      letter-spacing: 0.01em;
+      line-height: 1;
     }
-
     .step-action {
       font-family: var(--font-body);
-      font-size: 16px;
+      font-size: 19px;
       font-weight: 600;
       line-height: 1.5;
       color: var(--fg);
+      padding: 32px 36px;
+      align-self: center;
     }
 
     .section-divider {
