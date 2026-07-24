@@ -324,6 +324,84 @@
       a { color: inherit; text-decoration: none; }
       .prompt-block, .scenario-step, .content-block { page-break-inside: avoid; break-inside: avoid; }
     }
+
+    /* ── TWO-COLUMN EXERCISE LAYOUT ── */
+    .exercise-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      align-items: flex-start;
+    }
+
+    .exercise-sidebar {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      border-right: 1px solid var(--border);
+      padding: 40px 28px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .sidebar-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.55;
+      margin-bottom: 24px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--fg);
+      transition: opacity 0.2s;
+    }
+
+    .sidebar-link:last-child { border-bottom: 1px solid var(--border); }
+    .sidebar-link:hover { opacity: 0.72; }
+
+    .sidebar-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--fg-muted);
+      flex-shrink: 0;
+      padding-top: 2px;
+      opacity: 0.5;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .sidebar-link.active .sidebar-num {
+      color: var(--orange);
+      opacity: 1;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 500;
+      color: var(--fg);
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+
+    .sidebar-link.active .sidebar-title {
+      opacity: 1;
+      font-weight: 600;
+    }
+
+    @media (max-width: 960px) {
+      .exercise-layout { grid-template-columns: 1fr; }
+      .exercise-sidebar { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -332,6 +410,23 @@
   <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
 
   <div class="page-wrapper">
+  <div class="exercise-layout">
+    <aside class="exercise-sidebar">
+      <p class="sidebar-eyebrow">Find Your Power</p>
+      <a href="fyp-2.html" class="sidebar-link active">
+        <span class="sidebar-num">01</span>
+        <span class="sidebar-title">3 Questions for Seeing Power Dynamics</span>
+      </a>
+      <a href="fyp-5.html" class="sidebar-link">
+        <span class="sidebar-num">02</span>
+        <span class="sidebar-title">The Rules In Your World</span>
+      </a>
+      <a href="fyp-12.html" class="sidebar-link">
+        <span class="sidebar-num">03</span>
+        <span class="sidebar-title">Corporate Accountability</span>
+      </a>
+    </aside>
+    <div class="exercise-content">
 
     <div class="exercise-breadcrumb">
       <a href="fyp.html" class="back-link">
@@ -445,19 +540,24 @@
       <span>From Presence to Power: Book Exercises</span>
     </div>
     <footer id="site-footer"></footer>
-  </div>
+  </div><!-- /.exercise-content -->
+  </div><!-- /.exercise-layout -->
+  </div><!-- /.page-wrapper -->
 
   <script src="nav.js"></script>
-  <script src="footer.js"></script>
-
-  <script>
-    // Force PDF download via blob — works cross-origin (rawgithack CDN safe)
+  <script src="footer.js"></script>  <script>
+    // Force PDF download via blob — works cross-origin
+    // Rewrite rawgithack URLs to raw.githubusercontent.com (no interstitial, CORS-safe)
     document.querySelectorAll('a[download]').forEach(function(link) {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        var filename = link.getAttribute('download') || link.href.split('/').pop();
-        fetch(link.href)
-          .then(function(r) { return r.blob(); })
+        var url = link.href.replace('https://raw.githack.com/', 'https://raw.githubusercontent.com/');
+        var filename = link.getAttribute('download') || url.split('/').pop();
+        fetch(url)
+          .then(function(r) {
+            if (!r.ok) throw new Error('fetch failed');
+            return r.blob();
+          })
           .then(function(blob) {
             var a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
@@ -466,6 +566,10 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(a.href);
+          })
+          .catch(function() {
+            // Fallback: open directly (works on production)
+            window.open(url, '_blank');
           });
       });
     });
