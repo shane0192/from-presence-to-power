@@ -8,6 +8,7 @@
       '<li><a href="index.html#rashad">Author</a></li>' +
       '<li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>' +
       '<li><a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener">Contact</a></li>' +
+      '<li><a href="https://www.rashadrobinson.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></li>' +
     '</ul>' +
     /* Row 2 — brand + social */
     '<div class="footer-inner">' +
