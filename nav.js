@@ -12,7 +12,13 @@
       '<li><a href="index.html#book"' + active('index.html') + '>About the Book</a></li>' +
       '<li><a href="events.html"' + active('events.html') + '>Upcoming Events</a></li>' +
       '<li><a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a></li>' +
-      '<li><a href="index.html#rashad">About Rashad</a></li>' +
+      '<li class="nav-dropdown">' +
+        '<a href="index.html#rashad">About Rashad</a>' +
+        '<ul class="nav-dropdown-menu">' +
+          '<li><a href="index.html#rashad">Bio</a></li>' +
+          '<li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>' +
+        '</ul>' +
+      '</li>' +
       '<li class="nav-dropdown">' +
         '<a href="fyp.html"' + active('fyp.html') + '>Book Extras</a>' +
         '<ul class="nav-dropdown-menu">' +
