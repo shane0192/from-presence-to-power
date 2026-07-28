@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FYP 2: 3 Questions for Seeing Power Dynamics · From Presence to Power</title>
+  <meta name="description" content="Find Your Power Exercise 2 — three questions that help you read power dynamics in any room.">
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --tan-soft:     #E1DFDB;
+      --font-display: "Big Shoulders Display", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", monospace;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.5;
+    }
+
+    .page-wrapper { padding-top: 60px; }
+
+    .exercise-breadcrumb {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 64px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .back-link:hover { opacity: 1; }
+
+    .exercise-header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 36px 64px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exercise-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .exercise-number {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .exercise-chapter-ref {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      background: var(--tan-soft);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    .exercise-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 20px;
+    }
+
+    .exercise-intro {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--fg-muted);
+      max-width: 560px;
+    }
+
+    .exercise-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 52px 64px;
+    }
+
+    .content-block {
+      margin-bottom: 40px;
+    }
+
+    .content-block h3 {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .content-block p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+
+    .content-block p:last-child { margin-bottom: 0; }
+
+    .prompt-block {
+      background: var(--tan-soft);
+      border-left: 3px solid var(--orange);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .prompt-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .prompt-text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--fg);
+      font-style: italic;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    .scenario-step {
+      padding-left: 24px;
+      border-left: 2px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .scenario-step p { margin-bottom: 0; }
+
+    /* Content placeholder — remove when real content is added */
+    .content-placeholder {
+      background: var(--tan-soft);
+      border: 1px dashed var(--border);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.55;
+    }
+
+    .pdf-strip {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 28px;
+      max-width: 800px;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .pdf-icon-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--tan-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pdf-strip-text {
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--fg-muted);
+      flex: 1;
+    }
+
+    .pdf-strip-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 6px;
+    }
+
+    .pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--fg);
+      padding: 16px 24px;
+      text-decoration: none;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .pdf-btn:hover { opacity: 0.8; }
+
+    .exercise-nav {
+      max-width: 800px;
+      margin: 0 auto 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .exercise-nav-item {
+      padding: 28px 32px;
+      text-decoration: none;
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: background 0.18s;
+    }
+
+    .exercise-nav-item:hover { background: var(--tan-soft); }
+    .exercise-nav-item.prev { border-right: 1px solid var(--border); }
+    .exercise-nav-item.next { align-items: flex-end; text-align: right; }
+    .exercise-nav-item.empty { cursor: default; opacity: 0.35; pointer-events: none; }
+    .exercise-nav-item.empty:hover { background: transparent; }
+
+    .nav-direction {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+
+    .nav-rule {
+      width: 20px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .nav-exercise-title {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg);
+      line-height: 1.3;
+    }
+
+    @media (max-width: 960px) {
+      .exercise-breadcrumb { padding: 24px 24px 0; }
+      .exercise-header { padding: 28px 24px 32px; }
+      .exercise-body { padding: 40px 24px; }
+      .pdf-strip { flex-direction: column; align-items: flex-start; margin: 0 24px 28px; }
+      .exercise-nav { grid-template-columns: 1fr; margin: 0 24px 48px; }
+      .exercise-nav-item.prev { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    .pdf-footer { display: none; }
+
+    @media print {
+      @page { margin: 0.75in; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      #site-nav, .mobile-menu, #site-footer,
+      .exercise-breadcrumb, .pdf-strip, .exercise-nav { display: none !important; }
+      .exercise-sidebar { display: none !important; }
+      .exercise-layout { display: block !important; }
+      .exercise-content { display: block !important; width: 100% !important; }
+      .page-wrapper { padding-top: 0; padding-bottom: 0; }
+      body { background: #fff; }
+      .exercise-header { padding: 48px 64px 40px; }
+      .exercise-body { padding: 32px 64px 48px; }
+      a { color: inherit; text-decoration: none; }
+      .step-block, .prompt-block { page-break-inside: avoid; break-inside: avoid; }
+    }
+
+    /* ── TWO-COLUMN EXERCISE LAYOUT ── */
+    .exercise-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      align-items: flex-start;
+    }
+
+    .exercise-sidebar {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      border-right: 1px solid var(--border);
+      padding: 40px 28px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .sidebar-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      opacity: 0.55;
+      margin-bottom: 24px;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--fg);
+      transition: opacity 0.2s;
+    }
+
+    .sidebar-link:last-child { border-bottom: 1px solid var(--border); }
+    .sidebar-link:hover { opacity: 0.72; }
+
+    .sidebar-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--fg-muted);
+      flex-shrink: 0;
+      padding-top: 2px;
+      opacity: 0.5;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .sidebar-link.active .sidebar-num {
+      color: var(--orange);
+      opacity: 1;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 500;
+      color: var(--fg);
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+
+    .sidebar-link.active .sidebar-title {
+      opacity: 1;
+      font-weight: 600;
+    }
+
+    @media (max-width: 960px) {
+      .exercise-layout { grid-template-columns: 1fr; }
+      .exercise-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+  <div class="exercise-layout">
+    <aside class="exercise-sidebar">
+      <p class="sidebar-eyebrow">Find Your Power</p>
+      <a href="fyp-2.html" class="sidebar-link active">
+        <span class="sidebar-num">01</span>
+        <span class="sidebar-title">3 Questions for Seeing Power Dynamics</span>
+      </a>
+      <a href="fyp-5.html" class="sidebar-link">
+        <span class="sidebar-num">02</span>
+        <span class="sidebar-title">The Rules In Your World</span>
+      </a>
+      <a href="fyp-12.html" class="sidebar-link">
+        <span class="sidebar-num">03</span>
+        <span class="sidebar-title">Corporate Accountability</span>
+      </a>
+    </aside>
+    <div class="exercise-content">
+
+    <div class="exercise-breadcrumb">
+      <a href="fyp.html" class="back-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        All Exercises
+      </a>
+    </div>
+
+    <div class="exercise-header">
+      <div class="exercise-label">
+        <span class="exercise-number">Find Your Power</span>
+      </div>
+      <h1 class="exercise-title">3 Questions for Seeing<br>Power Dynamics</h1>
+      <p class="exercise-intro">This activity is meant to help you assess the different forces and factors you need to navigate as you think about getting someone in power to make the decisions that will bring about positive change—or prevent negative change.</p>
+    </div>
+
+    <div class="exercise-body">
+
+      <div class="content-block">
+        <h3>Why This Matters</h3>
+                <p>These three questions about power dynamics—i.e., questions for gauging the types of action that will be effective in challenging people in power—offer a simple first step for getting beyond presence alone. They can work at any scale. They can help you become more effective as an individual change agent, help your community group better pressure local politicians, businesses, school board members, or others to make meaningful changes, and even help you push a social change group you care about to expand its approach.</p>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="content-block">
+        <h3>The Exercise</h3>
+        <p>Think about a problematic condition or wrongful pattern of behavior taking place in a given context you are in, one you have been trying to change. Then ask the following:</p>
+      </div>
+
+      <div class="prompt-block">
+        <p class="prompt-label">Question 1</p>
+        <p class="prompt-text">Who is directly responsible for the problem, and whose intervention could stop it?</p>
+      </div>
+
+      <div class="prompt-block">
+        <p class="prompt-label">Question 2</p>
+        <p class="prompt-text">How have you gone about engaging and influencing either of those people?</p>
+      </div>
+
+      <div class="prompt-block">
+        <p class="prompt-label">Question 3</p>
+        <p class="prompt-text">What worked, what failed, what wasn't tried, and therefore what should you do next?</p>
+      </div>
+
+      <div class="content-block" style="margin-top: 40px;">
+        <p>It's helpful to consider whether, up to this point, you have been telling yourself a story about the situation that plays to your biases but isn't exactly accurate, and therefore makes your efforts less effective. For example, are you assuming someone is on your side on this issue, but forgetting that they have a stake in the status quo on this particular issue (i.e., something valuable to lose) that makes them an unreliable ally?</p>
+        <p>Map out the problem and the solution (i.e., what's going wrong and what/who can change it) and your own role in the solution (i.e., what you can do to intervene or force the hand of people who can intervene). Then see if there's anything you're missing or leaving out. Try to map it out again but from a different vantage point, or by imagining not all of your assumptions are correct, and see if you get the same result.</p>
+      </div>
+
+      <hr class="section-divider">
+
+      <div class="content-block">
+        <h3>A Sample Scenario</h3>
+        <p>Let's say you're in a community where, suddenly, parents who you've never seen at school board meetings before are showing up to attack books you love and remove them from school libraries. They are loud and they're getting louder. They are gaining momentum. Other people disagree with them, like you, but they're scared to risk speaking up. What can you do?</p>
+        <p>First, do some research on the group to understand where they came from and what their strategy for achieving their goals may be. And then, even more importantly, do the best research you can to determine who is actually the final decision-maker. Let's assume it's the school's superintendent—that the school board itself is not going to make the decision but will defer to the school leadership to do so. Then work through the following steps:</p>
+
+        <div class="prompt-block">
+          <p class="prompt-label">Engagement</p>
+          <p class="prompt-text">How can you get the superintendent to respond to you? What are you willing to do to build leverage and force them into a negotiation, if they are not immediately open to listening to you or adopting your arguments to make their decision? Is there someone else they need to hear from instead, or is there a way you could marshal voices to support your goals that would outweigh the voices the superintendent is hearing on the other side?</p>
+        </div>
+
+        <div class="prompt-block">
+          <p class="prompt-label">Incentives</p>
+          <p class="prompt-text">How can you make it in the superintendent's interest to negotiate with you? If simple persuasion or the demonstration of your presence isn't enough, how can you create consequences for them either ignoring you or stalling you endlessly, and favoring the other group? How can you change their perception of you, in a way that motivates them to make the right decision? What consequence can you create that they cannot afford to bear? At the same time, is there a way to weaken the hold that your opposition is gaining over the superintendent? How can you lessen their power, in order to increase your own relative power? Lastly, are there outside forces influencing the superintendent that you can tap into, counteract, or change?</p>
+        </div>
+
+        <div class="prompt-block">
+          <p class="prompt-label">Real Solutions</p>
+          <p class="prompt-text">If you're moving in the direction of getting them to take action, is it the right action or is it distraction meant to give lip service to what you are demanding but ultimately side with the right-wing parents' group? Are you playing into their appeasement strategy or neutralizing it? Are you accepting anything less than what it takes to actually change things?</p>
+        </div>
+
+        <div class="prompt-block">
+          <p class="prompt-label">Power</p>
+          <p class="prompt-text">If you're getting stuck, is it because you do not have enough power to either force a negotiation or force that negotiation to move in the direction it should? What type of power, and how much of it, would it take to get a different result? Do you have any relationships or resources that you are not using? Are there other people you can enlist in your effort? Who might be able to create leverage with the group that you presently can't?</p>
+        </div>
+
+        <p>After asking the questions on the above list and mapping your answers, try to develop a strategy that will create the impact you want. Keep these questions in mind and keep coming back to them as you move forward.</p>
+      </div>
+
+    </div>
+
+    <div class="pdf-strip">
+      <div class="pdf-icon-circle">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="13" x2="12" y2="17"/><polyline points="9 16 12 19 15 16"/></svg>
+      </div>
+      <div class="pdf-strip-text">
+        <strong>Take this exercise with you</strong>
+        Download this exercise as a PDF for in-person workshops, team discussions, or personal reflections.
+      </div>
+      <a href="fyp-2.pdf" download class="pdf-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </a>
+    </div>
+
+    <div class="exercise-nav">
+      <div class="exercise-nav-item empty prev">
+        <span class="nav-direction">&larr; Previous</span>
+        <div class="nav-rule"></div>
+        <span class="nav-exercise-title">—</span>
+      </div>
+      <a href="fyp-5.html" class="exercise-nav-item next">
+        <span class="nav-direction">Next &rarr;</span>
+        <div class="nav-rule"></div>
+        <span class="nav-exercise-title">The Rules In Your World</span>
+      </a>
+    </div>
+
+    <div class="pdf-footer">
+      <span>From Presence to Power: Book Exercises</span>
+    </div>
+    <footer id="site-footer"></footer>
+  </div><!-- /.exercise-content -->
+  </div><!-- /.exercise-layout -->
+  </div><!-- /.page-wrapper -->
+
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>  <script>
+    // Force PDF download via blob — works cross-origin
+    // Rewrite rawgithack URLs to raw.githubusercontent.com (no interstitial, CORS-safe)
+    document.querySelectorAll('a[download]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var url = link.href.replace('https://raw.githack.com/', 'https://raw.githubusercontent.com/');
+        var filename = link.getAttribute('download') || url.split('/').pop();
+        fetch(url)
+          .then(function(r) {
+            if (!r.ok) throw new Error('fetch failed');
+            return r.blob();
+          })
+          .then(function(blob) {
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = filename || 'exercise.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href);
+          })
+          .catch(function() {
+            // Fallback: open directly (works on production)
+            window.open(url, '_blank');
+          });
+      });
+    });
+  </script>
+</body>
+</html>

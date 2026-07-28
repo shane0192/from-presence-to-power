@@ -2542,6 +2542,12 @@
     /* Push nav + mobile-menu below the 64px fixed orange ticker */
     nav { top: 64px !important; }
     .mobile-menu { top: 124px !important; }
+
+    /* When all events are past, the orange ticker is hidden — revert offsets */
+    body.no-marquee nav { top: 0 !important; }
+    body.no-marquee .mobile-menu { top: 60px !important; }
+    body.no-marquee #main-content { margin-top: 60px !important; }
+    body.no-marquee .hero { height: calc(100vh - 60px); }
   </style>
 </head>
 <body>
@@ -2575,6 +2581,42 @@
     </div>
   </div>
 
+  <script>
+    // Hide past events from the ticker; collapse the bar when nothing remains
+    (function () {
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      var items = document.querySelectorAll('.em-item');
+      items.forEach(function (item) {
+        var dateEl = item.querySelector('.em-date');
+        if (!dateEl) return;
+        // Dates are "Mon DD" with no year — assume current calendar year, bump to next year after Dec
+        var raw = dateEl.textContent.trim(); // e.g. "Jul 27"
+        var eventDate = new Date(raw + ' 2026');
+        if (isNaN(eventDate.getTime())) return;
+        if (eventDate < today) {
+          item.style.display = 'none';
+          // hide the divider that follows this item, if any
+          var next = item.nextElementSibling;
+          if (next && next.classList.contains('em-divider')) {
+            next.style.display = 'none';
+          }
+        }
+      });
+
+      // If every item is hidden, collapse the whole bar and fix layout offsets
+      var anyVisible = Array.from(items).some(function (item) {
+        return item.style.display !== 'none';
+      });
+      if (!anyVisible) {
+        var bar = document.querySelector('.events-marquee');
+        if (bar) bar.style.display = 'none';
+        document.body.classList.add('no-marquee');
+      }
+    })();
+  </script>
+
   <!-- NAV -->
   <nav id="site-nav"></nav>
 
@@ -2600,15 +2642,15 @@
       <div class="hero-text-bottom">
         <p class="hero-body">A practical and strategic roadmap for anyone trying to gain real power, rooted in fresh insights and behind-the-scenes stories from the frontlines of social change.</p>
         <div class="hero-actions" style="margin-top: 20px; margin-bottom: 28px;">
-          <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
+          <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Order the Book</a>
           <a href="#preorder-strip" class="btn-secondary">Get the First Chapter</a>
           <a href="events.html" class="btn-secondary">See Upcoming Events</a>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-top">
             <div class="hero-meta-item">
-              <span class="hero-meta-label">Release Date</span>
-              <span class="hero-meta-value">July 28, 2026</span>
+              <span class="hero-meta-label">Available Now</span>
+              <span class="hero-meta-value" style="font-size:11px;letter-spacing:0.05em;line-height:1.4;">Hardcover · E-book · Audio</span>
             </div>
             <div class="hero-meta-item hero-social-row">
               <span class="hero-meta-label">Follow</span>
@@ -2638,7 +2680,7 @@
 
     <div class="hero-right">
       <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="hero-preorder-badge" aria-label="Pre-order the book">
-        <span class="hero-preorder-top">Preorder</span>
+        <span class="hero-preorder-top">Order</span>
         <span class="hero-preorder-bottom">Now</span>
       </a>
       <img src="images/rashad-portrait-hand.jpg" alt="Rashad Robinson" class="hero-author-img" width="1920" height="2400">
@@ -2708,8 +2750,9 @@
           <button id="abToggle" class="ab-toggle" onclick="toggleAbout()">Read more <span class="ab-toggle-icon">↓</span></button>
         </div>
         <div class="about-book-actions">
-          <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary-dark">Pre-order the Book</a>
+          <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary-dark">Order the Book</a>
           <a href="#preorder-strip" class="btn-outline-light">Get the First Chapter</a>
+          <a href="fyp.html" class="btn-outline-light">Book Extras</a>
         </div>
       </div>
       <div class="about-book-card">
@@ -3078,7 +3121,7 @@
           <p><em>From Presence to Power</em> is a roadmap for making change, based on everything he&rsquo;s achieved and learned: a practical guide for anyone who wants to understand power, gain it, and use it to win.</p>
           <p><a href="https://www.rashadrobinson.com/about" target="_blank" rel="noopener" class="rashad-link">See Rashad&rsquo;s full bio here.</a></p>
           <div class="ar-actions">
-            <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Pre-order the Book</a>
+            <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="btn-primary">Order the Book</a>
             <a href="events.html" class="btn-secondary">See Events</a>
           </div>
         </div>

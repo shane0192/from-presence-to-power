@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Power Exercises · From Presence to Power</title>
+  <meta name="description" content="Three exercises from From Presence to Power by Rashad Robinson — tools for turning ideas about power into action.">
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --tan-soft:     #E1DFDB;
+      --font-display: "Big Shoulders Display", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", monospace;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.5;
+    }
+
+    .page-wrapper { padding-top: 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 42fr 58fr;
+      align-items: flex-start;
+    }
+
+    /* Left panel — sticky */
+    .hero-left {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 6vw, 96px);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 32px;
+    }
+
+    .hero-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--orange);
+      margin-bottom: 28px;
+      flex-shrink: 0;
+    }
+
+    .hero-intro {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--fg-muted);
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    .hero-intro em { color: var(--fg); font-style: italic; }
+
+    .hero-book-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+      width: fit-content;
+      transition: opacity 0.2s;
+    }
+
+    .hero-book-link:hover { opacity: 0.72; }
+
+    /* Right panel — scrollable */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 60px);
+    }
+
+    .exercise-card {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      transition: background 0.18s;
+      overflow: hidden;
+    }
+
+    .exercise-card:last-child { border-bottom: none; }
+    .exercise-card:hover { background: var(--cream-2); }
+
+    .card-inner {
+      padding: 28px 36px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .card-num {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 5vw, 76px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      flex-shrink: 0;
+      opacity: 0.15;
+    }
+
+    .card-rule {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+      flex-shrink: 0;
+      margin: 16px 28px;
+    }
+
+    .card-content {
+      flex: 1;
+    }
+
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 36px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-cta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-cta svg { transition: transform 0.2s; }
+    .exercise-card:hover .card-cta svg { transform: translateX(4px); }
+
+    .card-time {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--fg-muted);
+      opacity: 0.5;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left {
+        position: static;
+        height: auto;
+        padding: 48px 24px 40px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        overflow: visible;
+      }
+
+      .hero-right {
+        min-height: unset;
+      }
+
+      .card-inner { padding: 24px; }
+      .card-footer { padding: 14px 24px; }
+      .card-rule { margin: 12px 20px; }
+    }
+
+    @media (max-width: 640px) {
+      .card-num { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="page-wrapper">
+    <div class="hero">
+
+      <!-- Left: title + intro -->
+      <div class="hero-left">
+        <h1 class="page-title">Find Your<br>Power</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-intro">
+          <em>From Presence to Power</em> offers hands-on, practical exercises that readers can use on their own, or with groups, to see opportunities for becoming more effective change-makers.
+        </p>
+        <a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="hero-book-link">
+          Want all 9? Get the book
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Right: 3 exercise cards stacked -->
+      <div class="hero-right">
+
+        <a href="fyp-2.html" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">01</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Find Your Power</p>
+              <h2 class="card-title">3 Questions for Seeing Power Dynamics</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Begin
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="card-time">~10 min</span>
+          </div>
+        </a>
+
+        <a href="fyp-5.html" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">02</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Find Your Power</p>
+              <h2 class="card-title">The Rules In Your World</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Begin
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="card-time">~10 min</span>
+          </div>
+        </a>
+
+        <a href="fyp-12.html" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">03</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Find Your Power</p>
+              <h2 class="card-title">Corporate Accountability</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Begin
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+            <span class="card-time">~10 min</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <footer id="site-footer"></footer>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>
