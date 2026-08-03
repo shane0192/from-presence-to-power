@@ -2553,67 +2553,61 @@
 <body>
 
   <!-- EVENTS MARQUEE — fixed above nav, orange band -->
+  <script src="events-data.js"></script>
   <div class="events-marquee" aria-hidden="true">
     <div class="em-label-col">
       <span class="em-label-text">Upcoming Events</span>
     </div>
     <div class="em-scroll-col">
-      <div class="events-marquee-track">
-      <!-- Set 1 -->
-      <div class="em-item"><a href="events.html#jane-fonda"><span class="em-date">Jul 27</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">Book Launch with Jane Fonda</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#joy-reid"><span class="em-date">Jul 28</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>DC</span><span class="em-name">Book Launch with Joy Reid @ Politics and Prose</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">@ The Commonwealth Club</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">In conversation with Lena Waithe / Hosted by Reparations Club</span></a></div>
-      <span class="em-divider">—</span>
-      <!-- Set 2 (duplicate for seamless loop) -->
-      <div class="em-item"><a href="events.html#jane-fonda"><span class="em-date">Jul 27</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>NYC</span><span class="em-name">Book Launch with Jane Fonda</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#joy-reid"><span class="em-date">Jul 28</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>DC</span><span class="em-name">Book Launch with Joy Reid @ Politics and Prose</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#commonwealth-club"><span class="em-date">Jul 29</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>SF</span><span class="em-name">@ The Commonwealth Club</span></a></div>
-      <span class="em-divider">—</span>
-      <div class="em-item"><a href="events.html#reparations-club"><span class="em-date">Jul 30</span><span class="em-city"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>LA</span><span class="em-name">In conversation with Lena Waithe / Hosted by Reparations Club</span></a></div>
-      <span class="em-divider">—</span>
-    </div>
+      <div class="events-marquee-track" id="marquee-track"></div>
     </div>
   </div>
 
   <script>
-    // Hide past events from the ticker; collapse the bar when nothing remains
     (function () {
       var today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      var items = document.querySelectorAll('.em-item');
-      items.forEach(function (item) {
-        var dateEl = item.querySelector('.em-date');
-        if (!dateEl) return;
-        // Dates are "Mon DD" with no year — assume current calendar year, bump to next year after Dec
-        var raw = dateEl.textContent.trim(); // e.g. "Jul 27"
-        var eventDate = new Date(raw + ' 2026');
-        if (isNaN(eventDate.getTime())) return;
-        if (eventDate < today) {
-          item.style.display = 'none';
-          // hide the divider that follows this item, if any
-          var next = item.nextElementSibling;
-          if (next && next.classList.contains('em-divider')) {
-            next.style.display = 'none';
-          }
-        }
-      });
+      var upcoming = (window.EVENTS || [])
+        .filter(function (ev) {
+          if (!ev.date) return false;
+          var parts = ev.date.split('-');
+          var d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+          return d >= today;
+        })
+        .sort(function (a, b) { return a.date.localeCompare(b.date); })
+        .slice(0, 4);
 
-      // If every item is hidden, collapse the whole bar and fix layout offsets
-      var anyVisible = Array.from(items).some(function (item) {
-        return item.style.display !== 'none';
-      });
-      if (!anyVisible) {
+      if (!upcoming.length) {
         var bar = document.querySelector('.events-marquee');
         if (bar) bar.style.display = 'none';
         document.body.classList.add('no-marquee');
+        return;
       }
+
+      var PIN = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+
+      function stripTags(html) { return (html || '').replace(/<[^>]+>/g, ''); }
+      function cityShort(city) { return (city || '').split(',')[0].trim(); }
+
+      function renderItem(ev) {
+        var name = stripTags(ev.titleHtml || ev.title || '');
+        var city = cityShort(ev.city);
+        var label = ev.month + ' ' + ev.day;
+        var href = ev.id ? 'events.html#' + ev.id : 'events.html';
+        return '<div class="em-item"><a href="' + href + '">'
+          + '<span class="em-date">' + label + '</span>'
+          + (city ? '<span class="em-city">' + PIN + city + '</span>' : '')
+          + '<span class="em-name">' + name + '</span>'
+          + '</a></div><span class="em-divider">—</span>';
+      }
+
+      // Two sets for seamless loop
+      var html = '';
+      for (var s = 0; s < 2; s++) {
+        upcoming.forEach(function (ev) { html += renderItem(ev); });
+      }
+      document.getElementById('marquee-track').innerHTML = html;
     })();
   </script>
 
