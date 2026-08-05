@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVPs — From Presence to Power</title>
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #E55F1D;
+      --brown:  #281D1D;
+      --cream:  #EFEDEC;
+      --tan:    #DAD6CB;
+      --muted:  #545452;
+      --border: #DAD6CB;
+      --font-display: "Big Shoulders Display", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", monospace;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: var(--font-body);
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--brown);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar-brand {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.6;
+    }
+    .topbar-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    /* ── LOGIN ── */
+    .login-wrap {
+      min-height: calc(100vh - 53px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    .login-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 48px;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .login-hed {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 6px;
+    }
+
+    .login-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .login-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .login-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      background: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--brown);
+      outline: none;
+      margin-bottom: 20px;
+      appearance: none;
+      transition: border-color 0.15s;
+    }
+    .login-input:focus { border-color: var(--orange); }
+
+    .login-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--orange);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .login-btn:hover { opacity: 0.85; }
+    .login-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .login-error {
+      display: none;
+      margin-top: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #c0392b;
+    }
+    .login-error.visible { display: block; }
+
+    /* ── DASHBOARD ── */
+    #dashboard { display: none; }
+
+    .dash-header {
+      padding: 32px 40px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: #fff;
+    }
+
+    .dash-hed {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .dash-total {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .btn-dl {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: var(--brown);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      text-decoration: none;
+    }
+    .btn-dl:hover { opacity: 0.75; }
+    .btn-dl.outline {
+      background: transparent;
+      color: var(--brown);
+      border: 1px solid var(--border);
+    }
+    .btn-dl.outline:hover { border-color: var(--brown); }
+
+    /* ── EVENT BLOCKS ── */
+    .dash-body {
+      padding: 32px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .event-block {}
+
+    .event-block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .event-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+    }
+
+    .event-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    /* ── TABLE ── */
+    .rsvp-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead {
+      background: var(--brown);
+    }
+
+    thead th {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.7);
+      padding: 12px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #faf9f8; }
+
+    tbody td {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: var(--brown);
+      white-space: nowrap;
+    }
+
+    td.ts {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      padding: 32px 40px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .login-card { padding: 32px 24px; }
+      .dash-header, .dash-body { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="topbar-brand">From Presence to Power</span>
+    <span class="topbar-title">RSVP Admin</span>
+  </div>
+
+  <!-- Login -->
+  <div class="login-wrap" id="login-wrap">
+    <div class="login-card">
+      <h1 class="login-hed">Sign In</h1>
+      <p class="login-sub">Enter the admin password to view and download event RSVPs.</p>
+      <form id="login-form" novalidate>
+        <label class="login-label" for="pw-input">Password</label>
+        <input class="login-input" type="password" id="pw-input" autocomplete="current-password" placeholder="••••••••" required>
+        <button class="login-btn" type="submit" id="login-btn">Access RSVPs</button>
+        <p class="login-error" id="login-error"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard">
+    <div class="dash-header">
+      <div>
+        <div class="dash-hed">Event RSVPs</div>
+        <div class="dash-total" id="dash-total"></div>
+      </div>
+      <button class="btn-dl" id="btn-dl-all">↓ Download All (CSV)</button>
+    </div>
+    <div class="dash-body" id="dash-body"></div>
+  </div>
+
+  <script>
+  (function () {
+    var pw = '';
+    var allData = {};
+
+    // ── LOGIN ────────────────────────────────────────────────────────────────
+    var loginForm = document.getElementById('login-form');
+    var loginBtn  = document.getElementById('login-btn');
+    var loginErr  = document.getElementById('login-error');
+
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      loginErr.classList.remove('visible');
+      pw = document.getElementById('pw-input').value.trim();
+      if (!pw) return;
+
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Loading…';
+
+      fetch('/api/admin-rsvps?pw=' + encodeURIComponent(pw))
+        .then(function (r) {
+          if (r.status === 401) throw new Error('Incorrect password.');
+          if (!r.ok) throw new Error('Server error — try again.');
+          return r.json();
+        })
+        .then(function (data) {
+          allData = data.events || {};
+          document.getElementById('login-wrap').style.display = 'none';
+          document.getElementById('dashboard').style.display = 'block';
+          renderDashboard();
+        })
+        .catch(function (err) {
+          loginBtn.disabled = false;
+          loginBtn.textContent = 'Access RSVPs';
+          loginErr.textContent = err.message;
+          loginErr.classList.add('visible');
+        });
+    });
+
+    // ── RENDER ───────────────────────────────────────────────────────────────
+    function formatEventName(key) {
+      return key.replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    }
+
+    function formatTs(ts) {
+      if (!ts) return '—';
+      try {
+        var d = new Date(ts);
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+          + ' ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      } catch { return ts; }
+    }
+
+    function renderDashboard() {
+      var events = Object.keys(allData);
+      var totalAll = 0;
+      events.forEach(function (k) { totalAll += (allData[k] || []).length; });
+
+      document.getElementById('dash-total').textContent = totalAll + ' total registration' + (totalAll !== 1 ? 's' : '');
+
+      var body = document.getElementById('dash-body');
+      body.innerHTML = '';
+
+      if (events.length === 0) {
+        body.innerHTML = '<div class="empty">No RSVPs yet.</div>';
+        return;
+      }
+
+      events.forEach(function (key) {
+        var rows = allData[key] || [];
+        var block = document.createElement('div');
+        block.className = 'event-block';
+
+        var hdr = '<div class="event-block-header">'
+          + '<div><span class="event-name">' + formatEventName(key) + '</span>'
+          + '&nbsp;&nbsp;<span class="event-count">' + rows.length + ' RSVP' + (rows.length !== 1 ? 's' : '') + '</span></div>'
+          + '<button class="btn-dl outline" data-event="' + key + '">↓ CSV</button>'
+          + '</div>';
+
+        var tableHtml = '<div class="rsvp-table-wrap"><table>'
+          + '<thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Registered</th></tr></thead>'
+          + '<tbody>';
+
+        if (rows.length === 0) {
+          tableHtml += '<tr><td colspan="4" style="color:var(--muted);font-style:italic;padding:16px">No RSVPs yet.</td></tr>';
+        } else {
+          rows.forEach(function (r) {
+            tableHtml += '<tr>'
+              + '<td>' + esc(r.name || '—') + '</td>'
+              + '<td>' + esc(r.email || '—') + '</td>'
+              + '<td>' + esc(r.phone || '—') + '</td>'
+              + '<td class="ts">' + formatTs(r.ts) + '</td>'
+              + '</tr>';
+          });
+        }
+
+        tableHtml += '</tbody></table></div>';
+        block.innerHTML = hdr + tableHtml;
+        body.appendChild(block);
+
+        block.querySelector('[data-event]').addEventListener('click', function () {
+          downloadCSV(key, rows);
+        });
+      });
+
+      document.getElementById('btn-dl-all').addEventListener('click', function () {
+        downloadAllCSV();
+      });
+    }
+
+    // ── CSV ──────────────────────────────────────────────────────────────────
+    function csvRow(vals) {
+      return vals.map(function (v) {
+        var s = (v == null ? '' : String(v)).replace(/"/g, '""');
+        return /[",\n\r]/.test(s) ? '"' + s + '"' : s;
+      }).join(',');
+    }
+
+    function downloadCSV(eventKey, rows) {
+      var lines = [csvRow(['Name', 'Email', 'Phone', 'Event', 'Registered'])];
+      rows.forEach(function (r) {
+        lines.push(csvRow([r.name || '', r.email || '', r.phone || '', r.event || eventKey, r.ts || '']));
+      });
+      triggerDownload(lines.join('\r\n'), 'rsvps-' + eventKey + '.csv');
+    }
+
+    function downloadAllCSV() {
+      var lines = [csvRow(['Name', 'Email', 'Phone', 'Event', 'Registered'])];
+      Object.keys(allData).forEach(function (key) {
+        (allData[key] || []).forEach(function (r) {
+          lines.push(csvRow([r.name || '', r.email || '', r.phone || '', r.event || key, r.ts || '']));
+        });
+      });
+      triggerDownload(lines.join('\r\n'), 'rsvps-all.csv');
+    }
+
+    function triggerDownload(content, filename) {
+      var blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+      var url  = URL.createObjectURL(blob);
+      var a    = document.createElement('a');
+      a.href = url; a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function esc(str) {
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+  })();
+  </script>
+
+</body>
+</html>

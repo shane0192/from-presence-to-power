@@ -97,8 +97,8 @@
         date: '2026-09-24', month: 'Sep', day: '24', dow: 'Thu',
         city: 'Atlanta, GA',
         titleHtml: 'Atlanta',
-        meta: 'MON 8/24 AT 7PM • AUBURN AVENUE RESEARCH LIBRARY • 101 AUBURN AVE NE, ATLANTA, GA 30303',
-        link: ''
+        meta: 'THU 9/24 AT 7PM • AUBURN AVENUE RESEARCH LIBRARY • 101 AUBURN AVE NE, ATLANTA, GA 30303',
+        link: 'atlanta.html'
       },
       {
         id: 'austin',
@@ -130,7 +130,8 @@
         city: 'Baltimore, MD',
         titleHtml: 'Baltimore',
         meta: 'SUN 9/20 AT 12PM • REGINALD F. LEWIS MUSEUM',
-        link: ''
+        link: '',
+        comingSoon: true
       },
       {
         id: 'charles-blow',
@@ -146,7 +147,8 @@
         city: 'Brooklyn, NY',
         titleHtml: 'In conversation with <span class="name">Heather McGhee</span>',
         meta: 'MON 9/28 AT 6:30PM • 128 PIERREPONT ST, BROOKLYN, NY 11201',
-        link: ''
+        link: '',
+        comingSoon: true
       },
       {
         id: 'banned-book-week',

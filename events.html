@@ -720,7 +720,7 @@
 
       var rightBlock = isLinked
         ? '<div class="he-card-action"><span class="he-card-btn">View Event &rarr;</span></div>'
-        : (!hasDetails
+        : (!hasDetails || ev.comingSoon
             ? '<div class="he-card-tags"><span class="he-card-tag">Details Coming Soon</span></div>'
             : '');
 

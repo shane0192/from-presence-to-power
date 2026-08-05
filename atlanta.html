@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVK6TRPE0F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RVK6TRPE0F');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlanta — From Presence to Power by Rashad Robinson</title>
+  <meta name="description" content="Join Rashad Robinson in Atlanta for From Presence to Power. Reserve your spot at the Auburn Avenue Research Library.">
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="apple-touch-icon" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { height: auto; max-width: 100%; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --tan:          #DAD6CB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+      --ls-display:   -0.022em;
+      --ls-eyebrow:   0.32em;
+      --lh-display:   0.94;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .atl-hero {
+      padding-top: 60px;
+      background: var(--brown);
+    }
+
+    .atl-hero-inner {
+      padding: 56px 64px 64px;
+      max-width: 960px;
+    }
+
+    .atl-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .atl-title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 900;
+      line-height: var(--lh-display);
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 32px;
+    }
+
+    .atl-details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .atl-detail-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.65);
+    }
+
+    .atl-detail-label {
+      color: var(--orange);
+      min-width: 60px;
+    }
+
+    /* ── FORM SECTION ── */
+    .atl-form-section {
+      background: var(--cream);
+      padding: 72px 64px;
+    }
+
+    .atl-form-wrap {
+      max-width: 520px;
+    }
+
+    .atl-form-heading {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 900;
+      line-height: var(--lh-display);
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    .atl-form-sub {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--fg-muted);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .atl-field {
+      margin-bottom: 20px;
+    }
+
+    .atl-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 8px;
+    }
+
+    .atl-input {
+      display: block;
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      padding: 14px 16px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--fg);
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .atl-input::placeholder { color: rgba(40,29,29,0.35); }
+
+    .atl-input:focus {
+      border-color: var(--orange);
+    }
+
+    .atl-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      width: 100%;
+      background: var(--orange);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .atl-submit:hover:not(:disabled) { opacity: 0.85; }
+    .atl-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── SUCCESS STATE ── */
+    .atl-success {
+      display: none;
+      padding: 40px 32px;
+      background: rgba(229,95,29,0.06);
+      border-left: 3px solid var(--orange);
+    }
+
+    .atl-success.visible { display: block; }
+
+    .atl-success-hed {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    .atl-success-body {
+      font-size: 15px;
+      color: var(--fg-muted);
+      line-height: 1.6;
+    }
+
+    /* ── ERROR ── */
+    .atl-error {
+      display: none;
+      margin-top: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: #c0392b;
+    }
+    .atl-error.visible { display: block; }
+
+    /* ── BACK LINK ── */
+    .atl-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+      padding: 32px 64px;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      display: block;
+    }
+    .atl-back:hover { color: var(--orange); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .atl-hero-inner,
+      .atl-form-section,
+      .atl-back { padding-left: 24px; padding-right: 24px; }
+      .atl-hero-inner { padding-top: 40px; padding-bottom: 48px; }
+      .atl-form-section { padding-top: 48px; padding-bottom: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav injected by nav.js -->
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <!-- Hero -->
+  <section class="atl-hero">
+    <div class="atl-hero-inner">
+      <p class="atl-eyebrow">2026 Book Tour &nbsp;·&nbsp; Atlanta, GA</p>
+      <h1 class="atl-title">From Presence<br>to Power</h1>
+      <div class="atl-details">
+        <div class="atl-detail-row">
+          <span class="atl-detail-label">Date</span>
+          <span>Thursday, September 24, 2026 at 7:00 PM</span>
+        </div>
+        <div class="atl-detail-row">
+          <span class="atl-detail-label">Venue</span>
+          <span>Auburn Avenue Research Library</span>
+        </div>
+        <div class="atl-detail-row">
+          <span class="atl-detail-label">Address</span>
+          <span>101 Auburn Ave NE, Atlanta, GA 30303</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sign-up Form -->
+  <section class="atl-form-section">
+    <div class="atl-form-wrap">
+      <h2 class="atl-form-heading">Reserve Your Spot</h2>
+      <p class="atl-form-sub">
+        Space is limited. Leave your info and we'll be in touch with event details as they're confirmed.
+      </p>
+
+      <form id="atl-form" novalidate>
+        <div class="atl-field">
+          <label class="atl-label" for="atl-name">Full Name</label>
+          <input class="atl-input" type="text" id="atl-name" name="name" autocomplete="name" placeholder="Jane Smith" required>
+        </div>
+
+        <div class="atl-field">
+          <label class="atl-label" for="atl-email">Email Address</label>
+          <input class="atl-input" type="email" id="atl-email" name="email" autocomplete="email" placeholder="jane@example.com" required>
+        </div>
+
+        <div class="atl-field">
+          <label class="atl-label" for="atl-phone">Phone Number</label>
+          <input class="atl-input" type="tel" id="atl-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000">
+        </div>
+
+        <button class="atl-submit" type="submit" id="atl-btn">
+          <span id="atl-btn-text">Reserve My Spot</span>
+        </button>
+
+        <p class="atl-error" id="atl-error"></p>
+      </form>
+
+      <div class="atl-success" id="atl-success">
+        <p class="atl-success-hed">You're on the list.</p>
+        <p class="atl-success-body">
+          We'll send you details as the event comes together. See you in Atlanta.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <a class="atl-back" href="events.html">
+    ← All Events
+  </a>
+
+  <!-- Footer injected by footer.js -->
+  <footer id="site-footer"></footer>
+
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+
+  <script>
+    (function () {
+      var form   = document.getElementById('atl-form');
+      var btn    = document.getElementById('atl-btn');
+      var btnTxt = document.getElementById('atl-btn-text');
+      var errEl  = document.getElementById('atl-error');
+      var sucEl  = document.getElementById('atl-success');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errEl.classList.remove('visible');
+
+        var name  = (document.getElementById('atl-name').value  || '').trim();
+        var email = (document.getElementById('atl-email').value || '').trim();
+        var phone = (document.getElementById('atl-phone').value || '').trim();
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          errEl.textContent = 'Please enter a valid email address.';
+          errEl.classList.add('visible');
+          return;
+        }
+
+        btn.disabled = true;
+        btnTxt.textContent = 'Submitting…';
+
+        fetch('/api/event-signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name, email: email, phone: phone, event: 'atlanta' })
+        })
+        .then(function (r) {
+          if (!r.ok) return r.json().then(function (d) { throw new Error(d.error || 'Something went wrong.'); });
+          return r.json();
+        })
+        .then(function () {
+          form.style.display = 'none';
+          sucEl.classList.add('visible');
+        })
+        .catch(function (err) {
+          btn.disabled = false;
+          btnTxt.textContent = 'Reserve My Spot';
+          errEl.textContent = err.message || 'Something went wrong. Please try again.';
+          errEl.classList.add('visible');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
