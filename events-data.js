@@ -98,7 +98,8 @@
         city: 'Atlanta, GA',
         titleHtml: 'Atlanta',
         meta: 'THU 9/24 AT 7PM • AUBURN AVENUE RESEARCH LIBRARY • 101 AUBURN AVE NE, ATLANTA, GA 30303',
-        link: 'atlanta.html'
+        link: '',
+        signupModal: true
       },
       {
         id: 'austin',

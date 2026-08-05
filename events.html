@@ -593,6 +593,166 @@
       transition: color 0.18s;
     }
     .footer-ext-link:hover { color: var(--fg); }
+
+    /* ── RSVP MODAL ── */
+    .he-card-btn--modal {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font: inherit;
+      padding: 0;
+    }
+
+    .rsvp-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(40,29,29,0.72);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .rsvp-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .rsvp-modal {
+      background: var(--cream);
+      width: 100%;
+      max-width: 460px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(12px);
+      transition: transform 0.2s ease;
+    }
+    .rsvp-overlay.open .rsvp-modal {
+      transform: translateY(0);
+    }
+
+    .rsvp-modal-head {
+      background: var(--brown);
+      padding: 36px 36px 28px;
+    }
+    .rsvp-modal-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .rsvp-modal-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--cream);
+      line-height: var(--lh-display);
+      margin-bottom: 10px;
+    }
+    .rsvp-modal-sub {
+      font-size: 13px;
+      color: rgba(239,237,236,0.55);
+      line-height: 1.55;
+    }
+
+    .rsvp-modal-body { padding: 28px 36px 36px; }
+
+    .rsvp-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: rgba(239,237,236,0.5);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: color 0.15s;
+    }
+    .rsvp-close:hover { color: var(--cream); }
+
+    .rsvp-field { margin-bottom: 16px; }
+    .rsvp-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 7px;
+    }
+    .rsvp-input {
+      display: block;
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--fg);
+      outline: none;
+      appearance: none;
+      transition: border-color 0.15s;
+    }
+    .rsvp-input::placeholder { color: rgba(40,29,29,0.3); }
+    .rsvp-input:focus { border-color: var(--orange); }
+
+    .rsvp-submit {
+      width: 100%;
+      margin-top: 6px;
+      padding: 14px;
+      background: var(--orange);
+      color: var(--cream);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .rsvp-submit:hover:not(:disabled) { opacity: 0.85; }
+    .rsvp-submit:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .rsvp-form-error {
+      display: none;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #c0392b;
+    }
+    .rsvp-form-error.visible { display: block; }
+
+    .rsvp-success-state {
+      display: none;
+      text-align: center;
+      padding: 12px 0 8px;
+    }
+    .rsvp-success-state.visible { display: block; }
+    .rsvp-success-hed {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: var(--ls-display);
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .rsvp-success-body {
+      font-size: 14px;
+      color: var(--fg-muted);
+      line-height: 1.55;
+    }
   </style>
   <link rel="stylesheet" href="nav.css">
   <link rel="stylesheet" href="footer.css">
@@ -718,13 +878,18 @@
         + (ev.meta ? '<div class="he-card-meta">' + esc(ev.meta) + '</div>' : '')
         + '</div>';
 
+      var isModal = !!ev.signupModal;
+
       var rightBlock = isLinked
         ? '<div class="he-card-action"><span class="he-card-btn">View Event &rarr;</span></div>'
-        : (!hasDetails || ev.comingSoon
-            ? '<div class="he-card-tags"><span class="he-card-tag">Details Coming Soon</span></div>'
-            : '');
+        : isModal
+          ? '<div class="he-card-action"><button class="he-card-btn he-card-btn--modal" type="button" data-event-id="' + esc(ev.id || 'atlanta') + '">Reserve Your Spot &rarr;</button></div>'
+          : (!hasDetails || ev.comingSoon
+              ? '<div class="he-card-tags"><span class="he-card-tag">Details Coming Soon</span></div>'
+              : '');
 
-      var attrs = 'class="he-card' + (isLinked ? '' : ' he-card--static') + '" data-date="' + esc(ev.date) + '"'
+      var cardClass = 'he-card' + (isLinked ? '' : (isModal ? '' : ' he-card--static'));
+      var attrs = 'class="' + cardClass + '" data-date="' + esc(ev.date) + '"'
         + (ev.id ? ' id="' + esc(ev.id) + '"' : '');
 
       if (isLinked) {
@@ -856,5 +1021,133 @@
 
   <script src="nav.js"></script>
   <script src="footer.js"></script>
+
+  <!-- ── RSVP MODAL ── -->
+  <div class="rsvp-overlay" id="rsvp-overlay" role="dialog" aria-modal="true" aria-labelledby="rsvp-modal-title">
+    <div class="rsvp-modal" id="rsvp-modal">
+      <button class="rsvp-close" id="rsvp-close" aria-label="Close">&times;</button>
+      <div class="rsvp-modal-head">
+        <div class="rsvp-modal-eyebrow">Reserve Your Spot</div>
+        <div class="rsvp-modal-title" id="rsvp-modal-title">Atlanta</div>
+        <div class="rsvp-modal-sub">THU 9/24 AT 7PM &nbsp;&bull;&nbsp; Auburn Avenue Research Library<br>101 Auburn Ave NE, Atlanta, GA 30303</div>
+      </div>
+      <div class="rsvp-modal-body">
+        <form id="rsvp-form" novalidate>
+          <div class="rsvp-field">
+            <label class="rsvp-label" for="rsvp-name">Full Name</label>
+            <input class="rsvp-input" type="text" id="rsvp-name" placeholder="Your name" autocomplete="name">
+          </div>
+          <div class="rsvp-field">
+            <label class="rsvp-label" for="rsvp-email">Email Address <span style="color:var(--orange)">*</span></label>
+            <input class="rsvp-input" type="email" id="rsvp-email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <div class="rsvp-field">
+            <label class="rsvp-label" for="rsvp-phone">Phone Number</label>
+            <input class="rsvp-input" type="tel" id="rsvp-phone" placeholder="(optional)" autocomplete="tel">
+          </div>
+          <button class="rsvp-submit" type="submit" id="rsvp-submit">Reserve My Spot</button>
+          <p class="rsvp-form-error" id="rsvp-form-error"></p>
+        </form>
+        <div class="rsvp-success-state" id="rsvp-success">
+          <div class="rsvp-success-hed">You&rsquo;re In!</div>
+          <p class="rsvp-success-body">We&rsquo;ve got your spot reserved for the Atlanta event. See you there.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var overlay  = document.getElementById('rsvp-overlay');
+    var closeBtn = document.getElementById('rsvp-close');
+    var form     = document.getElementById('rsvp-form');
+    var submitBtn = document.getElementById('rsvp-submit');
+    var errEl    = document.getElementById('rsvp-form-error');
+    var successEl = document.getElementById('rsvp-success');
+    var currentEventId = 'atlanta';
+
+    function openModal(eventId) {
+      currentEventId = eventId || 'atlanta';
+      form.style.display = '';
+      successEl.classList.remove('visible');
+      errEl.classList.remove('visible');
+      errEl.textContent = '';
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Reserve My Spot';
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function () { document.getElementById('rsvp-email').focus(); }, 80);
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Open on button click (event delegation)
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.he-card-btn--modal');
+      if (btn) {
+        e.preventDefault();
+        openModal(btn.dataset.eventId || 'atlanta');
+      }
+    });
+
+    // Close on X, overlay click, Escape
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+    });
+
+    // Submit
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errEl.classList.remove('visible');
+      errEl.textContent = '';
+
+      var email = document.getElementById('rsvp-email').value.trim();
+      if (!email || !/.+@.+\..+/.test(email)) {
+        errEl.textContent = 'Please enter a valid email address.';
+        errEl.classList.add('visible');
+        document.getElementById('rsvp-email').focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      var payload = {
+        name:  document.getElementById('rsvp-name').value.trim(),
+        email: email,
+        phone: document.getElementById('rsvp-phone').value.trim(),
+        event: currentEventId
+      };
+
+      fetch('/api/event-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function (r) {
+        if (!r.ok) return r.json().then(function (d) { throw new Error(d.error || 'Something went wrong.'); });
+        return r.json();
+      })
+      .then(function () {
+        form.style.display = 'none';
+        successEl.classList.add('visible');
+      })
+      .catch(function (err) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Reserve My Spot';
+        errEl.textContent = err.message || 'Something went wrong. Please try again.';
+        errEl.classList.add('visible');
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
