@@ -18,13 +18,13 @@ module.exports = async function handler(req, res) {
   const ts = new Date().toISOString();
   const payload = { name, email, phone, event, ts };
 
-  const r = await fetch(`${process.env.KV_REST_API_URL}/lpush`, {
+  const r = await fetch(`${process.env.KV_REST_API_URL}/pipeline`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify([`event-signups:${event}`, JSON.stringify(payload)]),
+    body: JSON.stringify([['LPUSH', `event-signups:${event}`, JSON.stringify(payload)]]),
   });
 
   if (!r.ok) {
