@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Infrastructure, Black Innovation, Black Power — Appendix · From Presence to Power</title>
+  <meta name="description" content="Black Infrastructure, Black Innovation, Black Power — Appendix entry from From Presence to Power by Rashad Robinson.">
+  <link rel="canonical" href="https://book.rashadrobinson.com/appendix/black-infrastructure">
+  <link rel="icon" type="image/png" href="../images/book-mock.png">
+  <link rel="apple-touch-icon" href="../images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css">
+  <link rel="stylesheet" href="../footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+      --ls-eyebrow:   0.32em;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
+    }
+
+    .sidebar-col {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .sidebar-col__inner {
+      position: sticky;
+      top: 60px;
+      padding: 48px 0;
+    }
+
+    .sidebar-col__back {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      text-decoration: none;
+      padding: 0 28px 28px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__back:hover { color: rgba(239,237,236,0.75); }
+
+    .sidebar-col__toc-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.3);
+      padding: 0 28px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-col__nav { display: flex; flex-direction: column; gap: 2px; }
+
+    .sidebar-col__link {
+      display: block;
+      text-decoration: none;
+      padding: 10px 28px;
+      border-left: 2px solid transparent;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
+
+    .sidebar-col__link.is-active {
+      border-left-color: var(--orange);
+      background: rgba(239,237,236,0.06);
+    }
+
+    .sidebar-col__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 3px;
+    }
+
+    .sidebar-col__link-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: rgba(239,237,236,0.5);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__link.is-active .sidebar-col__link-title,
+    .sidebar-col__link:hover .sidebar-col__link-title { color: var(--cream); }
+
+    .appendix-main {
+      flex: 1;
+      min-width: 0;
+      max-width: 760px;
+      padding: 72px 64px 120px 64px;
+    }
+
+    .entry__meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .entry__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 28px;
+    }
+
+    .entry__preamble {
+      font-style: italic;
+      color: var(--fg-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      border-left: 3px solid var(--orange);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 36px;
+    }
+
+    .entry__body p { margin-bottom: 20px; font-size: 17px; line-height: 1.7; }
+    .entry__body p:last-child { margin-bottom: 0; }
+    .entry__body strong { font-weight: 700; }
+    .entry__body em { font-style: italic; }
+
+    @media (max-width: 860px) {
+      .appendix-layout { flex-direction: column; }
+      .sidebar-col { width: 100%; }
+      .sidebar-col__inner { position: static; padding: 32px 20px 0; }
+      .sidebar-col__back { padding: 0 0 20px; }
+      .sidebar-col__toc-label { padding: 0; }
+      .sidebar-col__nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 20px;
+        gap: 4px;
+      }
+      .sidebar-col__link {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: 8px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .sidebar-col__link.is-active {
+        border-left-color: transparent;
+        border-bottom-color: var(--orange);
+        background: rgba(239,237,236,0.08);
+      }
+      .appendix-main { padding: 40px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+
+  <div class="appendix-layout">
+
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
+        <a href="/appendix" class="sidebar-col__back">← All Entries</a>
+        <p class="sidebar-col__toc-label">Appendix</p>
+        <nav class="sidebar-col__nav">
+          <a href="introduction" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="dollar-vans" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans</p>
+          </a>
+          <a href="black-infrastructure" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation</p>
+          </a>
+          <a href="wats-werd" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD</p>
+          </a>
+          <a href="congressional-testimony" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">Big Tech Congressional Testimony</p>
+          </a>
+          <a href="cultural-advocacy" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="appendix-main">
+      <p class="entry__meta">Chapter 8 &nbsp;·&nbsp; Page 125</p>
+      <h1 class="entry__title">Black Infrastructure, Black Innovation, Black Power</h1>
+      <div class="entry__preamble">
+        The history of Black America can be told through the story of the history of Black innovation in America. Infrastructure related to learning is just one example of where people were called to innovate in the hopes of driving progress forward.
+      </div>
+      <div class="entry__body">
+        <p>Bayard Rustin was unique, and uniquely important to a major leap forward in history. But he is just one part of a lineage of infrastructure designers and builders who have defined Black history in America. Black power and Black-led social change has always depended on building independent structures and systems, forcing the concern for our voices, our agency, and our well-being into a world that was built to deny them.</p>
+        <p>One example is the set of programs the Black Panthers imagined and created in the late 1960s and early 1970s, which combined food assistance, education and healthcare, when the government failed to adequately provide any of them. Black-run businesses, local economies, community schools, activist organizations, and media have always played an indispensable role in providing for people. Through the 1619 Project, investigative journalist Nikole Hannah-Jones documents how Black Americans, who were newly elected to state Legislatures, successfully advocated for the creation of state-funded public education in the Reconstruction Era South. In South Carolina, for instance, Hannah-Jones writes, "small numbers of black and white children, briefly, attended schools together."</p>
+        <p>Though rarely credited for it, Black people were also shut out of the telecommunications industry, so we built our own independent Black radio platforms and other media infrastructure. Black people helped create the very idea of independent film as a way of bringing people into realities that had not been validated by culture before. Hip-hop is another example of getting urgent perspectives and facts about social issues out into the public realm and into people's hearts, going around media gatekeepers to establish more authentic and honest sources of reporting from the ground. The same spirit led to innovations in health care, transportation, and more.</p>
+        <p>Black people were not allowed to learn to read, by law. So we built our own means of developing our minds, passing on our wisdom, and achieving the impossible. Before the Civil War, and even for years afterwards, there were anti-literacy laws and widespread exclusion across the country that prevented Black people—slaves or not—from learning to read. They also prevented people from teaching. Those were the written rules.</p>
+        <p>Even in New England, mobs destroyed private schools being formed to educate Black and white students together. One example was the Noyes Academy in Canaan, New Hampshire, a small, racially integrated school founded by abolitionists that was pulled off its very foundation by a hundred oxen under the control of nearly 500 white men in 1835, and was attacked for years until finally being destroyed permanently. For those mobs, the schools violated the rules of culture and they required punishment—enforcement. Another battle over infrastructure. Many attempts to prevent Black people from learning in the late 1800s and 1900s, established equally effective consequences and deterrents that massively suppressed Black education as a part of a strategy set by white people in power to maintain a racial hierarchy that benefited them.</p>
+        <p>Our own infrastructure aimed to make learning and growing possible, poking holes through the net that racism cast around our communities. We used churches as vehicles for learning, we educated ourselves in secret, we found ways to piggyback on the education white students were getting. There is an entire history of resistance, all rooted in the infrastructure of learning and media-making that Black people built for ourselves while white people tried to lock us out of all the learning institutions and practices that were available to them.</p>
+        <p>For me, <em>JET</em> magazine was part of a nationwide community education infrastructure that played a key role in politicizing me, raising my political consciousness, and organizing me into the fight for justice, without me even knowing it. The legendary publisher John H. Johnson named the publication <em>JET</em> in 1951 because he believed that everything was moving faster for the community—including progress and visibility. The magazine came in the mail once a week. It had appeal across generations—from the articles to the images, from politics to culture. <em>JET</em> helped me understand what American Blackness was, what was happening in Black America, and how to be part of it.</p>
+        <p><strong>It connected the conversations in my home and community to something beyond my own hometown of Riverhead.</strong> It's also how I first learned about leaders like Maxine Waters, Maynard Jackson, and Shirley Chisholm whose work and achievements weren't taught in school. It presented public service as a norm—as both a heroic and a fashionable pursuit. It seems so intuitive to mix politics and lifestyle today, but that wasn't always the case, especially not in a way that drove people to action and defined political engagement as an ideal to work toward.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="../nav.js"></script>
+  <script src="../footer.js"></script>
+  <script>
+    (function () {
+      var current = window.location.pathname.split('/').pop() || '';
+      document.querySelectorAll('.sidebar-col__link').forEach(function (link) {
+        var href = link.getAttribute('href').split('/').pop();
+        link.classList.toggle('is-active', href === current);
+      });
+    })();
+  </script>
+</body>
+</html>

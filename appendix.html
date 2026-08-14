@@ -20,333 +20,137 @@
   <link rel="stylesheet" href="footer.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    img { height: auto; }
 
     :root {
       --orange:       #E55F1D;
       --brown:        #281D1D;
       --cream:        #EFEDEC;
-      --cream-2:      #FCF1EB;
-      --cream-3:      #F9F9F1;
       --tan:          #DAD6CB;
-      --tan-soft:     #E1DFDB;
       --fg:           #281D1D;
       --fg-muted:     #545452;
       --bg:           #EFEDEC;
       --border:       #DAD6CB;
-
       --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
       --font-body:    "Inter", system-ui, sans-serif;
       --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
-
       --ls-eyebrow:   0.32em;
-      --lh-body:      1.65;
-      --sidebar-w:    224px;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       color: var(--fg);
       font-family: var(--font-body);
-      font-weight: 400;
       font-size: 18px;
-      line-height: var(--lh-body);
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
 
-    /* ─── LAYOUT: full-height sidebar column + content ─── */
-    .appendix-layout {
-      display: flex;
-      align-items: stretch;
-      min-height: calc(100vh - 60px);
-    }
-
-    /* ─── SIDEBAR COLUMN (dark, full height) ─── */
-    .sidebar-col {
-      width: 280px;
-      flex-shrink: 0;
+    /* ─── HERO ─── */
+    .appendix-hero {
       background: var(--brown);
       color: var(--cream);
-      position: relative;
+      padding: 80px 48px 72px;
     }
 
-    /* sticky inner wrapper — title + TOC scroll together and then pin */
-    .sidebar-col__inner {
-      position: sticky;
-      top: 60px;
-      max-height: calc(100vh - 60px);
-      overflow-y: auto;
-      padding: 60px 0 48px;
+    .appendix-hero__inner {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .sidebar-col__inner::-webkit-scrollbar { display: none; }
-
-    /* Title block inside sidebar */
-    .sidebar-col__title {
-      padding: 0 32px 36px;
-      margin-bottom: 32px;
-      border-bottom: 1px solid rgba(239,237,236,0.1);
-    }
-
-    .sidebar-col__eyebrow {
+    .appendix-hero__eyebrow {
       font-family: var(--font-mono);
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
 
-    .sidebar-col__heading {
+    .appendix-hero__heading {
       font-family: var(--font-display);
-      font-size: clamp(40px, 3.5vw, 56px);
+      font-size: clamp(56px, 7vw, 96px);
       font-weight: 800;
-      line-height: 0.92;
+      line-height: 0.9;
       letter-spacing: 0.01em;
       text-transform: uppercase;
       color: var(--cream);
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
-    .sidebar-col__subtitle {
-      font-size: 13px;
-      color: rgba(239,237,236,0.55);
-      line-height: 1.55;
+    .appendix-hero__body {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(239,237,236,0.65);
+      max-width: 520px;
     }
 
-    /* TOC nav */
-    .sidebar-col__toc-label {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: var(--ls-eyebrow);
-      text-transform: uppercase;
-      color: rgba(239,237,236,0.35);
-      padding: 0 32px;
-      margin-bottom: 12px;
+    /* ─── ENTRY LIST ─── */
+    .appendix-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 72px 48px 120px;
     }
 
-    .sidebar-col__nav {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .sidebar-col__link {
+    .appendix-entry {
       display: block;
       text-decoration: none;
-      padding: 10px 32px;
-      border-left: 2px solid transparent;
-      transition: border-color 0.15s, background 0.15s;
+      color: var(--fg);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      transition: opacity 0.15s;
     }
 
-    .sidebar-col__link:hover {
-      background: rgba(239,237,236,0.05);
-    }
-
-    .sidebar-col__link.is-active {
-      border-left-color: var(--orange);
-      background: rgba(239,237,236,0.06);
-    }
-
-    .sidebar-col__link-ref {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 3px;
-    }
-
-    .sidebar-col__link-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(239,237,236,0.6);
-      line-height: 1.35;
-      transition: color 0.15s;
-    }
-
-    .sidebar-col__link.is-active .sidebar-col__link-title,
-    .sidebar-col__link:hover .sidebar-col__link-title {
-      color: var(--cream);
-    }
-
-    /* ─── MAIN CONTENT ─── */
-    .appendix-main {
-      flex: 1;
-      min-width: 0;
-      max-width: 800px;
-      padding: 72px 64px 120px 72px;
-    }
-
-    /* ─── ENTRY ─── */
-    .entry {
-      margin-bottom: 96px;
-      padding-bottom: 96px;
+    .appendix-entry:last-child {
       border-bottom: 1px solid var(--border);
     }
 
-    .entry:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
+    .appendix-entry:hover { opacity: 0.72; }
 
-    .entry__meta {
+    .appendix-entry__ref {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .entry__title {
+    .appendix-entry__title {
       font-family: var(--font-display);
-      font-size: clamp(28px, 3.5vw, 44px);
+      font-size: clamp(22px, 3vw, 32px);
       font-weight: 800;
-      line-height: 1.03;
+      line-height: 1.05;
       letter-spacing: 0.01em;
       text-transform: uppercase;
       color: var(--brown);
-      margin-bottom: 28px;
+      margin-bottom: 14px;
     }
 
-    /* Congressional testimony header */
-    .entry--testimony .entry__testimony-header {
-      background: var(--brown);
-      color: var(--cream);
-      padding: 28px 32px;
-      margin-bottom: 28px;
+    .appendix-entry__preamble {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--fg-muted);
+      max-width: 560px;
     }
 
-    .entry--testimony .entry__testimony-label {
+    .appendix-entry__cta {
+      display: inline-block;
+      margin-top: 16px;
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 600;
-      letter-spacing: var(--ls-eyebrow);
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 8px;
-    }
-
-    .entry--testimony .entry__testimony-title {
-      font-family: var(--font-display);
-      font-size: clamp(16px, 2vw, 22px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-    }
-
-    /* Preamble */
-    .entry__preamble {
-      font-style: italic;
-      color: var(--fg-muted);
-      font-size: 15.5px;
-      line-height: 1.65;
-      border-left: 3px solid var(--orange);
-      padding: 4px 0 4px 20px;
-      margin-bottom: 36px;
-    }
-
-    /* Body prose */
-    .entry__body p {
-      margin-bottom: 20px;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .entry__body p:last-child { margin-bottom: 0; }
-    .entry__body strong { font-weight: 700; }
-
-    /* Footnotes */
-    .entry__footnotes {
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .entry__footnotes-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: var(--ls-eyebrow);
-      text-transform: uppercase;
-      color: var(--fg-muted);
-      margin-bottom: 16px;
-    }
-
-    .entry__footnotes ol { padding-left: 20px; }
-
-    .entry__footnotes li {
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--fg-muted);
-      margin-bottom: 8px;
-    }
-
-    .entry__footnotes a {
-      color: var(--orange);
-      word-break: break-all;
     }
 
     /* ─── MOBILE ─── */
-    @media (max-width: 860px) {
-      .appendix-layout { flex-direction: column; }
-
-      .sidebar-col { width: 100%; }
-
-      .sidebar-col__inner {
-        position: static;
-        max-height: none;
-        padding: 40px 20px 0;
-      }
-
-      .sidebar-col__title {
-        padding: 0 0 28px;
-        margin-bottom: 24px;
-      }
-
-      .sidebar-col__heading { font-size: 48px; }
-
-      .sidebar-col__toc-label { padding: 0; }
-
-      .sidebar-col__nav {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 20px;
-        gap: 4px;
-        margin-top: 8px;
-      }
-
-      .sidebar-col__link {
-        border-left: none;
-        border-bottom: 2px solid transparent;
-        padding: 8px 12px;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-
-      .sidebar-col__link.is-active {
-        border-left-color: transparent;
-        border-bottom-color: var(--orange);
-        background: rgba(239,237,236,0.08);
-      }
-
-      .appendix-main {
-        padding: 40px 20px 80px;
-      }
-
-      .entry { margin-bottom: 64px; padding-bottom: 64px; }
-      .entry__body p { font-size: 16px; }
+    @media (max-width: 640px) {
+      .appendix-hero { padding: 56px 20px 48px; }
+      .appendix-list { padding: 48px 20px 80px; }
+      .appendix-entry { padding: 32px 0; }
     }
   </style>
 </head>
@@ -354,232 +158,63 @@
 
   <nav id="site-nav"></nav>
 
-  <!-- TWO-COLUMN LAYOUT -->
-  <div class="appendix-layout">
+  <header class="appendix-hero">
+    <div class="appendix-hero__inner">
+      <p class="appendix-hero__eyebrow">From Presence to Power</p>
+      <h1 class="appendix-hero__heading">Appendix</h1>
+      <p class="appendix-hero__body">Extended passages, additional context, and source materials referenced throughout the book.</p>
+    </div>
+  </header>
 
-    <!-- SIDEBAR COLUMN -->
-    <aside class="sidebar-col" aria-label="Appendix navigation">
-      <div class="sidebar-col__inner">
+  <main class="appendix-list">
 
-        <!-- Title block -->
-        <div class="sidebar-col__title">
-          <p class="sidebar-col__eyebrow">From Presence to Power</p>
-          <h1 class="sidebar-col__heading">Appendix</h1>
-          <p class="sidebar-col__subtitle">Extended passages, additional context, and source materials referenced in the book.</p>
-        </div>
+    <a href="/appendix/introduction" class="appendix-entry">
+      <p class="appendix-entry__ref">Introduction &nbsp;·&nbsp; Page xvii</p>
+      <h2 class="appendix-entry__title">More About My High School Teacher and How Power Works</h2>
+      <p class="appendix-entry__preamble">An incident in my hometown — a principal sending Black students to a police lineup — taught me early about how power is designed to work, and who it's designed to protect.</p>
+      <span class="appendix-entry__cta">Read →</span>
+    </a>
 
-        <!-- TOC nav -->
-        <p class="sidebar-col__toc-label">Contents</p>
-        <nav class="sidebar-col__nav">
-          <a href="#entry-intro" class="sidebar-col__link">
-            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
-            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
-          </a>
-          <a href="#entry-ch8-122" class="sidebar-col__link">
-            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
-            <p class="sidebar-col__link-title">Dollar Vans</p>
-          </a>
-          <a href="#entry-ch8-125" class="sidebar-col__link">
-            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
-            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation</p>
-          </a>
-          <a href="#entry-ch8-137" class="sidebar-col__link">
-            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
-            <p class="sidebar-col__link-title">WATS &amp; WERD</p>
-          </a>
-          <a href="#entry-ch13" class="sidebar-col__link">
-            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
-            <p class="sidebar-col__link-title">Big Tech Congressional Testimony</p>
-          </a>
-          <a href="#entry-ch15" class="sidebar-col__link">
-            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
-            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
-          </a>
-        </nav>
+    <a href="/appendix/dollar-vans" class="appendix-entry">
+      <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 122</p>
+      <h2 class="appendix-entry__title">Dollar Vans: Communities Inventing Infrastructure</h2>
+      <p class="appendix-entry__preamble">When people in power impose infrastructure that doesn't work, people often respond by creating an infrastructure of their own that does.</p>
+      <span class="appendix-entry__cta">Read →</span>
+    </a>
 
-      </div>
-    </aside>
+    <a href="/appendix/black-infrastructure" class="appendix-entry">
+      <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 125</p>
+      <h2 class="appendix-entry__title">Black Infrastructure, Black Innovation, Black Power</h2>
+      <p class="appendix-entry__preamble">The history of Black America can be told through the story of Black innovation — building independent structures and systems in a world designed to deny them.</p>
+      <span class="appendix-entry__cta">Read →</span>
+    </a>
 
-    <!-- ENTRIES -->
-    <main class="appendix-main">
+    <a href="/appendix/wats-werd" class="appendix-entry">
+      <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 137</p>
+      <h2 class="appendix-entry__title">WATS &amp; WERD: Cases of Communications Infrastructure</h2>
+      <p class="appendix-entry__preamble">Two Civil Rights Era stories about leveraging communications technology to generate power — and what they teach activists about infrastructure today.</p>
+      <span class="appendix-entry__cta">Read →</span>
+    </a>
 
-    <!-- ENTRY 1: Introduction -->
-    <article class="entry" id="entry-intro">
-      <p class="entry__meta">Introduction &nbsp;·&nbsp; Page xvii</p>
-      <h2 class="entry__title">More About My High School Teacher and How Power Works</h2>
-      <div class="entry__preamble">
-        In the Introduction, I talk about an incident that took place in my town while I was growing up: An assistant principal at Riverhead High School, Stephen J. Paskiewicz, sent seven Black students out of the school to be unwilling participants in a police lineup. Years later, he would become my history teacher. This additional passage shares more about my relationship with him and what those experiences taught me about how power works.
-      </div>
-      <div class="entry__body">
-        <p>Over time, I came to realize something important: When the assistant principal pulled those Black students out of school and handed them over to be used as props in a police lineup for a robbery suspect, it wasn't even an abuse of power. It was exactly how people set up the system to function. It was the way power was designed to work. In fact, it was structural racism at work.</p>
-        <p>That was made clear in what happened next. By design, there was no understanding of what responsibility and accountability to Black students and parents should look like, and no representation of our interests in the process of deciding how to respond to what happened. One type of authority was taken away from Paskiewicz by demoting him from the position of assistant principal, yet another type of authority was given to him through his appointment to be a history teacher. He even kept the same salary. He was protected.</p>
-        <p>Paskiewicz wasn't breaking the rules, he was playing by them. They were made for him, the result of establishing power dynamics and incentive structures in ways that made abuse and mistreatment a norm without much consequence. Changing his individual position would have sent an important message. But changing those rules would have been far more important in terms of impact—the real challenge.</p>
-        <p>When I later entered high school myself, Mr. Paskiewicz became one of my history teachers. I was the only Black student in his class. He enjoyed that I followed the news and that, for a high schooler, I could hold my own in a political debate with him. For a history teacher, disagreement is always more fun than indifference.</p>
-        <p>But it wasn't as much fun for me. He never understood that I had a different takeaway from our debates: I wasn't learning history from him as much as I was learning how to navigate a white world. He was exhibiting history more than teaching it.</p>
-        <p>I once told him that I wanted to be a lawyer, and he told me that I should be a doctor instead because "there are no Black doctors in Riverhead and you could have the Black market cornered." It was a mix of genuine appreciation for my ability and a deeply revealing look into the racial hierarchy in which he believed—and which he also took it upon himself to reinforce in the microcosm of our school. I think he sincerely believed that the primary role of talented Black people in town was to serve a segregated Black community, not to serve the world at large—and certainly not to serve the cause of desegregating that community.</p>
-        <p>He was one of several teachers who treated me relatively well compared to others and probably thought highly of me. But telling me what I should and shouldn't do in life was just another instance of this man feeling like he had the right and authority to dictate who gets to go where. It was just another lineup he wanted to send me to.</p>
-        <p>In early October 1995, he wheeled a television into class so we could watch the verdict of the O. J. Simpson trial read aloud, live from the courtroom, on network news. I don't remember exactly what he said about the O.J. verdict. But I remember thinking that, in the years since his demotion, he clearly had not learned anything about Black history—or white history—let alone anything about the criminal justice system or the role of policing in society. In fact, his decision to send Black students to a police lineup was part of white history in a way he probably never understood.</p>
-        <p>This deep and willful ignorance of white history, which I would discover that many other teachers and authority figures across society shared, is exactly the type of culture that conservatives are trying to reestablish as the norm across the country today. They have stoked hysteria about critical race theory, as well as diversity, equity, and inclusion, in order to attack some of the best vehicles we have built for moving society forward—for changing the point of view of people like my history teacher. The weaker the forces of truth, the less anyone has to change. True history threatens the right-wing agenda: It helps people see differently. They don't want that. Though on a personal level there was certainly nothing evil about Mr. Paskiewicz at all, he was not going to make room for us in the history he taught—or even in the school he helped run. And there was no set of rules forcing him to. That's the past the right wing wants to return us to.</p>
-        <p>(As an aside: We see the stakes of reckoning with history everywhere. In September 2025, Trump's secretary of defense, Pete Hegseth, said he was going to change the rules of the military so that all service members who advance to authority must meet "the highest male standard" and be clean-shaven ("No more beardos"). He was using his power to redefine who belongs in charge: not women and not Black men—many of whom, like my father when he was in the Marines, are not able to be entirely clean-shaven due to a skin condition called PFB, or razor bumps. It's very clear who Hegseth thinks should give orders and who should take them. And his opinions can shape our reality because he had the power to set the rules for how the military works. Right wingers don't want us to learn history, they want to take us back to an earlier point in history. That fight plays out every day, from military hierarchy to high school classrooms to anywhere the rules can either enable discrimination or eliminate it.)</p>
-        <p>To me, choosing to put a teacher like Mr. Paskiewicz in charge of a U.S. history class was painfully ironic. But my parents had helped me learn how to navigate this type of situation without accepting it: learning how to figure out the ways to succeed and stay safe, while looking for the smartest opportunities to challenge the rules. As one year turned into the next, and one class after another passed through his curriculum, his position as a history teacher demonstrated one of the most central principles of U.S. history: making Black people pay for white people's behavior.</p>
-        <p>People often ask me what privilege is. Mr. Paskiewicz's case is a textbook example. (In fact, it should have been in the actual textbook we were using in class.) He was protected from facing the full consequences of his actions, able to maintain employment and receive his full salary, while someone without privilege—whom people in power did not write the rules to protect—would have easily been fired.</p>
-        <p>That's the thing many people don't understand about privilege: It doesn't just help some people get ahead, it pushes other people back—doubling the distance between them. Privilege is when the rules consistently and unfairly favor certain people who already have power and then also allow them to withstand any pressure to change. The best way to evade accountability is to create a culture that pretends there's no need for it. Growing up in that culture made me deeply aware of how it worked.</p>
-        <p>Even the loud presence of voices in the Black community in Riverhead was simply not enough to overcome the power of the well-maintained defense system of white privilege: both a police department abusing kids and a white history teacher demeaning them would be protected, and survive, because people in power designed the rules to make sure they did. The people with the authority to change the way the rules work—and who they worked for—had no incentive to do so. That's what I would want to change: It wasn't about my one history teacher and whether he was "good" or "bad." It was about the rules that incentivize all of us to either do our worst or be our best.</p>
-      </div>
-    </article>
+    <a href="/appendix/congressional-testimony" class="appendix-entry">
+      <p class="appendix-entry__ref">Chapter 13 &nbsp;·&nbsp; Page 233</p>
+      <h2 class="appendix-entry__title">Big Tech Congressional Testimony</h2>
+      <p class="appendix-entry__preamble">Rashad Robinson's full testimony before the U.S. House Committee on Energy and Commerce, arguing for major policy changes to hold Big Tech accountable.</p>
+      <span class="appendix-entry__cta">Read →</span>
+    </a>
 
-    <!-- ENTRY 2: Ch. 8 / Dollar Vans -->
-    <article class="entry" id="entry-ch8-122">
-      <p class="entry__meta">Chapter 8 &nbsp;·&nbsp; Page 122</p>
-      <h2 class="entry__title">Dollar Vans: Communities Inventing Infrastructure</h2>
-      <div class="entry__preamble">
-        When people in power impose infrastructure that doesn't work, people often respond by creating an infrastructure of their own that does. Below is an example of that kind of response. In this chapter I am talking about the social realities imposed on the people of New York.
-      </div>
-      <div class="entry__body">
-        <p>People frustrated enough to hack the constraints of the New York City transit system built their own infrastructure to get where they needed to go—to make the travel they needed possible. Dollar vans, which became better known during a 1980 transit strike, are a great example. They travel routes people can't travel other ways, running up and down thoroughfares and allowing people to pack in as they need to. They are a system of vans owned by independent drivers, not the transit system, created by people who saw the need and opportunity to serve their community in ways that were more affordable and easier than public transportation. But solutions like that cannot be developed at the scale required to make up for the rigid norms of travel that the larger subway system created. It still remains hard to get between many neighborhoods in Brooklyn and Queens. The investment required to change that norm would be overwhelming now, which is why being involved in the fight over infrastructure from the beginning, when it's being built, is so critical.</p>
-      </div>
-    </article>
+    <a href="/appendix/cultural-advocacy" class="appendix-entry">
+      <p class="appendix-entry__ref">Chapter 15 &nbsp;·&nbsp; Page 286</p>
+      <h2 class="appendix-entry__title">The Whitepaper on Cultural Advocacy</h2>
+      <p class="appendix-entry__preamble">The 1992 GLAAD paper that proved highly influential for developing a strategic front in the fight for social change through the lever of culture.</p>
+      <span class="appendix-entry__cta">Read →</span>
+    </a>
 
-    <!-- ENTRY 3: Ch. 8 / Black Infrastructure -->
-    <article class="entry" id="entry-ch8-125">
-      <p class="entry__meta">Chapter 8 &nbsp;·&nbsp; Page 125</p>
-      <h2 class="entry__title">Black Infrastructure, Black Innovation, Black Power</h2>
-      <div class="entry__preamble">
-        The history of Black America can be told through the story of the history of Black innovation in America. Infrastructure related to learning is just one example of where people were called to innovate in the hopes of driving progress forward.
-      </div>
-      <div class="entry__body">
-        <p>Bayard Rustin was unique, and uniquely important to a major leap forward in history. But he is just one part of a lineage of infrastructure designers and builders who have defined Black history in America. Black power and Black-led social change has always depended on building independent structures and systems, forcing the concern for our voices, our agency, and our well-being into a world that was built to deny them.</p>
-        <p>One example is the set of programs the Black Panthers imagined and created in the late 1960s and early 1970s, which combined food assistance, education and healthcare, when the government failed to adequately provide any of them. Black-run businesses, local economies, community schools, activist organizations, and media have always played an indispensable role in providing for people. Through the 1619 Project, investigative journalist Nikole Hannah-Jones documents how Black Americans, who were newly elected to state Legislatures, successfully advocated for the creation of state-funded public education in the Reconstruction Era South. In South Carolina, for instance, Hannah-Jones writes, "small numbers of black and white children, briefly, attended schools together."</p>
-        <p>Though rarely credited for it, Black people were also shut out of the telecommunications industry, so we built our own independent Black radio platforms and other media infrastructure. Black people helped create the very idea of independent film as a way of bringing people into realities that had not been validated by culture before. Hip-hop is another example of getting urgent perspectives and facts about social issues out into the public realm and into people's hearts, going around media gatekeepers to establish more authentic and honest sources of reporting from the ground. The same spirit led to innovations in health care, transportation, and more.</p>
-        <p>Black people were not allowed to learn to read, by law. So we built our own means of developing our minds, passing on our wisdom, and achieving the impossible. Before the Civil War, and even for years afterwards, there were anti-literacy laws and widespread exclusion across the country that prevented Black people—slaves or not—from learning to read. They also prevented people from teaching. Those were the written rules.</p>
-        <p>Even in New England, mobs destroyed private schools being formed to educate Black and white students together. One example was the Noyes Academy in Canaan, New Hampshire, a small, racially integrated school founded by abolitionists that was pulled off its very foundation by a hundred oxen under the control of nearly 500 white men in 1835, and was attacked for years until finally being destroyed permanently. For those mobs, the schools violated the rules of culture and they required punishment—enforcement. Another battle over infrastructure. Many attempts to prevent Black people from learning in the late 1800s and 1900s, established equally effective consequences and deterrents that massively suppressed Black education as a part of a strategy set by white people in power to maintain a racial hierarchy that benefited them.</p>
-        <p>Our own infrastructure aimed to make learning and growing possible, poking holes through the net that racism cast around our communities. We used churches as vehicles for learning, we educated ourselves in secret, we found ways to piggyback on the education white students were getting. There is an entire history of resistance, all rooted in the infrastructure of learning and media-making that Black people built for ourselves while white people tried to lock us out of all the learning institutions and practices that were available to them.</p>
-        <p>For me, <em>JET</em> magazine was part of a nationwide community education infrastructure that played a key role in politicizing me, raising my political consciousness, and organizing me into the fight for justice, without me even knowing it. The legendary publisher John H. Johnson named the publication <em>JET</em> in 1951 because he believed that everything was moving faster for the community—including progress and visibility. The magazine came in the mail once a week. It had appeal across generations—from the articles to the images, from politics to culture. <em>JET</em> helped me understand what American Blackness was, what was happening in Black America, and how to be part of it.</p>
-        <p><strong>It connected the conversations in my home and community to something beyond my own hometown of Riverhead.</strong> It's also how I first learned about leaders like Maxine Waters, Maynard Jackson, and Shirley Chisholm whose work and achievements weren't taught in school. It presented public service as a norm—as both a heroic and a fashionable pursuit. It seems so intuitive to mix politics and lifestyle today, but that wasn't always the case, especially not in a way that drove people to action and defined political engagement as an ideal to work toward.</p>
-      </div>
-    </article>
-
-    <!-- ENTRY 4: Ch. 8 / WATS & WERD -->
-    <article class="entry" id="entry-ch8-137">
-      <p class="entry__meta">Chapter 8 &nbsp;·&nbsp; Page 137</p>
-      <h2 class="entry__title">WATS &amp; WERD: Cases of Communications Infrastructure for Increasing Power</h2>
-      <div class="entry__preamble">
-        The Civil Rights Era is full of examples of innovation, particularly related to communicating and engaging people. These are two stories that meant a lot to me and always kept me thinking about what is possible for activists to contribute and achieve, especially when circumventing power structures designed to thwart their success.
-      </div>
-      <div class="entry__body">
-        <p>Over the course of his life, Julian Bond was a cofounder of the highly influential Student Nonviolent Coordinating Committee (SNCC), the first president of the Southern Poverty Law Center, an elected member of the Georgia House of Representatives who had to go to the Supreme Court to force the legislature to seat him, and a chairman of the NAACP. Julian told me a story about SNCC infrastructure that has always stuck with me. I hold this story in my mind when thinking about media, technology, activism, and the importance of having a strategy to leverage all of the above.</p>
-        <p>In the Civil Rights Era of the 1950s and 1960s, communications infrastructure could not be taken for granted. Widespread access to telephones was still relatively new, something that leaders relied on as adults but may have not grown up having access to. Moreover, telephone infrastructure had been built in a way that created as many threats as opportunities for certain groups. It made delightful and carefree long-distance communication possible for those who could afford it, while making surveillance possible for government officials who wanted to control it.</p>
-        <p>Specifically, telephones at the time still ran through individual operators who were needed to manually connect a caller to a receiver. Operators could easily listen to those calls and intervene in their connection. Being aware that their conversations could be monitored made it very difficult for civil rights activists to relay important confidential information to their organization's headquarters as they were making discoveries or figuring out strategies while out in the field.</p>
-        <p>In order to keep their jobs, many telephone operators complied with direct demands to surveil activists made by law enforcement officers and Ku Klux Klan members. Others were white supremacy sympathizers all too eager to help undermine civil rights activism proactively. Activists therefore needed a communications infrastructure specific to their predicament that would help them overcome the ways in which the generally available infrastructure was stacked against them. And that's where the Wide Area Telephone Service (WATS) came in. A WATS line, a new technology introduced in 1961 by the Bell System, gave an organization a dedicated line for unlimited calling within a designated region at a monthly flat fee, and crucially, let callers dial out directly instead of routing through a local operator.</p>
-        <p>Bell didn't introduce the WATS line with the intent of helping activists, but a strategic activist is always looking for strategic opportunities, which includes understanding how they can use all available infrastructure to their advantage, whether it was designed to help them or not. SNCC leaders used WATS lines to improve the reach and speed of their communication—and speed itself was a form of protection when it came to a jailed activist or a house under siege: the faster word traveled, the faster help could arrive.</p>
-        <p>Today, dialing people directly is the standard, but it wasn't always so. Back then, it was easy to intercept calls in the same way in which it is possible for our text messages to be intercepted today when we're not using messaging services that offer end-to-end encryption. There was no encryption en masse for civilians in 1961, and even WATS lines could be bugged by law enforcement. But the new infrastructure greatly reduced the likelihood that sensitive messages—such as eyewitness accounts of civil rights violations—could be blocked by hostile operators. The new system allowed activists in the field to get information to their organizations quicker, which then allowed those organizations to package and send out that information to other activists, media outlets, and even the Justice Department.</p>
-        <p>WATS lines were not owned or controlled by the civil rights movement, yet they were an important part of its infrastructure, allowing leaders and activists to engage in activities that could generate more power.</p>
-        <p>In their 2011 book, <em>News for All the People</em>, authors Juan González and Joseph Torres brought us the story of how Rev. Dr. Martin Luther King Jr.'s Southern Christian Leadership Conference (SCLC) office in Atlanta sat right below a local Black radio station. It was actually the first Black-owned radio station in the United States. Call letters: WERD. When King wanted to address the public, he would bang on the ceiling with a broomstick, which was a signal to the DJ to drop a microphone out of the window so that King could grab it and go live on air. That was a different kind of infrastructure: a way of generating power by reaching his own people on his own terms, in ways that drove them to think, believe, and act.</p>
-        <p>Unlike the WATS line, which was not owned by Black activists but used effectively by them, WERD was built by and for the community, as was the SCLC. That media channel and that organization worked together to create a type of power that neither could create on its own. Nothing is truly independent, of course: WERD was ultimately licensed and regulated by the government, as were the airwaves through which its radio signals traveled. But building and owning infrastructure of our own—tied together in a larger infrastructure network—makes a big difference. It is critical for generating and sustaining power.</p>
-      </div>
-    </article>
-
-    <!-- ENTRY 5: Ch. 13 / Congressional Testimony -->
-    <article class="entry entry--testimony" id="entry-ch13">
-      <p class="entry__meta">Chapter 13 &nbsp;·&nbsp; Page 233</p>
-      <h2 class="entry__title">IN DETAIL: Big Tech In Control of Our Online Lives: Commerce, Content, Connection</h2>
-      <div class="entry__preamble">
-        This chapter mentions a framework developed to help people make sense of just how powerful Big Tech corporations have become—and how they use that power for profiteering at the expense of all of us. Toward the end of 2021, I testified (alongside Meta whistleblower Frances Haugen) to the U.S. House Committee on Energy and Commerce, Subcommittee on Communications and Technology, outlining that framework as part of arguing for several big policy changes related to Big Tech. That included arguing to repeal Section 230 of the 1996 Communications Decency Act (one of the parts of the act not to be declared unconstitutional by the Supreme Court years later) that is currently interpreted as shielding Big Tech from accountability.
-      </div>
-      <div class="entry__testimony-header">
-        <p class="entry__testimony-label">Congressional Testimony</p>
-        <p class="entry__testimony-title">Hearing On "Holding Big Tech Accountable: Targeted Reforms to Tech's Legal Immunity"&nbsp;&nbsp;(December 1, 2021)</p>
-      </div>
-      <div class="entry__body">
-        <p>Chair Pallone, Chair Doyle, Ranking Member McMorris Rodgers, Ranking Member Latta — thank you for having me here today. I am Rashad Robinson, President of Color Of Change, an organization that was born online and remains the largest online racial justice organization in the country. I also Co-Chaired the Aspen Commission on Information Disorder, which just released our comprehensive set of recommendations for effectively tackling misinformation and disinformation in our country.</p>
-        <p>I want to thank this Committee for holding this hearing, especially the leadership of the Committee and Subcommittee chairs. All of us who see the dire need to bring sense, order and safety to an out-of-control tech industry must applaud you for your work introducing the Justice Against Malicious Algorithms Act, the SAFE TECH Act, and the Civil Rights Modernization Act. Each one is essential for reducing the tech industry's adverse effects on our lives and country.</p>
-        <p>Regardless of the industry, there's one thing we know about the behavior of corporations: self-regulation means no regulation, and no regulation means making our problems worse, not better. Today's tech industry is no exception. Yet, the more power the Big Tech corporations gain, the less they are regulated, the less they are liable for the harm they cause, and the less they are held accountable for the decisions they make.</p>
-        <p>The question before the Committee is a very clear one: What kind of action is needed from Congress to make Americans safe — whether we are spending time online, or dealing with the consequences of what happens there? How do we create consequences for putting people in harm's way, instead of making it profitable to do so? Every day, Big Tech corporations increase the number of people in our country who believe racial and ethnic violence is a solution, not a problem, and every day, they increase the number of businesses in our country who practice discrimination and systematically exploit consumers.</p>
-        <p><strong>Congress is rightly called to major action when an industry's business model is at odds with the public interest — when it generates the greatest profits only by causing the greatest harm.</strong> Especially when that harm is not distributed evenly: when the people getting hurt the most are Black people, women and girls, Latino, Asian, Indigenous, Muslim and LGBTQIA people. That is exactly what we see today: Big Tech is doing big harm because that's what happens when corporations have too much power. They are forcing Black people, and other people who have been exploited by one industry after the next, to pay for Big Tech's profits with their lives.</p>
-        <p>Today, corporations like Facebook, Amazon, Apple and Google maintain near-total control over all three areas of online life: online commerce, online content, and online environments for social connection. To keep control, they lie about the effects of their products. No matter who gets hurt. Just like Big Oil &amp; Coal lies about how they poison people, and Big Tobacco lies about the deaths their products cause. They lie to the public. They lie to regulators, and to you. Mark Zuckerberg has lied to me personally, more than once. It's time to make the truth louder and more influential than their lies. But to skip the part where we wait 40 years to do it.</p>
-        <p>I have personally negotiated with leaders and executives at Big Tech corporations like Facebook, Google, Twitter and Airbnb, including Mark Zuckerberg, over a number of years. I sat across the table from him, looking into his eyes, experiencing firsthand the lies, evasions, ignorance and complete lack of accountability to any standard of safety for Black people and other people of color. As just one example: During the height of the racial justice uprisings in 2020, he told me that the harms I claimed Black people were experiencing on Facebook weren't reflected in their own internal data. We now know from the documents shared by Frances Haugen and others that his internal researchers were, in fact, sounding alarms at the exact same time.<sup>1</sup> This is how the industry operates when there are no consequences for lying, let alone for impact on people.</p>
-        <p><strong>What does Big Tech's control over online commerce lead to?</strong> Massive discrimination. They have created backdoors and runarounds for employers, landlords, banks and so many others to make a mockery of long-fought, hard-fought anti-discrimination laws: to deny jobs to women, to deny loans and housing to Black people — to put discrimination back into the business model of industries far beyond tech itself.</p>
-        <p>As just one example: Facebook has enabled employers to advertise only to men with recruitment ads for hiring, engaging in gender discrimination for positions that federal law clearly states must be open to all people.<sup>2,3</sup> Facebook has also enabled landlords to make sure that Black people would not see their apartment ads, restricting them to non-Black people only and providing a runaround to long-fought, hard-fought laws meant to end racial discrimination in the housing market.<sup>4,5</sup> All of a sudden, our brave new 21st Century future looks a lot like 1950.</p>
-        <p>I must emphasize, however, that Facebook is not merely a tool of discrimination in the hands of business interests. Facebook's own algorithms are a major driver of discrimination, even when outside business interests are not using their tools to discriminate intentionally. When it comes to ad targeting, Facebook's ad-targeting algorithms practice racial discrimination by their very nature — it's coded into their programming, as demonstrated by Harvard University researchers and others.<sup>6,7,8</sup> Facebook tries to fool us. They shift blame and responsibility to bad faith businesses, reduce the discrimination services they offer them<sup>9</sup> — but only after a long fight they resist in every way possible, and without taking responsibility for the damage they have already done. And then they act as if we are simply going to ignore how Facebook's own algorithms, used in ad targeting every single day, are responsible for continuing systemic discrimination. They try to convince us that it's the responsibility of the victims of this discrimination to do something about it, rather than the platforms that enable it. Again, this takes us backwards as a society.</p>
-        <p>But their control over online commerce isn't just discrimination, it's exploitation, too. We hear a lot about seemingly unlimited, unscientific COVID misinformation, whether boosted by Facebook, YouTube or the other environments managed by Big Tech.<sup>10</sup> It doesn't just impact people's decisions about getting the vaccine, it's priming consumers for unregulated health-related products in the form of miracle cures and other scams that prey on the insecurities, fears and allegiances this misinformation causes. The largest scam networks may eventually be removed from the Big Tech platforms, but only after they have amassed a major following, latched on to a vulnerable consumer base and extracted millions of dollars from them.<sup>11</sup></p>
-        <p>The same is true for the effects of social media on young girls and women: entire industries profit from making women and girls, especially women and girls of color, feel insecure, feel like there's something wrong with them that only a snake oil product can correct. This is all now a core part of our marketing ecosystem, and it must be stopped.</p>
-        <p>Technology is increasing discrimination and exploitation in the realm of commerce, giving new sales tools to bad actors, dismantling consumer protections, and creating backdoors that make a mockery of civil rights laws.</p>
-        <p><strong>What does Big Tech's control over online content and social connections lead to?</strong> The very same thing. Discrimination. Exploitation. Moving society backwards.</p>
-        <p>Big Tech amplifies calls to violence against government officials, public figures and groups of people who are just trying to improve their lives — particularly anyone who is a person of color or associated with people of color. Facebook, YouTube and others fully maintain a content ecosystem that is essential for extremists' recruitment and the organizing of violent groups and actions.</p>
-        <p>They don't just amplify white nationalist users and content; however, they undermine Black users and content. That's the other form of discrimination: Facebook's own internal research demonstrates that Black users on Instagram are more likely to have their accounts disabled by algorithmic moderation systems, often for just talking about the racism they face. We keep hearing that less than 5% of hate speech posted on Facebook is deleted, but we now know that the so-called "worst of the worst" of that content is actually less penalized than the milder forms of insult that might involve white people — that is, content attacking Black people, LGBTQIA people, and Jewish, Muslim and Arab people is the most extreme content there is, and yet it's also the content that is least likely to be taken down, which enables it to circulate and grow more influential every day. The Big Tech platforms also allow the worst misinformation purveyors to specifically target Black people more often, in order to attack their health, their freedom to vote, their freedom of expression. This is the world their decisions create, every day.</p>
-        <p>This is also another case of how a supposedly "race blind" policy is actually deeply protective of white people who violate rules, and yet deeply punishing of people of color who follow them — the exact opposite of what it claims to be.<sup>12</sup></p>
-        <p>Big Tech's control over environments of social connection is also dangerous: when some people are able to freely enjoy the opportunity for social connection in an online environment, but other people are driven out of it, that's discrimination. Especially when the difference in people's experience is correlated with the difference in their race or gender. It comes in the form of targeted, vile and threatening harassment of a Black person's profile page, or attacks on a Black organization's profile page. It also takes place in all the VR environments Mark Zuckerberg recently touted when renaming his parent company Meta. They simply have no answer to the unchecked racial and gender discrimination on their VR platform, or other environments that will become increasingly important for people to participate in, both personally and professionally.<sup>13</sup></p>
-        <p>With their near-total control over online commerce, online content and online connections, Big Tech is creating endless backdoors and runarounds against laws created to protect us from discrimination, predatory marketing, health-related misinformation, violence and harassment, and even organized plots to attack anyone they perceive as a threat. As long as it's profitable, they accelerate it.</p>
-      </div>
-      <div class="entry__footnotes">
-        <p class="entry__footnotes-label">Footnotes</p>
-        <ol>
-          <li><a href="https://apnews.com/article/the-facebook-papers-trump-george-floyd-hate-speech-violence-b0f6f26f3fdf889c090703cc2fa8dce0" target="_blank" rel="noopener">apnews.com — The Facebook Papers</a></li>
-          <li><a href="https://ant.isi.edu/datasets/addelivery/" target="_blank" rel="noopener">ant.isi.edu — Ad Delivery Research</a></li>
-          <li><a href="https://www.wsj.com/articles/facebook-shows-men-and-women-different-job-ads-study-finds-11617969600" target="_blank" rel="noopener">wsj.com — Facebook Job Ad Gender Study</a></li>
-          <li><a href="https://www.npr.org/2019/03/28/707614254/hud-slaps-facebook-with-housing-discrimination-charge" target="_blank" rel="noopener">npr.org — HUD Housing Discrimination Charge</a></li>
-          <li><a href="https://www.justice.gov/crt/case-document/file/1089231/download" target="_blank" rel="noopener">justice.gov — Case Document</a></li>
-          <li><a href="https://techscience.org/a/2021101901/" target="_blank" rel="noopener">techscience.org — Algorithm Discrimination Research</a></li>
-          <li><a href="https://sapiezynski.com/papers/sapiezynski2019algorithms.pdf" target="_blank" rel="noopener">sapiezynski.com — Algorithms Research</a></li>
-          <li><a href="https://arxiv.org/abs/1904.02095" target="_blank" rel="noopener">arxiv.org — Ad Targeting Bias</a></li>
-          <li><a href="https://www.facebook.com/business/news/removing-certain-ad-targeting-options-and-expanding-our-ad-controls" target="_blank" rel="noopener">facebook.com — Ad Targeting Policy Update</a></li>
-          <li><a href="https://www.techtransparencyproject.org/articles/covid-kill-shot-youtube-fails-stop-vaccine-conspiracies" target="_blank" rel="noopener">techtransparencyproject.org — COVID Misinformation</a></li>
-          <li><a href="https://theintercept.com/2021/09/28/covid-telehealth-hydroxychloroquine-ivermectin-hacked/" target="_blank" rel="noopener">theintercept.com — COVID Telehealth Exploitation</a></li>
-          <li><a href="https://www.washingtonpost.com/technology/2021/11/21/facebook-algorithm-biased-race/" target="_blank" rel="noopener">washingtonpost.com — Facebook Algorithm Race Bias</a></li>
-          <li><a href="https://www.theinformation.com/articles/in-facebooks-vr-headset-racism-and-other-abuses-showed-up-likeclockwork" target="_blank" rel="noopener">theinformation.com — VR Racism and Abuse</a></li>
-        </ol>
-      </div>
-    </article>
-
-    <!-- ENTRY 6: Ch. 15 / Cultural Advocacy Whitepaper -->
-    <article class="entry" id="entry-ch15">
-      <p class="entry__meta">Chapter 15 &nbsp;·&nbsp; Page 286</p>
-      <h2 class="entry__title">The Whitepaper on Cultural Advocacy</h2>
-      <div class="entry__preamble">
-        The chapter references a white paper created in the early days of GLAAD that proved highly influential for developing a strategic front in the fight for social change that was separate from legal, policy, political, and organizing levers—namely, the lever of culture.
-      </div>
-      <div class="entry__body">
-        <p>The paper I got from Joan Garry at GLAAD was titled "Cultural Advocacy: A Non-Legal Approach to Fighting Defamation of Lesbians and Gays." It had been published in 1992 in a journal called <em>Law &amp; Sexuality: A Review of Lesbians &amp; Gay Legal Issues</em>. In the decades since it was put in my hands, so many papers and reports have been written about "culture change" strategies. But this work was seminal and is still worth reading.</p>
-        <p>The paper itself had an emotional story of its own. The initial author was Craig Davidson, a lawyer who could think beyond legal strategies. He had been the founding executive director of GLAAD and wanted to put down on paper what the early GLAAD activists had learned and had lived out through their actions. When he died in 1991, Michael Valentini, his partner, finished the paper as a tribute to him.</p>
-        <p>The main thesis was simple: There are ways to change attitudes toward gay and lesbian people without resorting to legislation or litigation, strategies that are coercive at their core and therefore very limited and susceptible to being overturned if there is a crack in the enforcement mechanism—as is true with anything based on forcing people to do things instead of bringing them around to genuinely believing in doing it. (Remember my example about the Wall Street banks and their political influence: "Buying off" politicians is not nearly as effective or rewarding, in the long run, as getting them to see the world through Wall Street eyes so that they come to the conclusions and decisions Wall Street wants them to make, all on their own.)</p>
-        <p>Davidson and Valentini argued it is possible to use the power of media to get people to believe that inclusion is good and exclusion is bad—to get them to <em>want</em> change rather than feeling like they were forced to accept it. But the rules of media would have to change in order to achieve that goal. They identified different types of defamation and how each needed to be confronted in different ways: slander, stereotypes, casual prejudice, deference (i.e., silence in the face of others' slander, stereotypes, and prejudice), and forced invisibility. The first four focused on eliminating harmful content, and the fifth was about advancing helpful content.</p>
-        <p>They suggested a three-pronged approach to media cultural advocacy:</p>
-        <ol style="padding-left: 28px; margin-bottom: 20px; margin-top: -4px;">
-          <li style="margin-bottom: 8px;">Mobilizing the LGBTQ+ community to respond quickly to positive or negative portrayals.</li>
-          <li style="margin-bottom: 8px;">Working directly with media professionals to improve their understanding of the LGBTQ+ community.</li>
-          <li style="margin-bottom: 8px;">Promoting gay and lesbian visibility through media campaigns.</li>
-        </ol>
-        <p>It was a methodical, strategic approach. It immediately resonated with me. It didn't go deep on the analysis of narratives and norms, but it went deep on the tactics of effecting cultural change, especially by engaging producers of major media content in very pointed and intentional ways. A carrot-and-stick approach to taking on Hollywood may not seem novel now, but in 1991, and even in 2005 when I got to GLAAD, pairing that approach with the infrastructure needed to deliver on it was pioneering. The innovations that followed from GLAAD, Color Of Change, the National Domestic Workers Alliance, Define American, and others has made deep impacts.</p>
-      </div>
-    </article>
-
-    </main>
-
-  </div><!-- /.appendix-layout -->
+  </main>
 
   <div id="site-footer"></div>
 
   <script src="nav.js"></script>
   <script src="footer.js"></script>
-  <script>
-    // Highlight active sidebar link based on scroll position
-    (function () {
-      const links = document.querySelectorAll('.sidebar-col__link');
-      const entries = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
-
-      function setActive() {
-        let current = entries[0];
-        entries.forEach(el => {
-          if (el && el.getBoundingClientRect().top <= 120) current = el;
-        });
-        links.forEach(l => {
-          l.classList.toggle('is-active', l.getAttribute('href') === '#' + current.id);
-        });
-      }
-
-      window.addEventListener('scroll', setActive, { passive: true });
-      setActive();
-    })();
-  </script>
 </body>
 </html>

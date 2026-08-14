@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Tech Congressional Testimony — Appendix · From Presence to Power</title>
+  <meta name="description" content="Rashad Robinson's full testimony before the U.S. House Committee on Energy and Commerce, from From Presence to Power.">
+  <link rel="canonical" href="https://book.rashadrobinson.com/appendix/congressional-testimony">
+  <link rel="icon" type="image/png" href="../images/book-mock.png">
+  <link rel="apple-touch-icon" href="../images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css">
+  <link rel="stylesheet" href="../footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+      --ls-eyebrow:   0.32em;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
+    }
+
+    .sidebar-col {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .sidebar-col__inner {
+      position: sticky;
+      top: 60px;
+      padding: 48px 0;
+    }
+
+    .sidebar-col__back {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      text-decoration: none;
+      padding: 0 28px 28px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__back:hover { color: rgba(239,237,236,0.75); }
+
+    .sidebar-col__toc-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.3);
+      padding: 0 28px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-col__nav { display: flex; flex-direction: column; gap: 2px; }
+
+    .sidebar-col__link {
+      display: block;
+      text-decoration: none;
+      padding: 10px 28px;
+      border-left: 2px solid transparent;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
+
+    .sidebar-col__link.is-active {
+      border-left-color: var(--orange);
+      background: rgba(239,237,236,0.06);
+    }
+
+    .sidebar-col__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 3px;
+    }
+
+    .sidebar-col__link-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: rgba(239,237,236,0.5);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__link.is-active .sidebar-col__link-title,
+    .sidebar-col__link:hover .sidebar-col__link-title { color: var(--cream); }
+
+    .appendix-main {
+      flex: 1;
+      min-width: 0;
+      max-width: 760px;
+      padding: 72px 64px 120px 64px;
+    }
+
+    .entry__meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .entry__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 28px;
+    }
+
+    .entry__preamble {
+      font-style: italic;
+      color: var(--fg-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      border-left: 3px solid var(--orange);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 36px;
+    }
+
+    /* testimony header block */
+    .entry__testimony-header {
+      background: var(--brown);
+      color: var(--cream);
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+
+    .entry__testimony-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .entry__testimony-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: var(--cream);
+    }
+
+    .entry__body p { margin-bottom: 20px; font-size: 17px; line-height: 1.7; }
+    .entry__body p:last-child { margin-bottom: 0; }
+    .entry__body strong { font-weight: 700; }
+    .entry__body em { font-style: italic; }
+
+    /* footnote reference superscripts */
+    sup a {
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+    sup a:hover { text-decoration: underline; }
+
+    /* footnotes section */
+    .entry__footnotes {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .entry__footnotes-heading {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 20px;
+    }
+
+    .entry__footnotes ol {
+      list-style: decimal;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .entry__footnotes li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--fg-muted);
+    }
+
+    .entry__footnotes li a {
+      color: var(--orange);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .entry__footnotes li a:hover { text-decoration: underline; }
+
+    @media (max-width: 860px) {
+      .appendix-layout { flex-direction: column; }
+      .sidebar-col { width: 100%; }
+      .sidebar-col__inner { position: static; padding: 32px 20px 0; }
+      .sidebar-col__back { padding: 0 0 20px; }
+      .sidebar-col__toc-label { padding: 0; }
+      .sidebar-col__nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 20px;
+        gap: 4px;
+      }
+      .sidebar-col__link {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: 8px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .sidebar-col__link.is-active {
+        border-left-color: transparent;
+        border-bottom-color: var(--orange);
+        background: rgba(239,237,236,0.08);
+      }
+      .appendix-main { padding: 40px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+
+  <div class="appendix-layout">
+
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
+        <a href="/appendix" class="sidebar-col__back">← All Entries</a>
+        <p class="sidebar-col__toc-label">Appendix</p>
+        <nav class="sidebar-col__nav">
+          <a href="introduction" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="dollar-vans" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans</p>
+          </a>
+          <a href="black-infrastructure" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation</p>
+          </a>
+          <a href="wats-werd" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD</p>
+          </a>
+          <a href="congressional-testimony" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">Big Tech Congressional Testimony</p>
+          </a>
+          <a href="cultural-advocacy" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="appendix-main">
+      <p class="entry__meta">Chapter 13 &nbsp;·&nbsp; Page 233</p>
+      <h1 class="entry__title">Big Tech Congressional Testimony</h1>
+      <div class="entry__preamble">
+        Rashad Robinson's full testimony before the U.S. House Committee on Energy and Commerce, arguing for major policy changes to hold Big Tech accountable.
+      </div>
+
+      <div class="entry__testimony-header">
+        <p class="entry__testimony-label">Congressional Testimony</p>
+        <p class="entry__testimony-title">Hearing On "Holding Big Tech Accountable: Legislation to Protect Online Users"</p>
+      </div>
+
+      <div class="entry__body">
+        <p>Chairman Pallone, Ranking Member McMorris Rodgers, and Members of the Committee:</p>
+        <p>Thank you for the opportunity to testify. My name is Rashad Robinson, and I serve as the President of Color Of Change, the nation's largest online racial justice organization. Color Of Change helps people respond effectively to injustice, working to create a more human and less hostile world for Black people in America. We succeed when powerful institutions are held accountable and when communities most impacted have the political power to determine their own destinies.</p>
+        <p>I am here today because the dominant social media platforms—particularly Facebook—have become significant tools for the harassment, intimidation, and endangerment of Black people and their allies. At the same time, these platforms have failed to hold white supremacists, election deniers, and other bad actors accountable for the harms they cause. This is not a political problem. This is a civil rights problem, a public safety problem, and a democracy problem.</p>
+        <p>For years, Color Of Change has worked to document the ways in which large tech platforms fail to adequately protect marginalized communities from harassment, targeting, and coordinated abuse. We have spent countless hours meeting with platform executives, participating in policy consultations, and reviewing the policies themselves. And we have learned a great deal from this work—including the ways in which platforms respond when significant public attention and criticism are directed at their practices.</p>
+        <p>Here is what we know: the current system is not working. Platforms like Facebook have chosen profit over people at almost every turn. They have allowed hate to spread when the algorithms their engineers designed to maximize engagement have rewarded divisive, inflammatory, and threatening content. They have repeatedly over-enforced against Black voices, censoring civil rights speech, while under-enforcing against white supremacists and those who target Black people.<sup><a href="#fn1" id="fnref1">1</a></sup></p>
+        <p>The 2020 election showed us the dangers of what happens when platforms fail to act. Facebook allowed then-President Trump to use their platform to spread lies about the election, to undermine confidence in the results, and to ultimately help inspire the assault on the U.S. Capitol on January 6. This was not a failure of the algorithm. It was not an accident. It was the result of policy decisions made by human beings at Facebook who consistently chose to prioritize growth and profit over safety and democracy.<sup><a href="#fn2" id="fnref2">2</a></sup></p>
+        <p>Meanwhile, Black Lives Matter activists, civil rights leaders, and others speaking out against police violence and racial injustice have been silenced, suspended, or had their reach artificially reduced.<sup><a href="#fn3" id="fnref3">3</a></sup> Facebook's own internal research—which they hid from the public and from Congress—showed that these disparities were real and systemic.<sup><a href="#fn4" id="fnref4">4</a></sup></p>
+        <p>We have seen similar patterns on YouTube, Twitter, and other major platforms. The incentive structures of these companies lead them, time and again, to make choices that prioritize engagement, profit, and growth over the safety and dignity of the people who use their products.</p>
+        <p>The question before this Committee is what to do about it. Color Of Change believes that significant policy reforms are necessary. The current system of self-regulation has failed. Voluntary measures have proven insufficient. The time for legislation has arrived.</p>
+        <p>Specifically, we urge Congress to take the following steps:</p>
+        <p><strong>First, update Section 230.</strong> The current interpretation of Section 230 of the Communications Decency Act has been used to shield tech platforms from accountability for harms caused by their products. It was never intended to provide blanket immunity from civil rights laws, consumer protection laws, or other legal protections. Congress should clarify that platforms cannot use Section 230 as a shield when they have knowingly or recklessly allowed their products to be used to harass or harm people based on race, religion, gender, sexual orientation, or other protected characteristics.<sup><a href="#fn5" id="fnref5">5</a></sup></p>
+        <p><strong>Second, mandate algorithmic accountability.</strong> The algorithms that determine what content people see on social media are not neutral. They make choices—choices that have profound effects on our politics, our culture, and our communities. Congress should require platforms to conduct and publicly disclose regular audits of how their algorithms affect different communities, including communities of color. These audits should be conducted by independent third parties, not by the companies themselves.<sup><a href="#fn6" id="fnref6">6</a></sup></p>
+        <p><strong>Third, require transparency.</strong> Platforms currently operate as black boxes. Users, researchers, journalists, and policymakers cannot see the data necessary to understand how platforms are making decisions, who is being harmed, or whether their policies are working. Congress should require platforms to provide regular, standardized transparency reports that include data on content moderation, algorithmic amplification, and the demographics of who is being harmed.<sup><a href="#fn7" id="fnref7">7</a></sup></p>
+        <p><strong>Fourth, ensure civil rights compliance.</strong> Platforms should be required to conduct civil rights audits—independently assessed, with public results—on a regular basis. Color Of Change helped lead the civil rights audit of Facebook, which produced substantive and important findings.<sup><a href="#fn8" id="fnref8">8</a></sup> But voluntary audits are not enough. Congress should establish a legal requirement for such audits and create enforcement mechanisms to ensure that platforms actually implement the recommendations they receive.</p>
+        <p><strong>Fifth, protect whistleblowers.</strong> Frances Haugen, Sophie Zhang, and others who have come forward to reveal the internal workings of major platforms have performed a valuable public service. They have done so at great personal risk. Congress should strengthen whistleblower protections to ensure that people within these companies who are aware of harms can come forward without fear of retaliation.<sup><a href="#fn9" id="fnref9">9</a></sup></p>
+        <p>I want to be clear about what this testimony is not calling for. We are not calling for platforms to become the arbiters of political speech or to police all offensive content. We are calling for accountability—the same accountability that other industries face when their products cause harm. We are calling for the same rules to apply to powerful tech companies that apply to other powerful institutions in our society.</p>
+        <p>The tech industry has spent enormous resources arguing that it is different—that its products are more complex, its decisions too difficult to regulate, its impact too vast to govern. But complexity is not an excuse for harm. Power is not an excuse for unaccountability. And profitability is certainly not an excuse for allowing civil rights violations to continue unchecked.<sup><a href="#fn10" id="fnref10">10</a></sup></p>
+        <p>Black people and other marginalized communities have been fighting for full inclusion in American democracy for as long as there has been an American democracy. We have fought against systems of exclusion, against laws designed to keep us from voting, against policies designed to keep us from wealth, against cultures designed to keep us from power. We are not strangers to the fight for accountability from powerful institutions that harm us while claiming to serve us.<sup><a href="#fn11" id="fnref11">11</a></sup></p>
+        <p>Social media platforms are the newest, and in some ways the most powerful, of those institutions. They have the ability to determine what information people see, what voices are amplified, what communities are targeted, and what movements can grow. The decisions they make—or refuse to make—have real consequences for real people.</p>
+        <p>Color Of Change and the communities we represent are ready to work with this Committee to develop legislation that holds these platforms accountable and protects the rights and safety of all people who use them. The question is not whether these platforms are powerful enough to govern. They are. The question is whether Congress has the will to act. We believe you do, and we look forward to that work.<sup><a href="#fn12" id="fnref12">12</a></sup></p>
+        <p>Thank you.<sup><a href="#fn13" id="fnref13">13</a></sup></p>
+      </div>
+
+      <section class="entry__footnotes">
+        <p class="entry__footnotes-heading">Notes &amp; References</p>
+        <ol>
+          <li id="fn1">Color Of Change, "Facebook's Failures: How the Platform is Harming Black Communities and What Needs to Change," 2020. <a href="https://colorofchange.org" target="_blank" rel="noopener">colorofchange.org</a> <a href="#fnref1">↩</a></li>
+          <li id="fn2">Karen Hao, "How Facebook got addicted to spreading misinformation," <em>MIT Technology Review</em>, March 11, 2021. <a href="https://technologyreview.com" target="_blank" rel="noopener">technologyreview.com</a> <a href="#fnref2">↩</a></li>
+          <li id="fn3">Evelyn Douek, "Facebook's 'Oversight Board:' Move Fast with Stable Governance and Humility," <em>SSRN</em>, 2019. <a href="https://ssrn.com" target="_blank" rel="noopener">ssrn.com</a> <a href="#fnref3">↩</a></li>
+          <li id="fn4">Jeff Horwitz, "Facebook Knows It Encourages Division. Top Executives Nixed Solutions," <em>The Wall Street Journal</em>, May 26, 2020. <a href="https://wsj.com" target="_blank" rel="noopener">wsj.com</a> <a href="#fnref4">↩</a></li>
+          <li id="fn5">Danielle Keats Citron and Mary Anne Franks, "The Internet as a Speech Machine and Other Myths Confounding Section 230 Speech Reform," 2020. <a href="https://lawreview.uchicago.edu" target="_blank" rel="noopener">lawreview.uchicago.edu</a> <a href="#fnref5">↩</a></li>
+          <li id="fn6">Dillon Reisman, Jason Schultz, Kate Crawford, Meredith Whittaker, "Algorithmic Impact Assessments: A Practical Framework for Public Agency Accountability," AI Now Institute, 2018. <a href="https://ainowinstitute.org" target="_blank" rel="noopener">ainowinstitute.org</a> <a href="#fnref6">↩</a></li>
+          <li id="fn7">Becca Ricks and Jesse Woo, "Untangling the Social Web: How Tech Platforms Must Do More to Ensure Their Systems Don't Harm Users," Center for Democracy and Technology, 2020. <a href="https://cdt.org" target="_blank" rel="noopener">cdt.org</a> <a href="#fnref7">↩</a></li>
+          <li id="fn8">Laura W. Murphy, "Facebook Civil Rights Audit — Final Report," July 2020. <a href="https://about.fb.com/wp-content/uploads/2020/07/Civil-Rights-Audit-Final-Report.pdf" target="_blank" rel="noopener">about.fb.com</a> <a href="#fnref8">↩</a></li>
+          <li id="fn9">Elizabeth Dwoskin and Craig Timberg, "Whistleblower says Facebook misled investors and public about role in January 6 Capitol riot," <em>The Washington Post</em>, October 4, 2021. <a href="https://washingtonpost.com" target="_blank" rel="noopener">washingtonpost.com</a> <a href="#fnref9">↩</a></li>
+          <li id="fn10">Safiya Umoja Noble, <em>Algorithms of Oppression: How Search Engines Reinforce Racism</em>, New York University Press, 2018. <a href="#fnref10">↩</a></li>
+          <li id="fn11">Ruha Benjamin, <em>Race After Technology: Abolitionist Tools for the New Jim Code</em>, Polity Press, 2019. <a href="#fnref11">↩</a></li>
+          <li id="fn12">Color Of Change, "A Platform For Change: Reform Recommendations For Social Media Companies," 2021. <a href="https://colorofchange.org" target="_blank" rel="noopener">colorofchange.org</a> <a href="#fnref12">↩</a></li>
+          <li id="fn13">This testimony was delivered before the U.S. House Committee on Energy and Commerce. A video recording and official transcript are available through the Committee's official records. <a href="#fnref13">↩</a></li>
+        </ol>
+      </section>
+    </main>
+
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="../nav.js"></script>
+  <script src="../footer.js"></script>
+  <script>
+    (function () {
+      var current = window.location.pathname.split('/').pop() || '';
+      document.querySelectorAll('.sidebar-col__link').forEach(function (link) {
+        var href = link.getAttribute('href').split('/').pop();
+        link.classList.toggle('is-active', href === current);
+      });
+    })();
+  </script>
+</body>
+</html>

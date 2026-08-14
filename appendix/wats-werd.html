@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WATS &amp; WERD: Cases of Communications Infrastructure — Appendix · From Presence to Power</title>
+  <meta name="description" content="WATS & WERD: Cases of Communications Infrastructure — Appendix entry from From Presence to Power by Rashad Robinson.">
+  <link rel="canonical" href="https://book.rashadrobinson.com/appendix/wats-werd">
+  <link rel="icon" type="image/png" href="../images/book-mock.png">
+  <link rel="apple-touch-icon" href="../images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css">
+  <link rel="stylesheet" href="../footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+      --ls-eyebrow:   0.32em;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
+    }
+
+    .sidebar-col {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .sidebar-col__inner {
+      position: sticky;
+      top: 60px;
+      padding: 48px 0;
+    }
+
+    .sidebar-col__back {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      text-decoration: none;
+      padding: 0 28px 28px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__back:hover { color: rgba(239,237,236,0.75); }
+
+    .sidebar-col__toc-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.3);
+      padding: 0 28px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-col__nav { display: flex; flex-direction: column; gap: 2px; }
+
+    .sidebar-col__link {
+      display: block;
+      text-decoration: none;
+      padding: 10px 28px;
+      border-left: 2px solid transparent;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
+
+    .sidebar-col__link.is-active {
+      border-left-color: var(--orange);
+      background: rgba(239,237,236,0.06);
+    }
+
+    .sidebar-col__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 3px;
+    }
+
+    .sidebar-col__link-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: rgba(239,237,236,0.5);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__link.is-active .sidebar-col__link-title,
+    .sidebar-col__link:hover .sidebar-col__link-title { color: var(--cream); }
+
+    .appendix-main {
+      flex: 1;
+      min-width: 0;
+      max-width: 760px;
+      padding: 72px 64px 120px 64px;
+    }
+
+    .entry__meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .entry__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 28px;
+    }
+
+    .entry__preamble {
+      font-style: italic;
+      color: var(--fg-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      border-left: 3px solid var(--orange);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 36px;
+    }
+
+    .entry__body p { margin-bottom: 20px; font-size: 17px; line-height: 1.7; }
+    .entry__body p:last-child { margin-bottom: 0; }
+    .entry__body strong { font-weight: 700; }
+    .entry__body em { font-style: italic; }
+
+    @media (max-width: 860px) {
+      .appendix-layout { flex-direction: column; }
+      .sidebar-col { width: 100%; }
+      .sidebar-col__inner { position: static; padding: 32px 20px 0; }
+      .sidebar-col__back { padding: 0 0 20px; }
+      .sidebar-col__toc-label { padding: 0; }
+      .sidebar-col__nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 20px;
+        gap: 4px;
+      }
+      .sidebar-col__link {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: 8px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .sidebar-col__link.is-active {
+        border-left-color: transparent;
+        border-bottom-color: var(--orange);
+        background: rgba(239,237,236,0.08);
+      }
+      .appendix-main { padding: 40px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+
+  <div class="appendix-layout">
+
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
+        <a href="/appendix" class="sidebar-col__back">← All Entries</a>
+        <p class="sidebar-col__toc-label">Appendix</p>
+        <nav class="sidebar-col__nav">
+          <a href="introduction" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="dollar-vans" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans</p>
+          </a>
+          <a href="black-infrastructure" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation</p>
+          </a>
+          <a href="wats-werd" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD</p>
+          </a>
+          <a href="congressional-testimony" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">Big Tech Congressional Testimony</p>
+          </a>
+          <a href="cultural-advocacy" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="appendix-main">
+      <p class="entry__meta">Chapter 8 &nbsp;·&nbsp; Page 137</p>
+      <h1 class="entry__title">WATS &amp; WERD: Cases of Communications Infrastructure</h1>
+      <div class="entry__preamble">
+        Two Civil Rights Era stories about leveraging communications technology to generate power — and what they teach activists about infrastructure today.
+      </div>
+      <div class="entry__body">
+        <p>In the early days of the American civil rights movement, Black communities and those who fought alongside them developed powerful tools for organizing and spreading their message. For a people systematically shut out of—or manipulated by—the mainstream media, controlling independent channels of communication was crucial. This is an era that is well worth studying for our current media moment, when the tools of mass communication are dramatically different but the goals haven't changed: to be heard, to move people, to earn power, and to create change.</p>
+        <p>One example is WATS—Wide Area Telephone Service. As the civil rights movement spread, activists and organizations began using WATS lines in a sophisticated and intentional way. Standard long-distance calls were charged per minute, which made it prohibitively expensive for the movement to communicate over long distances. WATS was a flat-fee service that allowed subscribing organizations to make unlimited long-distance calls within a certain geographic area. In other words, you could make as many calls as you wanted within, say, the southeastern United States, for one flat monthly fee.</p>
+        <p>Organizations like the Student Nonviolent Coordinating Committee (SNCC) used WATS to create communications networks across the Deep South. Staff in different states could call each other to coordinate on actions, to report on conditions in the field, and to share information rapidly. SNCC's WATS line became, in a sense, the first version of a social media network: a way to share real-time information across geography, to alert people to breaking developments, to build a connected community.</p>
+        <p>WATS also enabled a critically important function: documenting violence. When activists were attacked, when police used violence, when rights were being violated, that information could travel along these phone lines quickly, reaching people in other parts of the country who could then amplify it. Journalism, political pressure, and a broader public awareness were all fed by this communications infrastructure. The SNCC ran a "WATS Line Report" that was the primary source of information about conditions in the field—a daily bulletin of what was happening on the front lines of the civil rights movement. This information could become news, could activate supporters in the North, could reach the attention of government officials and journalists.</p>
+        <p>In Atlanta, Georgia, WERD was the first Black-owned radio station in the country. It went on the air in 1949. Just as importantly as who owned it, consider what it meant: in an era of widespread segregation and racial oppression, a Black community had a vehicle to speak to itself, to share its culture, to organize its community life, to advocate for its interests—without white gatekeepers deciding what got said. The station played jazz, gospel, and rhythm and blues to a Black audience, including one that had been largely excluded from mainstream media. It also provided a platform for civil rights advocates and political leaders to address the community directly.</p>
+        <p>WERD also represented a form of economic power. It was a Black-owned business. It employed Black people. It generated revenue from advertisers who wanted to reach the Black community. And it provided a form of cultural validation and visibility to a community that had been largely erased from, or diminished by, mainstream media. The ownership of that station was, in miniature, the same story of infrastructure and power that plays out across every era and every domain: who controls the infrastructure controls what gets communicated, who gets seen, and what values get reinforced.</p>
+        <p>These examples from an earlier era of movement building illuminate something central about today: <strong>the questions around who controls major communications and social media platforms are not new, and neither is their significance.</strong> We should look to our ancestors' creativity and determination for models of how to build and leverage power over communication in our current moment. In a time when the digital platforms that many people rely on for news and social connection are owned and controlled by a small number of people, the choices about how to use, how to regulate, and how to think about these systems are crucial. The activists of the 1950s and '60s didn't have Twitter, but they understood that in a world where powerful forces were deployed against them, their power depended on their ability to communicate—across geography, across generations, through time, across difference. That lesson is ours to apply today.</p>
+        <p>The strategies of the past are a library of creative solutions. WATS lines and community radio stations were responses to specific conditions, specific constraints. But the deeper question—of how to build communications infrastructure that serves the cause of justice—is a permanent one for every movement. Today's conditions are radically different: we are awash in communications tools, rather than starved of them. But the challenge of who controls those tools, who benefits from them, who is heard through them, and who gets to set the rules by which they operate, is as pressing as it has ever been.</p>
+        <p>What distinguished both WATS and WERD, and the activists who used them, was the recognition that infrastructure is political. The fight for power is always, among other things, a fight over who gets to build systems and who gets to set rules. That recognition is one of the most important lessons we can draw from the activists who came before us.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script src="../nav.js"></script>
+  <script src="../footer.js"></script>
+  <script>
+    (function () {
+      var current = window.location.pathname.split('/').pop() || '';
+      document.querySelectorAll('.sidebar-col__link').forEach(function (link) {
+        var href = link.getAttribute('href').split('/').pop();
+        link.classList.toggle('is-active', href === current);
+      });
+    })();
+  </script>
+</body>
+</html>
