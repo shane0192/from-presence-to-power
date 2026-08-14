@@ -57,16 +57,43 @@
       text-rendering: optimizeLegibility;
     }
 
-    /* ─── PAGE HEADER ─── */
-    .page-header {
-      background: var(--brown);
-      color: var(--cream);
-      padding: 72px 48px 60px;
+    /* ─── LAYOUT: full-height sidebar column + content ─── */
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
     }
 
-    .page-header__eyebrow {
+    /* ─── SIDEBAR COLUMN (dark, full height) ─── */
+    .sidebar-col {
+      width: 280px;
+      flex-shrink: 0;
+      background: var(--brown);
+      color: var(--cream);
+      position: relative;
+    }
+
+    /* sticky inner wrapper — title + TOC scroll together and then pin */
+    .sidebar-col__inner {
+      position: sticky;
+      top: 60px;
+      max-height: calc(100vh - 60px);
+      overflow-y: auto;
+      padding: 60px 0 48px;
+    }
+
+    .sidebar-col__inner::-webkit-scrollbar { display: none; }
+
+    /* Title block inside sidebar */
+    .sidebar-col__title {
+      padding: 0 32px 36px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+    }
+
+    .sidebar-col__eyebrow {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 9px;
       font-weight: 600;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
@@ -74,84 +101,59 @@
       margin-bottom: 14px;
     }
 
-    .page-header__title {
+    .sidebar-col__heading {
       font-family: var(--font-display);
-      font-size: clamp(56px, 9vw, 112px);
+      font-size: clamp(40px, 3.5vw, 56px);
       font-weight: 800;
       line-height: 0.92;
       letter-spacing: 0.01em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      color: var(--cream);
+      margin-bottom: 16px;
     }
 
-    .page-header__subtitle {
-      font-family: var(--font-body);
-      font-size: 15px;
-      color: var(--tan);
-      max-width: 480px;
-      line-height: 1.5;
+    .sidebar-col__subtitle {
+      font-size: 13px;
+      color: rgba(239,237,236,0.55);
+      line-height: 1.55;
     }
 
-    /* ─── BODY LAYOUT: sidebar + content ─── */
-    .appendix-body {
-      display: flex;
-      align-items: flex-start;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-      gap: 0;
-    }
-
-    /* ─── SIDEBAR ─── */
-    .sidebar {
-      width: var(--sidebar-w);
-      flex-shrink: 0;
-      position: sticky;
-      top: 80px; /* clears site nav */
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
-      padding: 48px 0 48px;
-      border-right: 1px solid var(--border);
-    }
-
-    .sidebar::-webkit-scrollbar { display: none; }
-
-    .sidebar__label {
+    /* TOC nav */
+    .sidebar-col__toc-label {
       font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 600;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
-      color: var(--fg-muted);
-      padding-right: 24px;
-      margin-bottom: 16px;
+      color: rgba(239,237,236,0.35);
+      padding: 0 32px;
+      margin-bottom: 12px;
     }
 
-    .sidebar__nav {
+    .sidebar-col__nav {
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
 
-    .sidebar__link {
+    .sidebar-col__link {
       display: block;
       text-decoration: none;
-      padding: 10px 24px 10px 0;
-      border-right: 2px solid transparent;
-      margin-right: -1px;
-      transition: border-color 0.15s;
+      padding: 10px 32px;
+      border-left: 2px solid transparent;
+      transition: border-color 0.15s, background 0.15s;
     }
 
-    .sidebar__link:hover .sidebar__link-title,
-    .sidebar__link.is-active .sidebar__link-title {
-      color: var(--fg);
+    .sidebar-col__link:hover {
+      background: rgba(239,237,236,0.05);
     }
 
-    .sidebar__link.is-active {
-      border-right-color: var(--orange);
+    .sidebar-col__link.is-active {
+      border-left-color: var(--orange);
+      background: rgba(239,237,236,0.06);
     }
 
-    .sidebar__link-ref {
+    .sidebar-col__link-ref {
       font-family: var(--font-mono);
       font-size: 9px;
       font-weight: 600;
@@ -161,20 +163,25 @@
       margin-bottom: 3px;
     }
 
-    .sidebar__link-title {
-      font-family: var(--font-body);
+    .sidebar-col__link-title {
       font-size: 12px;
       font-weight: 600;
-      color: var(--fg-muted);
+      color: rgba(239,237,236,0.6);
       line-height: 1.35;
       transition: color 0.15s;
+    }
+
+    .sidebar-col__link.is-active .sidebar-col__link-title,
+    .sidebar-col__link:hover .sidebar-col__link-title {
+      color: var(--cream);
     }
 
     /* ─── MAIN CONTENT ─── */
     .appendix-main {
       flex: 1;
       min-width: 0;
-      padding: 64px 0 120px 56px;
+      max-width: 800px;
+      padding: 72px 64px 120px 72px;
     }
 
     /* ─── ENTRY ─── */
@@ -292,49 +299,52 @@
 
     /* ─── MOBILE ─── */
     @media (max-width: 860px) {
-      .appendix-body {
-        flex-direction: column;
-        padding: 0 20px;
-      }
+      .appendix-layout { flex-direction: column; }
 
-      .sidebar {
-        width: 100%;
+      .sidebar-col { width: 100%; }
+
+      .sidebar-col__inner {
         position: static;
         max-height: none;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-        padding: 28px 0 24px;
-        overflow-x: auto;
-        overflow-y: visible;
+        padding: 40px 20px 0;
       }
 
-      .sidebar__nav {
+      .sidebar-col__title {
+        padding: 0 0 28px;
+        margin-bottom: 24px;
+      }
+
+      .sidebar-col__heading { font-size: 48px; }
+
+      .sidebar-col__toc-label { padding: 0; }
+
+      .sidebar-col__nav {
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: 4px;
         overflow-x: auto;
-        padding-bottom: 4px;
+        padding-bottom: 20px;
+        gap: 4px;
+        margin-top: 8px;
       }
 
-      .sidebar__link {
-        border-right: none;
+      .sidebar-col__link {
+        border-left: none;
         border-bottom: 2px solid transparent;
-        margin-right: 0;
         padding: 8px 12px;
         white-space: nowrap;
         flex-shrink: 0;
       }
 
-      .sidebar__link.is-active {
-        border-right-color: transparent;
+      .sidebar-col__link.is-active {
+        border-left-color: transparent;
         border-bottom-color: var(--orange);
+        background: rgba(239,237,236,0.08);
       }
 
       .appendix-main {
-        padding: 40px 0 80px;
+        padding: 40px 20px 80px;
       }
 
-      .page-header { padding: 56px 20px 44px; }
       .entry { margin-bottom: 64px; padding-bottom: 64px; }
       .entry__body p { font-size: 16px; }
     }
@@ -344,45 +354,50 @@
 
   <nav id="site-nav"></nav>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <p class="page-header__eyebrow">From Presence to Power</p>
-    <h1 class="page-header__title">Appendix</h1>
-    <p class="page-header__subtitle">Extended passages, additional context, and source materials referenced in the book.</p>
-  </div>
+  <!-- TWO-COLUMN LAYOUT -->
+  <div class="appendix-layout">
 
-  <!-- SIDEBAR + CONTENT -->
-  <div class="appendix-body">
+    <!-- SIDEBAR COLUMN -->
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
 
-    <!-- SIDEBAR NAV -->
-    <aside class="sidebar" aria-label="Appendix entries">
-      <p class="sidebar__label">Contents</p>
-      <nav class="sidebar__nav">
-        <a href="#entry-intro" class="sidebar__link">
-          <p class="sidebar__link-ref">Intro · p. xvii</p>
-          <p class="sidebar__link-title">My High School Teacher &amp; How Power Works</p>
-        </a>
-        <a href="#entry-ch8-122" class="sidebar__link">
-          <p class="sidebar__link-ref">Ch. 8 · p. 122</p>
-          <p class="sidebar__link-title">Dollar Vans</p>
-        </a>
-        <a href="#entry-ch8-125" class="sidebar__link">
-          <p class="sidebar__link-ref">Ch. 8 · p. 125</p>
-          <p class="sidebar__link-title">Black Infrastructure, Black Innovation</p>
-        </a>
-        <a href="#entry-ch8-137" class="sidebar__link">
-          <p class="sidebar__link-ref">Ch. 8 · p. 137</p>
-          <p class="sidebar__link-title">WATS &amp; WERD</p>
-        </a>
-        <a href="#entry-ch13" class="sidebar__link">
-          <p class="sidebar__link-ref">Ch. 13 · p. 233</p>
-          <p class="sidebar__link-title">Big Tech Congressional Testimony</p>
-        </a>
-        <a href="#entry-ch15" class="sidebar__link">
-          <p class="sidebar__link-ref">Ch. 15 · p. 286</p>
-          <p class="sidebar__link-title">The Cultural Advocacy Whitepaper</p>
-        </a>
-      </nav>
+        <!-- Title block -->
+        <div class="sidebar-col__title">
+          <p class="sidebar-col__eyebrow">From Presence to Power</p>
+          <h1 class="sidebar-col__heading">Appendix</h1>
+          <p class="sidebar-col__subtitle">Extended passages, additional context, and source materials referenced in the book.</p>
+        </div>
+
+        <!-- TOC nav -->
+        <p class="sidebar-col__toc-label">Contents</p>
+        <nav class="sidebar-col__nav">
+          <a href="#entry-intro" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="#entry-ch8-122" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans</p>
+          </a>
+          <a href="#entry-ch8-125" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation</p>
+          </a>
+          <a href="#entry-ch8-137" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD</p>
+          </a>
+          <a href="#entry-ch13" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">Big Tech Congressional Testimony</p>
+          </a>
+          <a href="#entry-ch15" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+
+      </div>
     </aside>
 
     <!-- ENTRIES -->
@@ -540,7 +555,7 @@
 
     </main>
 
-  </div><!-- /.appendix-body -->
+  </div><!-- /.appendix-layout -->
 
   <div id="site-footer"></div>
 
@@ -549,7 +564,7 @@
   <script>
     // Highlight active sidebar link based on scroll position
     (function () {
-      const links = document.querySelectorAll('.sidebar__link');
+      const links = document.querySelectorAll('.sidebar-col__link');
       const entries = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
 
       function setActive() {
