@@ -48,21 +48,34 @@
       display: flex;
       align-items: stretch;
       min-height: calc(100vh - 60px);
+      position: relative;
     }
 
-    /* ─── SIDEBAR: dark bg fills full column height ─── */
+    .appendix-layout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--brown);
+      pointer-events: none;
+    }
+
     .sidebar-col {
       width: 260px;
       flex-shrink: 0;
-      background: var(--brown);
       color: var(--cream);
-    }
-
-    /* sticky inner — ONLY position:sticky here, NO overflow-y (that breaks sticky) */
-    .sidebar-col__inner {
       position: sticky;
       top: 60px;
-      padding: 48px 0 48px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      align-self: flex-start;
+      z-index: 1;
+    }
+
+    .sidebar-col__inner {
+      padding: 48px 0;
     }
 
     /* back link */
@@ -193,8 +206,9 @@
     /* ─── MOBILE ─── */
     @media (max-width: 860px) {
       .appendix-layout { flex-direction: column; }
+      .appendix-layout::before { display: none; }
 
-      .sidebar-col { width: 100%; }
+      .sidebar-col { width: 100%; background: var(--brown); position: static; height: auto; overflow-y: visible; }
 
       .sidebar-col__inner {
         position: static;

@@ -25,7 +25,6 @@
       --orange:       #E55F1D;
       --brown:        #281D1D;
       --cream:        #EFEDEC;
-      --tan:          #DAD6CB;
       --fg:           #281D1D;
       --fg-muted:     #545452;
       --bg:           #EFEDEC;
@@ -45,51 +44,129 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ─── HERO ─── */
-    .appendix-hero {
+    /* ─── TWO-COLUMN LAYOUT ─── */
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
+      position: relative;
+    }
+
+    /* Full-height brown stripe painted behind the sticky sidebar */
+    .appendix-layout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
       background: var(--brown);
+      pointer-events: none;
+    }
+
+    /* Sidebar column: sticky viewport panel, bg from ::before */
+    .sidebar-col {
+      width: 260px;
+      flex-shrink: 0;
       color: var(--cream);
-      padding: 80px 48px 72px;
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      align-self: flex-start;
+      z-index: 1;
     }
 
-    .appendix-hero__inner {
-      max-width: 800px;
-      margin: 0 auto;
+    .sidebar-col__inner {
+      padding: 48px 0;
     }
 
-    .appendix-hero__eyebrow {
+    .sidebar-col__heading {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--cream);
+      padding: 0 28px 28px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      margin-bottom: 28px;
+    }
+
+    .sidebar-col__toc-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.3);
+      padding: 0 28px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-col__nav { display: flex; flex-direction: column; gap: 2px; }
+
+    .sidebar-col__link {
+      display: block;
+      text-decoration: none;
+      padding: 10px 28px;
+      border-left: 2px solid transparent;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
+
+    .sidebar-col__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 3px;
+    }
+
+    .sidebar-col__link-title {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: rgba(239,237,236,0.5);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__link:hover .sidebar-col__link-title { color: var(--cream); }
+
+    /* ─── MAIN COLUMN ─── */
+    .appendix-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .appendix-intro {
+      padding: 64px 64px 0;
+      max-width: 680px;
+    }
+
+    .appendix-intro__eyebrow {
       font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 600;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
-    .appendix-hero__heading {
-      font-family: var(--font-display);
-      font-size: clamp(56px, 7vw, 96px);
-      font-weight: 800;
-      line-height: 0.9;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      color: var(--cream);
-      margin-bottom: 24px;
-    }
-
-    .appendix-hero__body {
-      font-size: 16px;
-      line-height: 1.6;
-      color: rgba(239,237,236,0.65);
-      max-width: 520px;
+    .appendix-intro__body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--fg-muted);
     }
 
     /* ─── ENTRY LIST ─── */
     .appendix-list {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 72px 48px 120px;
+      padding: 48px 64px 120px;
     }
 
     .appendix-entry {
@@ -101,10 +178,7 @@
       transition: opacity 0.15s;
     }
 
-    .appendix-entry:last-child {
-      border-bottom: 1px solid var(--border);
-    }
-
+    .appendix-entry:last-child { border-bottom: 1px solid var(--border); }
     .appendix-entry:hover { opacity: 0.72; }
 
     .appendix-entry__ref {
@@ -132,7 +206,7 @@
       font-size: 15px;
       line-height: 1.6;
       color: var(--fg-muted);
-      max-width: 560px;
+      max-width: 520px;
     }
 
     .appendix-entry__cta {
@@ -147,9 +221,29 @@
     }
 
     /* ─── MOBILE ─── */
-    @media (max-width: 640px) {
-      .appendix-hero { padding: 56px 20px 48px; }
-      .appendix-list { padding: 48px 20px 80px; }
+    @media (max-width: 860px) {
+      .appendix-layout { flex-direction: column; }
+      .appendix-layout::before { display: none; }
+      .sidebar-col { width: 100%; background: var(--brown); position: static; height: auto; overflow-y: visible; }
+      .sidebar-col__inner { position: static; padding: 32px 20px 0; }
+      .sidebar-col__heading { padding: 0 0 20px; font-size: 40px; }
+      .sidebar-col__toc-label { padding: 0; }
+      .sidebar-col__nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 20px;
+        gap: 4px;
+      }
+      .sidebar-col__link {
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: 8px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .appendix-intro { padding: 40px 20px 0; }
+      .appendix-list { padding: 32px 20px 80px; }
       .appendix-entry { padding: 32px 0; }
     }
   </style>
@@ -158,59 +252,95 @@
 
   <nav id="site-nav"></nav>
 
-  <header class="appendix-hero">
-    <div class="appendix-hero__inner">
-      <p class="appendix-hero__eyebrow">From Presence to Power</p>
-      <h1 class="appendix-hero__heading">Appendix</h1>
-      <p class="appendix-hero__body">Extended passages, additional context, and source materials referenced throughout the book.</p>
-    </div>
-  </header>
+  <div class="appendix-layout">
 
-  <main class="appendix-list">
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
+        <h1 class="sidebar-col__heading">Appendix</h1>
+        <p class="sidebar-col__toc-label">Entries</p>
+        <nav class="sidebar-col__nav">
+          <a href="/appendix/introduction" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="/appendix/dollar-vans" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans</p>
+          </a>
+          <a href="/appendix/black-infrastructure" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation</p>
+          </a>
+          <a href="/appendix/wats-werd" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD</p>
+          </a>
+          <a href="/appendix/congressional-testimony" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">Big Tech Congressional Testimony</p>
+          </a>
+          <a href="/appendix/cultural-advocacy" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+      </div>
+    </aside>
 
-    <a href="/appendix/introduction" class="appendix-entry">
-      <p class="appendix-entry__ref">Introduction &nbsp;·&nbsp; Page xvii</p>
-      <h2 class="appendix-entry__title">More About My High School Teacher and How Power Works</h2>
-      <p class="appendix-entry__preamble">An incident in my hometown — a principal sending Black students to a police lineup — taught me early about how power is designed to work, and who it's designed to protect.</p>
-      <span class="appendix-entry__cta">Read →</span>
-    </a>
+    <main class="appendix-main">
+      <div class="appendix-intro">
+        <p class="appendix-intro__eyebrow">From Presence to Power</p>
+        <p class="appendix-intro__body">Extended passages, additional context, and source materials referenced throughout the book.</p>
+      </div>
 
-    <a href="/appendix/dollar-vans" class="appendix-entry">
-      <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 122</p>
-      <h2 class="appendix-entry__title">Dollar Vans: Communities Inventing Infrastructure</h2>
-      <p class="appendix-entry__preamble">When people in power impose infrastructure that doesn't work, people often respond by creating an infrastructure of their own that does.</p>
-      <span class="appendix-entry__cta">Read →</span>
-    </a>
+      <div class="appendix-list">
 
-    <a href="/appendix/black-infrastructure" class="appendix-entry">
-      <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 125</p>
-      <h2 class="appendix-entry__title">Black Infrastructure, Black Innovation, Black Power</h2>
-      <p class="appendix-entry__preamble">The history of Black America can be told through the story of Black innovation — building independent structures and systems in a world designed to deny them.</p>
-      <span class="appendix-entry__cta">Read →</span>
-    </a>
+        <a href="/appendix/introduction" class="appendix-entry">
+          <p class="appendix-entry__ref">Introduction &nbsp;·&nbsp; Page xvii</p>
+          <h2 class="appendix-entry__title">More About My High School Teacher and How Power Works</h2>
+          <p class="appendix-entry__preamble">An incident in my hometown — a principal sending Black students to a police lineup — taught me early about how power is designed to work, and who it's designed to protect.</p>
+          <span class="appendix-entry__cta">Read →</span>
+        </a>
 
-    <a href="/appendix/wats-werd" class="appendix-entry">
-      <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 137</p>
-      <h2 class="appendix-entry__title">WATS &amp; WERD: Cases of Communications Infrastructure</h2>
-      <p class="appendix-entry__preamble">Two Civil Rights Era stories about leveraging communications technology to generate power — and what they teach activists about infrastructure today.</p>
-      <span class="appendix-entry__cta">Read →</span>
-    </a>
+        <a href="/appendix/dollar-vans" class="appendix-entry">
+          <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 122</p>
+          <h2 class="appendix-entry__title">Dollar Vans: Communities Inventing Infrastructure</h2>
+          <p class="appendix-entry__preamble">When people in power impose infrastructure that doesn't work, people often respond by creating an infrastructure of their own that does.</p>
+          <span class="appendix-entry__cta">Read →</span>
+        </a>
 
-    <a href="/appendix/congressional-testimony" class="appendix-entry">
-      <p class="appendix-entry__ref">Chapter 13 &nbsp;·&nbsp; Page 233</p>
-      <h2 class="appendix-entry__title">Big Tech Congressional Testimony</h2>
-      <p class="appendix-entry__preamble">Rashad Robinson's full testimony before the U.S. House Committee on Energy and Commerce, arguing for major policy changes to hold Big Tech accountable.</p>
-      <span class="appendix-entry__cta">Read →</span>
-    </a>
+        <a href="/appendix/black-infrastructure" class="appendix-entry">
+          <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 125</p>
+          <h2 class="appendix-entry__title">Black Infrastructure, Black Innovation, Black Power</h2>
+          <p class="appendix-entry__preamble">The history of Black America can be told through the story of Black innovation — building independent structures and systems in a world designed to deny them.</p>
+          <span class="appendix-entry__cta">Read →</span>
+        </a>
 
-    <a href="/appendix/cultural-advocacy" class="appendix-entry">
-      <p class="appendix-entry__ref">Chapter 15 &nbsp;·&nbsp; Page 286</p>
-      <h2 class="appendix-entry__title">The Whitepaper on Cultural Advocacy</h2>
-      <p class="appendix-entry__preamble">The 1992 GLAAD paper that proved highly influential for developing a strategic front in the fight for social change through the lever of culture.</p>
-      <span class="appendix-entry__cta">Read →</span>
-    </a>
+        <a href="/appendix/wats-werd" class="appendix-entry">
+          <p class="appendix-entry__ref">Chapter 8 &nbsp;·&nbsp; Page 137</p>
+          <h2 class="appendix-entry__title">WATS &amp; WERD: Cases of Communications Infrastructure</h2>
+          <p class="appendix-entry__preamble">Two Civil Rights Era stories about leveraging communications technology to generate power — and what they teach activists about infrastructure today.</p>
+          <span class="appendix-entry__cta">Read →</span>
+        </a>
 
-  </main>
+        <a href="/appendix/congressional-testimony" class="appendix-entry">
+          <p class="appendix-entry__ref">Chapter 13 &nbsp;·&nbsp; Page 233</p>
+          <h2 class="appendix-entry__title">Big Tech Congressional Testimony</h2>
+          <p class="appendix-entry__preamble">Rashad Robinson's full testimony before the U.S. House Committee on Energy and Commerce, arguing for major policy changes to hold Big Tech accountable.</p>
+          <span class="appendix-entry__cta">Read →</span>
+        </a>
+
+        <a href="/appendix/cultural-advocacy" class="appendix-entry">
+          <p class="appendix-entry__ref">Chapter 15 &nbsp;·&nbsp; Page 286</p>
+          <h2 class="appendix-entry__title">The Whitepaper on Cultural Advocacy</h2>
+          <p class="appendix-entry__preamble">The 1992 GLAAD paper that proved highly influential for developing a strategic front in the fight for social change through the lever of culture.</p>
+          <span class="appendix-entry__cta">Read →</span>
+        </a>
+
+      </div>
+    </main>
+
+  </div>
 
   <div id="site-footer"></div>
 

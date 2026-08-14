@@ -45,18 +45,33 @@
       display: flex;
       align-items: stretch;
       min-height: calc(100vh - 60px);
+      position: relative;
+    }
+
+    .appendix-layout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--brown);
+      pointer-events: none;
     }
 
     .sidebar-col {
       width: 260px;
       flex-shrink: 0;
-      background: var(--brown);
       color: var(--cream);
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      align-self: flex-start;
+      z-index: 1;
     }
 
     .sidebar-col__inner {
-      position: sticky;
-      top: 60px;
       padding: 48px 0;
     }
 
@@ -248,7 +263,8 @@
 
     @media (max-width: 860px) {
       .appendix-layout { flex-direction: column; }
-      .sidebar-col { width: 100%; }
+      .appendix-layout::before { display: none; }
+      .sidebar-col { width: 100%; background: var(--brown); position: static; height: auto; overflow-y: visible; }
       .sidebar-col__inner { position: static; padding: 32px 20px 0; }
       .sidebar-col__back { padding: 0 0 20px; }
       .sidebar-col__toc-label { padding: 0; }
