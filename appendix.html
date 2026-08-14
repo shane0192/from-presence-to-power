@@ -41,6 +41,7 @@
 
       --ls-eyebrow:   0.32em;
       --lh-body:      1.65;
+      --sidebar-w:    224px;
     }
 
     html { scroll-behavior: smooth; }
@@ -60,8 +61,7 @@
     .page-header {
       background: var(--brown);
       color: var(--cream);
-      padding: 80px 24px 64px;
-      text-align: center;
+      padding: 72px 48px 60px;
     }
 
     .page-header__eyebrow {
@@ -71,14 +71,14 @@
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .page-header__title {
       font-family: var(--font-display);
-      font-size: clamp(48px, 8vw, 96px);
+      font-size: clamp(56px, 9vw, 112px);
       font-weight: 800;
-      line-height: 0.94;
+      line-height: 0.92;
       letter-spacing: 0.01em;
       text-transform: uppercase;
       margin-bottom: 20px;
@@ -86,67 +86,95 @@
 
     .page-header__subtitle {
       font-family: var(--font-body);
-      font-size: 16px;
+      font-size: 15px;
       color: var(--tan);
-      max-width: 560px;
-      margin: 0 auto;
+      max-width: 480px;
       line-height: 1.5;
     }
 
-    /* ─── ENTRY NAV ─── */
-    .entry-nav {
-      background: var(--cream-2);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .entry-nav__inner {
-      max-width: 800px;
+    /* ─── BODY LAYOUT: sidebar + content ─── */
+    .appendix-body {
+      display: flex;
+      align-items: flex-start;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 0 32px;
+      gap: 0;
     }
 
-    .entry-nav__label {
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      position: sticky;
+      top: 80px; /* clears site nav */
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      padding: 48px 0 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar::-webkit-scrollbar { display: none; }
+
+    .sidebar__label {
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 600;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
       color: var(--fg-muted);
-      margin-bottom: 10px;
+      padding-right: 24px;
+      margin-bottom: 16px;
     }
 
-    .entry-nav__links {
+    .sidebar__nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .entry-nav__link {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--fg-muted);
+    .sidebar__link {
+      display: block;
       text-decoration: none;
-      padding: 4px 10px;
-      border: 1px solid var(--border);
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
-      white-space: nowrap;
+      padding: 10px 24px 10px 0;
+      border-right: 2px solid transparent;
+      margin-right: -1px;
+      transition: border-color 0.15s;
     }
 
-    .entry-nav__link:hover {
+    .sidebar__link:hover .sidebar__link-title,
+    .sidebar__link.is-active .sidebar__link-title {
       color: var(--fg);
-      border-color: var(--fg);
-      background: var(--cream);
+    }
+
+    .sidebar__link.is-active {
+      border-right-color: var(--orange);
+    }
+
+    .sidebar__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 3px;
+    }
+
+    .sidebar__link-title {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--fg-muted);
+      line-height: 1.35;
+      transition: color 0.15s;
     }
 
     /* ─── MAIN CONTENT ─── */
     .appendix-main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 64px 24px 120px;
+      flex: 1;
+      min-width: 0;
+      padding: 64px 0 120px 56px;
     }
 
     /* ─── ENTRY ─── */
@@ -162,7 +190,6 @@
       padding-bottom: 0;
     }
 
-    /* Entry header */
     .entry__meta {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -175,16 +202,16 @@
 
     .entry__title {
       font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(28px, 3.5vw, 44px);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.03;
       letter-spacing: 0.01em;
       text-transform: uppercase;
       color: var(--brown);
       margin-bottom: 28px;
     }
 
-    /* Testimony has a different title treatment */
+    /* Congressional testimony header */
     .entry--testimony .entry__testimony-header {
       background: var(--brown);
       color: var(--cream);
@@ -204,19 +231,19 @@
 
     .entry--testimony .entry__testimony-title {
       font-family: var(--font-display);
-      font-size: clamp(18px, 2.5vw, 24px);
+      font-size: clamp(16px, 2vw, 22px);
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: 0.01em;
       text-transform: uppercase;
     }
 
-    /* Preamble — italic, muted, visually distinct from body */
+    /* Preamble */
     .entry__preamble {
       font-style: italic;
       color: var(--fg-muted);
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 15.5px;
+      line-height: 1.65;
       border-left: 3px solid var(--orange);
       padding: 4px 0 4px 20px;
       margin-bottom: 36px;
@@ -225,17 +252,12 @@
     /* Body prose */
     .entry__body p {
       margin-bottom: 20px;
-      font-size: 18px;
-      line-height: 1.65;
+      font-size: 17px;
+      line-height: 1.7;
     }
 
-    .entry__body p:last-child {
-      margin-bottom: 0;
-    }
-
-    .entry__body strong {
-      font-weight: 700;
-    }
+    .entry__body p:last-child { margin-bottom: 0; }
+    .entry__body strong { font-weight: 700; }
 
     /* Footnotes */
     .entry__footnotes {
@@ -254,9 +276,7 @@
       margin-bottom: 16px;
     }
 
-    .entry__footnotes ol {
-      padding-left: 20px;
-    }
+    .entry__footnotes ol { padding-left: 20px; }
 
     .entry__footnotes li {
       font-size: 13px;
@@ -270,9 +290,51 @@
       word-break: break-all;
     }
 
-    @media (max-width: 640px) {
-      .page-header { padding: 60px 20px 48px; }
-      .appendix-main { padding: 40px 20px 80px; }
+    /* ─── MOBILE ─── */
+    @media (max-width: 860px) {
+      .appendix-body {
+        flex-direction: column;
+        padding: 0 20px;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: static;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 28px 0 24px;
+        overflow-x: auto;
+        overflow-y: visible;
+      }
+
+      .sidebar__nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 4px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .sidebar__link {
+        border-right: none;
+        border-bottom: 2px solid transparent;
+        margin-right: 0;
+        padding: 8px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .sidebar__link.is-active {
+        border-right-color: transparent;
+        border-bottom-color: var(--orange);
+      }
+
+      .appendix-main {
+        padding: 40px 0 80px;
+      }
+
+      .page-header { padding: 56px 20px 44px; }
       .entry { margin-bottom: 64px; padding-bottom: 64px; }
       .entry__body p { font-size: 16px; }
     }
@@ -289,23 +351,42 @@
     <p class="page-header__subtitle">Extended passages, additional context, and source materials referenced in the book.</p>
   </div>
 
-  <!-- QUICK NAV -->
-  <div class="entry-nav">
-    <div class="entry-nav__inner">
-      <p class="entry-nav__label">Jump to</p>
-      <div class="entry-nav__links">
-        <a href="#entry-intro" class="entry-nav__link">Introduction</a>
-        <a href="#entry-ch8-122" class="entry-nav__link">Ch. 8 — Dollar Vans</a>
-        <a href="#entry-ch8-125" class="entry-nav__link">Ch. 8 — Black Infrastructure</a>
-        <a href="#entry-ch8-137" class="entry-nav__link">Ch. 8 — WATS &amp; WERD</a>
-        <a href="#entry-ch13" class="entry-nav__link">Ch. 13 — Congressional Testimony</a>
-        <a href="#entry-ch15" class="entry-nav__link">Ch. 15 — Cultural Advocacy</a>
-      </div>
-    </div>
-  </div>
+  <!-- SIDEBAR + CONTENT -->
+  <div class="appendix-body">
 
-  <!-- ENTRIES -->
-  <main class="appendix-main">
+    <!-- SIDEBAR NAV -->
+    <aside class="sidebar" aria-label="Appendix entries">
+      <p class="sidebar__label">Contents</p>
+      <nav class="sidebar__nav">
+        <a href="#entry-intro" class="sidebar__link">
+          <p class="sidebar__link-ref">Intro · p. xvii</p>
+          <p class="sidebar__link-title">My High School Teacher &amp; How Power Works</p>
+        </a>
+        <a href="#entry-ch8-122" class="sidebar__link">
+          <p class="sidebar__link-ref">Ch. 8 · p. 122</p>
+          <p class="sidebar__link-title">Dollar Vans</p>
+        </a>
+        <a href="#entry-ch8-125" class="sidebar__link">
+          <p class="sidebar__link-ref">Ch. 8 · p. 125</p>
+          <p class="sidebar__link-title">Black Infrastructure, Black Innovation</p>
+        </a>
+        <a href="#entry-ch8-137" class="sidebar__link">
+          <p class="sidebar__link-ref">Ch. 8 · p. 137</p>
+          <p class="sidebar__link-title">WATS &amp; WERD</p>
+        </a>
+        <a href="#entry-ch13" class="sidebar__link">
+          <p class="sidebar__link-ref">Ch. 13 · p. 233</p>
+          <p class="sidebar__link-title">Big Tech Congressional Testimony</p>
+        </a>
+        <a href="#entry-ch15" class="sidebar__link">
+          <p class="sidebar__link-ref">Ch. 15 · p. 286</p>
+          <p class="sidebar__link-title">The Cultural Advocacy Whitepaper</p>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- ENTRIES -->
+    <main class="appendix-main">
 
     <!-- ENTRY 1: Introduction -->
     <article class="entry" id="entry-intro">
@@ -457,11 +538,33 @@
       </div>
     </article>
 
-  </main>
+    </main>
+
+  </div><!-- /.appendix-body -->
 
   <div id="site-footer"></div>
 
   <script src="nav.js"></script>
   <script src="footer.js"></script>
+  <script>
+    // Highlight active sidebar link based on scroll position
+    (function () {
+      const links = document.querySelectorAll('.sidebar__link');
+      const entries = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
+
+      function setActive() {
+        let current = entries[0];
+        entries.forEach(el => {
+          if (el && el.getBoundingClientRect().top <= 120) current = el;
+        });
+        links.forEach(l => {
+          l.classList.toggle('is-active', l.getAttribute('href') === '#' + current.id);
+        });
+      }
+
+      window.addEventListener('scroll', setActive, { passive: true });
+      setActive();
+    })();
+  </script>
 </body>
 </html>
