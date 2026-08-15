@@ -46,6 +46,7 @@
       align-items: stretch;
       min-height: calc(100vh - 60px);
       position: relative;
+      margin-top: 60px;
     }
 
     .appendix-layout::before {
@@ -108,7 +109,7 @@
       position: static;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 0;
       height: auto;
       background: transparent;
       border: none;
@@ -120,9 +121,11 @@
     .sidebar-col__link {
       display: block;
       text-decoration: none;
-      padding: 10px 28px;
+      padding: 13px 28px;
       border-left: 2px solid transparent;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
       transition: border-color 0.15s, background 0.15s;
+      width: 100%;
     }
 
     .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
@@ -133,19 +136,13 @@
     }
 
     .sidebar-col__link-ref {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 3px;
+      display: none;
     }
 
     .sidebar-col__link-title {
-      font-size: 11.5px;
+      font-size: 12.5px;
       font-weight: 600;
-      color: rgba(239,237,236,0.5);
+      color: rgba(239,237,236,0.65);
       line-height: 1.35;
       transition: color 0.15s;
     }
@@ -156,18 +153,18 @@
     .appendix-main {
       flex: 1;
       min-width: 0;
-      max-width: 760px;
-      padding: 72px 64px 120px 64px;
+      padding: 64px 72px 120px 72px;
     }
 
     .entry__meta {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 9px;
       font-weight: 600;
       letter-spacing: var(--ls-eyebrow);
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 12px;
+      margin-bottom: 18px;
+      max-width: 660px;
     }
 
     .entry__title {
@@ -178,7 +175,24 @@
       letter-spacing: 0.01em;
       text-transform: uppercase;
       color: var(--brown);
-      margin-bottom: 28px;
+      margin-bottom: 10px;
+      max-width: 660px;
+    }
+
+    .entry__source {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(40,29,29,0.38);
+      margin-bottom: 32px;
+      max-width: 660px;
+    }
+
+    .entry__preamble,
+    .entry__body {
+      max-width: 660px;
     }
 
     .entry__preamble {
@@ -266,8 +280,9 @@
     </aside>
 
     <main class="appendix-main">
-      <p class="entry__meta">Chapter 8 &nbsp;·&nbsp; Page 137</p>
+      <p class="entry__meta">Appendix</p>
       <h1 class="entry__title">WATS &amp; WERD: Cases of Communications Infrastructure</h1>
+      <p class="entry__source">Chapter 8 &nbsp;·&nbsp; Page 137</p>
       <div class="entry__preamble">
         Two Civil Rights Era stories about leveraging communications technology to generate power — and what they teach activists about infrastructure today.
       </div>

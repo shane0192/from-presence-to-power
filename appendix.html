@@ -50,6 +50,7 @@
       align-items: stretch;
       min-height: calc(100vh - 60px);
       position: relative;
+      margin-top: 60px;
     }
 
     /* Full-height brown stripe painted behind the sticky sidebar */
@@ -110,7 +111,7 @@
       position: static;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 0;
       height: auto;
       background: transparent;
       border: none;
@@ -122,27 +123,23 @@
     .sidebar-col__link {
       display: block;
       text-decoration: none;
-      padding: 10px 28px;
+      padding: 13px 28px;
       border-left: 2px solid transparent;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
       transition: border-color 0.15s, background 0.15s;
+      width: 100%;
     }
 
     .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
 
     .sidebar-col__link-ref {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 3px;
+      display: none;
     }
 
     .sidebar-col__link-title {
-      font-size: 11.5px;
+      font-size: 12.5px;
       font-weight: 600;
-      color: rgba(239,237,236,0.5);
+      color: rgba(239,237,236,0.65);
       line-height: 1.35;
       transition: color 0.15s;
     }
