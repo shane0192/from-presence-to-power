@@ -96,7 +96,7 @@
         id: 'atlanta',
         date: '2026-09-24', month: 'Sep', day: '24', dow: 'Thu',
         city: 'Atlanta, GA',
-        titleHtml: 'Atlanta',
+        titleHtml: 'In conversation with <span class="name">Michael Harriot</span>',
         meta: 'THU 9/24 AT 7PM • AUBURN AVENUE RESEARCH LIBRARY • 101 AUBURN AVE NE, ATLANTA, GA 30303',
         link: '',
         signupModal: true
@@ -106,7 +106,7 @@
         date: '2026-09-10', month: 'Sep', day: '10', dow: 'Thu',
         city: 'Austin, TX',
         titleHtml: 'In conversation with <span class="name">Cristina Tzintzún Ramirez</span>',
-        meta: 'THURSDAY 9/10 AT 5PM • LBJ SCHOOL OF PUBLIC AFFAIRS • 2315 RED RIVER ST, AUSTIN, TX 78712 • Reserve your spot: events@rashadrobinson.com',
+        meta: 'THURSDAY 9/10 AT 5:30PM • LBJ SCHOOL OF PUBLIC AFFAIRS, BASS LECTURE HALL • 2315 RED RIVER ST, AUSTIN, TX 78712 • Reserve your spot: events@rashadrobinson.com',
         link: ''
       },
       {
@@ -121,7 +121,7 @@
         id: 'dc-april-verrett',
         date: '2026-09-18', month: 'Sep', day: '18', dow: 'Fri',
         city: 'Washington, DC',
-        titleHtml: 'In conversation with <span class="name">April Verrett</span>',
+        titleHtml: 'In conversation with <span class="name">April Verrett</span> (SEIU)',
         meta: 'FRI 9/18 AT 5PM • MLK LIBRARY • SEIU EVENT • Reserve your spot: events@rashadrobinson.com',
         link: ''
       },
@@ -129,7 +129,7 @@
         id: 'baltimore',
         date: '2026-09-20', month: 'Sep', day: '20', dow: 'Sun',
         city: 'Baltimore, MD',
-        titleHtml: 'Baltimore',
+        titleHtml: 'In conversation with <span class="name">Michel Martin</span>',
         meta: 'SUN 9/20 AT 12PM • REGINALD F. LEWIS MUSEUM',
         link: '',
         comingSoon: true
