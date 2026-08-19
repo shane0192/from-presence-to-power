@@ -106,8 +106,8 @@
         date: '2026-09-10', month: 'Sep', day: '10', dow: 'Thu',
         city: 'Austin, TX',
         titleHtml: 'In conversation with <span class="name">Cristina Tzintzún Ramirez</span>',
-        meta: 'THURSDAY 9/10 AT 5:30PM • LBJ SCHOOL OF PUBLIC AFFAIRS, BASS LECTURE HALL • 2315 RED RIVER ST, AUSTIN, TX 78712 • Reserve your spot: events@rashadrobinson.com',
-        link: ''
+        meta: 'THURSDAY 9/10 AT 5PM • LBJ SCHOOL OF PUBLIC AFFAIRS, BASS LECTURE HALL • 2315 RED RIVER ST, AUSTIN, TX 78712 • Reserve your spot: events@rashadrobinson.com',
+        link: 'https://patman.lbj.utexas.edu/events/power-us-speaker-series-cristina-tzintzun-ramirez-d-and-rashad-robinson-d'
       },
       {
         id: 'houston',
