@@ -118,6 +118,14 @@
         link: 'https://kindredstorieshtx.com/products/author-talk-from-presence-to-power-with-rashad-robinson-september-11-7-pm?_pos=1&_sid=a42c163c4&_ss=r&variant=48903565934847'
       },
       {
+        id: 'dallas',
+        date: '2026-09-14', month: 'Sep', day: '14', dow: 'Mon',
+        city: 'Dallas, TX',
+        titleHtml: 'In conversation with <span class="name">Dr. Frederick D. Haynes III</span>',
+        meta: 'MON 9/14 AT 6:30PM • FRIENDSHIP-WEST BAPTIST CHURCH • 2020 W WHEATLAND ROAD • LIVE STREAM AVAILABLE • Get more info: events@rashadrobinson.com',
+        link: ''
+      },
+      {
         id: 'dc-april-verrett',
         date: '2026-09-18', month: 'Sep', day: '18', dow: 'Fri',
         city: 'Washington, DC',
