@@ -139,8 +139,7 @@
         city: 'Baltimore, MD',
         titleHtml: 'In conversation with <span class="name">Michel Martin</span>',
         meta: 'SUN 9/20 AT 12PM • REGINALD F. LEWIS MUSEUM',
-        link: '',
-        comingSoon: true
+        link: 'https://www.eventbrite.com/e/from-presence-to-power-book-discussion-w-rashad-robinson-tickets-1996311839451'
       },
       {
         id: 'charles-blow',
