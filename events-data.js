@@ -130,8 +130,8 @@
         date: '2026-09-18', month: 'Sep', day: '18', dow: 'Fri',
         city: 'Washington, DC',
         titleHtml: 'In conversation with <span class="name">April Verrett</span> (SEIU)',
-        meta: 'FRI 9/18 AT 5PM • MLK LIBRARY • SEIU EVENT • Reserve your spot: events@rashadrobinson.com',
-        link: ''
+        meta: 'FRI 9/18 AT 5:30PM • MLK LIBRARY • SEIU EVENT • Reserve your spot: events@rashadrobinson.com',
+        link: 'https://docs.google.com/forms/d/e/1FAIpQLSeacpyGY2duYns_FmaeZEu53s-xX1ZlQKHqahew2lVfKTXXFA/viewform'
       },
       {
         id: 'baltimore',
@@ -159,12 +159,20 @@
         comingSoon: true
       },
       {
-        id: 'banned-book-week',
-        date: '2026-10-07', month: 'Oct', day: '7–8', dow: 'Wed–Thu',
+        id: 'banned-book-week-conversation',
+        date: '2026-10-07', month: 'Oct', day: '7', dow: 'Wed',
         city: 'Buffalo, NY',
-        titleHtml: 'Banned Book Week',
-        meta: '',
-        link: ''
+        titleHtml: 'Movements: A Banned Books Week Conversation',
+        meta: 'BUFFALO CENTRAL LIBRARY',
+        link: 'https://buffalolib.libcal.com/event/17507210'
+      },
+      {
+        id: 'banned-book-week-afterparty',
+        date: '2026-10-08', month: 'Oct', day: '8', dow: 'Thu',
+        city: 'Buffalo, NY',
+        titleHtml: 'Movements: After-Party',
+        meta: 'DUENDE AT SILO CITY • 21+',
+        link: 'https://buffalolib.fshtechnologies.org/events/ab8ce1af-2505-49f4-ae58-0367d4bfacb8/register'
       }
     ];
 
