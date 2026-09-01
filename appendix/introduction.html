@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My High School Teacher &amp; How Power Works — Appendix · From Presence to Power</title>
+  <meta name="description" content="More About My High School Teacher and How Power Works — Appendix entry from From Presence to Power by Rashad Robinson.">
+  <link rel="canonical" href="https://book.rashadrobinson.com/appendix/introduction">
+  <link rel="icon" type="image/png" href="../images/book-mock.png">
+  <link rel="apple-touch-icon" href="../images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css">
+  <link rel="stylesheet" href="../footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { height: auto; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --tan:          #DAD6CB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+      --ls-eyebrow:   0.32em;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── TWO-COLUMN LAYOUT ─── */
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .appendix-layout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--brown);
+      pointer-events: none;
+    }
+
+    .sidebar-col {
+      width: 260px;
+      flex-shrink: 0;
+      color: var(--cream);
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      align-self: flex-start;
+      z-index: 1;
+    }
+
+    .sidebar-col__inner {
+      height: 100%;
+      overflow-y: auto;
+      padding: 48px 0;
+    }
+
+    /* back link */
+    .sidebar-col__back {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      text-decoration: none;
+      padding: 0 28px 28px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__back:hover { color: rgba(239,237,236,0.75); }
+
+    .sidebar-col__toc-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.3);
+      padding: 0 28px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-col__nav {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      height: auto;
+      background: transparent;
+      border: none;
+      padding: 0;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .sidebar-col__link {
+      display: block;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-left: 2px solid transparent;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      transition: border-color 0.15s, background 0.15s;
+      width: 100%;
+    }
+
+    .sidebar-col__link:hover {
+      background: rgba(239,237,236,0.05);
+    }
+
+    .sidebar-col__link.is-active {
+      border-left-color: var(--orange);
+      background: rgba(239,237,236,0.06);
+    }
+
+    .sidebar-col__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      margin-bottom: 3px;
+    }
+
+    .sidebar-col__link-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(239,237,236,0.65);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__link.is-active .sidebar-col__link-title,
+    .sidebar-col__link:hover .sidebar-col__link-title {
+      color: var(--cream);
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .appendix-main {
+      flex: 1;
+      min-width: 0;
+      padding: 64px 72px 120px 72px;
+    }
+
+    .entry__meta {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+      max-width: 660px;
+    }
+
+    .entry__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 10px;
+      max-width: 660px;
+    }
+
+    .entry__source {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(40,29,29,0.38);
+      margin-bottom: 32px;
+      max-width: 660px;
+    }
+
+    .entry__preamble,
+    .entry__body {
+      max-width: 660px;
+    }
+
+    .entry__preamble {
+      font-style: italic;
+      color: var(--fg-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      border-left: 3px solid var(--orange);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 36px;
+    }
+
+    .entry__body p {
+      margin-bottom: 20px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .entry__body p:last-child { margin-bottom: 0; }
+    .entry__body strong { font-weight: 700; }
+    .entry__body em { font-style: italic; }
+
+    .entry__meta,
+    .entry__title,
+    .entry__source,
+    .entry__preamble,
+    .entry__body {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mobile-nav-select { display: none; }
+
+    @media (max-width: 860px) {
+      .appendix-layout { flex-direction: column; }
+      .appendix-layout::before { display: none; }
+      .sidebar-col { width: 100%; background: var(--brown); position: static; height: auto; }
+      .sidebar-col__inner { position: static; height: auto; overflow-y: visible; padding: 32px 20px 20px; }
+      .sidebar-col__back { padding: 0 0 20px; }
+      .sidebar-col__toc-label { padding: 0; margin-bottom: 8px; }
+      .sidebar-col__nav { display: none; }
+      .mobile-nav-select {
+        display: block;
+        width: 100%;
+        background: rgba(239,237,236,0.08);
+        color: var(--cream);
+        border: 1px solid rgba(239,237,236,0.2);
+        border-radius: 6px;
+        padding: 12px 40px 12px 16px;
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 500;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(239,237,236,0.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+      }
+      .mobile-nav-select option { background: #281D1D; }
+      .appendix-main { padding: 40px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="appendix-layout">
+
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
+        <a href="/appendix" class="sidebar-col__back">← All Entries</a>
+        <select class="mobile-nav-select" aria-label="Jump to entry">
+          <option value="introduction">Intro · p. xvii — My High School Teacher</option>
+          <option value="dollar-vans">Ch. 8 · p. 122 — Dollar Vans</option>
+          <option value="black-infrastructure">Ch. 8 · p. 125 — Black Infrastructure</option>
+          <option value="wats-werd">Ch. 8 · p. 137 — WATS &amp; WERD</option>
+          <option value="congressional-testimony">Ch. 13 · p. 233 — Big Tech: Commerce, Content, Connection</option>
+          <option value="cultural-advocacy">Ch. 15 · p. 286 — Cultural Advocacy</option>
+        </select>
+        <nav class="sidebar-col__nav">
+          <a href="introduction" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="dollar-vans" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans</p>
+          </a>
+          <a href="black-infrastructure" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation</p>
+          </a>
+          <a href="wats-werd" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD</p>
+          </a>
+          <a href="congressional-testimony" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">IN DETAIL: Big Tech In Control of Our Online Lives: Commerce, Content, Connection</p>
+          </a>
+          <a href="cultural-advocacy" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="appendix-main">
+      <p class="entry__meta">Appendix</p>
+      <h1 class="entry__title">More About My High School Teacher and How Power Works</h1>
+      <p class="entry__source">Introduction &nbsp;·&nbsp; Page xvii</p>
+      <div class="entry__preamble">
+        In the Introduction, I talk about an incident that took place in my town while I was growing up: An assistant principal at Riverhead High School, Stephen J. Paskiewicz, sent seven Black students out of the school to be unwilling participants in a police lineup. Years later, he would become my history teacher. This additional passage shares more about my relationship with him and what those experiences taught me about how power works.
+      </div>
+      <div class="entry__body">
+        <p>Over time, I came to realize something important: When the assistant principal pulled those Black students out of school and handed them over to be used as props in a police lineup for a robbery suspect, it wasn't even an abuse of power. It was exactly how people set up the system to function. It was the way power was designed to work. In fact, it was structural racism at work.</p>
+        <p>That was made clear in what happened next. By design, there was no understanding of what responsibility and accountability to Black students and parents should look like, and no representation of our interests in the process of deciding how to respond to what happened. One type of authority was taken away from Paskiewicz by demoting him from the position of assistant principal, yet another type of authority was given to him through his appointment to be a history teacher. He even kept the same salary. He was protected.</p>
+        <p>Paskiewicz wasn't breaking the rules, he was playing by them. They were made for him, the result of establishing power dynamics and incentive structures in ways that made abuse and mistreatment a norm without much consequence. Changing his individual position would have sent an important message. But changing those rules would have been far more important in terms of impact—the real challenge.</p>
+        <p>When I later entered high school myself, Mr. Paskiewicz became one of my history teachers. I was the only Black student in his class. He enjoyed that I followed the news and that, for a high schooler, I could hold my own in a political debate with him. For a history teacher, disagreement is always more fun than indifference.</p>
+        <p>But it wasn't as much fun for me. He never understood that I had a different takeaway from our debates: I wasn't learning history from him as much as I was learning how to navigate a white world. He was exhibiting history more than teaching it.</p>
+        <p>I once told him that I wanted to be a lawyer, and he told me that I should be a doctor instead because "there are no Black doctors in Riverhead and you could have the Black market cornered." It was a mix of genuine appreciation for my ability and a deeply revealing look into the racial hierarchy in which he believed—and which he also took it upon himself to reinforce in the microcosm of our school. I think he sincerely believed that the primary role of talented Black people in town was to serve a segregated Black community, not to serve the world at large—and certainly not to serve the cause of desegregating that community.</p>
+        <p>He was one of several teachers who treated me relatively well compared to others and probably thought highly of me. But telling me what I should and shouldn't do in life was just another instance of this man feeling like he had the right and authority to dictate who gets to go where. It was just another lineup he wanted to send me to.</p>
+        <p>In early October 1995, he wheeled a television into class so we could watch the verdict of the O. J. Simpson trial read aloud, live from the courtroom, on network news. I don't remember exactly what he said about the O.J. verdict. But I remember thinking that, in the years since his demotion, he clearly had not learned anything about Black history—or white history—let alone anything about the criminal justice system or the role of policing in society. In fact, his decision to send Black students to a police lineup was part of white history in a way he probably never understood.</p>
+        <p>This deep and willful ignorance of white history, which I would discover that many other teachers and authority figures across society shared, is exactly the type of culture that conservatives are trying to reestablish as the norm across the country today. They have stoked hysteria about critical race theory, as well as diversity, equity, and inclusion, in order to attack some of the best vehicles we have built for moving society forward—for changing the point of view of people like my history teacher. The weaker the forces of truth, the less anyone has to change. True history threatens the right-wing agenda: It helps people see differently. They don't want that. Though on a personal level there was certainly nothing evil about Mr. Paskiewicz at all, he was not going to make room for us in the history he taught—or even in the school he helped run. And there was no set of rules forcing him to. That's the past the right wing wants to return us to.</p>
+        <p>(As an aside: We see the stakes of reckoning with history everywhere. In September 2025, Trump's secretary of defense, Pete Hegseth, said he was going to change the rules of the military so that all service members who advance to authority must meet "the highest male standard" and be clean-shaven ["No more beardos"]. He was using his power to redefine who belongs in charge: not women and not Black men—many of whom, like my father when he was in the Marines, are not able to be entirely clean-shaven due to a skin condition called PFB, or razor bumps. It's very clear who Hegseth thinks should give orders and who should take them. And his opinions can shape our reality because he has the power to set the rules for how the military works. Right wingers don't want us to learn history, they want to take us back to an earlier point in history. That fight plays out every day, from military hierarchy to high school classrooms to anywhere the rules can either enable discrimination or eliminate it.)</p>
+        <p>To me, choosing to put a teacher like Mr. Paskiewicz in charge of a U.S. history class was painfully ironic. But my parents had helped me learn how to navigate this type of situation without accepting it: learning how to figure out the ways to succeed and stay safe, while looking for the smartest opportunities to challenge the rules. As one year turned into the next, and one class after another passed through his curriculum, his position as a history teacher demonstrated one of the most central principles of U.S. history: making Black people pay for white people's behavior.</p>
+        <p>People often ask me what privilege is. Mr. Paskiewicz's case is a textbook example. (In fact, it should have been in the actual textbook we were using in class.) He was protected from facing the full consequences of his actions, able to maintain employment and receive his full salary, while someone without privilege—whom people in power did not write the rules to protect—would have easily been fired.</p>
+        <p>That's the thing many people don't understand about privilege: It doesn't just help some people get ahead; it pushes other people back—doubling the distance between them. Privilege is when the rules consistently and unfairly favor certain people who already have power and then also allow them to withstand any pressure to change. The best way to evade accountability is to create a culture that pretends there's no need for it. Growing up in that culture made me deeply aware of how it worked.</p>
+        <p>Even the loud presence of voices in the Black community in Riverhead was simply not enough to overcome the power of the well-maintained defense system of white privilege: both a police department abusing kids and a white history teacher demeaning them would be protected, and survive, because people in power designed the rules to make sure they did. The people with the authority to change the way the rules work—and who they worked for—had no incentive to do so. That's what I would want to change: It wasn't about my one history teacher and whether he was "good" or "bad." It was about the rules that incentivize all of us to either do our worst or be our best.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../nav.js"></script>
+  <script src="../footer.js"></script>
+  <script>
+    // Highlight active sidebar link
+    (function () {
+      var current = window.location.pathname.split('/').pop() || '';
+      document.querySelectorAll('.sidebar-col__link').forEach(function (link) {
+        var href = link.getAttribute('href').split('/').pop();
+        link.classList.toggle('is-active', href === current);
+      });
+      var sel = document.querySelector('.mobile-nav-select');
+      if (sel) {
+        sel.value = current;
+        sel.addEventListener('change', function () { window.location.href = this.value; });
+      }
+    })();
+  </script>
+</body>
+</html>

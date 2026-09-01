@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IN DETAIL: Big Tech In Control of Our Online Lives — Appendix · From Presence to Power</title>
+  <meta name="description" content="IN DETAIL: Big Tech In Control of Our Online Lives: Commerce, Content, Connection — Appendix entry from From Presence to Power by Rashad Robinson.">
+  <link rel="canonical" href="https://book.rashadrobinson.com/appendix/congressional-testimony">
+  <link rel="icon" type="image/png" href="../images/book-mock.png">
+  <link rel="apple-touch-icon" href="../images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css">
+  <link rel="stylesheet" href="../footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+      --ls-eyebrow:   0.32em;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .appendix-layout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--brown);
+      pointer-events: none;
+    }
+
+    .sidebar-col {
+      width: 260px;
+      flex-shrink: 0;
+      color: var(--cream);
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      align-self: flex-start;
+      z-index: 1;
+    }
+
+    .sidebar-col__inner {
+      height: 100%;
+      overflow-y: auto;
+      padding: 48px 0;
+    }
+
+    .sidebar-col__back {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      text-decoration: none;
+      padding: 0 28px 28px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__back:hover { color: rgba(239,237,236,0.75); }
+
+    .sidebar-col__toc-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.3);
+      padding: 0 28px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-col__nav {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      height: auto;
+      background: transparent;
+      border: none;
+      padding: 0;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .sidebar-col__link {
+      display: block;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-left: 2px solid transparent;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      transition: border-color 0.15s, background 0.15s;
+      width: 100%;
+    }
+
+    .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
+
+    .sidebar-col__link.is-active {
+      border-left-color: var(--orange);
+      background: rgba(239,237,236,0.06);
+    }
+
+    .sidebar-col__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      margin-bottom: 3px;
+    }
+
+    .sidebar-col__link-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(239,237,236,0.65);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__link.is-active .sidebar-col__link-title,
+    .sidebar-col__link:hover .sidebar-col__link-title { color: var(--cream); }
+
+    .appendix-main {
+      flex: 1;
+      min-width: 0;
+      padding: 64px 72px 120px 72px;
+    }
+
+    .entry__meta {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+      max-width: 660px;
+    }
+
+    .entry__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 10px;
+      max-width: 660px;
+    }
+
+    .entry__source {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(40,29,29,0.38);
+      margin-bottom: 32px;
+      max-width: 660px;
+    }
+
+    .entry__preamble,
+    .entry__body {
+      max-width: 660px;
+    }
+
+    .entry__preamble {
+      font-style: italic;
+      color: var(--fg-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      border-left: 3px solid var(--orange);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 36px;
+    }
+
+    /* testimony header block */
+    .entry__testimony-header {
+      background: var(--brown);
+      color: var(--cream);
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+
+    .entry__testimony-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .entry__testimony-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: var(--cream);
+    }
+
+    .entry__body p { margin-bottom: 20px; font-size: 17px; line-height: 1.7; }
+    .entry__body p:last-child { margin-bottom: 0; }
+    .entry__body strong { font-weight: 700; }
+    .entry__body em { font-style: italic; }
+
+    /* footnote reference superscripts */
+    sup a {
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+    sup a:hover { text-decoration: underline; }
+
+    /* footnotes section */
+    .entry__footnotes {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .entry__footnotes-heading {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 20px;
+    }
+
+    .entry__footnotes ol {
+      list-style: decimal;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .entry__footnotes li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--fg-muted);
+    }
+
+    .entry__footnotes li a {
+      color: var(--orange);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .entry__footnotes li a:hover { text-decoration: underline; }
+
+    .entry__meta,
+    .entry__title,
+    .entry__source,
+    .entry__preamble,
+    .entry__body {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .entry__testimony-header,
+    .entry__footnotes {
+      max-width: 660px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mobile-nav-select { display: none; }
+
+    @media (max-width: 860px) {
+      .appendix-layout { flex-direction: column; }
+      .appendix-layout::before { display: none; }
+      .sidebar-col { width: 100%; background: var(--brown); position: static; height: auto; }
+      .sidebar-col__inner { position: static; height: auto; overflow-y: visible; padding: 32px 20px 20px; }
+      .sidebar-col__back { padding: 0 0 20px; }
+      .sidebar-col__toc-label { padding: 0; margin-bottom: 8px; }
+      .sidebar-col__nav { display: none; }
+      .mobile-nav-select {
+        display: block;
+        width: 100%;
+        background: rgba(239,237,236,0.08);
+        color: var(--cream);
+        border: 1px solid rgba(239,237,236,0.2);
+        border-radius: 6px;
+        padding: 12px 40px 12px 16px;
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 500;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(239,237,236,0.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+      }
+      .mobile-nav-select option { background: #281D1D; }
+      .appendix-main { padding: 40px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="appendix-layout">
+
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
+        <a href="/appendix" class="sidebar-col__back">← All Entries</a>
+        <select class="mobile-nav-select" aria-label="Jump to entry">
+          <option value="introduction">Intro · p. xvii — My High School Teacher</option>
+          <option value="dollar-vans">Ch. 8 · p. 122 — Dollar Vans</option>
+          <option value="black-infrastructure">Ch. 8 · p. 125 — Black Infrastructure</option>
+          <option value="wats-werd">Ch. 8 · p. 137 — WATS &amp; WERD</option>
+          <option value="congressional-testimony">Ch. 13 · p. 233 — Big Tech: Commerce, Content, Connection</option>
+          <option value="cultural-advocacy">Ch. 15 · p. 286 — Cultural Advocacy</option>
+        </select>
+        <nav class="sidebar-col__nav">
+          <a href="introduction" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="dollar-vans" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans</p>
+          </a>
+          <a href="black-infrastructure" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation</p>
+          </a>
+          <a href="wats-werd" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD</p>
+          </a>
+          <a href="congressional-testimony" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">IN DETAIL: Big Tech In Control of Our Online Lives: Commerce, Content, Connection</p>
+          </a>
+          <a href="cultural-advocacy" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="appendix-main">
+      <p class="entry__meta">Appendix</p>
+      <h1 class="entry__title">In Detail: Big Tech In Control of Our Online Lives: Commerce, Content, Connection</h1>
+      <p class="entry__source">Chapter 13 &nbsp;·&nbsp; Page 233</p>
+      <div class="entry__preamble">
+        <p>This chapter mentions a framework developed to help people make sense of just how powerful Big Tech corporations have become&#8212;and how they use that power for profiteering at the example of all of us. Toward the end of 2021, I testified (alongside Meta whistleblower Frances Haugen) to the U.S. House Committee on Energy and Commerce, Subcommittee On Communications and Technology, outlining that framework as part of arguing for several big policy changes related to Big Tech.</p>
+        <p style="margin-top:12px;">That included arguing to repeal Section 230 of the 1996 Communications Decency Act (one of the parts of the act not to be declared unconstitutional by the Supreme Court years later) that is currently interpreted as shielding Big Tech from accountability due to its language: &#8220;No provider or user of an interactive computer service shall be treated as the publisher or speaker of any information provided by another information content provider.&#8221;</p>
+      </div>
+
+      <div class="entry__testimony-header">
+        <p class="entry__testimony-label">Congressional Testimony</p>
+        <p class="entry__testimony-title">Hearing On &#8220;Holding Big Tech Accountable: Targeted Reforms to Tech&#8217;s Legal Immunity&#8221; (December 1, 2021)</p>
+      </div>
+
+      <div class="entry__body">
+        <p>Chair Pallone, Chair Doyle, Ranking Member McMorris Rodgers, Ranking Member Latta&#8212;thank you for having me here today. I am Rashad Robinson, President of Color Of Change, an organization that was born online and remains the largest online racial justice organization in the country. I also Co-Chaired the Aspen Commission on Information Disorder, which just released our comprehensive set of recommendations for effectively tackling misinformation and disinformation in our country.</p>
+        <p>I want to thank this Committee for holding this hearing, especially the leadership of the Committee and Subcommittee chairs. All of us who see the dire need to bring sense, order and safety to an out-of-control tech industry must applaud you for your work introducing the Justice Against Malicious Algorithms Act, the SAFE TECH Act, and the Civil Rights Modernization Act. Each one is essential for reducing the tech industry&#8217;s adverse effects on our lives and country.</p>
+        <p>Regardless of the industry, there&#8217;s one thing we know about the behavior of corporations: self-regulation means no regulation, and no regulation means making our problems worse, not better. Today&#8217;s tech industry is no exception. Yet, the more power the Big Tech corporations gain, the less they are regulated, the less they are liable for the harm they cause, and the less they are held accountable for the decisions they make.</p>
+        <p>The question before the Committee is a very clear one: What kind of action is needed from Congress to make Americans safe&#8212;whether we are spending time online, or dealing with the consequences of what happens there? How do we create consequences for putting people in harm&#8217;s way, instead of making it profitable to do so? Every day, Big Tech corporations increase the number of people in our country who believe racial and ethnic violence is a solution, not a problem, and every day, they increase the number of businesses in our country who practice discrimination and systematically exploit consumers.</p>
+        <p><strong>Congress is rightly called to major action when an industry&#8217;s business model is at odds with the public interest&#8212;when it generates the greatest profits only by causing the greatest harm.</strong> Especially when that harm is not distributed evenly: when the people getting hurt the most are Black people, women and girls, Latino, Asian, Indigenous, Muslim and LGBTQIA people. That is exactly what we see today: Big Tech is doing big harm because that&#8217;s what happens when corporations have too much power. They are forcing Black people, and other people who have been exploited by one industry after the next, to pay for Big Tech&#8217;s profits with their lives.</p>
+        <p>Today, corporations like Facebook, Amazon, Apple and Google maintain near-total control over all three areas of online life: online commerce, online content, and online environments for social connection. To keep control, they lie about the effects of their products. No matter who gets hurt. Just like Big Oil &amp; Coal lies about how they poison people, and Big Tobacco lies about the deaths their products cause. They lie to the public. They lie to regulators, and to you. Mark Zuckerberg has lied to me personally, more than once. It&#8217;s time to make the truth louder and more influential than their lies. But to skip the part where we wait 40 years to do it.</p>
+        <p>I have personally negotiated with leaders and executives at Big Tech corporations like Facebook, Google, Twitter and Airbnb, including Mark Zuckerberg, over a number of years. I sat across the table from him, looking into his eyes, experiencing firsthand the lies, evasions, ignorance and complete lack of accountability to any standard of safety for Black people and other people of color. As just one example: During the height of the racial justice uprisings in 2020, he told me that the harms I claimed Black people were experiencing on Facebook weren&#8217;t reflected in their own internal data. We now know from the documents shared by Frances Haugen and others that his internal researchers were, in fact, sounding alarms at the exact same time.<sup><a href="#fn1" id="fnref1">1</a></sup> This is how the industry operates when there are no consequences for lying, let alone for impact on people.</p>
+        <p><strong>What does Big Tech&#8217;s control over online commerce lead to?</strong> Massive discrimination. They have created backdoors and runarounds for employers, landlords, banks and so many others to make a mockery of long-fought, hard-fought anti-discrimination laws: to deny jobs to women, to deny loans and housing to Black people&#8212;to put discrimination back into the business model of industries far beyond tech itself.</p>
+        <p>As just one example: Facebook has enabled employers to advertise only to men with recruitment ads for hiring, engaging in gender discrimination for positions that federal law clearly states must be open to all people.<sup><a href="#fn2" id="fnref2">2</a></sup> <sup><a href="#fn3" id="fnref3">3</a></sup> Facebook has also enabled landlords to make sure that Black people would not see their apartment ads, restricting them to non-Black people only and providing a runaround to long-fought, hard-fought laws meant to end racial discrimination in the housing market.<sup><a href="#fn4" id="fnref4">4</a></sup> <sup><a href="#fn5" id="fnref5">5</a></sup> All of a sudden, our brave new 21st Century future looks a lot like 1950.</p>
+        <p>I must emphasize, however, that Facebook is not merely a tool of discrimination in the hands of business interests. Facebook&#8217;s own algorithms are a major driver of discrimination, even when outside business interests are not using their tools to discriminate intentionally. When it comes to ad targeting, Facebook&#8217;s ad-targeting algorithms practice racial discrimination by their very nature&#8212;it&#8217;s coded into their programming, as demonstrated by Harvard University researchers and others.<sup><a href="#fn6" id="fnref6">6</a></sup> <sup><a href="#fn7" id="fnref7">7</a></sup> <sup><a href="#fn8" id="fnref8">8</a></sup> Facebook tries to fool us. They shift blame and responsibility to bad faith businesses, reduce the discrimination services they offer them<sup><a href="#fn9" id="fnref9">9</a></sup>&#8212;but only after a long fight they resist in every way possible, and without taking responsibility for the damage they have already done. And then they act as if we are simply going to ignore how Facebook&#8217;s own algorithms, used in ad targeting every single day, are responsible for continuing systemic discrimination. They try to convince us that it&#8217;s the responsibility of the victims of this discrimination to do something about it, rather than the platforms that enable it. Again, this takes us backwards as a society.</p>
+        <p>But their control over online commerce isn&#8217;t just discrimination, it&#8217;s exploitation, too. We hear a lot about seemingly unlimited, unscientific COVID misinformation, whether boosted by Facebook, YouTube or the other environments managed by Big Tech.<sup><a href="#fn10" id="fnref10">10</a></sup> It doesn&#8217;t just impact people&#8217;s decisions about getting the vaccine, it&#8217;s priming consumers for unregulated health-related products in the form of miracle cures and other scams that prey on the insecurities, fears and allegiances this misinformation causes. The largest scam networks may eventually be removed from the Big Tech platforms, but only after they have amassed a major following, latched on to a vulnerable consumer base and extracted millions of dollars from them.<sup><a href="#fn11" id="fnref11">11</a></sup></p>
+        <p>The same is true for the effects of social media on young girls and women: entire industries profit from making women and girls, especially women and girls of color, feel insecure, feel like there&#8217;s something wrong with them that only a snake oil product can correct. This is all now a core part of our marketing ecosystem, and it must be stopped.</p>
+        <p>Technology is increasing discrimination and exploitation in the realm of commerce, giving new sales tools to bad actors, dismantling consumer protections, and creating backdoors that make a mockery of civil rights laws.</p>
+        <p><strong>What does Big Tech&#8217;s control over online content and social connections lead to?</strong> The very same thing. Discrimination. Exploitation. Moving society backwards.</p>
+        <p>Big Tech amplifies calls to violence against government officials, public figures and groups of people who are just trying to improve their lives&#8212;particularly anyone who is a person of color or associated with people of color. Facebook, YouTube and others fully maintain a content ecosystem that is essential for extremists&#8217; recruitment and the organizing of violent groups and actions.</p>
+        <p>They don&#8217;t just amplify white nationalist users and content; however, they undermine Black users and content. That&#8217;s the other form of discrimination: Facebook&#8217;s own internal research demonstrates that Black users on Instagram are more likely to have their accounts disabled by algorithmic moderation systems, often for just talking about the racism they face. We keep hearing that less than 5% of hate speech posted on Facebook is deleted, but we now know that the so-called &#8220;worst of the worst&#8221; of that content is actually less penalized than the milder forms of insult that might involve white people&#8212;that is, content attacking Black people, LGBTQIA people, and Jewish, Muslim and Arab people is the most extreme content there is, and yet it&#8217;s also the content that is least likely to be taken down, which enables it to circulate and grow more influential every day. The Big Tech platforms also allow the worst misinformation purveyors to specifically target Black people more often, in order to attack their health, their freedom to vote, their freedom of expression. This is the world their decisions create, every day.</p>
+        <p>This is also another case of how a supposedly &#8220;race blind&#8221; policy is actually deeply protective of white people who violate rules, and yet deeply punishing of people of color who follow them&#8212;the exact opposite of what it claims to be.<sup><a href="#fn12" id="fnref12">12</a></sup></p>
+        <p>Big Tech&#8217;s control over environments of social connection is also dangerous: when some people are able to freely enjoy the opportunity for social connection in an online environment, but other people are driven out of it, that&#8217;s discrimination. Especially when the difference in people&#8217;s experience is correlated with the difference in their race or gender. It comes in the form of targeted, vile and threatening harassment of a Black person&#8217;s profile page, or attacks on a Black organization&#8217;s profile page. It also takes place in all the VR environments Mark Zuckerberg recently touted when renaming his parent company Meta. They simply have no answer to the unchecked racial and gender discrimination on their VR platform, or other environments that will become increasingly important for people to participate in, both personally and professionally.<sup><a href="#fn13" id="fnref13">13</a></sup></p>
+        <p>With their near-total control over online commerce, online content and online connections, Big Tech is creating endless backdoors and runarounds against laws created to protect us from discrimination, predatory marketing, health-related misinformation, violence and harassment, and even organized plots to attack anyone they perceive as a threat. As long as it&#8217;s profitable, they accelerate it.</p>
+      </div>
+
+      <section class="entry__footnotes">
+        <p class="entry__footnotes-heading">Footnotes</p>
+        <ol>
+          <li id="fn1"><a href="https://apnews.com/article/the-facebook-papers-trump-george-floyd-hate-speech-violence-b0f6f26f3fdf889c090703cc2fa8dce0" target="_blank" rel="noopener">apnews.com/article/the-facebook-papers-trump-george-floyd-hate-speech-violence-b0f6f26f3fdf889c090703cc2fa8dce0</a> <a href="#fnref1">↩</a></li>
+          <li id="fn2"><a href="https://ant.isi.edu/datasets/addelivery/" target="_blank" rel="noopener">ant.isi.edu/datasets/addelivery/</a> <a href="#fnref2">↩</a></li>
+          <li id="fn3"><a href="https://www.wsj.com/articles/facebook-shows-men-and-women-different-job-ads-study-finds-11617969600" target="_blank" rel="noopener">wsj.com/articles/facebook-shows-men-and-women-different-job-ads-study-finds-11617969600</a> <a href="#fnref3">↩</a></li>
+          <li id="fn4"><a href="https://www.npr.org/2019/03/28/707614254/hud-slaps-facebook-with-housing-discrimination-charge" target="_blank" rel="noopener">npr.org/2019/03/28/707614254/hud-slaps-facebook-with-housing-discrimination-charge</a> <a href="#fnref4">↩</a></li>
+          <li id="fn5"><a href="https://www.justice.gov/crt/case-document/file/1089231/download" target="_blank" rel="noopener">justice.gov/crt/case-document/file/1089231/download</a> <a href="#fnref5">↩</a></li>
+          <li id="fn6"><a href="https://techscience.org/a/2021101901/" target="_blank" rel="noopener">techscience.org/a/2021101901/</a> <a href="#fnref6">↩</a></li>
+          <li id="fn7"><a href="https://sapiezynski.com/papers/sapiezynski2019algorithms.pdf" target="_blank" rel="noopener">sapiezynski.com/papers/sapiezynski2019algorithms.pdf</a> <a href="#fnref7">↩</a></li>
+          <li id="fn8"><a href="https://arxiv.org/abs/1904.02095" target="_blank" rel="noopener">arxiv.org/abs/1904.02095</a> <a href="#fnref8">↩</a></li>
+          <li id="fn9"><a href="https://www.facebook.com/business/news/removing-certain-ad-targeting-options-and-expanding-our-ad-controls" target="_blank" rel="noopener">https://www.facebook.com/business/news/removing-certain-ad-targeting-options-and-expanding-our-ad-controls</a> <a href="#fnref9">↩</a></li>
+          <li id="fn10"><a href="https://www.techtransparencyproject.org/articles/covid-kill-shot-youtube-fails-stop-vaccine-conspiracies" target="_blank" rel="noopener">techtransparencyproject.org/articles/covid-kill-shot-youtube-fails-stop-vaccine-conspiracies</a> <a href="#fnref10">↩</a></li>
+          <li id="fn11"><a href="https://theintercept.com/2021/09/28/covid-telehealth-hydroxychloroquine-ivermectin-hacked/" target="_blank" rel="noopener">theintercept.com/2021/09/28/covid-telehealth-hydroxychloroquine-ivermectin-hacked/</a> <a href="#fnref11">↩</a></li>
+          <li id="fn12"><a href="https://www.washingtonpost.com/technology/2021/11/21/facebook-algorithm-biased-race/" target="_blank" rel="noopener">washingtonpost.com/technology/2021/11/21/facebook-algorithm-biased-race/</a> <a href="#fnref12">↩</a></li>
+          <li id="fn13"><a href="https://www.theinformation.com/articles/in-facebooks-vr-headset-racism-and-other-abuses-showed-up-like-clockwork" target="_blank" rel="noopener">theinformation.com/articles/in-facebooks-vr-headset-racism-and-other-abuses-showed-up-like-clockwork</a> <a href="#fnref13">↩</a></li>
+        </ol>
+      </section>
+    </main>
+
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../nav.js"></script>
+  <script src="../footer.js"></script>
+  <script>
+    (function () {
+      var current = window.location.pathname.split('/').pop() || '';
+      document.querySelectorAll('.sidebar-col__link').forEach(function (link) {
+        var href = link.getAttribute('href').split('/').pop();
+        link.classList.toggle('is-active', href === current);
+      });
+      var sel = document.querySelector('.mobile-nav-select');
+      if (sel) {
+        sel.value = current;
+        sel.addEventListener('change', function () { window.location.href = this.value; });
+      }
+    })();
+  </script>
+</body>
+</html>
