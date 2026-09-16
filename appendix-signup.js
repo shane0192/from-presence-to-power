@@ -1,6 +1,6 @@
 (function () {
   var css = '<style>' +
-    '.appendix-signup{padding:28px;border-top:1px solid rgba(239,237,236,0.1);margin-top:12px;}' +
+    '.appendix-signup{padding:28px;margin-top:12px;}' +
     '.appendix-signup__text{font-family:var(--font-body,"Inter",sans-serif);font-size:12.5px;line-height:1.5;color:rgba(239,237,236,0.65);margin-bottom:12px;}' +
     '.appendix-signup__form{display:flex;flex-direction:column;gap:8px;}' +
     '.appendix-signup__email{background:transparent;border:1px solid rgba(239,237,236,0.25);border-radius:0;padding:10px 12px;font-family:var(--font-body,"Inter",sans-serif);font-size:13px;color:#EFEDEC;outline:none;width:100%;}' +
@@ -15,7 +15,7 @@
     '.appendix-signup--index .appendix-signup__email{color:#281D1D;border-color:var(--border,#DAD6CB);}' +
     '.appendix-signup--index .appendix-signup__email::placeholder{color:#545452;}' +
     '@media(max-width:600px){.appendix-signup--index .appendix-signup__form{flex-direction:column;}}' +
-    '@media(max-width:860px){.sidebar-col .appendix-signup{padding:24px 0 0;margin-top:24px;border-top:1px solid rgba(239,237,236,0.12);}' +
+    '@media(max-width:860px){.sidebar-col .appendix-signup{padding:24px 0 0;margin-top:24px;}' +
     '.sidebar-col .appendix-signup__text{font-size:13px;}' +
     '.sidebar-col .appendix-signup__email{padding:12px;font-size:13px;border-color:rgba(239,237,236,0.25);}' +
     '.sidebar-col .appendix-signup__btn{padding:12px 16px;}}' +
