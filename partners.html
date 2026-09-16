@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVK6TRPE0F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RVK6TRPE0F');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partners — From Presence to Power</title>
+  <meta name="description" content="Partners of From Presence to Power by Rashad Robinson.">
+  <link rel="icon" type="image/png" href="images/book-mock.png">
+  <link rel="apple-touch-icon" href="images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    :root {
+      --orange:      #E55F1D;
+      --brown:       #281D1D;
+      --cream:       #EFEDEC;
+      --cream-2:     #FCF1EB;
+      --tan:         #DAD6CB;
+      --tan-soft:    #E1DFDB;
+      --fg:          #281D1D;
+      --fg-muted:    #545452;
+      --bg:          #EFEDEC;
+      --border:      #DAD6CB;
+
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    /* ─── HERO ─── */
+    .page-hero {
+      padding: 140px 48px 72px;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 900;
+      line-height: 0.94;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 28px;
+    }
+
+    .hero-body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--fg-muted);
+      max-width: 520px;
+    }
+
+    /* ─── DIVIDER ─── */
+    .section-rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 48px;
+    }
+
+    /* ─── PARTNERS GRID ─── */
+    .partners-section {
+      padding: 72px 48px 100px;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    @media (max-width: 900px) { .partners-grid { grid-template-columns: repeat(2, 1fr); } .page-hero { padding: 120px 20px 48px; } .section-rule { margin: 0 20px; } .partners-section { padding: 48px 20px 80px; } }
+
+    .partner-cell {
+      background: white;
+      aspect-ratio: 3 / 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 24px;
+      position: relative;
+      transition: background 0.18s;
+    }
+
+    .partner-cell:hover {
+      background: var(--cream-2);
+    }
+
+    /* Logo image (shown when logo exists) */
+    .partner-cell img {
+      max-width: 140px;
+      max-height: 60px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: filter 0.2s, opacity 0.2s;
+    }
+
+    .partner-cell:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* Placeholder (shown when no logo) */
+    .partner-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .placeholder-box {
+      width: 100px;
+      height: 44px;
+      background: var(--tan-soft);
+      border-radius: 2px;
+    }
+
+    .partner-name {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 960px) {
+      .page-hero { padding: 100px 24px 48px; }
+      .section-rule { margin: 0 24px; }
+      .partners-section { padding: 48px 24px 72px; }
+
+      .partners-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+    }
+  </style>
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <section class="page-hero">
+    <h1 class="hero-headline">Partners</h1>
+  </section>
+
+  <hr class="section-rule">
+
+  <section class="partners-section">
+    <div class="partners-grid">
+      <div class="partner-cell"><img src="images/partners/aum.png" alt="AUM"></div>
+      <div class="partner-cell"><img src="images/partners/bomesi.png" alt="BOMESI"></div>
+      <div class="partner-cell"><img src="images/partners/glaad.png" alt="GLAAD"></div>
+      <div class="partner-cell"><img src="images/partners/rockwood.png" alt="Rockwood Leadership Institute"></div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+</body>
+</html>

@@ -12,7 +12,14 @@
   document.getElementById('site-nav').innerHTML =
     '<a href="/" class="nav-brand">From Presence to Power</a>' +
     '<ul class="nav-links">' +
-      '<li><a href="/"' + active('/') + '>About the Book</a></li>' +
+      '<li class="nav-dropdown">' +
+        '<a href="/"' + active('/') + '>About the Book</a>' +
+        '<ul class="nav-dropdown-menu">' +
+          '<li><a href="/">About</a></li>' +
+          '<li><a href="/praise">Praise</a></li>' +
+          '<li><a href="/partners">Partners</a></li>' +
+        '</ul>' +
+      '</li>' +
       '<li><a href="/events"' + active('/events') + '>Upcoming Events</a></li>' +
       '<li><a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a></li>' +
       '<li class="nav-dropdown">' +
@@ -37,6 +44,8 @@
 
   document.getElementById('site-mobile-menu').innerHTML =
     '<a href="/">About the Book</a>' +
+    '<a href="/praise">Praise</a>' +
+    '<a href="/partners">Partners</a>' +
     '<a href="/events">Upcoming Events</a>' +
     '<a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a>' +
     '<a href="/#rashad">About Rashad</a>' +
