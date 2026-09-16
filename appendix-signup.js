@@ -15,6 +15,10 @@
     '.appendix-signup--index .appendix-signup__email{color:#281D1D;border-color:var(--border,#DAD6CB);}' +
     '.appendix-signup--index .appendix-signup__email::placeholder{color:#545452;}' +
     '@media(max-width:600px){.appendix-signup--index .appendix-signup__form{flex-direction:column;}}' +
+    '@media(max-width:860px){.sidebar-col .appendix-signup{padding:24px 0 0;margin-top:24px;border-top:1px solid rgba(239,237,236,0.12);}' +
+    '.sidebar-col .appendix-signup__text{font-size:13px;}' +
+    '.sidebar-col .appendix-signup__email{padding:12px;font-size:13px;border-color:rgba(239,237,236,0.25);}' +
+    '.sidebar-col .appendix-signup__btn{padding:12px 16px;}}' +
     '</style>';
   document.head.insertAdjacentHTML('beforeend', css);
   function block(extra) {
