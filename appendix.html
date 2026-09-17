@@ -20,68 +20,254 @@
   <link rel="stylesheet" href="footer.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; height: auto; }
+
     :root {
-      --orange: #E55F1D; --brown: #281D1D; --cream: #EFEDEC; --cream-2: #E3DFD8; --cream-3: #E7E3DD;
-      --fg: #281D1D; --fg-muted: #545452; --fg-soft: #8B837C; --bg: #EFEDEC; --border: #DAD6CB;
-      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
-      --font-body: "Inter", system-ui, sans-serif;
-      --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --cream-2:      #FCF1EB;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --fg-soft:      #8B837C;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --font-display: "Big Shoulders Display", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", monospace;
     }
-    body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1400px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 40px); }
-    .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; }
 
-    /* hero */
-    .hero { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 64px; align-items: end; padding: 132px 0 44px; }
-    .hero__eyebrow { color: var(--orange); margin-bottom: 20px; }
-    .hero__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(44px, 6vw, 92px); line-height: 0.92; text-transform: uppercase; letter-spacing: 0.005em; white-space: nowrap; }
-    .hero__intro { font-size: 17px; line-height: 1.6; color: var(--fg-muted); max-width: 46ch; margin-bottom: 6px; }
-
-    /* body grid */
-    .grid { display: grid; grid-template-columns: 268px minmax(0,1fr); gap: 72px; align-items: start; padding: 48px 0 96px; }
-
-    /* rail */
-    .rail { position: sticky; top: 96px; }
-    .rail__nav { display: flex; flex-direction: column; background: var(--cream-2); padding: 4px 18px 18px; }
-    .rail__item { display: grid; gap: 4px; padding: 13px 0; border-bottom: 1px solid #D8D3CB; transition: opacity 0.15s; }
-    .rail__item:last-child { border-bottom: 0; }
-    .rail__item:hover { opacity: 0.66; }
-    .rail__label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #9A928A; }
-    .rail__title { font-size: 14.5px; line-height: 1.35; font-weight: 500; color: #3A342F; }
-
-    .notify { margin-top: 28px; padding-top: 22px; }
-    .notify__eyebrow { color: var(--fg-soft); margin-bottom: 10px; font-size: 10px; letter-spacing: 0.2em; }
-    .notify__text { font-size: 14px; line-height: 1.55; color: #4A443F; margin-bottom: 16px; }
-    .notify__email { width: 100%; height: 42px; padding: 0 12px; background: var(--cream-2); border: 0; border-radius: 0; color: var(--fg); font-family: var(--font-body); font-size: 14px; outline: none; }
-    .notify__email::placeholder { color: var(--fg-soft); }
-    .notify__email:focus { background: #DCD7CF; }
-    .notify__btn { width: 100%; height: 42px; margin-top: 10px; border: 1px solid var(--fg); border-radius: 0; background: transparent; color: var(--fg); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer; transition: background 0.15s, color 0.15s; }
-    .notify__btn:hover { background: var(--fg); color: var(--cream); }
-    .notify__success { display: none; font-size: 14px; line-height: 1.55; color: #4A443F; }
-
-    /* cards */
-    .cards { display: grid; grid-template-columns: minmax(0,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .card { background: var(--cream); padding: 32px 32px 28px; display: flex; flex-direction: column; gap: 15px; transition: background 0.15s; }
-    .card:hover { background: #E5E1DB; }
-    .card__meta { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; }
-    .card__label { color: var(--orange); }
-    .card__num { color: #A39B93; }
-    .card__title { font-family: var(--font-display); font-weight: 700; font-size: 34px; line-height: 1.02; text-transform: uppercase; text-wrap: balance; }
-    .card__blurb { font-size: 15.5px; line-height: 1.6; color: #4A443F; text-wrap: pretty; max-width: 72ch; }
-    .card__cta { margin-top: auto; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); display: inline-flex; align-items: center; gap: 8px; }
-    .card:hover .card__cta { color: var(--fg); }
-
-    @media (max-width: 860px) {
-      .hero { grid-template-columns: minmax(0,1fr); gap: 22px; align-items: start; padding: 100px 0 32px; }
-      .hero__title { white-space: normal; }
-      .grid { grid-template-columns: minmax(0,1fr); gap: 32px; padding: 28px 0 56px; }
-      .rail { position: static; order: 2; }
-      .notify { margin-top: 0; border-top: 1px solid var(--border); }
+    body {
+      background: var(--cream);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.5;
     }
-    @media (max-width: 560px) {
-      .card { padding: 26px 22px 24px; gap: 13px; }
-      .card__title { font-size: 27px; }
+
+    .page-wrapper { padding-top: 60px; }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 42fr 58fr;
+      align-items: flex-start;
+    }
+
+    .hero-left {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      padding: 64px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .page-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 6vw, 96px);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 32px;
+    }
+
+    .hero-intro {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--fg-muted);
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    .hero-intro em { color: var(--fg); font-style: italic; }
+
+    /* Notify block — sits under the intro, only place this content lives */
+    .hero-notify {
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      max-width: 380px;
+    }
+
+    .hero-notify-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fg-soft);
+      margin-bottom: 10px;
+    }
+
+    .hero-notify-text {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--fg-muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-notify-form { display: flex; flex-direction: column; gap: 8px; }
+
+    .hero-notify-email {
+      width: 100%;
+      height: 42px;
+      padding: 0 12px;
+      background: var(--cream-2);
+      border: 0;
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+    }
+    .hero-notify-email::placeholder { color: var(--fg-soft); }
+    .hero-notify-email:focus { background: #E3DFD8; }
+
+    .hero-notify-btn {
+      width: 100%;
+      height: 42px;
+      border: 1px solid var(--fg);
+      background: transparent;
+      color: var(--fg);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .hero-notify-btn:hover { background: var(--fg); color: var(--cream); }
+
+    .hero-notify-success { display: none; font-size: 14px; line-height: 1.55; color: var(--fg-muted); }
+
+    /* Right panel — scrollable */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 60px);
+    }
+
+    .exercise-card {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      transition: background 0.18s;
+      overflow: hidden;
+    }
+
+    .exercise-card:last-child { border-bottom: none; }
+    .exercise-card:hover { background: var(--cream-2); }
+
+    .card-inner {
+      padding: 28px 36px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .card-num {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 5vw, 76px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      flex-shrink: 0;
+      opacity: 0.15;
+    }
+
+    .card-rule {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+      flex-shrink: 0;
+      margin: 16px 28px;
+    }
+
+    .card-content { flex: 1; }
+
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 16px 36px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-cta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-cta svg { transition: transform 0.2s; }
+    .exercise-card:hover .card-cta svg { transform: translateX(4px); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+
+      .hero-left {
+        position: static;
+        height: auto;
+        padding: 48px 24px 40px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        overflow: visible;
+      }
+
+      .hero-right { min-height: unset; }
+
+      .card-inner { padding: 24px; }
+      .card-footer { padding: 14px 24px; }
+      .card-rule { margin: 12px 20px; }
+    }
+
+    @media (max-width: 640px) {
+      .card-num { font-size: 48px; }
     }
   </style>
 </head>
@@ -90,96 +276,130 @@
   <nav id="site-nav"></nav>
   <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
 
-  <div class="wrap">
-    <section class="hero">
-      <div>
-        <p class="eyebrow hero__eyebrow">Appendix</p>
-        <h1 class="hero__title">Extended passages<br>&amp; source materials</h1>
-      </div>
-      <p class="hero__intro">Extended passages, additional context, and source materials referenced throughout the book.</p>
-    </section>
+  <div class="page-wrapper">
+    <div class="hero">
 
-    <div class="grid">
-      <aside class="rail" aria-label="Appendix entries">
-        <div class="rail__nav">
-          <a href="/appendix/introduction" class="rail__item">
-            <span class="rail__label">Introduction · p. xvii</span>
-            <span class="rail__title">My High School Teacher &amp; How Power Works</span>
-          </a>
-          <a href="/appendix/dollar-vans" class="rail__item">
-            <span class="rail__label">Chapter 8 · p. 122</span>
-            <span class="rail__title">Dollar Vans: Communities Inventing Infrastructure</span>
-          </a>
-          <a href="/appendix/black-infrastructure" class="rail__item">
-            <span class="rail__label">Chapter 8 · p. 125</span>
-            <span class="rail__title">Black Infrastructure, Black Innovation, Black Power</span>
-          </a>
-          <a href="/appendix/wats-werd" class="rail__item">
-            <span class="rail__label">Chapter 8 · p. 137</span>
-            <span class="rail__title">WATS &amp; WERD: Cases of Communications Infrastructure</span>
-          </a>
-          <a href="/appendix/congressional-testimony" class="rail__item">
-            <span class="rail__label">Chapter 13 · p. 233</span>
-            <span class="rail__title">Big Tech In Control of Our Online Lives</span>
-          </a>
-          <a href="/appendix/cultural-advocacy" class="rail__item">
-            <span class="rail__label">Chapter 15 · p. 286</span>
-            <span class="rail__title">The Cultural Advocacy Whitepaper</span>
-          </a>
-        </div>
-        <div class="notify">
-          <p class="eyebrow notify__eyebrow">Coming in September</p>
-          <p class="notify__text">Check back in September for the rest of the Appendix. Sign up to be notified.</p>
-          <form class="notify__form" id="notify-form">
-            <input class="notify__email" type="email" placeholder="Your email address" aria-label="Email address" required>
-            <button class="notify__btn" type="submit">Notify me</button>
+      <!-- Left: title + intro + notify (sticky) -->
+      <div class="hero-left">
+        <p class="page-eyebrow">Appendix</p>
+        <h1 class="page-title">Extended<br>Passages</h1>
+        <p class="hero-intro">Additional context, full documents, and the references cited throughout the book &mdash; organized by the chapter they belong to.</p>
+
+        <div class="hero-notify">
+          <p class="hero-notify-eyebrow">Coming in September</p>
+          <p class="hero-notify-text">Check back in September for the rest of the Appendix. Sign up to be notified.</p>
+          <form class="hero-notify-form" id="notify-form">
+            <input class="hero-notify-email" type="email" placeholder="Your email address" aria-label="Email address" required>
+            <button class="hero-notify-btn" type="submit">Notify me</button>
           </form>
-          <p class="notify__success" id="notify-success">You're on the list.</p>
+          <p class="hero-notify-success" id="notify-success">You&rsquo;re on the list.</p>
         </div>
-      </aside>
+      </div>
 
-      <main class="cards">
-        <a href="/appendix/introduction" class="card">
-          <div class="card__meta"><span class="card__label">Introduction</span><span class="card__num">p. xvii</span></div>
-          <h2 class="card__title">More About My High School Teacher and How Power Works</h2>
-          <p class="card__blurb">An incident in my hometown — an assistant principal sending Black students to a police lineup — taught me early about how power is designed to work, and who it's designed to protect.</p>
-          <span class="card__cta">Read <span aria-hidden="true">&#8594;</span></span>
+      <!-- Right: entries stacked, scrollable -->
+      <div class="hero-right">
+
+        <a href="/appendix/introduction" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">01</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Intro · p. xvii</p>
+              <h2 class="card-title">My High School Teacher &amp; How Power Works</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Read
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
         </a>
-        <a href="/appendix/dollar-vans" class="card">
-          <div class="card__meta"><span class="card__label">Chapter 8</span><span class="card__num">p. 122</span></div>
-          <h2 class="card__title">Dollar Vans: Communities Inventing Infrastructure</h2>
-          <p class="card__blurb">When people in power impose infrastructure that doesn't work, people often respond by creating an infrastructure of their own that does.</p>
-          <span class="card__cta">Read <span aria-hidden="true">&#8594;</span></span>
+
+        <a href="/appendix/dollar-vans" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">02</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Chapter 8 · p. 122</p>
+              <h2 class="card-title">Dollar Vans: Communities Inventing Infrastructure</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Read
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
         </a>
-        <a href="/appendix/black-infrastructure" class="card">
-          <div class="card__meta"><span class="card__label">Chapter 8</span><span class="card__num">p. 125</span></div>
-          <h2 class="card__title">Black Infrastructure, Black Innovation, Black Power</h2>
-          <p class="card__blurb">The history of Black America can be told through the story of Black innovation — building independent structures and systems in a world designed to deny them.</p>
-          <span class="card__cta">Read <span aria-hidden="true">&#8594;</span></span>
+
+        <a href="/appendix/black-infrastructure" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">03</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Chapter 8 · p. 125</p>
+              <h2 class="card-title">Black Infrastructure, Black Innovation, Black Power</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Read
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
         </a>
-        <a href="/appendix/wats-werd" class="card">
-          <div class="card__meta"><span class="card__label">Chapter 8</span><span class="card__num">p. 137</span></div>
-          <h2 class="card__title">WATS &amp; WERD: Cases of Communications Infrastructure for Increasing Power</h2>
-          <p class="card__blurb">Two Civil Rights Era stories about leveraging communications technology to generate power — and what they teach activists about infrastructure today.</p>
-          <span class="card__cta">Read <span aria-hidden="true">&#8594;</span></span>
+
+        <a href="/appendix/wats-werd" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">04</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Chapter 8 · p. 137</p>
+              <h2 class="card-title">WATS &amp; WERD: Cases of Communications Infrastructure</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Read
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
         </a>
-        <a href="/appendix/congressional-testimony" class="card">
-          <div class="card__meta"><span class="card__label">Chapter 13</span><span class="card__num">p. 233</span></div>
-          <h2 class="card__title">IN DETAIL: Big Tech In Control of Our Online Lives: Commerce, Content, Connection</h2>
-          <p class="card__blurb">My full testimony before the U.S. House Committee on Energy and Commerce, arguing for major policy changes to hold Big Tech accountable.</p>
-          <span class="card__cta">Read <span aria-hidden="true">&#8594;</span></span>
+
+        <a href="/appendix/congressional-testimony" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">05</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Chapter 13 · p. 233</p>
+              <h2 class="card-title">Big Tech In Control of Our Online Lives</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Read
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
         </a>
-        <a href="/appendix/cultural-advocacy" class="card">
-          <div class="card__meta"><span class="card__label">Chapter 15</span><span class="card__num">p. 286</span></div>
-          <h2 class="card__title">The Whitepaper on Cultural Advocacy</h2>
-          <p class="card__blurb">The 1992 GLAAD paper that proved highly influential for developing a strategic front in the fight for social change through the lever of culture.</p>
-          <span class="card__cta">Read <span aria-hidden="true">&#8594;</span></span>
+
+        <a href="/appendix/cultural-advocacy" class="exercise-card">
+          <div class="card-inner">
+            <span class="card-num">06</span>
+            <div class="card-rule"></div>
+            <div class="card-content">
+              <p class="card-eyebrow">Chapter 15 · p. 286</p>
+              <h2 class="card-title">The Cultural Advocacy Whitepaper</h2>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-cta">Read
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
+          </div>
         </a>
-      </main>
+
+      </div>
     </div>
-  </div>
 
-  <div id="site-footer"></div>
+    <div id="site-footer"></div>
+  </div>
 
   <script src="nav.js"></script>
   <script src="footer.js"></script>
@@ -188,8 +408,8 @@
       var form = document.getElementById('notify-form');
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        var email = form.querySelector('.notify__email').value;
-        var btn = form.querySelector('.notify__btn');
+        var email = form.querySelector('.hero-notify-email').value;
+        var btn = form.querySelector('.hero-notify-btn');
         btn.disabled = true; btn.textContent = '...';
         fetch('/api/appendix-signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
           .finally(function () { form.style.display = 'none'; document.getElementById('notify-success').style.display = 'block'; });
