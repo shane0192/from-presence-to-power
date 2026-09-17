@@ -445,11 +445,53 @@
       color: var(--fg-muted);
     }
 
+    .hero-promo-cover-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
     .hero-promo-cover {
-      width: 110px;
+      width: 150px;
       flex-shrink: 0;
       display: block;
       border-radius: 2px;
+    }
+
+    .hero-promo-badge {
+      position: absolute;
+      top: -14px;
+      right: -20px;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream, #EFEDEC);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(-8deg);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.28);
+    }
+
+    .hero-promo-badge-top {
+      font-family: var(--font-mono);
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .hero-promo-badge-main {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 2px 0;
     }
 
     /* ─── ENDORSEMENT ─── */
@@ -2804,7 +2846,13 @@
           <p class="hero-promo-title">From Presence<br>to Power</p>
           <p class="hero-promo-publisher">Published by One World | Penguin Random House</p>
         </div>
-        <img src="images/book-mockup-front.png" alt="From Presence to Power" class="hero-promo-cover" width="967" height="1166">
+        <div class="hero-promo-cover-wrap">
+          <img src="images/book-mockup-front.png" alt="From Presence to Power" class="hero-promo-cover" width="967" height="1166">
+          <div class="hero-promo-badge">
+            <span class="hero-promo-badge-top">National</span>
+            <span class="hero-promo-badge-main">Best<br>Seller</span>
+          </div>
+        </div>
       </a>
     </div>
   </section>
