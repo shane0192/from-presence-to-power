@@ -173,6 +173,43 @@
         titleHtml: 'Movements: After-Party',
         meta: 'DUENDE AT SILO CITY • 21+',
         link: 'https://buffalolib.fshtechnologies.org/events/ab8ce1af-2505-49f4-ae58-0367d4bfacb8/register'
+      },
+      // ── Added Sep 18 2026 from Tess's "Book Campaign Updates" email (Sep 16). Times/links TBD per Tess. ──
+      {
+        id: 'oakland-museum',
+        date: '2026-10-11', month: 'Oct', day: '11', dow: 'Sun',
+        city: 'Oakland, CA',
+        titleHtml: 'Oakland Museum',
+        meta: 'TIME TBD',
+        link: '',
+        comingSoon: true
+      },
+      {
+        id: 'chicago-teachers-union-foundation',
+        date: '2026-10-15', month: 'Oct', day: '15', dow: 'Thu',
+        city: 'Chicago, IL',
+        titleHtml: 'Chicago Teacher Union Foundation',
+        meta: 'TIME TBD • 1901 W. CARROLL AVE, CHICAGO',
+        link: '',
+        comingSoon: true
+      },
+      {
+        id: 'texas-book-festival',
+        date: '2026-11-14', month: 'Nov', day: '14–15', dow: 'Sat–Sun',
+        city: 'Austin, TX',
+        titleHtml: '31st Annual Texas Book Festival',
+        meta: 'TIME TBD',
+        link: '',
+        comingSoon: true
+      },
+      {
+        id: 'riverhead-free-library',
+        date: '2026-11-19', month: 'Nov', day: '19', dow: 'Thu',
+        city: 'Riverhead, NY',
+        titleHtml: 'Riverhead Free Library',
+        meta: 'TIME TBD • 330 COURT ST, RIVERHEAD, NY 11901',
+        link: '',
+        comingSoon: true
       }
     ];
 
