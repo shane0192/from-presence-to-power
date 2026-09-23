@@ -154,9 +154,8 @@
         date: '2026-09-28', month: 'Sep', day: '28', dow: 'Mon',
         city: 'Brooklyn, NY',
         titleHtml: 'In conversation with <span class="name">Heather McGhee</span>',
-        meta: 'MON 9/28 AT 6:30PM • 128 PIERREPONT ST, BROOKLYN, NY 11201',
-        link: '',
-        comingSoon: true
+        meta: 'MON 9/28 AT 6:30PM • CENTER FOR BROOKLYN HISTORY • 128 PIERREPONT ST, BROOKLYN, NY 11201',
+        link: 'https://www.bklynlibrary.org/calendar/cbh-talk-how-change-center-for-brooklyn-20260928-0630pm'
       },
       {
         id: 'banned-book-week-conversation',
@@ -176,29 +175,36 @@
       },
       // ── Added Sep 18 2026 from Tess's "Book Campaign Updates" email (Sep 16). Times/links TBD per Tess. ──
       {
+        id: 'miami',
+        date: '2026-10-03', month: 'Oct', day: '3', dow: 'Sat',
+        city: 'Miami, FL',
+        titleHtml: 'In conversation with <span class="name">Tarell Alvin McCraney</span> &amp; <span class="name">Phil Agnew</span>',
+        meta: 'SAT 10/3 AT 7PM • ROOTS BOOKSTORE & MARKET • 6610 NW 15TH AVE',
+        link: 'https://docs.google.com/forms/d/e/1FAIpQLSe_xAdkTFxmek8wzIxHp_EW5pvmQXMSsfwwZkvS6e5JhAJBfA/viewform?usp=header'
+      },
+      {
         id: 'oakland-museum',
         date: '2026-10-11', month: 'Oct', day: '11', dow: 'Sun',
         city: 'Oakland, CA',
-        titleHtml: 'Oakland Museum',
-        meta: 'TIME TBD',
+        titleHtml: 'In conversation with <span class="name">Congresswoman Lateefah Simon</span>',
+        meta: 'OAKLAND MUSEUM • TIME TBD • Email events@rashadrobinson.com for more information',
         link: '',
         comingSoon: true
       },
       {
         id: 'chicago-teachers-union-foundation',
-        date: '2026-10-15', month: 'Oct', day: '15', dow: 'Thu',
+        date: '2026-10-29', month: 'Oct', day: '29', dow: 'Thu',
         city: 'Chicago, IL',
-        titleHtml: 'Chicago Teacher Union Foundation',
-        meta: 'TIME TBD • 1901 W. CARROLL AVE, CHICAGO',
-        link: '',
-        comingSoon: true
+        titleHtml: 'Chicago Teachers Union Foundation',
+        meta: 'THU 10/29 • DOORS 4:30PM • PROGRAM 5PM • CHICAGO TEACHERS UNION CENTER • 1901 W. CARROLL AVE, CHICAGO, IL 60612',
+        link: ''
       },
       {
         id: 'texas-book-festival',
         date: '2026-11-14', month: 'Nov', day: '14–15', dow: 'Sat–Sun',
         city: 'Austin, TX',
         titleHtml: '31st Annual Texas Book Festival',
-        meta: 'TIME TBD',
+        meta: 'TIME TBD • Email events@rashadrobinson.com for more information',
         link: '',
         comingSoon: true
       },
@@ -207,7 +213,7 @@
         date: '2026-11-19', month: 'Nov', day: '19', dow: 'Thu',
         city: 'Riverhead, NY',
         titleHtml: 'Riverhead Free Library',
-        meta: 'TIME TBD • 330 COURT ST, RIVERHEAD, NY 11901',
+        meta: 'TIME TBD • 330 COURT ST, RIVERHEAD, NY 11901 • Email events@rashadrobinson.com for more information',
         link: '',
         comingSoon: true
       }
