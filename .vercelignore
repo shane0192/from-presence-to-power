@@ -6,3 +6,8 @@ wireframe-fyp-exercise.html
 # Local project files
 *.md
 *.command
+
+# HELD BACK pending Rashad's approval (Yas, Sep 23 2026). Re-enable by deleting
+# these two lines and restoring the two /partners links in nav.js.
+partners.html
+images/partners/

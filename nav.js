@@ -17,7 +17,6 @@
         '<ul class="nav-dropdown-menu">' +
           '<li><a href="/">About</a></li>' +
           '<li><a href="/praise">Praise</a></li>' +
-          '<li><a href="/partners">Partners</a></li>' +
         '</ul>' +
       '</li>' +
       '<li><a href="/events"' + active('/events') + '>Upcoming Events</a></li>' +
@@ -45,7 +44,6 @@
   document.getElementById('site-mobile-menu').innerHTML =
     '<a href="/">About the Book</a>' +
     '<a href="/praise">Praise</a>' +
-    '<a href="/partners">Partners</a>' +
     '<a href="/events">Upcoming Events</a>' +
     '<a href="https://www.rashadrobinson.com/press" target="_blank" rel="noopener">Press</a>' +
     '<a href="/#rashad">About Rashad</a>' +
