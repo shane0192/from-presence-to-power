@@ -186,7 +186,7 @@
         id: 'oakland-museum',
         date: '2026-10-11', month: 'Oct', day: '11', dow: 'Sun',
         city: 'Oakland, CA',
-        titleHtml: 'In conversation with <span class="name">Congresswoman Lateefah Simon</span>',
+        titleHtml: 'In conversation with <span class="name">Alicia Garza</span> &amp; <span class="name">Congresswoman Lateefah Simon</span>',
         meta: 'OAKLAND MUSEUM • TIME TBD • Email events@rashadrobinson.com for more information',
         link: '',
         comingSoon: true
