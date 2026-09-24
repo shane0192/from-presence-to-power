@@ -145,7 +145,7 @@ nav.scrolled .nav-toggle span { background: var(--cream) !important; box-shadow:
   min-width: 168px;
   z-index: 200;
   list-style: none;
-  padding: 6px 0;
+  padding: 0;
 }
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }

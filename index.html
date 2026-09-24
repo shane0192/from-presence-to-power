@@ -34,12 +34,12 @@
     "@type": "Book",
     "@id": "https://book.rashadrobinson.com/#book",
     "name": "From Presence to Power",
-    "alternateName": "How to Take On the Fights That Matter–and Win",
-    "author": {
-      "@type": "Person",
-      "@id": "https://rashadrobinson.com/#person",
-      "name": "Rashad Robinson"
-    },
+    "alternateName": "From Presence to Power: How to Take On the Fights That Matter—and Win",
+    "url": "https://book.rashadrobinson.com/",
+    "image": "https://book.rashadrobinson.com/images/book-mockup-front.png",
+    "description": "A practical roadmap for understanding how power works and how to build it, drawing on Rashad Robinson's decades of experience leading successful campaigns for social change.",
+    "bookFormat": "https://schema.org/Hardcover",
+    "inLanguage": "en-US",
     "isbn": "9780593243565",
     "numberOfPages": 400,
     "datePublished": "2026-07-28",
@@ -51,20 +51,38 @@
         "name": "Penguin Random House"
       }
     },
-    "inLanguage": "en",
-    "genre": ["Political Science", "Social Justice", "Activism"],
-    "keywords": "power building, social change, racial justice, organizing, advocacy",
-    "description": "A practical roadmap for anyone trying to gain real power and win lasting social change.",
-    "url": "https://book.rashadrobinson.com/",
-    "image": "https://book.rashadrobinson.com/images/book-mockup-front.png",
+    "author": {
+      "@type": "Person",
+      "@id": "https://rashadrobinson.com/#person",
+      "name": "Rashad Robinson",
+      "url": "https://rashadrobinson.com/"
+    },
+    "genre": [
+      "Politics",
+      "Social Justice",
+      "Activism",
+      "Leadership",
+      "Current Events"
+    ],
+    "keywords": [
+      "power",
+      "activism",
+      "social justice",
+      "leadership",
+      "organizing",
+      "politics",
+      "strategy"
+    ],
     "offers": {
       "@type": "Offer",
-      "price": "32.00",
-      "priceCurrency": "USD",
+      "url": "https://book.rashadrobinson.com/",
       "availability": "https://schema.org/InStock",
-      "url": "https://www.penguinrandomhouse.com/books/720720/from-presence-to-power-by-rashad-robinson/"
+      "price": "32.00",
+      "priceCurrency": "USD"
     },
-    "sameAs": "https://www.penguinrandomhouse.com/books/720720/from-presence-to-power-by-rashad-robinson/"
+    "sameAs": [
+      "https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/9780593243565/"
+    ]
   }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -337,7 +355,7 @@
       width: 108px;
       background: linear-gradient(180deg, #E55F1D 0%, #FF9A5C 100%);
       clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 83%, 0 100%);
-      padding: 22px 16px 36px;
+      padding: 16px 12px 36px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -346,6 +364,20 @@
     }
 
     .hero-preorder-badge:hover { opacity: 0.9; }
+
+    .hero-preorder-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.25;
+      text-align: center;
+      margin-bottom: 6px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+    }
 
     .hero-preorder-top {
       font-family: var(--font-display);
@@ -445,11 +477,53 @@
       color: var(--fg-muted);
     }
 
+    .hero-promo-cover-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
     .hero-promo-cover {
-      width: 110px;
+      width: 150px;
       flex-shrink: 0;
       display: block;
       border-radius: 2px;
+    }
+
+    .hero-promo-badge {
+      position: absolute;
+      top: -14px;
+      right: -20px;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #E55F1D 0%, #FF9A5C 100%);
+      color: var(--cream, #EFEDEC);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(-8deg);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.28);
+    }
+
+    .hero-promo-badge-top {
+      font-family: var(--font-mono);
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .hero-promo-badge-main {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 2px 0;
     }
 
     /* ─── ENDORSEMENT ─── */
@@ -608,7 +682,7 @@
     .about-book-body {
       flex: 1;
       display: grid;
-      grid-template-columns: 1fr 340px;
+      grid-template-columns: 1fr 480px;
       gap: 0;
     }
 
@@ -745,10 +819,53 @@
       gap: 24px;
     }
 
+    .about-book-cover-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
     .about-book-cover {
       width: 100%;
-      max-width: 220px;
+      max-width: 340px;
       display: block;
+    }
+
+    .about-book-badge {
+      position: absolute;
+      top: -18px;
+      right: -24px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--brown, #281D1D);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(-8deg);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.28);
+    }
+
+    .about-book-badge-top {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: var(--orange, #E55F1D);
+    }
+
+    .about-book-badge-main {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 2px 0;
     }
 
     .about-book-card-meta {
@@ -2588,45 +2705,6 @@
     body.no-marquee #main-content { margin-top: 60px !important; }
     body.no-marquee .hero { height: calc(100vh - 60px); }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Book",
-    "@id": "https://book.rashadrobinson.com/#book",
-    "name": "From Presence to Power",
-    "alternateName": "From Presence to Power: A Practical Guide to Winning Social Change",
-    "url": "https://book.rashadrobinson.com/",
-    "image": "https://book.rashadrobinson.com/images/book-cover.jpg",
-    "isbn": "9780593243565",
-    "numberOfPages": 400,
-    "datePublished": "2026-07-28",
-    "inLanguage": "en",
-    "bookFormat": "https://schema.org/Hardcover",
-    "publisher": {
-      "@type": "Organization",
-      "name": "One World",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "Penguin Random House"
-      }
-    },
-    "author": {
-      "@type": "Person",
-      "@id": "https://rashadrobinson.com/#person",
-      "name": "Rashad Robinson"
-    },
-    "genre": ["Social Science", "Political Science", "Activism", "Civil Rights"],
-    "keywords": ["social change", "racial justice", "power", "activism", "civil rights", "organizing"],
-    "offers": {
-      "@type": "Offer",
-      "url": "https://book.rashadrobinson.com/",
-      "priceCurrency": "USD",
-      "price": "32.00",
-      "availability": "https://schema.org/InStock"
-    },
-    "sameAs": "https://www.penguinrandomhouse.com/books/741498/from-presence-to-power-by-rashad-robinson/"
-  }
-  </script>
 </head>
 <body>
 
@@ -2762,7 +2840,13 @@
           <p class="hero-promo-title">From Presence<br>to Power</p>
           <p class="hero-promo-publisher">Published by One World | Penguin Random House</p>
         </div>
-        <img src="images/book-mockup-front.png" alt="From Presence to Power" class="hero-promo-cover" width="967" height="1166">
+        <div class="hero-promo-cover-wrap">
+          <img src="images/book-mockup-front.png" alt="From Presence to Power" class="hero-promo-cover" width="967" height="1166">
+          <div class="hero-promo-badge">
+            <span class="hero-promo-badge-top">National</span>
+            <span class="hero-promo-badge-main">Best<br>Seller</span>
+          </div>
+        </div>
       </a>
     </div>
   </section>
@@ -2811,7 +2895,7 @@
           <h2 class="about-book-statement" data-reveal data-reveal-color="#281D1D">This book is for everyone who wants to win change&mdash;and is tired of losing.</h2>
           <p class="about-book-lede"><em>From Presence to Power</em> is a uniquely practical and strategic roadmap for understanding how power actually works today&mdash;and for gaining power and using it for good.</p>
           <p class="about-book-lede">The book answers the questions so many people have been asking: Why are we losing so much? In order to win the big changes we want to see, what do we need to change about the ways we fight back? When we do win something, how can we make sure it lasts?</p>
-          <p class="about-book-lede"><em>From Presence to Power</em> has already been called &ldquo;a master class in real activism&rdquo; and &ldquo;a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.&rdquo; It is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
+          <p class="about-book-lede"><em>From Presence to Power</em> has already been called &ldquo;a master class in real activism&rdquo; and &ldquo;a must-read for anyone who wants to achieve lasting structural change, not just momentary victories and fleeting results.&rdquo; A national bestseller, the book is a provocative account of what anyone trying to make change needs to get right about strategy&mdash;and the &ldquo;magical thinking&rdquo; that so often leads us off course.</p>
           <p class="about-book-lede">It&rsquo;s a guide for everyone: from political and social justice leaders, to community activists trying to influence their school board or local government, to big and small influencers using media to foster momentum for change, to everyday people simply trying to figure out how to influence their employers or communities and where to focus their volunteer energy and donations.</p>
           <div class="ab-expand" id="abExpand" aria-hidden="true">
             <p class="about-book-lede">Rashad Robinson is a two-decade social justice leader whose strategies have led to real wins in the realms of racial justice, LGBT rights and more. In this book, he shows clearly why some fights for change stall while others succeed.</p>
@@ -2828,7 +2912,13 @@
         </div>
       </div>
       <div class="about-book-card">
-        <img src="images/book-mockup-front.png" alt="From Presence to Power" class="about-book-cover" width="967" height="1166" loading="lazy">
+        <div class="about-book-cover-wrap">
+          <img src="images/book-mockup-front.png" alt="From Presence to Power" class="about-book-cover" width="967" height="1166" loading="lazy">
+          <div class="about-book-badge">
+            <span class="about-book-badge-top">National</span>
+            <span class="about-book-badge-main">Best<br>Seller</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -3065,7 +3155,7 @@
           <img src="images/rashad-01-records.jpg" alt="Rashad Robinson" width="1920" height="2400" loading="lazy">
         </div>
         <div class="ar-text">
-          <p>Rashad Robinson is a social justice leader, strategist and organization builder.</p>
+          <p>Rashad Robinson is a social justice leader, strategist and national bestselling author.</p>
           <p>He&rsquo;s taken on tech giants and the criminal justice system, politicians in Washington and corporate executives in Hollywood. He&rsquo;s been on the front lines of protest and in the back rooms of negotiation. He has designed campaigns to change public policies, corporate practices, electoral outcomes, and media representations. He led Color Of Change for nearly fourteen years, transforming it from a start-up into a national force for racial justice, and also led programs at GLAAD, reshaping media representations of LGBTQ people during the fights to win marriage equality and end discrimination.</p>
           <p><em>From Presence to Power</em> is a roadmap for making change, based on everything he&rsquo;s achieved and learned: a practical guide for anyone who wants to understand power, gain it, and use it to win.</p>
           <p><a href="https://www.rashadrobinson.com/about" target="_blank" rel="noopener" class="rashad-link">See Rashad&rsquo;s full bio here.</a></p>

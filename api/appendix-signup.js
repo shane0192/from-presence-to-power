@@ -12,13 +12,13 @@ module.exports = async function handler(req, res) {
   const entry = JSON.stringify({ email, ts: new Date().toISOString() });
 
   try {
-    const r = await fetch(`${process.env.KV_REST_API_URL}/lpush`, {
+    const r = await fetch(`${process.env.KV_REST_API_URL.trim()}/pipeline`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`,
+        Authorization: `Bearer ${process.env.KV_REST_API_TOKEN.trim()}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(['appendix-signups', entry]),
+      body: JSON.stringify([['LPUSH', 'appendix-signups', entry]]),
     });
 
     if (!r.ok) throw new Error(await r.text());

@@ -2,10 +2,10 @@
   document.getElementById('site-footer').innerHTML =
     /* Row 1 — nav links */
     '<ul class="footer-links">' +
-      '<li><a href="index.html#book">The Book</a></li>' +
-      '<li><a href="events.html">Events</a></li>' +
-      '<li><a href="praise.html">Praise</a></li>' +
-      '<li><a href="index.html#rashad">Author</a></li>' +
+      '<li><a href="/#book">The Book</a></li>' +
+      '<li><a href="/events.html">Events</a></li>' +
+      '<li><a href="/praise.html">Praise</a></li>' +
+      '<li><a href="/#rashad">Author</a></li>' +
       '<li><a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a></li>' +
       '<li><a href="https://www.rashadrobinson.com/contact" target="_blank" rel="noopener">Contact</a></li>' +
       '<li><a href="https://www.rashadrobinson.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></li>' +
