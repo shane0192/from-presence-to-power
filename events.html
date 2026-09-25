@@ -1062,10 +1062,30 @@
     var submitBtn = document.getElementById('rsvp-submit');
     var errEl    = document.getElementById('rsvp-form-error');
     var successEl = document.getElementById('rsvp-success');
+    var titleEl = document.getElementById('rsvp-modal-title');
+    var subEl = document.querySelector('.rsvp-modal-sub');
+    var successBodyEl = document.querySelector('.rsvp-success-body');
     var currentEventId = 'atlanta';
+
+    var RSVP_COPY = {
+      atlanta: {
+        title: 'Atlanta',
+        sub: 'THU 9/24 AT 7PM &nbsp;&bull;&nbsp; Auburn Avenue Research Library<br>101 Auburn Ave NE, Atlanta, GA 30303',
+        successBody: 'We&rsquo;ve got your spot reserved for the Atlanta event. See you there.'
+      },
+      miami: {
+        title: 'Miami',
+        sub: 'SAT 10/3 AT 7PM &nbsp;&bull;&nbsp; Roots Bookstore &amp; Market<br>6610 NW 15th Ave, Miami, FL',
+        successBody: 'We&rsquo;ve got your spot reserved for the Miami event. See you there.'
+      }
+    };
 
     function openModal(eventId) {
       currentEventId = eventId || 'atlanta';
+      var copy = RSVP_COPY[currentEventId] || RSVP_COPY.atlanta;
+      titleEl.textContent = copy.title;
+      subEl.innerHTML = copy.sub;
+      successBodyEl.innerHTML = copy.successBody;
       form.style.display = '';
       successEl.classList.remove('visible');
       errEl.classList.remove('visible');

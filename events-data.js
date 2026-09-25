@@ -180,7 +180,8 @@
         city: 'Miami, FL',
         titleHtml: 'In conversation with <span class="name">Tarell Alvin McCraney</span> &amp; <span class="name">Phil Agnew</span>',
         meta: 'SAT 10/3 AT 7PM • ROOTS BOOKSTORE & MARKET • 6610 NW 15TH AVE',
-        link: 'https://docs.google.com/forms/d/e/1FAIpQLSe_xAdkTFxmek8wzIxHp_EW5pvmQXMSsfwwZkvS6e5JhAJBfA/viewform?usp=header'
+        link: '',
+        signupModal: true
       },
       {
         id: 'oakland-museum',
