@@ -568,6 +568,11 @@
          isn't a link), so they must stay visible — unlike the decorative
          "View Event" pill on linked cards, which the whole card already covers. */
       .he-card-action:has(.he-card-btn--modal) { display: flex; padding: 0 16px 16px; grid-column: 2; align-items: flex-start; }
+      /* The date cell's `grid-row: 1 / -1` only spans EXPLICIT rows, so when a
+         second row is added (modal button or TBA tag) the grey column stops short
+         and leaves a white gap beside it. Span it explicitly instead. */
+      .he-card:has(.he-card-btn--modal) .he-card-date,
+      .he-card:has(.he-card-tags) .he-card-date { grid-row: 1 / span 2; }
       .he-card-tags { padding: 0 16px 16px; grid-column: 2; flex-direction: row; align-items: flex-start; justify-content: flex-start; margin-top: 0; }
       .he-card-meta { font-size: 10px; }
     }
