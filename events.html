@@ -564,6 +564,10 @@
       .he-card-body { padding: 16px 16px; }
       .he-card-name { font-size: 18px; }
       .he-card-action { display: none; }
+      /* Modal RSVP buttons are the only way to reserve on mobile (the card itself
+         isn't a link), so they must stay visible — unlike the decorative
+         "View Event" pill on linked cards, which the whole card already covers. */
+      .he-card-action:has(.he-card-btn--modal) { display: flex; padding: 0 16px 16px; grid-column: 2; align-items: flex-start; }
       .he-card-tags { padding: 0 16px 16px; grid-column: 2; flex-direction: row; align-items: flex-start; justify-content: flex-start; margin-top: 0; }
       .he-card-meta { font-size: 10px; }
     }
