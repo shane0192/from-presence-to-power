@@ -187,10 +187,9 @@
         id: 'oakland-museum',
         date: '2026-10-11', month: 'Oct', day: '11', dow: 'Sun',
         city: 'Oakland, CA',
-        titleHtml: 'In conversation with <span class="name">Alicia Garza</span> &amp; <span class="name">Congresswoman Lateefah Simon</span>',
-        meta: 'OAKLAND MUSEUM • TIME TBD • Email events@rashadrobinson.com for more information',
-        link: '',
-        comingSoon: true
+        titleHtml: 'In conversation with <span class="name">Janiece Evans-Page</span> &amp; <span class="name">Alicia Garza</span>',
+        meta: 'OAKLAND MUSEUM • TIME TBD',
+        link: 'https://btt.boldtypetickets.com/events/188068804/rashad-robinson-in-conversation-with-janiece-evans-page-alicia-garza'
       },
       {
         id: 'chicago-teachers-union-foundation',
@@ -213,8 +212,18 @@
         id: 'riverhead-free-library',
         date: '2026-11-19', month: 'Nov', day: '19', dow: 'Thu',
         city: 'Riverhead, NY',
-        titleHtml: 'Riverhead Free Library',
-        meta: 'TIME TBD • 330 COURT ST, RIVERHEAD, NY 11901 • Email events@rashadrobinson.com for more information',
+        titleHtml: 'In conversation with <span class="name">Denise Civiletti</span>',
+        meta: 'TIME TBD • RIVERHEAD FREE LIBRARY • 330 COURT ST, RIVERHEAD, NY 11901 • Email events@rashadrobinson.com for more information',
+        link: '',
+        comingSoon: true
+      },
+      // ── Added Oct 5 2026 from Tess Hetzel, Sep 30 "Re: FPTP Website: Adding 'bestseller'". No address or link yet. ──
+      {
+        id: 'detroit-urban-consulate',
+        date: '2026-12-10', month: 'Dec', day: '10', dow: 'Thu',
+        city: 'Detroit, MI',
+        titleHtml: 'In conversation with <span class="name">Orlando P. Bailey</span>',
+        meta: 'THU 12/10 AT 6PM • THE GARDEN THEATER • HOSTED BY URBAN CONSULATE • Email events@rashadrobinson.com for more information',
         link: '',
         comingSoon: true
       }
