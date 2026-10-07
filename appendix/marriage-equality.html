@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marriage equality: A story about connecting culture change strategy and policy change outcomes — Appendix · From Presence to Power</title>
+  <meta name="description" content="Marriage equality: A story about connecting culture change strategy and policy change outcomes — Appendix entry from From Presence to Power by Rashad Robinson.">
+  <link rel="canonical" href="https://book.rashadrobinson.com/appendix/marriage-equality">
+  <link rel="icon" type="image/png" href="../images/book-mock.png">
+  <link rel="apple-touch-icon" href="../images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css">
+  <link rel="stylesheet" href="../footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+      --ls-eyebrow:   0.32em;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .appendix-layout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--brown);
+      pointer-events: none;
+    }
+
+    .sidebar-col {
+      width: 260px;
+      flex-shrink: 0;
+      color: var(--cream);
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      align-self: flex-start;
+      z-index: 1;
+    }
+
+    .sidebar-col__inner {
+      height: 100%;
+      overflow-y: auto;
+      padding: 48px 0;
+    }
+
+    .sidebar-col__back {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      text-decoration: none;
+      padding: 0 28px 28px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__back:hover { color: rgba(239,237,236,0.75); }
+
+    .sidebar-col__toc-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.3);
+      padding: 0 28px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-col__nav {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      height: auto;
+      background: transparent;
+      border: none;
+      padding: 0;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .sidebar-col__link {
+      display: block;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-left: 2px solid transparent;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      transition: border-color 0.15s, background 0.15s;
+      width: 100%;
+    }
+
+    .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
+
+    .sidebar-col__link.is-active {
+      border-left-color: var(--orange);
+      background: rgba(239,237,236,0.06);
+    }
+
+    .sidebar-col__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      margin-bottom: 3px;
+    }
+
+    .sidebar-col__link-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(239,237,236,0.65);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__link.is-active .sidebar-col__link-title,
+    .sidebar-col__link:hover .sidebar-col__link-title { color: var(--cream); }
+
+    .appendix-main {
+      flex: 1;
+      min-width: 0;
+      padding: 64px 72px 120px 72px;
+    }
+
+    .entry__meta {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+      max-width: 660px;
+    }
+
+    .entry__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 10px;
+      max-width: 660px;
+    }
+
+    .entry__source {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(40,29,29,0.38);
+      margin-bottom: 32px;
+      max-width: 660px;
+    }
+
+    .entry__preamble,
+    .entry__body {
+      max-width: 660px;
+    }
+
+    .entry__preamble {
+      font-style: italic;
+      color: var(--fg-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      border-left: 3px solid var(--orange);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 36px;
+    }
+
+    .entry__body p { margin-bottom: 20px; font-size: 17px; line-height: 1.7; }
+    .entry__body p:last-child { margin-bottom: 0; }
+
+    .entry__meta,
+    .entry__title,
+    .entry__source,
+    .entry__preamble,
+    .entry__body {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mobile-nav-select { display: none; }
+
+    @media (max-width: 860px) {
+      .appendix-layout { flex-direction: column; }
+      .appendix-layout::before { display: none; }
+      .sidebar-col { width: 100%; background: var(--brown); position: static; height: auto; }
+      .sidebar-col__inner { position: static; height: auto; overflow-y: visible; padding: 32px 20px 20px; }
+      .sidebar-col__back { padding: 0 0 20px; }
+      .sidebar-col__toc-label { padding: 0; margin-bottom: 8px; }
+      .sidebar-col__nav { display: none; }
+      .mobile-nav-select {
+        display: block;
+        width: 100%;
+        background: rgba(239,237,236,0.08);
+        color: var(--cream);
+        border: 1px solid rgba(239,237,236,0.2);
+        border-radius: 6px;
+        padding: 12px 40px 12px 16px;
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 500;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(239,237,236,0.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+      }
+      .mobile-nav-select option { background: #281D1D; }
+      .entry__title { font-size: 36px; line-height: 1.0; }
+      .mobile-nav-select {
+        background-color: transparent;
+        border: 1px solid rgba(239,237,236,0.25);
+        border-radius: 0;
+        padding: 12px 40px 12px 12px;
+        font-size: 13px;
+        margin: 0;
+      }
+      .mobile-nav-select:focus { outline: none; border-color: #E55F1D; }
+      .sidebar-col__inner { padding-bottom: 32px; }
+      .appendix-main { padding: 40px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="appendix-layout">
+
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
+        <a href="/appendix" class="sidebar-col__back">← All Entries</a>
+        <select class="mobile-nav-select" aria-label="Jump to entry">
+          <option value="introduction">Intro · p. xvii — My High School Teacher</option>
+          <option value="demanding-an-apology">Ch. 4 · p. 63 — Demanding an apology: When it works and when it doesn’t</option>
+          <option value="harlem">Ch. 5 · p. 75 — Harlem: A case study about written and unwritten rules</option>
+          <option value="marriage-equality">Ch. 7 · p. 107 — Marriage equality: A story about connecting culture change strategy and policy change outcomes</option>
+          <option value="dollar-vans">Ch. 8 · p. 122 — Dollar Vans: Communities Inventing Infrastructure</option>
+          <option value="black-infrastructure">Ch. 8 · p. 125 — Black Infrastructure, Black Innovation, Black Power</option>
+          <option value="wats-werd">Ch. 8 · p. 137 — WATS &amp; WERD: Cases of Communications Infrastructure</option>
+          <option value="congressional-testimony">Ch. 13 · p. 233 — Big Tech In Control of Our Online Lives</option>
+          <option value="cultural-advocacy">Ch. 15 · p. 286 — Cultural Advocacy</option>
+        </select>
+        <nav class="sidebar-col__nav">
+          <a href="introduction" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="demanding-an-apology" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 4 · p. 63</p>
+            <p class="sidebar-col__link-title">Demanding an apology: When it works and when it doesn’t</p>
+          </a>
+          <a href="harlem" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 5 · p. 75</p>
+            <p class="sidebar-col__link-title">Harlem: A case study about written and unwritten rules</p>
+          </a>
+          <a href="marriage-equality" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 7 · p. 107</p>
+            <p class="sidebar-col__link-title">Marriage equality: A story about connecting culture change strategy and policy change outcomes</p>
+          </a>
+          <a href="dollar-vans" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans: Communities Inventing Infrastructure</p>
+          </a>
+          <a href="black-infrastructure" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation, Black Power</p>
+          </a>
+          <a href="wats-werd" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD: Cases of Communications Infrastructure</p>
+          </a>
+          <a href="congressional-testimony" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">Big Tech In Control of Our Online Lives</p>
+          </a>
+          <a href="cultural-advocacy" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="appendix-main">
+      <p class="entry__meta">Appendix</p>
+      <h1 class="entry__title">Marriage equality: A story about connecting culture change strategy and policy change outcomes</h1>
+      <p class="entry__source">Chapter 7 &nbsp;·&nbsp; Page 107</p>
+      <div class="entry__preamble">
+        In this chapter, I describe how getting gay and lesbian wedding announcements into newspapers was part of building cultural acceptance for same-sex couples, as a step toward policy change. The passage below goes deeper into that strategy, and also recounts a story of what happened when we took the same fight to television, and the network told us no—and how we changed the rules to win.
+      </div>
+      <div class="entry__body">
+        <p>Marriage equality was a fight, not a party. The larger fight over marriage equality was about balancing carrots and sticks: carrots that incentivized people to support our movement, and sticks that penalized them for working against us. Carrots were very important, given that we had limited sticks at our disposal, especially early on.</p>
+        <p>To win marriage equality, we at GLAAD knew we needed to normalize the idea that there was no meaningful difference between straight marriages and our marriages, and so there should be no legal difference, either. Empathy wasn’t enough. We got people to feel empathy for LGBTQ+ people who were kicked out of hospital rooms in situations where straight husbands and wives were not. But that just won us “domestic partnership” laws that were not uniformly enforced. We talked about technical problems, so we got technical solutions. But that was not real equality.</p>
+        <p>We had to do more in order for people to feel that differences in marriages between gay couples and straight couples were no different than marriages between Christian couples and atheist couples—differences that did not matter to the law. Diversity should not be punished. But arguing our case on cable news would never influence people at the level or scale required.</p>
+        <p>Easier said than done. We needed to break into the cultural channels that influence people’s ideas about which marriages are normal and acceptable and which aren’t. We would face a great deal of resistance. We would need to use a good number of “stick” strategies.</p>
+        <p>GLAAD took on wedding announcements beginning in 2002. Newspaper sections and TV segments dedicated to wedding announcements functioned as cultural norm-setters, even for people who did not care much about the news itself. It’s one way people learned about what marriages looked like and what weddings should be. While the news might cover people yelling and screaming about same-sex marriage ruining the world, we could speak to people at a deeper level through the channels of culture. We could use culture to change culture.</p>
+        <p>In 2010, the fight for marriage equality led GLAAD into a big fight with NBC’s <em>Today,</em> which at the time was the nation’s most-watched morning show. Its producers had decided to attract viewers with a contest called Modern Day Wedding. The prize for the winning couple was the chance to get married live on the show in the middle of Rockefeller Center. When <em>Today</em> launched the contest, it was not open to gay and lesbian couples. Even after an initial outcry, which GLAAD had helped amplify, the leadership at NBC held firm.</p>
+        <p>Nothing about the situation required the contest organizers to give us what we wanted. They faced some pressure from us, but they no doubt faced pressure from many others pushing them in the opposite direction and making them feel it was okay to deny us. So when the carrot of talking nicely and offering them the chance to give the brand credit for being a leader didn’t work, the stick became the better option.</p>
+        <p>We mobilized even more people—including people who worked on the show but had never been active for the cause before—and that gave us even more power. It got us to the negotiating table, where we would sit across from executives who were slightly panicked but mostly comfortable with their resolute power. The senior leadership at the network wanted us to go away. But they knew their gay and lesbian staff members were not going away, and neither were their advertisers, who were invested in relationships with gay and lesbian people. So we knew there was an opportunity to push forward. We had belief that change was possible.</p>
+        <p>We put it to them very clearly: If you want gay people as an audience, you have to recognize gay people as participants. They told us that they could not include gay and lesbian couples in the contest because we could not get married legally.</p>
+        <p><strong>We told them that if we could not get married on television, we would remain unable to get married in real life. They wanted the legal change to come first, to give them cover. We wanted the culture change to come first, to give us momentum.</strong></p>
+        <p>We had our members call them, we sparked news stories in the press, we wrote editorials. We forced them to explain to their own employees across the corporation, and to the public, the logic of excluding gay and lesbian couples from the definition of a “modern” wedding. They couldn’t do it. They had no argument. Our relationships were, after all, the best possible symbol of a modern wedding. (The sitcom <em>Modern Family,</em> which included a same-sex couple among the three families it featured, debuted on ABC the previous year in 2009.)</p>
+        <p>They thought they were playing by rules that did not require them to explain themselves to anyone. So it didn’t matter to them whether or not they had a real argument. But we changed those rules, forcing them to account for their decisions in public in order to maintain those decisions. They could not win that game under the new rules we set.</p>
+        <p>Changing those rules led us to win the bigger rule change we wanted: With a public announcement, the <em>Today</em> show changed the contest rules to allow LGBTQ+ couples to enter. Straight people won the contest, but we got to compete. That would play a role in changing the unwritten rules in our larger culture that defined what a married couple looked like—and thereby expanded the people for whom marriage was possible.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../nav.js"></script>
+  <script src="../footer.js"></script>
+  <script src="../appendix-signup.js"></script>
+  <script>
+    (function () {
+      var current = window.location.pathname.split('/').pop() || '';
+      document.querySelectorAll('.sidebar-col__link').forEach(function (link) {
+        var href = link.getAttribute('href').split('/').pop();
+        link.classList.toggle('is-active', href === current);
+      });
+      var sel = document.querySelector('.mobile-nav-select');
+      if (sel) {
+        sel.value = current;
+        sel.addEventListener('change', function () { window.location.href = this.value; });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demanding an apology: When it works and when it doesn’t — Appendix · From Presence to Power</title>
+  <meta name="description" content="Demanding an apology: When it works and when it doesn’t — Appendix entry from From Presence to Power by Rashad Robinson.">
+  <link rel="canonical" href="https://book.rashadrobinson.com/appendix/demanding-an-apology">
+  <link rel="icon" type="image/png" href="../images/book-mock.png">
+  <link rel="apple-touch-icon" href="../images/book-mock.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../nav.css">
+  <link rel="stylesheet" href="../footer.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:       #E55F1D;
+      --brown:        #281D1D;
+      --cream:        #EFEDEC;
+      --fg:           #281D1D;
+      --fg-muted:     #545452;
+      --bg:           #EFEDEC;
+      --border:       #DAD6CB;
+      --font-display: "Big Shoulders Display", "Archivo Black", "Impact", sans-serif;
+      --font-body:    "Inter", system-ui, sans-serif;
+      --font-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+      --ls-eyebrow:   0.32em;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .appendix-layout {
+      display: flex;
+      align-items: stretch;
+      min-height: calc(100vh - 60px);
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .appendix-layout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--brown);
+      pointer-events: none;
+    }
+
+    .sidebar-col {
+      width: 260px;
+      flex-shrink: 0;
+      color: var(--cream);
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      align-self: flex-start;
+      z-index: 1;
+    }
+
+    .sidebar-col__inner {
+      height: 100%;
+      overflow-y: auto;
+      padding: 48px 0;
+    }
+
+    .sidebar-col__back {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      text-decoration: none;
+      padding: 0 28px 28px;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      margin-bottom: 28px;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__back:hover { color: rgba(239,237,236,0.75); }
+
+    .sidebar-col__toc-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.3);
+      padding: 0 28px;
+      margin-bottom: 12px;
+    }
+
+    .sidebar-col__nav {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      height: auto;
+      background: transparent;
+      border: none;
+      padding: 0;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .sidebar-col__link {
+      display: block;
+      text-decoration: none;
+      padding: 13px 28px;
+      border-left: 2px solid transparent;
+      border-bottom: 1px solid rgba(239,237,236,0.1);
+      transition: border-color 0.15s, background 0.15s;
+      width: 100%;
+    }
+
+    .sidebar-col__link:hover { background: rgba(239,237,236,0.05); }
+
+    .sidebar-col__link.is-active {
+      border-left-color: var(--orange);
+      background: rgba(239,237,236,0.06);
+    }
+
+    .sidebar-col__link-ref {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(239,237,236,0.4);
+      margin-bottom: 3px;
+    }
+
+    .sidebar-col__link-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(239,237,236,0.65);
+      line-height: 1.35;
+      transition: color 0.15s;
+    }
+
+    .sidebar-col__link.is-active .sidebar-col__link-title,
+    .sidebar-col__link:hover .sidebar-col__link-title { color: var(--cream); }
+
+    .appendix-main {
+      flex: 1;
+      min-width: 0;
+      padding: 64px 72px 120px 72px;
+    }
+
+    .entry__meta {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: var(--ls-eyebrow);
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+      max-width: 660px;
+    }
+
+    .entry__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 10px;
+      max-width: 660px;
+    }
+
+    .entry__source {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(40,29,29,0.38);
+      margin-bottom: 32px;
+      max-width: 660px;
+    }
+
+    .entry__preamble,
+    .entry__body {
+      max-width: 660px;
+    }
+
+    .entry__preamble {
+      font-style: italic;
+      color: var(--fg-muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      border-left: 3px solid var(--orange);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 36px;
+    }
+
+    .entry__body p { margin-bottom: 20px; font-size: 17px; line-height: 1.7; }
+    .entry__body p:last-child { margin-bottom: 0; }
+
+    .entry__meta,
+    .entry__title,
+    .entry__source,
+    .entry__preamble,
+    .entry__body {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mobile-nav-select { display: none; }
+
+    @media (max-width: 860px) {
+      .appendix-layout { flex-direction: column; }
+      .appendix-layout::before { display: none; }
+      .sidebar-col { width: 100%; background: var(--brown); position: static; height: auto; }
+      .sidebar-col__inner { position: static; height: auto; overflow-y: visible; padding: 32px 20px 20px; }
+      .sidebar-col__back { padding: 0 0 20px; }
+      .sidebar-col__toc-label { padding: 0; margin-bottom: 8px; }
+      .sidebar-col__nav { display: none; }
+      .mobile-nav-select {
+        display: block;
+        width: 100%;
+        background: rgba(239,237,236,0.08);
+        color: var(--cream);
+        border: 1px solid rgba(239,237,236,0.2);
+        border-radius: 6px;
+        padding: 12px 40px 12px 16px;
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 500;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(239,237,236,0.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+      }
+      .mobile-nav-select option { background: #281D1D; }
+      .entry__title { font-size: 36px; line-height: 1.0; }
+      .mobile-nav-select {
+        background-color: transparent;
+        border: 1px solid rgba(239,237,236,0.25);
+        border-radius: 0;
+        padding: 12px 40px 12px 12px;
+        font-size: 13px;
+        margin: 0;
+      }
+      .mobile-nav-select:focus { outline: none; border-color: #E55F1D; }
+      .sidebar-col__inner { padding-bottom: 32px; }
+      .appendix-main { padding: 40px 20px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+  <div class="mobile-menu" id="site-mobile-menu" aria-hidden="true"></div>
+
+  <div class="appendix-layout">
+
+    <aside class="sidebar-col" aria-label="Appendix navigation">
+      <div class="sidebar-col__inner">
+        <a href="/appendix" class="sidebar-col__back">← All Entries</a>
+        <select class="mobile-nav-select" aria-label="Jump to entry">
+          <option value="introduction">Intro · p. xvii — My High School Teacher</option>
+          <option value="demanding-an-apology">Ch. 4 · p. 63 — Demanding an apology: When it works and when it doesn’t</option>
+          <option value="harlem">Ch. 5 · p. 75 — Harlem: A case study about written and unwritten rules</option>
+          <option value="marriage-equality">Ch. 7 · p. 107 — Marriage equality: A story about connecting culture change strategy and policy change outcomes</option>
+          <option value="dollar-vans">Ch. 8 · p. 122 — Dollar Vans: Communities Inventing Infrastructure</option>
+          <option value="black-infrastructure">Ch. 8 · p. 125 — Black Infrastructure, Black Innovation, Black Power</option>
+          <option value="wats-werd">Ch. 8 · p. 137 — WATS &amp; WERD: Cases of Communications Infrastructure</option>
+          <option value="congressional-testimony">Ch. 13 · p. 233 — Big Tech In Control of Our Online Lives</option>
+          <option value="cultural-advocacy">Ch. 15 · p. 286 — Cultural Advocacy</option>
+        </select>
+        <nav class="sidebar-col__nav">
+          <a href="introduction" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Intro · p. xvii</p>
+            <p class="sidebar-col__link-title">My High School Teacher &amp; How Power Works</p>
+          </a>
+          <a href="demanding-an-apology" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 4 · p. 63</p>
+            <p class="sidebar-col__link-title">Demanding an apology: When it works and when it doesn’t</p>
+          </a>
+          <a href="harlem" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 5 · p. 75</p>
+            <p class="sidebar-col__link-title">Harlem: A case study about written and unwritten rules</p>
+          </a>
+          <a href="marriage-equality" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 7 · p. 107</p>
+            <p class="sidebar-col__link-title">Marriage equality: A story about connecting culture change strategy and policy change outcomes</p>
+          </a>
+          <a href="dollar-vans" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 122</p>
+            <p class="sidebar-col__link-title">Dollar Vans: Communities Inventing Infrastructure</p>
+          </a>
+          <a href="black-infrastructure" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 125</p>
+            <p class="sidebar-col__link-title">Black Infrastructure, Black Innovation, Black Power</p>
+          </a>
+          <a href="wats-werd" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 8 · p. 137</p>
+            <p class="sidebar-col__link-title">WATS &amp; WERD: Cases of Communications Infrastructure</p>
+          </a>
+          <a href="congressional-testimony" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 13 · p. 233</p>
+            <p class="sidebar-col__link-title">Big Tech In Control of Our Online Lives</p>
+          </a>
+          <a href="cultural-advocacy" class="sidebar-col__link">
+            <p class="sidebar-col__link-ref">Ch. 15 · p. 286</p>
+            <p class="sidebar-col__link-title">The Cultural Advocacy Whitepaper</p>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="appendix-main">
+      <p class="entry__meta">Appendix</p>
+      <h1 class="entry__title">Demanding an apology: When it works and when it doesn’t</h1>
+      <p class="entry__source">Chapter 4 &nbsp;·&nbsp; Page 63</p>
+      <div class="entry__preamble">
+        Apologies are an easy thing for corporations to give, which is exactly why they are so often what we get. This passage lays out what each demand can and cannot accomplish, so we can tell the difference between a cost that actually changes structural practice, and a cost they were always prepared to pay.
+      </div>
+      <div class="entry__body">
+        <p>There are a lot of good reasons to lash out at corporations, and a lot of ways to do it. We may want restitution for an individual harm, like a corporation knowingly putting a faulty product on the market and hurting someone, and so we call out a corporation publicly or sue them to get compensated. We may want to prevent a specific harm, like corporations dumping toxic waste into public waterways or using toxic chemicals that hurt people in their production processes, and so we call for investigations and regulations to rein them in. Or we may want to use a corporation as a punching bag, as conservatives do in their culture wars. And so we organize a boycott, make fun of them in the media, or use them as an example to rally people.</p>
+        <p>On the other hand, we may want a corporation to announce its support of a cause or send charitable dollars in its direction. And so we meet with its leaders and make the case, while creating a media environment that incentivizes them to get on board with that cause—providing some kind of meaningful reward for doing so.</p>
+        <p>All of those reasons for confronting corporations, and all those ways of doing it (many of which I have engaged in myself), are completely valid and extremely important. They can lead to important and useful specific outcomes and perhaps, if part of the right larger strategy, create valuable momentum toward systemic change. A corporation can apologize. It can give a donation to a charity. It can give an individual person compensation for their troubles. It can change its language. Those are not necessarily bad outcomes, but they are not systemic outcomes in themselves.</p>
+        <p>The real challenge in the domain of social change is maintaining pressure long enough and well enough to convert it into real consequences—forcing a corporation to change its business model and thereby change its practices. That is what can prevent the otherwise persistent harms the corporation causes: child labor, discrimination, worker exploitation, health and environmental destruction, consumer gouging, and so much more. That’s what it takes to prevent major profiteering from injustice in any form.</p>
+        <p>Corporations can use an individual apology, fine or other concession to smooth over public angst, all in service of going back to exactly what they were doing before they were called out. If they can write it off as the cost of doing business, rather than a mandate for changing how they do business, it’s not a real win. It’s critical to know the difference.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../nav.js"></script>
+  <script src="../footer.js"></script>
+  <script src="../appendix-signup.js"></script>
+  <script>
+    (function () {
+      var current = window.location.pathname.split('/').pop() || '';
+      document.querySelectorAll('.sidebar-col__link').forEach(function (link) {
+        var href = link.getAttribute('href').split('/').pop();
+        link.classList.toggle('is-active', href === current);
+      });
+      var sel = document.querySelector('.mobile-nav-select');
+      if (sel) {
+        sel.value = current;
+        sel.addEventListener('change', function () { window.location.href = this.value; });
+      }
+    })();
+  </script>
+</body>
+</html>
