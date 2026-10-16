@@ -101,12 +101,15 @@
 
     .partners-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      align-items: stretch;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 2px;
     }
-    @media (max-width: 900px) { .partners-grid { grid-template-columns: repeat(2, 1fr); } .page-hero { padding: 120px 20px 48px; } .section-rule { margin: 0 20px; } .partners-section { padding: 48px 20px 80px; } }
+    @media (max-width: 900px) { .partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .page-hero { padding: 120px 20px 48px; } .section-rule { margin: 0 20px; } .partners-section { padding: 48px 20px 80px; } }
 
     .partner-cell {
+      min-width: 0;
+      width: 100%;
       background: white;
       aspect-ratio: 3 / 2;
       display: flex;
@@ -124,7 +127,7 @@
 
     /* Logo image (shown when logo exists) */
     .partner-cell img {
-      max-width: 220px;
+      max-width: min(100%, 220px);
       max-height: 92px;
       width: auto;
       height: auto;
@@ -176,11 +179,11 @@
       .section-rule { margin: 0 24px; }
       .partners-section { padding: 48px 24px 72px; }
 
-      .partners-grid { grid-template-columns: repeat(2, 1fr); }
+      .partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 480px) {
-      .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+      .partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; }
     }
   </style>
   <link rel="stylesheet" href="nav.css">
