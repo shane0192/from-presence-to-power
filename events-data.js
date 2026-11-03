@@ -200,22 +200,28 @@
         link: ''
       },
       {
+        id: 'philadelphia',
+        date: '2026-11-10', month: 'Nov', day: '10', dow: 'Tue',
+        city: 'Philadelphia, PA',
+        titleHtml: 'In conversation with <span class="name">Cherri Gregg, Esq.</span> &amp; <span class="name">Dr. James Peterson</span>',
+        meta: 'TUE 11/10 AT 6PM • THE HIVE • 30 S. 15TH ST, 4TH FLOOR, PHILADELPHIA, PA 19102',
+        link: 'https://forms.gle/145urB9H2pPD5UT18'
+      },
+      {
         id: 'texas-book-festival',
-        date: '2026-11-14', month: 'Nov', day: '14–15', dow: 'Sat–Sun',
+        date: '2026-11-14', month: 'Nov', day: '14', dow: 'Sat',
         city: 'Austin, TX',
         titleHtml: '31st Annual Texas Book Festival',
-        meta: 'TIME TBD • Email events@rashadrobinson.com for more information',
-        link: '',
-        comingSoon: true
+        meta: 'SAT 11/14 AT 3:15–4:00PM • BOOK TV ON C-SPAN2 TENT • AUSTIN, TX',
+        link: 'https://texasbookfestival.org/schedule/the-power-of-one-the-individuals-guide-to-fighting-for-democracy/'
       },
       {
         id: 'riverhead-free-library',
         date: '2026-11-19', month: 'Nov', day: '19', dow: 'Thu',
         city: 'Riverhead, NY',
         titleHtml: 'In conversation with <span class="name">Denise Civiletti</span>',
-        meta: 'TIME TBD • RIVERHEAD FREE LIBRARY • 330 COURT ST, RIVERHEAD, NY 11901 • Email events@rashadrobinson.com for more information',
-        link: '',
-        comingSoon: true
+        meta: 'THU 11/19 AT 6PM • RIVERHEAD FREE LIBRARY • 330 COURT STREET, RIVERHEAD, NY 11901',
+        link: 'https://www.riverheadlibrary.org/event/presence-power-conversation-rashad-robinson-72792'
       },
       // ── Added Oct 5 2026 from Tess Hetzel, Sep 30 "Re: FPTP Website: Adding 'bestseller'". No address or link yet. ──
       {
@@ -224,8 +230,7 @@
         city: 'Detroit, MI',
         titleHtml: 'In conversation with <span class="name">Orlando P. Bailey</span>',
         meta: 'THU 12/10 AT 6PM • THE GARDEN THEATER • HOSTED BY URBAN CONSULATE • Email events@rashadrobinson.com for more information',
-        link: '',
-        comingSoon: true
+        link: 'https://www.eventbrite.com/e/rashad-robinson-from-presence-to-power-tickets-2002644949955'
       }
     ];
 
