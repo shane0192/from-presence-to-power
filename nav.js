@@ -32,6 +32,7 @@
         '<a href="/fyp"' + active('/fyp') + '>Book Extras</a>' +
         '<ul class="nav-dropdown-menu">' +
           '<li><a href="/fyp">Find Your Power</a></li>' +
+          '<li><a href="/book-club-guide.pdf" target="_blank" rel="noopener">Book Club Guide</a></li>' +
           '<li><a href="/appendix">Appendix</a></li>' +
         '</ul>' +
       '</li>' +
@@ -49,6 +50,7 @@
     '<a href="/#rashad">About Rashad</a>' +
     '<a href="https://www.rashadrobinson.com" target="_blank" rel="noopener">rashadrobinson.com</a>' +
     '<a href="/fyp">Find Your Power</a>' +
+    '<a href="/book-club-guide.pdf" target="_blank" rel="noopener">Book Club Guide</a>' +
     '<a href="/appendix">Appendix</a>' +
     '<a href="https://www.penguinrandomhouse.com/books/676299/from-presence-to-power-by-rashad-robinson/" target="_blank" rel="noopener" class="mobile-menu-cta">Order the Book</a>';
 

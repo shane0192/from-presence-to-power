@@ -97,63 +97,6 @@
 
     .hero-intro em { color: var(--fg); font-style: italic; }
 
-    /* Notify block — sits under the intro, only place this content lives */
-    .hero-notify {
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-      max-width: 380px;
-    }
-
-    .hero-notify-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--fg-soft);
-      margin-bottom: 10px;
-    }
-
-    .hero-notify-text {
-      font-size: 14px;
-      line-height: 1.55;
-      color: var(--fg-muted);
-      margin-bottom: 16px;
-    }
-
-    .hero-notify-form { display: flex; flex-direction: column; gap: 8px; }
-
-    .hero-notify-email {
-      width: 100%;
-      height: 42px;
-      padding: 0 12px;
-      background: #fff;
-      border: 1px solid var(--border);
-      color: var(--fg);
-      font-family: var(--font-body);
-      font-size: 14px;
-      outline: none;
-    }
-    .hero-notify-email:focus { border-color: var(--orange); }
-    .hero-notify-email::placeholder { color: var(--fg-soft); }
-
-    .hero-notify-btn {
-      width: 100%;
-      height: 42px;
-      border: 1px solid var(--fg);
-      background: transparent;
-      color: var(--fg);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-    }
-    .hero-notify-btn:hover { background: var(--fg); color: var(--cream); }
-
-    .hero-notify-success { display: none; font-size: 14px; line-height: 1.55; color: var(--fg-muted); }
-
     /* Right panel — scrollable */
     .hero-right {
       display: flex;
@@ -279,19 +222,9 @@
   <div class="page-wrapper">
     <div class="hero">
 
-      <!-- Left: title + intro + notify (sticky) -->
+      <!-- Left: title (sticky) -->
       <div class="hero-left">
         <h1 class="page-title">Appendix</h1>
-
-        <div class="hero-notify">
-          <p class="hero-notify-eyebrow">Coming in September</p>
-          <p class="hero-notify-text">Check back in September for the rest of the Appendix. Sign up to be notified.</p>
-          <form class="hero-notify-form" id="notify-form">
-            <input class="hero-notify-email" type="email" placeholder="Your email address" aria-label="Email address" required>
-            <button class="hero-notify-btn" type="submit">Notify me</button>
-          </form>
-          <p class="hero-notify-success" id="notify-success">You&rsquo;re on the list.</p>
-        </div>
       </div>
 
       <!-- Right: entries stacked, scrollable -->
@@ -449,18 +382,5 @@
 
   <script src="nav.js"></script>
   <script src="footer.js"></script>
-  <script>
-    (function () {
-      var form = document.getElementById('notify-form');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var email = form.querySelector('.hero-notify-email').value;
-        var btn = form.querySelector('.hero-notify-btn');
-        btn.disabled = true; btn.textContent = '...';
-        fetch('/api/appendix-signup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) })
-          .finally(function () { form.style.display = 'none'; document.getElementById('notify-success').style.display = 'block'; });
-      });
-    })();
-  </script>
 </body>
 </html>
